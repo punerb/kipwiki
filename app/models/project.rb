@@ -18,6 +18,8 @@ class Project
   has_many :stakeholders
   embeds_many :prints
   embeds_many :documents
+  has_many :prints
+  has_many :documents
   belongs_to :user
 
 
