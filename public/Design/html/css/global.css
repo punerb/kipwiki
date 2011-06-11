@@ -50,7 +50,7 @@ html {
 	margin:0;
 }
 body {
-	background:#f5f5f5;
+	background:url(../images/bgImage.jpg) top left;
 	font-family:Arial, Helvetica, sans-serif;
 	font-weight:normal;
 	font-size:12px;
@@ -233,6 +233,7 @@ input.field {
 }
 #content ul.rating {
 	height:15px;
+	float:left;
 }
 #content ul.rating li {
 	background:url(../images/likeIcon.png) top left no-repeat;
@@ -255,6 +256,104 @@ input.field {
 	font-weight:normal;
 	line-height:20px;
 	color:#444444;
+	float:left;
+}
+#content .voteWrapper {
+	background:url(../images/voteIcon.png) center left no-repeat;
+	padding-left:30px;
+	font-size:12px;
+	font-weight:normal;
+	line-height:20px;
+	color:#444444;
+	float:left;
+}
+#content .voteViewMurge {
+	float:right;
+}
+#content .voteViewMurge .voteWrapper {
+	margin-left:30px;
+}
+#content .loaderWrapper {
+	width:370px;
+	margin-bottom:20px;
+}
+#content .loaderWrapper .loader {
+	height:25px;
+	width:370px;
+	margin-bottom:10px;
+}
+#content .loaderWrapper .text {
+	font-size:14px;
+	font-weight:bold;
+	color:#000;
+}
+/*social Share*/
+#content .socialShare {
+	margin-bottom:25px;
+}
+#content .socialShare ul li {
+	height:32px;
+	width:32px;
+	float:left;
+	margin-right:8px;
+}
+#content .socialShare ul li a {
+	background:url(../images/socialShearingIcons.png) top left no-repeat;
+	background-position:0 0;
+	display:block;
+	height:32px;
+	width:32px;
+	text-indent:-5000px;
+}
+#content .socialShare ul li.rrs a {
+	background-position:-40px 0;
+}
+#content .socialShare ul li.fb a {
+	background-position:-80px 0;
+}
+#content .socialShare ul li.twit a {
+	background-position:-120px 0;
+}
+#content .socialShare ul li.mail a {
+	background-position:-160px 0;
+}
+#content .socialShare ul li.print a {
+	background-position:-200px 0;
+}
+#content .socialShare ul li.embed a {
+	background-position:-240px 0;
+}
+/*social Share*/
+
+#content .textWrapper {
+	font-size:12px;
+	line-height:18px;
+	color:#666666;
+	padding-bottom:10px;
+	border-bottom:1px solid #dddddd;
+}
+#content .textWrapper p {
+	margin-bottom:10px;
+}
+#content .textWrapper span {
+	color:#000;
+	font-weight:bold;
+}
+#content .heading {
+	margin-bottom:10px;
+	padding:0;
+}
+#content .heading h1 {
+	margin:0 10px 0 0;
+	float:left;
+	line-height:30px;
+	padding:0;
+}
+#content .heading a {
+	font-size:12px;
+	line-height:30px;
+	float:left;
+	margin-right:10px;
 }
 /*Left Start Here*/
 #content .left {
@@ -273,6 +372,52 @@ input.field {
 	color:#00aa00;
 	line-height:30px;
 }
+
+/*listTypeLink Start*/
+/*left menu start*/
+ul.listTypeLinks {
+}
+ul.listTypeLinks li {
+	font-size:12px;
+	font-weight:normal;
+	color:#000;
+	display:block;
+	line-height:16px;
+	min-height:16px;
+	cursor:pointer;
+	float:left;
+	margin-bottom:10px;
+}
+ul.listTypeLinks ul {
+	height:auto;
+}
+ul.listTypeLinks a {
+  display: block;
+  text-decoration: none;	
+}
+
+ul.listTypeLinks li a {
+	padding-bottom:10px;
+}
+
+ul.listTypeLinks li.mainLink a {
+	background:url(../images/rightArow.jpg) center left no-repeat;
+	padding-left:30px;
+}
+ul.listTypeLinks li.mainLink a:hover {
+	background:url(../images/downArow.jpg)center left no-repeat;
+}
+ul.listTypeLinks li ul.subLink a {
+	padding-left:30px;
+	padding-right:0px;
+	font-weight:normal;
+}
+ul.listTypeLinks li ul.leftSub a:hover {
+	background:url(../images/downArow.jpg)center left no-repeat;
+	}
+
+/*listTypeLink End*/
+
 #content .left .wrapperLeft {
 	float:left;
 	width:260px;
