@@ -62,11 +62,10 @@ class Project
     all_similar_projects[0..4]
   end
 
-  private
 
   def keywords
     # returns a project's keywords, which are basically keywords form the title union with it's tags
-    self.title.split(" ") << self.tags
+    [self.title.split(" ") << self.tags].flatten
     #todo: remove common noise like 'The' or 'A' or 'And' or 'in' from the title since they are not really keywords
   end
   
