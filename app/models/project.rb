@@ -18,12 +18,9 @@ class Project
   has_many :stakeholders
   belongs_to :user
 
-  validate :title , :presence => true
-  validate :address, :presence => true
-  validate :description, :presence => true
+  validates :title, :description, :address, :presence => true
+  validates_associated :user
 
   geocoded_by :address
   after_validation :geocode
-
-
 end
