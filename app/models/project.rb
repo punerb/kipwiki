@@ -45,6 +45,8 @@ class Project
   
   before_create { |project|
    project.slug = project.title.parameterize
+   length = Project.where(:city => project.city, :slug => project.slug).length 
+   project.slug << "-#{length+1}" if length > 0
   }
  
  
