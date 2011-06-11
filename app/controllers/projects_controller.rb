@@ -32,8 +32,8 @@ class ProjectsController < ApplicationController
     @project = Project.new({
      :title => "Project Title",
      :description => "This is a really awesome project",
-     :address => "address address",
-     :coordinates => [18.50787 + 0.01*rand(), 73.7799 + 0.01*rand()]
+     :address => "This is, the Project, address",
+     :coordinates => [18.50787 + 0.01*(rand()-0.5), 73.7799 + 0.01*(rand()-0.5)]
     })
     respond_to do |format|
       format.html # show.html.erb
