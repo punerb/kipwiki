@@ -2,53 +2,54 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
-    %title
-      = yield(:title) || "Untitled"
+    %title KipWiki
     = stylesheet_link_tag :all
-    = javascript_include_tag "colorbox"
-    = javascript_include_tag "application"
-    = javascript_include_tag "livefyre", :src => 'http://livefyre.com/wjs/javascripts/livefyre.js'
-    = javascript_include_tag "jquery", "colorbox", "application"
-    = csrf_meta_tag
-    = yield(:head)
+    %link{:href => "css/global.css", :rel => "stylesheet", :type => "text/css"}/
   %body
     #wrapper
+      / header start
       #header
         .headerContent
           .logo
-            %a{:href => "#"} kipWiki
-      #content
-        %ul.navigationUl
-          - unless user_signed_in?
-            %li
-            = link_to "Home", root_path
-            |
-            = link_to "Projects", "#"
-        .rightNav
-          %ul.navigationUl
-            - unless user_signed_in?
+            = link_to "KipWiki", root_path
+          .navigation
+            %ul.main
+              %li.selected
+                %a{:href => "#"} Projects
               %li
-                = link_to "Login/SignUp", authentications_path
-            - else
+                %a{:href => "#"} Notifications
               %li
-                Welcome,
-                = current_user.first_name
-                |
-                = link_to "Logout", destroy_user_session_path
+                %a{:href => "#"} Create Project
+            %ul.subMenu
+              %li
+                %a{:href => "#"} About
+              %li
+                %a{:href => "#"} Profile
+              %li
+                %a{:href => "#"} Help & Feedback
+              %li
+                - if user_signed_in?
+                  = link_to "Logout", destroy_user_session_path
+                - else
+                  = link_to "Signup/Login", authentications_path
+            .clr
         .clr
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
-
-        - if show_title?
-          %h1= yield(:title)
-
-      = yield
-
-      %h2 Comments
-      :javascript
-        var fyre = LF({
-          site_id: 285879,
-          version: '1.0'
-        });
-      
+      / Header End here
+      .clr
+      / content start
+      #content
+        / div left start
+        .left
+          = yield
+          .clr
+        / div left End
+        / div right start
+        .right
+        / div right end
+        .clr
+      / content end
+      .clr
+      / footer Start
       #footer
+      / footer end
+      .clr
