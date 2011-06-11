@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.xml
   def show
-    @project = Project.find(params[:id])
+    @project = Project.where(:city => params[:city], :slug => params[:id]).first
     # temp / dummy project
     respond_to do |format|
       format.html # show.html.erb
@@ -70,7 +70,7 @@ class ProjectsController < ApplicationController
     #@project.user = User.first if User.first
     respond_to do |format|
       if @project.save
-        format.html { redirect_to(@project, :notice => 'Project was successfully created.') }
+        format.html { redirect_to(show_project_path(@project.city, @project.slug), :notice => 'Project was successfully created.') }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
         format.html { render :action => "new" }

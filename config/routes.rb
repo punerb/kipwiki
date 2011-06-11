@@ -24,6 +24,9 @@ Kipwiki::Application.routes.draw do
   devise_for :user, :controllers => { :registrations => "registrations" }
 
   devise_for :users
+  
+  match ':city/project/:id' => 'projects#show', :as => 'show_project'
+#  match '/user/:id' => 'devise/users#show', :as => 'show_user'
 
   match "/auth/:provider/callback" => "authentications#create"
   match "/auth/failure" => "authentications#failure"

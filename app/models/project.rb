@@ -15,7 +15,7 @@ class Project
   field :categories, :type => Array
   field :status, :type => String
   field :govt_status, :type => String
-
+  field :slug, :type => String
   embeds_many :stakeholders
   embeds_many :links
   embeds_many :projects_fundings
@@ -40,4 +40,9 @@ class Project
      project.state = location.state
    end
   }
+  
+  before_create { |project|
+   project.slug = project.title.parameterize
+  }
+ 
 end
