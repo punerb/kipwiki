@@ -5,8 +5,6 @@
     %title
       = yield(:title) || "Project Title"
     = stylesheet_link_tag "application","colorbox"
-    = javascript_include_tag "colorbox"
-    = javascript_include_tag "application"
     = javascript_include_tag "livefyre", :src => 'http://livefyre.com/wjs/javascripts/livefyre.js'
     = javascript_include_tag "jquery", "colorbox", "application"
     = csrf_meta_tag
