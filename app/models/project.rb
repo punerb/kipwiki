@@ -8,9 +8,13 @@ class Project
   field :view_count, :type => Integer 
   field :vote_count, :type => Integer
   field :coordinates, :type => Array
+<<<<<<< HEAD
   field :city, :type => String
   field :state, :type => String
   field :country, :type => String
+=======
+  field :user_id, :type => String
+>>>>>>> 53e422296c3ed7acd266dc58583655775906df24
 
   
   embeds_many :project_types 
@@ -20,6 +24,8 @@ class Project
 
   has_many :project_fundings
   has_many :stakeholders
+  embeds_many :prints
+  embeds_many :documents
   has_many :prints
   has_many :documents
   belongs_to :user
