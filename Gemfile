@@ -11,7 +11,7 @@ gem 'devise', :git => "https://github.com/plataformatec/devise.git"
 gem 'haml'
 gem 'sass'
 gem 'haml-rails'
-
+gem 'geocoder'
 group :development do
   gem 'mongrel'
   gem "nifty-generators"
