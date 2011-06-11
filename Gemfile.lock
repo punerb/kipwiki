@@ -122,6 +122,9 @@ GEM
       oa-oauth (= 0.2.6)
       oa-openid (= 0.2.6)
     orm_adapter (0.0.5)
+    paperclip (2.3.11)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.3)
     rack (1.2.3)
@@ -173,5 +176,6 @@ DEPENDENCIES
   mongrel
   nifty-generators
   omniauth (= 0.2.6)
+  paperclip
   rails (= 3.0.6)
   sass
