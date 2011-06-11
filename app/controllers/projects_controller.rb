@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.xml
   def show
-    @project = Project.find(params[:id])
+    #@project = Project.find(params[:id])
     # temp / dummy project
     @project = Project.new({
      :title => "Project Title",
