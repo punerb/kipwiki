@@ -11,4 +11,7 @@ class Project
   has_many :project_fundings
   has_many :stakeholders
   belongs_to :user
+
+  validates :title, :description, :location, :presence => true
+  validates_associated :user
 end
