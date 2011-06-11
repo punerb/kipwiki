@@ -193,11 +193,11 @@ border:none;
     -moz-border-radius: 5px;
 }
 
-#content h2 {
-	color:#000;
-	font-size:18px;
+#content h3 {
+	color:#444444;
+	font-size:14px;
 	font-weight:bold;
-	margin-bottom:25px;
+	margin-bottom:15px;
 }
 #content .inputWrapper {
 	height:35px;
@@ -232,9 +232,9 @@ input.searchBtn {
 	text-indent:-5000px;
 	cursor:pointer;
 }
-input.searchBtn {
+input.addBtn {
 	background:url(../images/inputsIcon.png) top left no-repeat;
-	background-position:0 0;
+	background-position:0 -40px;
 	float:right;
 	width:35px;
 	height:35px;
@@ -367,6 +367,76 @@ input.searchBtn {
 	float:left;
 	margin-right:10px;
 }
+/*priject page*/
+#content .project_map {
+	width:258px;
+	height:193px;
+	border:1px solid #dddddd;
+	margin-bottom:20px;
+}
+#project_type, #project_status {
+	width:260px;
+	margin-bottom:20px;
+}
+#project_type ul li, #project_status ul li {
+	float:left;
+	width:130px;
+	height:18px;
+	margin-bottom:15px;
+}
+#project_type ul li .checkBox, #project_status ul li .checkBox {
+	float:left;
+	width:21px;
+}
+#project_type ul li .label, #project_status ul li .label {
+	float:left;
+	font-size:12px;
+	font-weight:bold;
+	color:#000000;
+	line-height:16px;
+}
+#project_similar_projects {
+	margin-bottom:20px;
+}
+#project_tags {
+	margin-bottom:20px;
+}
+/*tabs*/
+ul.tabs {
+	margin: 0;
+	background:url(../images/selfProfileTabBg.png) repeat-x;
+	width:260px !important;
+	margin-bottom:5px;
+}
+ul.tabs li {
+	float:left;
+	height:25px;
+	line-height:25px;
+	margin:0 5px 5px 0;
+}
+
+ul.tabs li a {
+	background:#dddddd;
+	text-decoration: none;
+	color:#000;
+	display: block;
+	height:25px;
+	font-size: 12px;
+	padding: 0 8px;
+	outline: none;
+	font-weight:normal;
+	border-radius:5px;
+}
+ul.tabs li a:hover, ul.tabs li.active a {
+	background:#00cc00;
+}
+
+.tabWrapper .textWrapper {
+	border-bottom:none !important;
+}
+/*tabs*/
+
+/*priject page End*/
 /*Left Start Here*/
 #content .left {
 	float:left;
