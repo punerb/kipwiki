@@ -12,6 +12,8 @@ gem 'haml'
 gem 'sass'
 gem 'haml-rails'
 gem 'geocoder'
+gem 'omniauth', "0.2.6"
+
 group :development do
   gem 'mongrel'
   gem "nifty-generators"
