@@ -1,4 +1,19 @@
 Kipwiki::Application.routes.draw do
+  resources :project_objectives
+
+  resources :project_fundings
+
+  resources :stakeholders
+
+  resources :tags
+
+  resources :project_statuses
+
+  resources :project_types
+
+  resources :projects
+
+  resources :links
   get "home/index"
 
   devise_for :users

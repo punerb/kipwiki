@@ -9,8 +9,10 @@ gem "mongoid", "~> 2.0"
 gem "bson_ext", "~> 1.3"
 gem 'devise', :git => "https://github.com/plataformatec/devise.git"
 gem 'haml'
+gem 'sass'
 gem 'haml-rails'
 
 group :development do
+  gem 'mongrel'
   gem "nifty-generators"
 end
