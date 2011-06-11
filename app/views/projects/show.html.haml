@@ -4,7 +4,7 @@
   = @project.title
 %p
   %b Description:
-  \#{link_to "Suggest","#",:id=>"suggest_me"}
+  \#{link_to "Suggest","#",:class=>"suggest_me"}
   = @project.description
 %p
   %b Address:
@@ -14,7 +14,7 @@
   = @project.title
 %p
   %b Description:
-  \#{link_to "Suggest","#",:id=>"suggest_me"}
+  \#{link_to "Suggest","#",:class=>"suggest_me"}
   = @project.description
 %p
   %b Address:
@@ -37,14 +37,12 @@
 \#{link_to 'Back', projects_path}
 
 :javascript
-  $("#suggest_me").click(function(){
-    $.colorbox({html : $("#suggest_div").html()})
-  });
-#suggest_div{:style => "display:none"}
-  =text_area_tag "project","",:rows=>"5",:cols=>"40"
-  
+  $(".suggest_me").colorbox({inline: true, href:"#suggest_div"})
 
-
+%div{:style => "display:none;"}
+  #suggest_div
+    %p Please submit your suggestion:
+    =text_area_tag "project","",:rows=>"5",:cols=>"40"
 
 = content_for :sidebar do
   #map_canvas
@@ -62,10 +60,11 @@
 \#{link_to 'Back', projects_path}
 
 :javascript
-  $("#suggest_me").click(function(){
-    $.colorbox({html : $("#suggest_div").html(), height: "200px", width: "500px"})
-  });
+  $(".suggest_me").colorbox({inline:true, href:"#suggest_div", height: "200px", width: "500px"})
+
+  
 #suggest_div{:style => "display:block"}
-  %p Please submit your suggestion:
-  =text_area_tag "project","",:rows=>"5",:cols=>"40"
+  %div
+    %p Please submit your suggestion:
+    =text_area_tag "project","",:rows=>"5",:cols=>"40"
   
