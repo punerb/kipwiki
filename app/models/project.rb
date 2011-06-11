@@ -50,7 +50,7 @@ class Project
   }
  
  
-  MIN_SIMILARITY_THRESHOLD = 0.7 
+  MIN_SIMILARITY_THRESHOLD = 0.7
  
   def similar_projects
     all_similar_projects = []
