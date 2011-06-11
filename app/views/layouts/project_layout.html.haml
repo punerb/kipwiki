@@ -3,10 +3,11 @@
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %title
-      = yield(:title) || "Untitled"
+      = yield(:title) || "Project Title"
     = stylesheet_link_tag "application","colorbox"
     = javascript_include_tag "colorbox"
     = javascript_include_tag "application"
+    = javascript_include_tag "livefyre", :src => 'http://livefyre.com/wjs/javascripts/livefyre.js'
     = javascript_include_tag "jquery", "colorbox", "application"
     = csrf_meta_tag
     = yield(:head)
@@ -37,5 +38,14 @@
           %h1= yield(:title)
 
       = yield
+      %h2 Comments
+      :javascript
+        var fyre = LF({
+          site_id: 285879,
+          version: '1.0'
+        });
 
-      #footer
+    #sidebar{:style => "float: right; width: 200px; border: 1px solid;"}
+      %h2 Sidebar
+      = yield(:sidebar)
+    #footer
