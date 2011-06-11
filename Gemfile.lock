@@ -63,6 +63,7 @@ GEM
       activemodel (~> 3.0)
       mongo (~> 1.3)
       tzinfo (~> 0.3.22)
+    nifty-generators (0.4.6)
     orm_adapter (0.0.5)
     polyglot (0.3.1)
     rack (1.2.3)
@@ -100,4 +101,5 @@ DEPENDENCIES
   haml
   haml-rails
   mongoid (~> 2.0)
+  nifty-generators
   rails (= 3.0.6)
