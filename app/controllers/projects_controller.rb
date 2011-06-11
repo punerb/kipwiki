@@ -39,13 +39,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.where(:city => params[:city], :slug => params[:id]).first
-    # temp / dummy project
-    @project = Project.new({
-     :title => "Project Title",
-     :description => "This is a really awesome project",
-     :address => "This is, the Project, address",
-     :coordinates => [18.50787 + 0.01*(rand()-0.5), 73.7799 + 0.01*(rand()-0.5)]
-    })
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
@@ -92,7 +85,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to(@project, :notice => 'Project was successfully updated.') }
+        format.html { redirect_to(show_project_path(@project.city, @project.slug), :notice => 'Project was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
