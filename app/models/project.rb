@@ -8,6 +8,7 @@ class Project
   field :view_count, :type => Integer 
   field :vote_count, :type => Integer
   field :coordinates, :type => Array
+  field :user_id, :type => String
 
   embeds_many :project_types 
   embeds_many :project_statuses
