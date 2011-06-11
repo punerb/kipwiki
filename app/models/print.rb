@@ -1,5 +1,5 @@
 class Print < Asset
-  has_attached_file :attachment,
+  has_mongoid_attached_file :attachment,
     :styles => {:medium => "480x480>", 
       :thumb => "100x100>", 
       :slider => "362x362>"},
