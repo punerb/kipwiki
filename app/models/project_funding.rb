@@ -3,5 +3,6 @@ class ProjectFunding
   field :name, :type => String
   field :amount, :type => Float
   field :currency, :type => String
-  belongs_to :project
+
+  embedded_in :project
 end

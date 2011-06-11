@@ -5,33 +5,28 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
- include Faker 
-
-
+  include Faker 
     locations=["Pune","Mumbai","Delhi","Goregaon"] 
     names= ["Mettin", "Chattin" ,"Methun" ]
      
-   project_types=["Local_project","Property","Suspendissue","Pelentesque"]
-   project_statuces=["Initiating","Suspendise","Pelentesque","Unaknoledge"]
-   tags=["Temple","Heritage","Worship","Religion"]
-   links=["www.github.com","www.moroco.com"] 
+    project_types=["Local_project","Property","Suspendissue","Pelentesque"]
+    project_statuces=["Initiating","Suspendise","Pelentesque","Unaknoledge"]
+    tags=["Temple","Heritage","Worship","Religion"]
+    links=["www.github.com","www.moroco.com"] 
    
-   user = User.create({:first_name =>"Methun",:last_name => ":Chakraborty", :city => "Pune"  ,:email => "met@gmail.com", :password => "testuser"  })
-   puts user.errors
+    user = User.create({:first_name =>"Methun",:last_name => ":Chakraborty", :city => "Pune"  ,:email => "met@gmail.com", :password => "testuser"  })
+   
     10.times do |n|
-    projects = Project.create({ :title =>"Poject#{n}",
-   :address =>[Faker::Address.street_address, Faker::Address.secondary_address, locations[rand(locations.length)]].join(" "),
-   :description => Faker::Lorem.sentences(40),
-    :project_types => [ {:name =>project_types[rand(4)] }, {:name =>project_types[rand(4)] }  ],
-    :project_statuses => [{ :name =>"Initiating" }, {:name => "Unaknowledged"}],
-    :tags => [{:name => "Temple" },{:name => "Heritage" } ],
-    :links => [ {:name => Faker::Lorem.words(3).join(" "), :url => Faker::Internet.domain_name } ],
-    :project_fundings =>[ {:name => "Innovation", :amount => 1111 , :currency => "$" }],
-    :stakeholders => [ {:name => Faker::Name.name, :url => Faker::Internet.domain_name } ],
-    :user => user
- 
+      projects = Project.create({ 
+        :title =>"Poject#{n}",
+        :address =>[Faker::Address.street_address, Faker::Address.secondary_address, locations[rand(locations.length)]].join(" "),
+        :description => Faker::Lorem.sentences(40),
+        :project_types => [ {:name =>project_types[rand(4)] }, {:name =>project_types[rand(4)] }  ],
+        :project_statuses => [{ :name =>"Initiating" }, {:name => "Unaknowledged"}],
+        :tags => [{:name => "Temple" },{:name => "Heritage" } ],
+        :links => [ {:name => Faker::Lorem.words(3).join(" "), :url => Faker::Internet.domain_name } ],
+        :project_fundings =>[ {:name => "Innovation", :amount => 1111 , :currency => "$" }],
+        :stakeholders => [ {:name => Faker::Name.name, :url => Faker::Internet.domain_name } ],
+        :user => user
      })
-	puts projects.errors if projects.errors.present?
-	puts "project created no. #{n}" if projects.errors.empty?
    end
-
