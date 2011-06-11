@@ -26,8 +26,6 @@ class Project
   has_many :prints
   has_many :documents
   
-  has_many :project_fundings
-  has_many :stakeholders
   belongs_to :user
 
   validates :title, :description, :address, :presence => true
