@@ -1,3 +1,3 @@
 class Document < Asset
-  has_attached_file :attachment
+  has_mongoid_attached_file :attachment
 end

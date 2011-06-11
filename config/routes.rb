@@ -1,7 +1,8 @@
 Kipwiki::Application.routes.draw do
 
   resources :authentications
-
+  match '/projects/upload_attachment', :to => 'projects#upload_attachment', :as => :upload_attachment
+  match '/projects/:attachment_id/delete_attachment', :to => 'projects#delete_attachment', :as => :delete_attachment
   resources :project_objectives
 
   resources :project_fundings

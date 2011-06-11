@@ -73,6 +73,8 @@ GEM
       activemodel (~> 3.0)
       mongo (~> 1.3)
       tzinfo (~> 0.3.22)
+    mongoid-paperclip (0.0.4)
+      paperclip (~> 2.3.6)
     mongrel (1.1.5)
       cgi_multipart_eof_fix (>= 2.4)
       daemons (>= 1.0.3)
@@ -173,9 +175,9 @@ DEPENDENCIES
   haml
   haml-rails
   mongoid (~> 2.0)
+  mongoid-paperclip
   mongrel
   nifty-generators
   omniauth (= 0.2.6)
-  paperclip
   rails (= 3.0.6)
   sass
