@@ -63,8 +63,9 @@
 
 :javascript
   $("#suggest_me").click(function(){
-    $.colorbox({html : $("#suggest_div").html()})
+    $.colorbox({html : $("#suggest_div").html(), height: "200px", width: "500px"})
   });
-#suggest_div{:style => "display:none"}
+#suggest_div{:style => "display:block"}
+  %p Please submit your suggestion:
   =text_area_tag "project","",:rows=>"5",:cols=>"40"
   
