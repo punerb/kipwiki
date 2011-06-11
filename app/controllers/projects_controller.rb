@@ -1,6 +1,9 @@
 class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
+  
+  layout "project_layout"
+  
   def index
     @projects = Project.all
 
@@ -13,8 +16,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.xml
   def show
-    @project = Project.find(params[:id])
-
+    #@project = Project.find(params[:id])
+    @project = Project.new({
+     :title => "Project Title",
+     :description => "This is a really awesome project",
+     :address => "address address"
+    })
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
