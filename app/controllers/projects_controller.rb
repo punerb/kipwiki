@@ -4,6 +4,17 @@ class ProjectsController < ApplicationController
   
   layout "project_layout"
   
+  def upload_attachment
+    @project ||= Project.last ||= Project.create(:title => "Tilte", :description => "this is test", :address => "12345")
+    @print = @project.prints.new
+    @print.attachment = params[:file] if params.has_key?(:file)
+    # detect Mime-Type (mime-type detection doesn't work in flash)
+    #@print.attachment_content_type = MIME::Types.type_for(params[:name]).to_s if params.has_key?(:name)
+    @print.save!
+    request.format = :js
+    respond_to :js
+  end
+  
   def index
     @projects = Project.all
 
