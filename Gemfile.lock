@@ -178,10 +178,6 @@ DEPENDENCIES
   mongoid-paperclip
   mongrel
   nifty-generators
-<<<<<<< HEAD
-=======
   omniauth (= 0.2.6)
-  paperclip
->>>>>>> 9e793f2d2daf646812ba080f51828249a56ca77c
   rails (= 3.0.6)
   sass
