@@ -5,15 +5,10 @@
     %title
       = yield(:title) || "Untitled"
     = stylesheet_link_tag :all
-<<<<<<< HEAD
-    = javascript_include_tag "jquery"
     = javascript_include_tag "colorbox"
     = javascript_include_tag "application"
     = javascript_include_tag "livefyre", :src => 'http://livefyre.com/wjs/javascripts/livefyre.js'
-
-=======
     = javascript_include_tag "jquery", "colorbox", "application"
->>>>>>> 96a4c3b8894a64f7df53e4b725091105456a7dd5
     = csrf_meta_tag
     = yield(:head)
   %body
