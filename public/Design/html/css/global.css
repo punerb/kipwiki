@@ -79,6 +79,12 @@ border:none;
 	width:100%;
 	margin:0 auto;
 }
+#wrapper h1 {
+	color:#444444;
+	font-size:18px;
+	font-weight:normal;
+	margin-bottom:15px;
+}
 /* Header CSS start here */
 #header {
 	margin:0 auto 30px;
@@ -186,12 +192,7 @@ border:none;
 	-webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 }
-#content h1 {
-	color:#444444;
-	font-size:18px;
-	font-weight:normal;
-	margin-bottom:15px;
-}
+
 #content h2 {
 	color:#000;
 	font-size:18px;
@@ -250,7 +251,23 @@ input.field {
 }
 /*right end Here*/
 /* Content CSS end */
-
+/*Create Projec start----------*/
+#createProjecContent{
+	background:#FFF;
+	border:1px solid #dddddd;
+	width:592px;
+	margin:0 auto;
+	padding:0 19px;
+	min-height:550px;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+#createProjecContent .heding{
+	font-size:24px;
+	margin:30px 0 10px;
+}
+/*Create Projec End----------*/
 /*Footer Start Here*/
 #footer {
 	width:990px;
