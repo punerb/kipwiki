@@ -1,0 +1,23 @@
+= form_for(@project_funding) do |f|
+  - if @project_funding.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@project_funding.errors.count, "error")
+        prohibited this project_funding from being saved:
+      %ul
+        - @project_funding.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :amount
+    %br/
+    = f.text_field :amount
+  .field
+    = f.label :currency
+    %br/
+    = f.text_field :currency
+  .actions
+    = f.submit
