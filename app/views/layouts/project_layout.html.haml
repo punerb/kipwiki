@@ -3,10 +3,8 @@
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %title
-      = yield(:title) || "Untitled"
+      = yield(:title) || "Project Title"
     = stylesheet_link_tag "application","colorbox", "projects"
-    = javascript_include_tag "colorbox"
-    = javascript_include_tag "application"
     = javascript_include_tag "jquery", "colorbox", "application"
     = javascript_include_tag "livefyre", :src => 'http://livefyre.com/wjs/javascripts/livefyre.js'
     = javascript_include_tag "google-maps", :src => "http://maps.google.com/maps/api/js?libraries=geometry&sensor=true"
@@ -72,3 +70,21 @@
       / footer Start
       #footer
 
+<<<<<<< HEAD
+=======
+        - if show_title?
+          %h1= yield(:title)
+
+        = yield
+      %h2 Comments
+      :javascript
+        var fyre = LF({
+          site_id: 285879,
+          version: '1.0'
+        });
+
+    #sidebar{:style => "float: right; width: 200px; border: 1px solid;"}
+      %h2 Sidebar
+      = yield(:sidebar)
+    #footer
+>>>>>>> e05b656e43793dcabb22d73289738bdce9c1d497
