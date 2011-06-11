@@ -3,5 +3,5 @@ class ProjectObjective
   field :name, :type => String
   field :objective_id
   belongs_to :project
-  has_one :sub_objective , :class => :project_objective
+  has_many :sub_objectives, :class => :project_objective, :throught => :objective_id
 end

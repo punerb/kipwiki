@@ -12,6 +12,7 @@ gem 'haml'
 gem 'sass'
 gem 'haml-rails'
 gem 'paperclip'
+gem 'geocoder'
 
 group :development do
   gem 'mongrel'

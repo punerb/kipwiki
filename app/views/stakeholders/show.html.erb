@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @stakeholder.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @stakeholder.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_stakeholder_path(@stakeholder) %> |
+<%= link_to 'Back', stakeholders_path %>
