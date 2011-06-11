@@ -1,10 +1,9 @@
 class User
   include Mongoid::Document
-
   field :first_name, :type => String
   field :last_name, :type => String
   field :city, :type => String
-
+  field :slug, :type => String
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -24,4 +23,7 @@ class User
     (authentications.empty? || !password.blank?) && super
   end
 
+  before_create { |user|
+    user.slug = "#{user.first_name} #{user.last_name}".parameterize
+  }
 end
