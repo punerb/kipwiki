@@ -6,10 +6,13 @@
   %b Description:
   \#{link_to "Suggest","#",:id=>"suggest_me"}
   = @project.description
-%p
-  %b Address:
-  = @project.address
 
+%h2 Comments
+:javascript
+  var fyre = LF({
+    site_id: 285879,
+    version: '1.0'
+  });
 
 = content_for :sidebar do
   = render :partial => 'projects/map'
