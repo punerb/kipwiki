@@ -86,9 +86,21 @@ font-size:18px;
 font-weight:normal;
 margin-bottom:15px;
 }
+#wrapper h1.heading {
+	color:#444444;
+	font-size:24px;
+	font-weight:normal;
+	margin:10px 0 0 0px;
+}
 #wrapper .borderBottom {
 padding-bottom:10px;
 border-bottom:1px solid #dddddd;
+}
+#wrapper p{
+	font-size:12px;
+	color:#aaaaaa;
+	line-height:18px;
+	padding:5px 0 5px 0;
 }
 /* Header CSS start here */
 #header {
@@ -213,7 +225,7 @@ border-radius: 5px 0 0 5px;
 input.field {
 background:url(../images/inputBG.jpg) left repeat-x;
 border:1px solid #dddddd;
-padding:7px 10px 8px;
+padding:7px 10px;
 font-family:Arial, Helvetica, sans-serif;
 font-size:16px;
 line-height:16px;
@@ -246,6 +258,12 @@ font-size:12px;
 color:#666666;
 width:400px;
 padding:9px 9px;
+}
+.textediter{
+	background:url(../images/textediter.jpg) no-repeat;
+	width:650px;
+	height:310px;
+	display:block;
 }
 #content ul.rating {
 height:15px;
@@ -498,8 +516,21 @@ background:url(../images/downArow.jpg)center left no-repeat;
 #content ul.funding li {
 	font-size:12px;
 	color:#666666;
+	float:left;
+	width:260px;
+	line-height:16px;
+	margin-bottom:9px;
 }
-
+#content ul.funding li p {
+	float:left;
+	padding:0;
+}
+#content ul.funding li span {
+	float:right;
+	color:#666666;
+	line-height:16px;
+	font-weight:bold;
+}
 #content .left .wrapperLeft {
 float:left;
 width:260px;
@@ -510,6 +541,98 @@ float:right;
 width:370px;
 margin:0;
 }
+/*left menu start-------------*/
+ul.leftNavigation {
+	padding-bottom:5px;
+}
+ul.leftNavigation li {
+	font-size:12px;
+	font-weight:normal;
+	color:#000;
+	display:block;
+	line-height:30px;
+	
+	cursor:pointer;
+}
+ul.leftNavigation li.borderNone {
+	border-bottom:0px;
+}
+ul.leftNavigation li li {
+	float:none;
+}
+ul.leftNavigation ul {
+	height:auto;
+}
+ul.leftNavigation a {
+  display: block;
+  text-decoration: none;	
+}
+
+ul.leftNavigation li a {
+background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+  padding:0 10px;
+}
+
+ul.leftNavigation li.main a {
+
+}
+ul.leftNavigation li.main a:hover {
+
+}
+ul.leftNavigation li.main a.on {
+	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+}
+ul.leftNavigation li a:hover {
+
+}
+ul.leftNavigation li ul.leftSub li{
+	background:none;
+		
+}
+ul.leftNavigation li ul.leftSub a {
+	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+	padding-left:15px;
+	padding-right:0px;
+	margin:0 0 0 20px;
+	font-weight:normal;
+	}
+ul.leftNavigation li ul.leftSub a:hover {
+	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+	padding-left:15px;
+	padding-right:0px;
+	margin:0 0 0 20px;
+	font-weight:normal;
+	}
+ul.leftNavigation li ul li a:hover {
+	background:url(../images/arowRight.jpg) no-repeat left center;
+
+}
+.eidtArow{
+	background:url(../images/eidtArow.jpg) no-repeat left center !important;
+	color:#000;
+}
+.okArow{
+	background:url(../images/okArow.jpg) no-repeat left center !important;
+}
+.addContent{
+	margin:0;
+	padding:0;
+}
+.addContent a{
+	background:#00cc00;
+	font-size:12px;
+	color:#000;
+	height:25px;
+	line-height:25px;
+	width:136px;
+	text-align:center;
+	display:block;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+/*left menu  end*/
+
 /*Left end Here*/
 /*right start Here*/
 #content .right {
@@ -531,10 +654,18 @@ border-radius: 5px 5px 5px 5px;
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 }
+<<<<<<< HEAD
 #createProjecContent .heding{
 font-size:24px;
 color:#000000;
 margin:30px 0 0px;
+=======
+#createProjecContent .heading{
+	font-size:24px;
+	color:#000000;
+	margin:30px 0 0px;
+
+>>>>>>> aa22b39b3706bc379ed737710dde30019cc27042
 }
 .formWrapper{
 float:left;
