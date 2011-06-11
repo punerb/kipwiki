@@ -29,8 +29,8 @@ class Project
   
   belongs_to :user
 
-  validates :title, :description, :address, :presence => true
-  validates_associated :user
+  #validates :title, :description, :address, :presence => true
+  #validates_associated :user
 
   geocoded_by :address
   
@@ -51,28 +51,30 @@ class Project
   }
  
  
-  MIN_SIMILARITY_THRESHOLD = 0.7 
+  MIN_SIMILARITY_THRESHOLD = 0.5
  
   def similar_projects
     all_similar_projects = []
     list_of_candidate_projects = Project.all # to be made more efficient 
     list_of_candidate_projects.each {|candidate_project|
-      similarity = calculate_similarity_with candidate_project
-      all_similar_projects << candidate_project if similarity > MIN_SIMILARITY_THRESHOLD
+      unless candidate_project == self
+        similarity = calculate_similarity_with candidate_project
+        all_similar_projects << {:p => candidate_project, :s => similarity} if similarity > MIN_SIMILARITY_THRESHOLD
+      end
     }
-    all_similar_projects[0..4]
+    #take the top 5 similar projects
+    all_similar_projects.sort{|b,a| a[:s] <=> b[:s]}[0..4].collect{|proj| proj[:p]} #.collect{|p| p.tags}
   end
-
-  private
 
   def keywords
     # returns a project's keywords, which are basically keywords form the title union with it's tags
-    self.title.split(" ") << self.tags
+    [self.title.split(" ") << self.tags].flatten.uniq
     #todo: remove common noise like 'The' or 'A' or 'And' or 'in' from the title since they are not really keywords
+    #todo: need to sanitize the keywords so that they are all lowercase as well
   end
   
   def calculate_similarity_with other_project
-    other_keywords = other_project.keywords
+    other_keywords = other_project.keywords #will never be zero since the title is compulsory so the number of keywords is always at least 1
     similarity = (self.keywords & other_keywords).count.to_f / other_keywords.count
   end
   
