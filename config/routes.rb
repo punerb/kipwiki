@@ -1,4 +1,20 @@
 Kipwiki::Application.routes.draw do
+  resources :project_objectives
+
+  resources :project_fundings
+
+  resources :stakeholders
+
+  resources :tags
+
+  resources :project_statuses
+
+  resources :project_types
+
+  resources :projects
+
+  resources :links
+
   devise_for :users
 
   # The priority is based upon order of creation:
