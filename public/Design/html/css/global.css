@@ -205,6 +205,8 @@ border:none;
 }
 #content .inputWrapper input.field {
 	float:left;
+	width:203px;
+	border-radius: 5px 0 0 5px;
 }
 #content .borderBottom {
 	padding-bottom:10px;
@@ -213,20 +215,33 @@ border:none;
 input.field {
 	background:url(../images/inputBG.jpg) left repeat-x;
 	border:1px solid #dddddd;
-	padding:8px 10px 9px 10px;
+	padding:7px 10px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:16px;
 	line-height:16px;
 	color:#bbbbbb;
 }
-input.field {
-	background:url(../images/inputBG.jpg) left repeat-x;
-	border:1px solid #dddddd;
-	padding:8px 10px 9px 10px;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:16px;
-	line-height:16px;
-	color:#bbbbbb;
+input.searchBtn {
+	background:url(../images/inputsIcon.png) top left no-repeat;
+	background-position:0 0;
+	float:right;
+	width:35px;
+	height:35px;
+	display:block;
+	border:none;
+	text-indent:-5000px;
+	cursor:pointer;
+}
+input.searchBtn {
+	background:url(../images/inputsIcon.png) top left no-repeat;
+	background-position:0 0;
+	float:right;
+	width:35px;
+	height:35px;
+	display:block;
+	border:none;
+	text-indent:-5000px;
+	cursor:pointer;
 }
 #content ul.rating {
 	height:15px;
