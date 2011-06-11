@@ -50,7 +50,7 @@ html {
 	margin:0;
 }
 body {
-	background:#f5f5f5;
+	background:url(../images/bgImage.jpg) top left;
 	font-family:Arial, Helvetica, sans-serif;
 	font-weight:normal;
 	font-size:12px;
@@ -230,6 +230,7 @@ input.field {
 }
 #content ul.rating {
 	height:15px;
+	float:left;
 }
 #content ul.rating li {
 	background:url(../images/likeIcon.png) top left no-repeat;
@@ -247,6 +248,14 @@ input.field {
 }
 #content .viewWrapper {
 	background:url(../images/viewIcon.png) center left no-repeat;
+	padding-left:30px;
+	font-size:12px;
+	font-weight:normal;
+	line-height:20px;
+	color:#444444;
+}
+#content .voteWrapper {
+	background:url(../images/voteIcon.png) center left no-repeat;
 	padding-left:30px;
 	font-size:12px;
 	font-weight:normal;
