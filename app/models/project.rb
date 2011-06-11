@@ -8,6 +8,7 @@ class Project
   field :vote_count, :type => Integer
   field :address, :type => String     # Used for geo-location
   field :city, :type => String        # From Geocoder location
+  field :state, :type => String
   field :country, :type => String     # From Geocoder location
   field :zip_code, :type => String     # From Geocoder location
   field :coordinates, :type => Array  # For geolocation
@@ -29,12 +30,14 @@ class Project
   validates_associated :user
 
   geocoded_by :address
-  after_validation :geocode_me
-
-  def geocode_me
-    result = Geocoder.search(self.address)
-    self.coordinates = result.first.coordinates
-    self.city = result.first.city
-    self.country = result.first.country
-  end
+  
+  after_validation { |project| 
+   location =   Geocoder.search(project.address).first 
+   if location
+     project.coordinates = location.coordinates
+     project.city = location.city
+     project.country = location.country
+     project.state = location.state
+   end
+  }
 end
