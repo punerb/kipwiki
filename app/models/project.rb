@@ -16,9 +16,13 @@ class Project
 
   has_many :project_fundings
   has_many :stakeholders
+  has_many :prints
+  has_many :documents
   belongs_to :user
 
+
   validates :title, :description, :address, :presence => true
+
   validates_associated :user
 
   geocoded_by :address

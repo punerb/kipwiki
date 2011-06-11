@@ -1,0 +1,19 @@
+%h1 Listing project_fundings
+%table
+  %tr
+    %th Name
+    %th Amount
+    %th Currency
+    %th
+    %th
+    %th
+  - @project_fundings.each do |project_funding|
+    %tr
+      %td= project_funding.name
+      %td= project_funding.amount
+      %td= project_funding.currency
+      %td= link_to 'Show', project_funding
+      %td= link_to 'Edit', edit_project_funding_path(project_funding)
+      %td= link_to 'Destroy', project_funding, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New Project funding', new_project_funding_path
