@@ -13,6 +13,7 @@ gem 'sass'
 gem 'haml-rails'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'geocoder'
+gem 'omniauth', "0.2.6"
 
 group :development do
   gem 'mongrel'

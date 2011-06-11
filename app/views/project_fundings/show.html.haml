@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %b Name:
+  = @project_funding.name
+%p
+  %b Amount:
+  = @project_funding.amount
+%p
+  %b Currency:
+  = @project_funding.currency
+= link_to 'Edit', edit_project_funding_path(@project_funding)
+|
+\#{link_to 'Back', project_fundings_path}

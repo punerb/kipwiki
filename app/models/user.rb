@@ -7,7 +7,21 @@ class User
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects
+  references_many :authentications, :autosave => true
+
+
+  def apply_omniauth(omniauth)
+    self.email = omniauth['user_info']['email'] if email.blank?
+    self.first_name = omniauth["user_info"]["name"].split(" ").first if first_name.blank?
+    self.last_name = omniauth["user_info"]["name"].split(" ").last if last_name.blank?
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+  end
+
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
+  end
+
 end

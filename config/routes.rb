@@ -1,4 +1,7 @@
 Kipwiki::Application.routes.draw do
+
+  resources :authentications
+
   resources :project_objectives
 
   resources :project_fundings
@@ -16,7 +19,12 @@ Kipwiki::Application.routes.draw do
   resources :links
   get "home/index"
 
+  devise_for :user, :controllers => { :registrations => "registrations" }
+
   devise_for :users
+
+  match "/auth/:provider/callback" => "authentications#create"
+  match "/auth/failure" => "authentications#failure"
 
   root :to => "home#index"
   # The priority is based upon order of creation:
