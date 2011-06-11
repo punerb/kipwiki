@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/editor.css" />
+</head>
+
+<body>
+	<div id="wrapper">
+    	<!--header start-->
+    	<div id="header">
+        	<div class="headerContent">
+            	<div class="logo">
+                	<a href="#">kipWiki</a>
+                </div>
+            	<div class="navigation">
+                    <ul class="main">
+                        <li>
+                            <a href="#">Projects</a>
+                        </li>
+                        <li>
+                            <a href="#">Notifications</a>
+                        </li>
+                        <li class="selected">
+                            <a href="#">Create Project</a>
+                        </li>
+                    </ul>
+                    
+                    <ul class="subMenu">
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">Help & Feedback</a>
+                        </li>
+                        <li>
+                            <a href="#">Logout</a>
+                        </li>
+                    </ul>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+       <!-- Header End here-->
+       <div class="clr"></div>
+       <!-- createProjecContent start-->
+        <div id="createProjecContent">
+        	<h1 class="heding">Create Project</h1>
+            <div class="borderBottom"></div>
+            <div class="formWrapper">
+            <h2>Project Title</h2>
+            <p>Write a one sentence summary of your description</p>
+            <form action="#" method="post">
+            	<input type="text" value="Hint summarise your description" name="" class="field large" />
+                <h2> Location</h2>
+              <input type="text" value="15 Josh street, Deccan" name="" class="field large marTop10" />
+             <p> This address should be plottable on a google map - be as specific as the problem is. i.e if the problem is city based enter only the city and the country, if the problem has an exact address enter the exact address including street no. and name, suburb, city, country and postcode</p>
+             
+               <h2> Summary</h2>
+               <p>Describe the reason for the project. It might be a problem to be solved or an opportunity for something new</p>
+               
+               <textarea id="content1" name="content1" style="width:320px;height:70px">
+                    The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned.
+                </textarea>
+
+             <input type="submit" value="Create Project" class="submitBg" />
+            </form>
+            </div>
+            <div class="clr"></div>
+        </div>
+       <!-- createProjecContent end-->
+         <div class="clr"></div>
+        <!-- footer Start-->
+        <div id="footer">
+        </div>
+        <!-- footer end-->
+         <div class="clr"></div>
+    </div>
+    
+    <script type="text/javascript" src="js/puny_mce.js"></script>
+<script type="text/javascript">
+var editor1 = new punymce.Editor({id : 'content1', editor_css : ''});
+</script>
+</body>
+</html>

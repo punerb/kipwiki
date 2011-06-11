@@ -1,8 +1,9 @@
 Kipwiki::Application.routes.draw do
 
   resources :authentications
-  match '/projects/upload_attachment', :to => 'projects#upload_attachment', :as => :upload_attachment
-  match '/projects/:attachment_id/delete_attachment', :to => 'projects#delete_attachment', :as => :delete_attachment
+  match '/projects/:id/photos', :to => 'projects#photos', :as => :photos
+  match '/projects/:id/upload_attachment', :to => 'projects#upload_attachment', :as => :upload_attachment
+  match '/projects/:print_id/delete_attachment', :to => 'projects#delete_attachment', :as => :delete_attachment
   resources :project_objectives
 
   resources :project_fundings
@@ -23,6 +24,9 @@ Kipwiki::Application.routes.draw do
   devise_for :user, :controllers => { :registrations => "registrations" }
 
   devise_for :users
+  
+  match ':city/project/:id' => 'projects#show', :as => 'show_project'
+#  match '/user/:id' => 'devise/users#show', :as => 'show_user'
 
   match "/auth/:provider/callback" => "authentications#create"
   match "/auth/failure" => "authentications#failure"

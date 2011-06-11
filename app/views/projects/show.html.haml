@@ -4,19 +4,51 @@
   = @project.title
 %p
   %b Description:
-  \#{link_to "Suggest","#",:id=>"suggest_me"}
+  \#{link_to "Suggest","#",:class=>"suggest_me"}
   = @project.description
 %p
   %b Address:
-  = @project.address
-= link_to 'Edit', edit_project_path(@project)
+  = @project.address%p#notice= notice
+
+#project_comments
+  %h2 Comments
+  :javascript
+    var fyre = LF({
+      site_id: 285879,
+      version: '1.0'
+    });
+
+= content_for :sidebar do
+  = render :partial => 'projects/map'
+  = render :partial => 'projects/project_type'
+  = render :partial => 'projects/project_status'
+  = render :partial => 'projects/project_tags'
+  = render :partial => 'projects/project_activity_feed'
+  = render :partial => 'projects/similar_projects'
+  
+= #link_to 'Edit', edit_project_path(@project)
 |
 \#{link_to 'Back', projects_path}
 
 :javascript
-  $("#suggest_me").click(function(){
-    $.colorbox({html : $("#suggest_div").html()})
-  });
-#suggest_div{:style => "display:none"}
-  =text_area_tag "project","",:rows=>"5",:cols=>"40"
-  
+  $(".suggest_me").colorbox({inline: true, href:"#suggest_div"})
+
+%div{:style => "display:none;"}
+  #suggest_div
+    %p Please submit your suggestion:
+    =text_area_tag "project","",:rows=>"5",:cols=>"40"
+
+= content_for :sidebar do
+  #map_canvas
+    :javascript
+      var myOptions = {
+        zoom: 12,
+        #{'center: new google.maps.LatLng(' + @project.coordinates[0].to_s + ', ' + @project.coordinates[1].to_s + '),'}
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+
+= #link_to 'Edit', edit_project_path(@project)
+|
+\#{link_to 'Back', projects_path}
