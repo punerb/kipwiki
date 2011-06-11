@@ -4,10 +4,32 @@
   = @project.title
 %p
   %b Description:
+  \#{link_to "Suggest","#",:id=>"suggest_me"}
   = @project.description
 %p
   %b Address:
   = @project.address
-= link_to 'Edit', edit_project_path(@project)
+
+
+= content_for :sidebar do
+  #map_canvas
+    :javascript
+      var myOptions = {
+        zoom: 12,
+        #{'center: new google.maps.LatLng(' + @project.coordinates[0].to_s + ', ' + @project.coordinates[1].to_s + '),'}
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+
+= #link_to 'Edit', edit_project_path(@project)
 |
 \#{link_to 'Back', projects_path}
+
+:javascript
+  $("#suggest_me").click(function(){
+    $.colorbox({html : $("#suggest_div").html()})
+  });
+#suggest_div{:style => "display:none"}
+  =text_area_tag "project","",:rows=>"5",:cols=>"40"
+  
