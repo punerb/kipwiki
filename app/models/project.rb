@@ -17,8 +17,8 @@ class Project
 
   has_many :project_fundings
   has_many :stakeholders
-  has_many :prints
-  has_many :documents
+  embeds_many :prints
+  embeds_many :documents
   belongs_to :user
 
 

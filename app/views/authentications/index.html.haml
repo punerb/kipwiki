@@ -1,0 +1,22 @@
+- if user_signed_in?
+  Currently authenticated with :
+  %br
+  - current_user.authentications.each do |auth|
+    %h4 #{auth.provider}
+    %br
+
+%h2 Login with:
+%div
+  %a{ :href => "/auth/twitter" }
+    %img{ :src => "/images/twitter_64.png" }
+  %a{ :href => "/auth/facebook" }
+    %img{ :src => "/images/facebook_64.png" }
+
+%h3
+  Or don't have these actions then
+  %a{ :href => new_user_registration_path }
+    Signup with Email
+  or
+  %a{ :href => new_user_session_path }
+    Login with Email/Password
+  ="."

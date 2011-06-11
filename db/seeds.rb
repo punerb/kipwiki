@@ -35,15 +35,3 @@
 	puts "project created no. #{n}" if projects.errors.empty?
    end
 
-
- 
-   # 1..3.each do |x| do
-  #  users=User.create([
-   # { :first_name => names[rand(names.length)]
-  #   ,:last_name => "Chakraborty"
-   #  ,:city =>locations[rand(locations.length)] 
-    # ,:email =>"mettin.avargin@gmail.com"
- #    ,:password => "sss"}
-  #  ])  
-  # end
-   

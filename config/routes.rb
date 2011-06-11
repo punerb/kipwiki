@@ -1,4 +1,8 @@
 Kipwiki::Application.routes.draw do
+
+  resources :authentications
+  match '/projects/upload_attachment', :to => 'projects#upload_attachment', :as => :upload_attachment
+  match '/projects/:attachment_id/delete_attachment', :to => 'projects#delete_attachment', :as => :delete_attachment
   resources :project_objectives
 
   resources :project_fundings
@@ -16,7 +20,12 @@ Kipwiki::Application.routes.draw do
   resources :links
   get "home/index"
 
+  devise_for :user, :controllers => { :registrations => "registrations" }
+
   devise_for :users
+
+  match "/auth/:provider/callback" => "authentications#create"
+  match "/auth/failure" => "authentications#failure"
 
   root :to => "home#index"
   # The priority is based upon order of creation:

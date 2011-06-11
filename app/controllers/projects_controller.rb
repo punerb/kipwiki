@@ -1,6 +1,20 @@
 class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
+  
+  layout "project_layout"
+  
+  def upload_attachment
+    @project ||= Project.last ||= Project.create(:title => "Tilte", :description => "this is test", :address => "12345")
+    @print = @project.prints.new
+    @print.attachment = params[:file] if params.has_key?(:file)
+    # detect Mime-Type (mime-type detection doesn't work in flash)
+    #@print.attachment_content_type = MIME::Types.type_for(params[:name]).to_s if params.has_key?(:name)
+    @print.save!
+    request.format = :js
+    respond_to :js
+  end
+  
   def index
     @projects = Project.all
 
@@ -13,8 +27,14 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.xml
   def show
-    @project = Project.find(params[:id])
-
+    #@project = Project.find(params[:id])
+    # temp / dummy project
+    @project = Project.new({
+     :title => "Project Title",
+     :description => "This is a really awesome project",
+     :address => "address address",
+     :coordinates => [18.50787 + 0.01*rand(), 73.7799 + 0.01*rand()]
+    })
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
