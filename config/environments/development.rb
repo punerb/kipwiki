@@ -20,6 +20,10 @@ Kipwiki::Application.configure do
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
+  #other mailer settings
+  config.action_mailer.default_url_options = { :host => "local.kipwiki.com" }
+
+
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 end

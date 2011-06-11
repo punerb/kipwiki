@@ -61,6 +61,16 @@ a {
     margin: 0; }
 
 .navigation {
-  border-bottom: 1px solid black; }
+  border-bottom: 1px solid black;
+  height: 60px; }
   .navigation li {
-    display: inline; }
+    display: inline;
+    list-style: none; }
+
+.leftNav {
+  float: left;
+  width: 500px; }
+
+.rightNav {
+  float: right;
+  width: 300px; }
