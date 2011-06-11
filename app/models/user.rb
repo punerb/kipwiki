@@ -7,7 +7,7 @@ class User
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects
   references_many :authentications, :autosave => true
@@ -22,10 +22,6 @@ class User
 
   def password_required?
     (authentications.empty? || !password.blank?) && super
-  end
-
-  def activated?
-    confirmation_token.nil?
   end
 
 end

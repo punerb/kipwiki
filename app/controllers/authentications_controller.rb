@@ -26,14 +26,25 @@ class AuthenticationsController < ApplicationController
   def create
     omniauth = request.env["omniauth.auth"]
     authentication = Authentication.where(:provider => omniauth['provider'], :uid => omniauth['uid']).first
+
     if authentication
       user = authentication.user
-      flash[:notice] = "Signed in successfully." if user.activated?
       sign_in_and_redirect(:user, user)
+
+    elsif omniauth["user_info"]["email"].present?
+      ##handle facebook-email signup with email here..
+      user = User.where(:email => omniauth["user_info"]["email"]).first
+      if user
+        user.authentications.create!(:provider => omniauth["provider"], :uid => omniauth["uid"])
+        flash[:notice] = "Sign in Successful."
+        sign_in_and_redirect(:user, user)
+      end
+
     elsif current_user
       current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
       flash[:notice] = "Authentication successful."
       redirect_to root_url
+
     else
       user = User.new
       user.apply_omniauth(omniauth)
@@ -49,8 +60,8 @@ class AuthenticationsController < ApplicationController
     end
   end
 
-  # DELETE /authentications/1
-  # DELETE /authentications/1.xml
+# DELETE /authentications/1
+# DELETE /authentications/1.xml
   def destroy
     @authentication = Authentication.find(params[:id])
     @authentication.destroy
