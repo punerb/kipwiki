@@ -15,6 +15,7 @@ class Project
   field :categories, :type => Array
   field :status, :type => String
   field :govt_status, :type => String
+  field :tags, :type => Array
 
   embeds_many :stakeholders
   embeds_many :links
@@ -22,7 +23,7 @@ class Project
 
   has_many :prints
   has_many :documents
-  has_and_belongs_to_many :tags
+  
 
   belongs_to :user
 
