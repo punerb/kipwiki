@@ -19,7 +19,7 @@ class Project
   embeds_many :prints
   embeds_many :documents
   belongs_to :user
-
+  has_many :prints
 
   validates :title, :description, :address, :presence => true
 
