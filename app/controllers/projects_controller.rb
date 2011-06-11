@@ -27,14 +27,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.xml
   def show
-    #@project = Project.find(params[:id])
+    @project = Project.find(params[:id])
     # temp / dummy project
-    @project = Project.new({
-     :title => "Project Title",
-     :description => "This is a really awesome project",
-     :address => "address address",
-     :coordinates => [18.50787 + 0.01*rand(), 73.7799 + 0.01*rand()]
-    })
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
