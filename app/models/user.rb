@@ -5,10 +5,12 @@ class User
   field :last_name, :type => String
   field :city, :type => String
 
+  validates_uniqueness_of :email
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :validatable,
+         :recoverable, :rememberable, :trackable
   has_many :projects
   references_many :authentications, :autosave => true
 
