@@ -4,6 +4,7 @@
   = @project.title
 %p
   %b Description:
+  \#{link_to "Suggest","#",:id=>"suggest_me"}
   = @project.description
 %p
   %b Address:
@@ -11,3 +12,11 @@
 = link_to 'Edit', edit_project_path(@project)
 |
 \#{link_to 'Back', projects_path}
+
+:javascript
+  $("#suggest_me").click(function(){
+    $.colorbox({html : $("#suggest_div").html()})
+  });
+#suggest_div{:style => "display:none"}
+  =text_area_tag "project","",:rows=>"5",:cols=>"40"
+  
