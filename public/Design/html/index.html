@@ -4,11 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <link href="css/global.css" rel="stylesheet" type="text/css" />
+<link href="css/slider.css" rel="stylesheet" type="text/css" />
+
 </head>
+		<script type="text/javascript" src="js/javascript.js"> </script>
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui-1.8.6.custom.min.js"></script>
 		<script type="text/javascript" src="js/corners.js"></script>
-<script type="text/javascript" src="js/javascript.js"> </script>
+		<script type="text/javascript" src="js/easySlider1.7.js"> </script>
 <script>
 $(document).ready(function() {
 
@@ -35,6 +38,15 @@ $(document).ready(function() {
 	});
 
 });
+<!--for slider-->
+$(document).ready(function(){	
+			$("#slider").easySlider({
+				auto: true, 
+				continuous: true,
+				numeric: true
+			});
+		});	 
+<!--for slider End-->
 </script>
 <body>
 	<div id="wrapper">
@@ -88,6 +100,33 @@ $(document).ready(function() {
                 <div class="clr"></div>
                 <div class="murgeWrapper">
                 	<div class="wrapperLeft">
+                    	<div class="borderBottom">
+                            <div id="slider">
+                                <ul>				
+                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a></li>
+                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a></li>
+                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a></li>
+                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a></li>	
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="borderBottom">
+                        	<div class="heading">
+                            	<h1>Contents</h1><a href="#">Add new</a><a href="#">Edit</a>
+                                <div class="clr"></div>	 
+                            </div>
+                            <div class="inputWrapper">
+                                <input type="text" class="field" value="Search within a Project" />
+                                <input type="submit" class="searchBtn" />
+                            </div>
+                        </div>
+                        <div class="borderBottom">
+                        	<div class="heading">
+                            	<h1>Funding</h1><a href="#">Add new</a><a href="#">Edit</a>
+                                <div class="clr"></div>	 
+                            </div>
+                            
+                        </div>
                 	</div>
                 	<div class="wrapperRight">
                     	<div class="marBot10">
@@ -121,7 +160,7 @@ $(document).ready(function() {
                         </div>
                         <div class="loaderWrapper">
                         	<div class="loader">
-                            	<img src="images/loader.jpg" alt="" />
+                            	<img src="images/loader.jpg" width="370px" height="25px" alt="" />
                             </div>
                             <div class="text">
                             	10% Planning Complete
@@ -263,9 +302,9 @@ $(document).ready(function() {
                             <li><a href="#tab2">Hindu</a></li>
                             <li><a href="#tab3">Worship</a></li>
                             <li><a href="#tab4">Religion</a></li>
-                            <li><a href="#tab4">Temple</a></li>
-                            <li><a href="#tab4">Heritage</a></li>
-                            <li><a href="#tab4">Reconstruction</a></li>
+                            <li><a href="#tab5">Temple</a></li>
+                            <li><a href="#tab6">Heritage</a></li>
+                            <li><a href="#tab7">Reconstruction</a></li>
                             <div class="clr"></div>
                         </ul>
                         <div class="inputWrapper borderBottom">
@@ -285,7 +324,7 @@ $(document).ready(function() {
                                     <p>Content Added - Project Objectives</p>
                                     <p><span>Josh X</span>, 5 hrs ago</p>
                                     <p>Fields Added - Project Objectives,Contents</p>
-                                    <p><span>Josh X</span>, 1 day ago</p>
+                                    <p><span>Josh X</span>, 5 hrs ago</p>
                                 </div>
                             </div>
                             <div id="tab2" class="tab_content">
@@ -296,6 +335,15 @@ $(document).ready(function() {
                             </div>
                             <div id="tab4" class="tab_content">
                             	4
+                            </div>
+                            <div id="tab5" class="tab_content">
+                            	5
+                            </div>
+                            <div id="tab6" class="tab_content">
+                            	6
+                            </div>
+                            <div id="tab7" class="tab_content">
+                            	7
                             </div>
                      	</div>
                  	</div>
