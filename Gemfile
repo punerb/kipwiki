@@ -12,7 +12,8 @@ gem 'haml'
 gem 'sass'
 gem 'haml-rails'
 gem 'geocoder'
+gem 'faker'
 group :development do
-  gem 'mongrel'
+  gem 'mongrel' , '~> 1.2.0.pre2'
   gem "nifty-generators"
 end
