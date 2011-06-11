@@ -9,6 +9,8 @@
     = javascript_include_tag "jquery"
     = javascript_include_tag "colorbox"
     = javascript_include_tag "application"
+    = javascript_include_tag "livefyre", :src => 'http://livefyre.com/wjs/javascripts/livefyre.js'
+
     = csrf_meta_tag
     = yield(:head)
 
@@ -44,3 +46,10 @@
         %h1= yield(:title)
 
       = yield
+
+      %h2 Comments
+      :javascript
+        var fyre = LF({
+          site_id: 285879,
+          version: '1.0'
+        });
