@@ -18,6 +18,7 @@ class Project
   field :govt_status, :type => String
   field :tags, :type => Array
   field :slug, :type => String
+  field :caption, :type => String
 
   embeds_many :stakeholders
   embeds_many :links
