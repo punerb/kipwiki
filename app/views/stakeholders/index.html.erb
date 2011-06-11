@@ -1,0 +1,25 @@
+<h1>Listing stakeholders</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stakeholders.each do |stakeholder| %>
+  <tr>
+    <td><%= stakeholder.name %></td>
+    <td><%= stakeholder.url %></td>
+    <td><%= link_to 'Show', stakeholder %></td>
+    <td><%= link_to 'Edit', edit_stakeholder_path(stakeholder) %></td>
+    <td><%= link_to 'Destroy', stakeholder, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Stakeholder', new_stakeholder_path %>
