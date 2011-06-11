@@ -38,9 +38,9 @@ class Project
    location =   Geocoder.search(project.address).first 
    if location
      project.coordinates = location.coordinates
-     project.city = location.city
-     project.country = location.country
-     project.state = location.state
+     project.city = location.city.titleize
+     project.country = location.country.titleize
+     project.state = location.state.titleize
    end
   }
   
