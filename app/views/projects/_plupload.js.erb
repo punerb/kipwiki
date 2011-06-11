@@ -2,7 +2,7 @@
 jQuery(document).ready(function() {
   $("#uploader").pluploadQueue({
     runtimes: 'html5,flash,silverlight',
-    url: '<%= upload_attachment_path %>',
+    url: '<%= upload_attachment_path(@project.id) %>',
     max_file_size: '1mb',
     multiple_queues: true,
     flash_swf_url: "/javascripts/plupload/plupload.flash.swf",  

@@ -1,11 +1,14 @@
 class ProjectsController < ApplicationController
+  before_filter :load_project, :only => [:upload_attachment, :photos]
   # GET /projects
   # GET /projects.xml
-  
+
   layout "project_layout"
-  
+
+  def photos
+  end
+
   def upload_attachment
-    @project ||= Project.last ||= Project.create(:title => "Tilte", :description => "this is test", :address => "12345")
     @print = @project.prints.new
     @print.attachment = params[:file] if params.has_key?(:file)
     # detect Mime-Type (mime-type detection doesn't work in flash)
@@ -14,7 +17,15 @@ class ProjectsController < ApplicationController
     request.format = :js
     respond_to :js
   end
-  
+
+  def delete_attachment
+    @print = Print.find(params[:print_id]) rescue nil
+    @print.destroy if @print
+    respond_to do |format|
+      format.html{ redirect_to projects_path}
+      format.js{}
+    end
+  end
   def index
     @projects = Project.all
 
@@ -99,6 +110,16 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(projects_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  private
+
+  def load_project
+    @project = Project.find(params[:id]) rescue nil
+    unless @project
+      flash[:notice] = 'Invalid URL!!!'
+      redirect_to request.referrer || projects_url
     end
   end
 end

@@ -28,4 +28,15 @@ class Project
 
   geocoded_by :address
   after_validation :geocode
+ 
+ 
+ def simular_project
+    GetProject p
+    keywords= p.title.split(" ") << p.tags
+     
+    listprojects=Project.find(:all, :conditions => ['title like % o tags'] )
+    
+ end
+
+
 end
