@@ -1,0 +1,16 @@
+#map.borderBottom
+  %h3 Project Location
+  #map_canvas
+    :javascript
+      var myOptions = {
+        zoom: 12,
+        #{'center: new google.maps.LatLng(' + @project.coordinates[0].to_s + ', ' + @project.coordinates[1].to_s + '),'}
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+      var marker = new google.maps.Marker({
+        #{'position: new google.maps.LatLng(' + @project.coordinates[0].to_s + ', ' + @project.coordinates[1].to_s + '),'}
+        map: map, 
+        #{"title: '" + @project.title + "'"}
+      });
+  %strong= @project.address

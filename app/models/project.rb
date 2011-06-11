@@ -4,6 +4,7 @@ class Project
 
   field :title, :type => String
   field :description, :type => String
+  field :address, :type => String
   field :view_count, :type => Integer 
   field :vote_count, :type => Integer
   field :address, :type => String     # Used for geo-location
@@ -16,17 +17,21 @@ class Project
   field :status, :type => String
   field :govt_status, :type => String
   field :slug, :type => String
+
   embeds_many :stakeholders
   embeds_many :links
   embeds_many :projects_fundings
+  embeds_many :prints
+  embeds_many :documents
 
-  has_many :prints
-  has_many :documents
-  has_and_belongs_to_many :tags
 
+  has_many :project_fundings
+  has_many :stakeholders
   belongs_to :user
 
+
   validates :title, :description, :address, :presence => true
+
   validates_associated :user
 
   geocoded_by :address
@@ -45,4 +50,15 @@ class Project
    project.slug = project.title.parameterize
   }
  
+ 
+ 
+ def simular_project
+    GetProject p
+    keywords= p.title.split(" ") << p.tags
+     
+    listprojects=Project.find(:all, :conditions => ['title like % o tags'] )
+    
+ end
+
+
 end

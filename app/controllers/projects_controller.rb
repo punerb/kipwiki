@@ -40,6 +40,12 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.where(:city => params[:city], :slug => params[:id]).first
     # temp / dummy project
+    @project = Project.new({
+     :title => "Project Title",
+     :description => "This is a really awesome project",
+     :address => "This is, the Project, address",
+     :coordinates => [18.50787 + 0.01*(rand()-0.5), 73.7799 + 0.01*(rand()-0.5)]
+    })
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
