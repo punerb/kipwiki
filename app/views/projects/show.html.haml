@@ -7,17 +7,22 @@
   \#{link_to "Suggest","#",:id=>"suggest_me"}
   = @project.description
 
-%h2 Comments
-:javascript
-  var fyre = LF({
-    site_id: 285879,
-    version: '1.0'
-  });
+#project_comments
+  %h2 Comments
+  :javascript
+    var fyre = LF({
+      site_id: 285879,
+      version: '1.0'
+    });
 
 = content_for :sidebar do
   = render :partial => 'projects/map'
   = render :partial => 'projects/project_type'
   = render :partial => 'projects/project_status'
+  = render :partial => 'projects/project_tags'
+  = render :partial => 'projects/project_activity_feed'
+  = render :partial => 'projects/similar_projects'
+  
 = #link_to 'Edit', edit_project_path(@project)
 |
 \#{link_to 'Back', projects_path}
