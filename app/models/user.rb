@@ -25,7 +25,11 @@ class User
   def password_required?
     (authentications.empty? || !password.blank?) && super
   end
-
+  
+  def display_name
+    "#{user.first_name} #{user.last_name}"
+  end
+  
   before_create { |user|
     user.slug = "#{user.first_name} #{user.last_name}".parameterize
   }

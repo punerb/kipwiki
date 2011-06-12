@@ -4,4 +4,6 @@ class Activity
   
   field :text, :type => String
   field :user
+
+  embedded_in :project
 end
