@@ -1,10 +1,9 @@
 #project_similar_projects.borderBottom
   %h3 Similar Projects
-  = succeed "," do
-    %a{:href => "#"} Jain Temple Reconstruction
-  %a{:href => "#"} Baner Road Pune
-  = succeed "," do
-    %a{:href => "#"} Temple Complex Restoration
-  = succeed "," do
-    %a{:href => "#"} Pune Centre
-  %a{:href => "#"} Restoration and Preservation of Hindu Temples in Pune
+  - similar_projects = @project.similar_projects
+  - if similar_projects.nil? || similar_projects.empty?
+    There are no similar projects
+  - else
+    - similar_projects.each do |project|
+      = succeed "#{(project == similar_projects.last) ? '' : ','}" do
+        = link_to project.title, show_project_path(project.city.parameterize, project.slug)
