@@ -61,7 +61,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    @selection = "summary"
+    @selection = "objective"
     @project = Project.find(params[:id])
     render 'edit', :layout => 'admin'
   end

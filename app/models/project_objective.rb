@@ -1,11 +1,14 @@
 class ProjectObjective
   include Mongoid::Document
   field :name, :type => String
-  field :objective_id
+  field :priority, :type => String
+  field :project_id, :type => Integer
+  field :sub_project_objectives, :type => Array
+
 
   belongs_to :project
 
-  belongs_to :project_objective, :class => 'ProjectObjective'
-  has_many :sub_objectives, :class_name => 'ProjectObjective', :foreign_key => 'objective_id'
-  
+#  embeds_many :sub_project_objectives
+#
+#  accepts_nested_attributes_for :sub_project_objectives
 end

@@ -22,7 +22,7 @@ class Project
   embeds_many :stakeholders
   embeds_many :links
   embeds_many :project_fundings
-  embeds_many :project_objectives
+  has_many :project_objectives
 
   has_many :prints
   has_many :documents
