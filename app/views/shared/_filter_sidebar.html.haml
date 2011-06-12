@@ -1,0 +1,28 @@
+= javascript_include_tag 'home'
+:javascript
+  var all_projects = #{@projects.to_json};
+
+#project_type.borderBottom
+  %h3 Category
+  %ul
+    -APP_CONFIG[:categories].each do |category|
+      %li
+        = check_box_tag category.gsub(/\W/, ''), category, false, :class => 'category filter'
+        %label.label= category
+  .clr
+#project_status.borderBottom
+  %h3 Phase / Status
+  %ul
+    -APP_CONFIG[:statuses].each do |status|
+      %li
+        = check_box_tag status.gsub(/\W/, ''), status, false, :class => 'status filter'
+        %label.label= status
+  .clr
+#project_scope.borderBottom
+  %h3 Scope
+  %ul
+    -APP_CONFIG[:project_scopes].each do |scope|
+      %li
+        = check_box_tag scope.gsub(/\W/, ''), scope, false, :class => 'scope filter'
+        %label.label= scope
+  .clr

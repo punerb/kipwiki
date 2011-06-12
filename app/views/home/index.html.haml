@@ -1,2 +1,16 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+= render :partial => "map_global_projects"
+.fatureProjectsWrapper
+  %h2 Featured Projects
+  .clr
+  %ul
+    = render "home_project_item" , :margin_class => ""
+    = render "home_project_item" , :margin_class => ""
+    = render "home_project_item" , :margin_class => "marNone"
+  .clr
+  %h2 Local Projects
+  %ul
+    = render "home_project_item" ,:margin_class => ""
+    = render "home_project_item" ,:margin_class => ""
+    = render "home_project_item" ,:margin_class => "marNone"
+.clr
+/ content end
