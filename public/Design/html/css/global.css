@@ -117,20 +117,24 @@ width:990px;
 height:50px;
 }
 .logo {
-margin:0 0 0 15px;
-padding-top:5px;
-width:134px;
-height:45px;
-float:left;
-z-index:100;
-border-right:1px solid #dddddd;
+	margin:0 0 0 15px;
+	padding:0;
+	width:134px;
+	height:50px;
+	float:left;
+	z-index:100;
 }
-.logo a {
-background:url(../images/logo.png) left top no-repeat;
-height:40px;
-display:block;
-text-indent:-5000px;
-width:120px;
+.logo a, .logoSelect a {
+	background:url(../images/logo.png) left top no-repeat;
+	height:45px;
+	padding:5px 0 0 0;
+	display:block;
+	text-indent:-5000px;
+	border-right:1px solid #dddddd;
+}
+.logoSelect {
+	background:url(../images/linkHover.png) bottom center no-repeat;
+	padding:0 0 9px 0;
 }
 .searchBox {
 float:right;
