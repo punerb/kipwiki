@@ -1298,8 +1298,39 @@ margin:30px 0 0px;
 /*Footer Start Here*/
 #footer {
 width:990px;
-height:200px;
-margin:35px 0 0;
+height:15px;
+margin:20px auto 20px;
+}
+#footer ul {
+	float:left;
+}
+#footer ul li {
+	float:left;
+	padding-right:10px;
+	margin-right:10px;
+	border-right:1px solid #666666;
+}
+#footer ul li.borderNone {
+	border-right:none;
+	padding-right:0;
+}
+#footer ul li a {
+	font-size:12px;
+	line-height:15px;
+	color:#00aa00;
+	font-weight:normal;
+}
+#footer ul li a:hover, #footer ul li.selected a {
+	color:#000;
+}
+#footer .copyRight {
+	float:right;
+	height:15px;
+	line-height:15px;
+	font-size:12px;
+	color:#aaaaaa;
+	text-shadow:0 1px #FFF;
+	font-weight:normal;
 }
 /*Footer CSS end*/
 /*Other CSS start*/
