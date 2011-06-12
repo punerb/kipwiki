@@ -59,23 +59,23 @@
               %h3 Project Type
               %ul
                 %li
-                  %input.checkBox{:type => "checkbox"}/
+                  = check_box_tag 'local_project', 'Local_project', false, :class => 'project_types'
                   %label.label Local Project
                 %li
-                  %input.checkBox{:type => "checkbox"}/
+                  = check_box_tag 'property', 'Property', false, :class => 'project_types'
                   %label.label Property
                 %li
-                  %input.checkBox{:type => "checkbox"}/
+                  = check_box_tag 'suspendisse', 'Suspendisse', false, :class => 'project_types'
                   %label.label Suspendisse
                 %li
-                  %input.checkBox{:type => "checkbox"}/
+                  = check_box_tag 'pellentesque', 'Pellentesque', false, :class => 'project_types'
                   %label.label Pellentesque
               .clr
             #project_status.borderBottom
               %h3 Phase / Status
               %ul
                 %li
-                  %input.checkBox{:type => "checkbox"}/
+                  = check_box_tag 'initiating', 'Initiating', false, :class => 'project_statuses'
                   %label.label Local Project
                 %li
                   %input.checkBox{:type => "checkbox"}/
