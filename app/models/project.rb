@@ -49,6 +49,20 @@ class Project
   before_create { |project|
    project.slug = project.title.parameterize
   }
+
+  def project_completion
+    # works by adding up weighted scores for the presence of content in a number of select fields
+    # since there are compulsory_fields title, description, location, we never start with 0% :-p
+    completion_value = (100*rand).round
+=begin
+    if image
+    project_type
+    project_status : weight: 60%
+    project_objectives
+    project_stakeholders
+    project_funding
+=end
+  end
  
   MIN_SIMILARITY_THRESHOLD = 0.2 
   def similar_projects

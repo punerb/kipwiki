@@ -2,12 +2,17 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    - # This can be further customized here: http://developers.facebook.com/docs/reference/plugins/like/ -Anthony
+    %meta{:content => "KipWiki - Knowledge is Power", :property => "og:title"}/
+    %meta{:content => "non_profit", :property => "og:type"}/
+    %meta{:content => "KipWiki", :property => "og:site_name"}/
     %title
       = yield(:title) || "Project Title"
     = stylesheet_link_tag "colorbox", "slider", "projects"
     = javascript_include_tag "jquery", "colorbox", "easySlider1.7", "application"
     = javascript_include_tag "livefyre", :src => 'http://livefyre.com/wjs/javascripts/livefyre.js'
     = javascript_include_tag "google-maps", :src => "http://maps.google.com/maps/api/js?libraries=geometry&sensor=true"
+    = render :partial => "layouts/social_share_header"
     = csrf_meta_tag
     = yield(:head)
     
