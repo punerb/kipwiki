@@ -3,12 +3,12 @@
     %h1.heading Summary
   .leftSide
     .suggestChanges
-      %a{:href => "#"} Suggest Changes
+      = link_to "Edit", edit_project_by_action_type_path(@project, "summary")
 .rightSide
   .nextPage
-    = link_to "next", display_project_path(@project, {:view => "objectives"})
+    = link_to "next", display_project_by_action_type_path(@project, "objective")
   .previousPage
-    = link_to "next", display_project_path(@project, {:view => "links"})
+    = link_to "next", display_project_by_action_type_path(@project, "links")
 .clr
 .borderBottom
 %p.marTop15

@@ -3,12 +3,12 @@
     %h1.heading Objectives
   .leftSide
     .suggestChanges
-      %a{:href => "#"} Suggest Changes
+      = link_to "Edit", edit_project_by_action_type_path(@project, "objective")
 .rightSide
   .nextPage
-    = link_to "next", display_project_path(@project, {:view => "key_stakeholders"})
+    = link_to "next", display_project_by_action_type_path(@project, "stakeholder")
   .previousPage
-    = link_to "next", display_project_path(@project, {:view => "summary"})
+    = link_to "next", display_project_by_action_type_path(@project, "summary")
 .clr
 .borderBottom
 %p.marTop15 Here you can try and develop your project objectives. It can help to think of your expectations for a completed project, what will the project deliver? What criteria can you think of that would make the project a success?
@@ -17,6 +17,6 @@
     %li.main
       = link_to obj.name, "#"
       %ul.objectivesSub
-        - obj.sub_objectives.each do |subobj|
+        - (obj.sub_project_objectives||[]).each do |subobj|
           %li
-            = link_to subobj.name, "#"
+            = link_to subobj, "#"
