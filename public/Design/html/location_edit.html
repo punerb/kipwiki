@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/editor.css" />
+</head>
+
+<body>
+	<div id="wrapper">
+    	<!--header start-->
+    	<div id="header">
+        	<div class="headerContent">
+            	<div class="logo">
+                	<a href="#">kipWiki</a>
+                </div>
+            	<div class="navigation">
+                    <ul class="main">
+                        <li>
+                            <a href="#">Projects</a>
+                        </li>
+                        <li>
+                            <a href="#">Notifications</a>
+                        </li>
+                        <li class="selected">
+                            <a href="#">Create Project</a>
+                        </li>
+                    </ul>
+                    
+                    <ul class="subMenu">
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">Help & Feedback</a>
+                        </li>
+                        <li>
+                            <a href="#">Logout</a>
+                        </li>
+                    </ul>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+       <!-- Header End here-->
+       <div class="clr"></div>
+       <!-- createProjecContent start-->
+        <div id="editLocation">
+        	<div class="borderBottom">
+        		<h1 class="heading">Edit Location</h1>
+            </div>
+            <div class="textWrapper">
+           		<p>This address should be plottable on a google map - be as specific as the problem is. i.e if the problem is city based enter only the city and the country, if the problem has an exact address enter the exact address including street no. and name, suburb, city, country and postcode</p>
+            </div>
+            <div class="location_map">
+            	<img src="images/locationMap.jpg" width="648" height="248" alt="" />
+            </div>
+            <form action="#">
+            	<input type="text" class="field" value="15 Josh Street, Deccan, Pune" />
+                <div class="buttonWrapper">
+                	<input class="submitbg" type="submit" value="Save Location">
+                    <a href="#">Back</a>
+                </div>
+            </form>
+            <div class="clr"></div>
+        </div>
+       <!-- createProjecContent end-->
+         <div class="clr"></div>
+        <!-- footer Start-->
+        <div id="footer">
+        </div>
+        <!-- footer end-->
+         <div class="clr"></div>
+    </div>
+    
+    <script type="text/javascript" src="js/puny_mce.js"></script>
+<script type="text/javascript">
+var editor1 = new punymce.Editor({id : 'content1', editor_css : ''});
+</script>
+</body>
+</html>
