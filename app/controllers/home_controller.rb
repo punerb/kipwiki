@@ -3,9 +3,13 @@ class HomeController < ApplicationController
   layout "home_layout"
   
   def index
-    @featured_projects = Project.where({:featured => true})[0..2]
-    # to be changed, also this limit 3 thing has to be applied
-    @local_projects = Project.all[0..2]
+    @center_coords = request.location.coordinates.reverse
+    #@center_coords = Geocoder.coordinates('pune')
+    
+    @featured_projects = Project.where(:featured => true).limit(3)
+    @local_projects = Project.near(@center_coords, 50, :units => :km).limit(3)
+    @coordinates = @featured_projects.collect {|project| project.coordinates << project.title }
+    @coordinates.concat @local_projects.collect {|project| project.coordinates << project.title }
   end
   
   def filter
