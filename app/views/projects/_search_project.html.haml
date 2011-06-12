@@ -24,7 +24,7 @@
     .textWrapper
       .heading
         %h1 Summary
-        %a{:href => "#{edit_project_path(project)}"} Edit
+        %a{:href => "#{edit_project_path(project.city, project.slug)}"} Edit
         .clr
       %p
         = project.description
