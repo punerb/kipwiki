@@ -1,10 +1,9 @@
 .borderBottom
   .heading
     %h1 Stakeholders
-    %a{:href => "#"} Add new
     = edit_link(@project, "stakeholders")
     .clr
-  %ul.stakeholders
+  %ul.leftNavigation.black
     - if @project.stakeholders.nil? || @project.stakeholders.empty?
       %li
         %p

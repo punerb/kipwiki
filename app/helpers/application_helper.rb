@@ -7,4 +7,5 @@ module ApplicationHelper
   def select_main_menu_if(first, second)
     "selected" if first == second
   end
+
 end
