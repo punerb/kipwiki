@@ -6,7 +6,7 @@
         -@project.activities.each do |activity|
           %p= activity.text
           %p
-            %span>= activity.user.display_name
+            %span>= activity.user['slug']
             ,
             = time_ago_in_words(activity.created_at)
             ago
