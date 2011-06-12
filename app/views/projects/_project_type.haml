@@ -3,7 +3,7 @@
   %ul
     - APP_CONFIG[:categories].each do |type|
       %li
-        %input.checkBox{:type => "checkbox"}/
+        %input.checkBox{:type => "checkbox", :checked => (@project.categories.include? type), :disabled => "true"}/
         %label.label
           = type
     .clr

@@ -3,7 +3,7 @@
   %ul
     - APP_CONFIG[:statuses].each do |status|
       %li
-        %input.checkBox{:type => "checkbox", :checked => (@project.status)==status}/
+        %input.checkBox{:type => "checkbox", :checked => (@project.status)==status, :disabled => "true"}/
         %label.label
           = status
     .clr
