@@ -222,7 +222,7 @@ float:left;
 width:203px;
 border-radius: 5px 0 0 5px;
 }
-input.field {
+input.field, select {
 background:url(../images/inputBG.jpg) left repeat-x;
 border:1px solid #dddddd;
 padding:7px 10px;
@@ -258,6 +258,26 @@ font-size:12px;
 color:#666666;
 width:400px;
 padding:9px 9px;
+}
+input.subobjective{
+	width:440px;
+	margin:0 10px 10px 0;
+	padding:6px 10px;
+}
+input.objective{
+	width:500px;
+	margin:0 10px 0px 0;
+	padding:6px 10px;
+}
+input.stakeholder{
+	width:630px;
+	margin:0 0px 0px 0;
+	padding:6px 10px;
+}
+select.selectWidth{
+	 height: 34px;
+    width: 118px;
+	line-height:28px;
 }
 .textediter{
 	background:url(../images/textediter.jpg) no-repeat;
@@ -606,7 +626,8 @@ background:url(../images/arowRight.jpg) no-repeat 0px 8px;
 ul.leftNavigation li.main a {
 
 }
-ul.leftNavigation li.main a:hover {
+ul.leftNavigation li.main a:hover, a.selected {
+	color:#000;
 
 }
 ul.leftNavigation li.main a.on {
@@ -667,12 +688,127 @@ ul.black li a, ul.black li ul.leftSub li a {
 
 /*left menu  end*/
 
+/*Right menu start-------------*/
+ul.rightNavigation {
+	padding-bottom:5px;
+}
+ul.rightNavigation li {
+	font-size:14px;
+	font-weight:bold;
+	color:#000000;
+	display:block;
+	line-height:30px;
+	
+	cursor:pointer;
+}
+ul.rightNavigation li.borderNone {
+	border-bottom:0px;
+}
+ul.rightNavigation li li {
+	float:none;
+}
+ul.rightNavigation ul {
+	height:auto;
+}
+ul.rightNavigation a {
+  display: block;
+  text-decoration: none;	
+  color:#000000;
+}
+
+ul.rightNavigation li a {
+background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+  padding:0 10px;
+}
+
+ul.rightNavigation li.main a {
+	color:#000000;
+
+}
+ul.rightNavigation li.main a:hover {
+	color:#00AA00;
+
+}
+ul.rightNavigation li.main a.on {
+	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+}
+ul.rightNavigation li a:hover {
+	color:#00AA00;
+
+}
+ul.rightNavigation li ul.rigtSub li{
+	background:none;
+		
+}
+ul.rightNavigation li ul.rigtSub a {
+	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+	padding-left:15px;
+	padding-right:0px;
+	margin:0 0 0 20px;
+	font-weight:bold;
+	color:#000000;
+	}
+ul.rightNavigation li ul.rigtSub a:hover {
+	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+	padding-left:15px;
+	padding-right:0px;
+	margin:0 0 0 20px;
+	font-weight:bold;
+	color:#00AA00;
+	}
+ul.rightNavigation li ul li a:hover {
+	background:url(../images/arowRight.jpg) no-repeat left center;
+
+}
+.eidtArow{
+	background:url(../images/eidtArow.jpg) no-repeat left center !important;
+	color:#000;
+}
+.okArow{
+	background:url(../images/okArow.jpg) no-repeat left center !important;
+}
+.addContent{
+	margin:0;
+	padding:0;
+}
+
+/*Right menu  end*/
+/*subobjectiveContent----------------*/
+.subobjectiveContent{
+	background:#f0f0ee;
+	border:1px solid #dddddd;
+	width:590px;
+	padding:10px 20px;
+	margin:0 0 20px 20px;	
+}
+.subobjectiveContent span{
+	color:#444444;
+	display:block;
+	padding:0 0 10px 0;
+}
+.subObjective{
+	background:#00cc00;
+	font-size:12px;
+	color:#000;
+	height:25px;
+	line-height:25px;
+	width:136px;
+	text-align:center;
+	border:0px;
+	cursor:pointer;
+	display:block;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+/*subobjectiveContent end----------------*/
+
 /*Left end Here*/
 /*right start Here*/
 #content .right {
-float:right;
-width:260px;
-padding:20px 19px 20px 20px;
+	float:right;
+	width:260px;
+	padding:20px 19px 20px 20px;
 }
 /*right end Here*/
 /* Content CSS end */
@@ -693,7 +829,7 @@ padding:20px 19px 20px 20px;
 
 >>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
 #createProjecContent .heding{
-<<<<<<< HEAD
+
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
@@ -702,6 +838,11 @@ padding:20px 19px 20px 20px;
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
+<<<<<<< HEAD
+	font-size:24px;
+	color:#000000;
+	margin:30px 0 0px;
+=======
 =======
 font-size:24px;
 color:#000000;
@@ -718,11 +859,12 @@ margin:30px 0 0px;
 =======
 >>>>>>> c6447464926009b2b901d8e938d0c2fbc205d86d
 >>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
+>>>>>>> 1a2fbfcec32587fd45717eb8feca0926ba661c1c
 }
 .formWrapper{
-float:left;
-width:420px;
-margin-bottom:30px;
+	float:left;
+	width:420px;
+	margin-bottom:30px;
 }
 #createProjecContent h2{
 	font-size:14px;
@@ -748,10 +890,16 @@ margin-bottom:30px;
 	font-weight:bold;
 	color:#FFF;
 	text-shadow:0 1px #00aa00;
-	border:0px;
+	border:1px solid #00aa00;
 	border-radius: 5px 5px 5px 5px;
 	-webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+}
+.submitbg:hover{
+	background:url(../images/submitHoverBg.jpg) left top repeat-x;
+	height:33px;
+	text-shadow:0 1px #000000;
+	border:1px solid #000000;
 }
 
 /*Create Projec End----------*/
@@ -763,5 +911,5 @@ margin:35px 0 0;
 }
 /*Footer CSS end*/
 /*Other CSS start*/
-.marTop5{margin-top:5px}.marTop10{margin-top:10px}.marTop15{margin-top:15px}.marTop20{margin-top:20px}.marTop25{margin-top:25px}.marTop30{margin-top:30px}.marTop35{margin-top:35px}.marTop40{margin-top:40px}.marTop50{margin-top:50px}.marTop100{margin-top:100px}.marBot5{margin-bottom:5px}.marBot10{margin-bottom:10px}.marBot15{margin-bottom:15px}.marBot20{margin-bottom:20px}.marBot25{margin-bottom:25px}.marBot30{margin-bottom:30px}.marBot35{margin-bottom:35px}.marBot40{margin-bottom:40px}.marBot45{margin-bottom:45px}.marBot50{margin-bottom:50px}.bold{font-weight:bold}.normal{font-weight:normal}.red{color:#F00}.green{color:#008000}.black{color:#000}.white{color:#FFF}.rightSide{float:right}.leftSide{float:left}.underline{text-decoration:underline}
+.marTop5{margin-top:5px}.marTop10{margin-top:10px}.marTop15{margin-top:15px}.marTop20{margin-top:20px}.marTop25{margin-top:25px}.marTop30{margin-top:30px}.marTop35{margin-top:35px}.marTop40{margin-top:40px}.marTop50{margin-top:50px}.marTop100{margin-top:100px}.marBot5{margin-bottom:5px}.marBot10{margin-bottom:10px}.marBot15{margin-bottom:15px}.marBot20{margin-bottom:20px}.marBot25{margin-bottom:25px}.marBot30{margin-bottom:30px}.marBot35{margin-bottom:35px}.marBot40{margin-bottom:40px}.marBot45{margin-bottom:45px}.marBot50{margin-bottom:50px}.marLeft10{margin-left:10px}.bold{font-weight:bold}.normal{font-weight:normal}.red{color:#F00}.green{color:#008000}.black{color:#000}.white{color:#FFF}.rightSide{float:right}.leftSide{float:left}.underline{text-decoration:underline}
 /*Other CSS end*/
