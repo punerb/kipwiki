@@ -1,8 +1,7 @@
 class ProjectsController < ApplicationController
 
-  before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion]
+  before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display]
   layout "project_layout"
-
   def photos
   end
 
@@ -55,14 +54,17 @@ class ProjectsController < ApplicationController
     @project = Project.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html {render 'new' }# new.html.erb
       format.xml  { render :xml => @project }
     end
   end
 
   # GET /projects/1/edit
   def edit
+    @selection = "summary"
+    @selection = params[:action_type] unless params[:action_type].nil?
     @project = Project.find(params[:id])
+    render 'edit', :layout => 'admin'
   end
 
   # POST /projects
@@ -76,7 +78,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to(show_project_path(@project.city.parameterize, @project.slug), :notice => 'Project was successfully created.') }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "new", :layout => 'admin' }
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       end
     end
@@ -114,6 +116,7 @@ class ProjectsController < ApplicationController
     @suggestion = @project.suggestions.new(params[:suggestion])
     logger.info("=========")
     logger.info(current_user.inspect)
+    logger.info(session.inspect)
     @suggestion.user = current_user
     respond_to do |format|
       if @suggestion.save
@@ -122,6 +125,15 @@ class ProjectsController < ApplicationController
         format.js { render :json => { :success => false }}
       end
     end
+  end
+
+  def search
+    @project = Project.new
+  end
+
+  def display
+    @render_partial = params[:view]
+    render :layout => "admin"
   end
 
   private

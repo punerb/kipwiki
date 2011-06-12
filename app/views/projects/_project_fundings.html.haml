@@ -2,7 +2,7 @@
   .heading
     %h1 Funding
     %a{:href => "#"} Add new
-    = edit_link("fundings")
+    %a{:href => "#"} Edit
     .clr
   %ul.funding
     - @project.project_fundings.each do |fund|

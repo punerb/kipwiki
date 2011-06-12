@@ -1,6 +1,18 @@
-#createProjecContent
-  %h1.heading Edit Project
-  .borderBottom
-  = render 'form' , :button_text => "Update Project"
-
+#content
+  .right
+    = render "left_bar"
+  / div right end
+  / div left start
+  .left
+    = render "edit_#{@selection}"   
+  / div left End
+  .clr
+/ content end
+.clr
+/ footer Start
+#footer
+/ footer end
+.clr
+:javascript
+  var editor = new punymce.Editor({id : 'helo'});
 

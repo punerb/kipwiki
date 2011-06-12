@@ -1,6 +1,9 @@
-= javascript_include_tag "puny_mce"
 / createProjecContent start
 #createProjecContent
   %h1.heading Create Project
+  - @project.errors.full_messages.each do |msg|
+    .error
+      = msg
+    
   .borderBottom
   = render 'form' ,:button_text => "Create Project"

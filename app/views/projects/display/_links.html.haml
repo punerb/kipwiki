@@ -1,0 +1,21 @@
+.leftSide
+  .leftSide
+    %h1.heading Links
+  .leftSide
+    .suggestChanges
+      %a{:href => "#"} Edit
+.rightSide
+  .nextPage
+    = link_to "next", display_project_path(@project, {:view => "summary"})
+  .previousPage
+    = link_to "next", display_project_path(@project, {:view => "similar_projects"})
+.clr
+.borderBottom
+%p.marTop15
+%ul.black
+  - @project.links.each do |obj|
+    %li{:style => "display:list-item; list-style-type:disc;margin-left:20px;"}
+      %strong{:style => "font-size:13px; line-height:20px;"}
+        = obj.name
+        = link_to obj.url, obj.url
+        %br
