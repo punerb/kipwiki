@@ -6,7 +6,7 @@ class Project
   field :description, :type => String
   field :address, :type => String
   field :view_count, :type => Integer 
-  field :vote_count, :type => Integer
+  field :vote_count, :type => Integer #currently we're not using it since fb_like is implemented instead
   field :city, :type => String        # From Geocoder location
   field :state, :type => String
   field :country, :type => String     # From Geocoder location
@@ -27,7 +27,8 @@ class Project
   has_many :prints
   has_many :documents
   has_many :suggestions
-
+  has_many :activities
+  
   belongs_to :user
 
   validates :title, :description, :address, :presence => true
@@ -36,32 +37,58 @@ class Project
   field :coordinates, :type => Array  # For geolocation
   geocoded_by :address
   
-  after_validation { |project| 
-   location =   Geocoder.search(project.address).first 
-   if location
+  before_validation { |project| 
+   location = Geocoder.search(project.address).first 
+   if location and not (location.city.empty? or location.country.empty?)
      project.coordinates = location.coordinates
-     project.city = location.city.titleize
-     project.country = location.country.titleize
-     project.state = location.state.titleize
+     project.city = location.city.parameterize.titleize
+     project.country = location.country.parameterize.titleize
+     project.state = location.state.parameterize.titleize
+   else
+     self.errors[:address] = 'cannot be verified'
    end
   }
   
   before_create { |project|
    project.slug = project.title.parameterize
   }
-
+  
+  before_save {
+    if changed?
+      changes.each_pair { |k, v|
+        next if k.to_s == 'view_count'
+        Activity.create(:text => "#{k.to_s} was changed.", :user => user.id)
+      }
+    end
+  }
+  
   def project_completion
     # works by adding up weighted scores for the presence of content in a number of select fields
     # since there are compulsory_fields title, description, location, we never start with 0% :-p
-    completion_value = (100*rand).round
-=begin
-    if image
-    project_type
-    project_status : weight: 60%
-    project_objectives
-    project_stakeholders
-    project_funding
-=end
+    # at times, or in the future, a category might not exist, which is why we architected this code with total and cumulative_value, instead of a straightforward 1 dimensional number
+    # ToDo: this code is a bit redundant...
+    # the weighting can be changed by just changing the numbers
+    completion_parameters_and_weightages = [
+      {:status => 10},
+      {:categories => 10},
+      {:project_fundings => 10},
+      {:stakeholders => 10},
+      {:project_objectives => 20},
+      {:prints => 20},
+      {:documents => 10},
+      {:links => 5}
+    ]
+    #initial value
+    completion_scores = {:cumulative_value => 10, :total => 10}
+
+    completion_parameters_and_weightages.each do |config|
+      unless self.send(config.keys.first).nil?
+        completion_scores[:total] += config.values.first
+        completion_scores[:cumulative_value] += config.values.first unless self.send(config.keys.first).empty?
+      end
+    end
+
+    completion_score = (100   * completion_scores[:cumulative_value].to_f / completion_scores[:total].to_f).round
   end
  
   MIN_SIMILARITY_THRESHOLD = 0.2 

@@ -1,0 +1,15 @@
+.leftSide
+  .leftSide
+    %h1.heading Summary
+  .leftSide
+    .suggestChanges
+      %a{:href => "#"} Suggest Changes
+.rightSide
+  .nextPage
+    = link_to "next", display_project_path(@project, {:view => "objectives"})
+  .previousPage
+    = link_to "next", display_project_path(@project, {:view => "links"})
+.clr
+.borderBottom
+%p.marTop15
+  = @project.description

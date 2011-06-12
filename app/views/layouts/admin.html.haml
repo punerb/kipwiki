@@ -1,0 +1,41 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title Summary
+  = stylesheet_link_tag "colorbox", "slider", "projects" , "global", "project_edit"
+  = javascript_include_tag "jquery", "colorbox", "easySlider1.7", "application"# "javascript"#, "punymce/puny_mce"
+  %body
+    #wrapper
+      / header start
+      #header
+        .headerContent
+          .logo
+            %a{:href => "#"} kipWiki
+          .navigation
+            %ul.main
+              %li.selected
+                = link_to "Projects", projects_path
+              %li
+                %a{:href => "#"} Notifications
+              %li
+                = link_to "Create Project", new_project_path
+            %ul.subMenu
+              %li
+                %a{:href => "#"} About
+              %li
+                %a{:href => "#"} Profile
+              %li
+                %a{:href => "#"} Help & Feedback
+              %li
+                - if user_signed_in?
+                  = link_to "Logout", destroy_user_session_path
+                - else
+                  = link_to "Signup/Login", authentications_path
+
+            .clr
+        .clr
+      / Header End here
+      .clr
+      / content start
+      = yield 

@@ -92,7 +92,6 @@ margin-bottom:15px;
 	font-weight:normal;
 	margin:10px 0 0 0px;
 }
-
 #wrapper .borderBottom {
 padding-bottom:10px;
 border-bottom:1px solid #dddddd;
@@ -197,23 +196,6 @@ display:block;
 .navigation ul.subMenu li a:hover, .navigation ul.subMenu li.selected a {
 color:#000;
 }
-.navigation a.sign_up {
-	background:url(../images/submitBg.jpg) left top repeat-x;
-	height:33px;
-	border:1px solid #00aa00;
-	border-radius: 5px 5px 5px 5px;
-	padding:0 10px;
-	font-size:16px;
-	font-weight:bold;
-	line-height:33px;
-	color:#FFF;
-	float:right;
-	text-shadow:0 1px #00aa00;
-	margin-top:8px;
-	cursor:pointer;
-}
-
-/*header part End*/
 /* Content CSS start */
 #content {
 background:#FFF;
@@ -331,10 +313,7 @@ color:#444444;
 float:left;
 }
 #content .voteWrapper {
-/* background:url(../images/voteIcon.png) center left no-repeat; */
-/* this is because we removed the heart icon and replaced it with the fb like */
-padding-right: 30px;
-margin-left: 0 !important;
+background:url(../images/voteIcon.png) center left no-repeat;
 padding-left:30px;
 font-size:12px;
 font-weight:normal;
@@ -349,33 +328,13 @@ float:right;
 margin-left:30px;
 }
 #content .loaderWrapper {
-width:360px;
+width:370px;
 margin-bottom:20px;
 }
-
 #content .loaderWrapper .loader {
-    background: none repeat scroll 0 0 #EEEEEE;
-    border: 1px solid #CCCCCC;
-    border-radius: 5px;
-    height: 23px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-#content .loaderWrapper #progressBar{
-    height: 100%;
-    border-radius: 5px;
-    background: url(/images/loadingImage.jpg) repeat-x;
-}
-
-.loader .loading {
-	background:url(../images/lodingImage.jpg) top left repeat-x;
-	border:1px solid #00aa00;
-	border-radius: 5px 0 0 5px ;
-	height:23px;
-	width:50px;
-	float:left;
-
+height:25px;
+width:370px;
+margin-bottom:10px;
 }
 #content .loaderWrapper .text {
 font-size:14px;
@@ -536,17 +495,12 @@ min-height:550px;
 }
 #content .left .mainHeading {
 background:url(../images/bigStar.png) left top no-repeat;
-background-position:0 0;
 padding-left:50px;
 height:30px;
 margin-bottom:20px;
 font-size:24px;
 color:#00aa00;
 line-height:30px;
-}
-#content .left .off {
-background:url(../images/bigStar.png) left top no-repeat;
-background-position:0 -40px;
 }
 /*listTypeLink Start*/
 /*left menu start*/
@@ -626,7 +580,7 @@ background:url(../images/downArow.jpg)center left no-repeat;
 #content ul.listLinks li a:hover {
 	background:url(../images/listLinkIconHover.png) right center no-repeat;
 	background-position:right ;
-
+	
 }
 #content .left .wrapperLeft {
 float:left;
@@ -637,18 +591,6 @@ margin-right:20px;
 float:right;
 width:370px;
 margin:0;
-}
-
-.imageWrapper {
-	width:258px;
-	height:193px;
-	border:1px solid #ddd;
-	margin-right:20px;
-	float:left;
-}
-.imageWrapper img {
-	max-height:193px;
-	max-width:258px;
 }
 /*left menu start-------------*/
 ul.leftNavigation {
@@ -673,35 +615,25 @@ ul.leftNavigation ul {
 }
 ul.leftNavigation a {
   display: block;
-  text-decoration: none;
-  font-weight:bold;
+  text-decoration: none;	
 }
 
 ul.leftNavigation li a {
 background:url(../images/arowRight.jpg) no-repeat 0px 8px;
   padding:0 10px;
-  font-weight:bold;
 }
 
 ul.leftNavigation li.main a {
-	font-weight:bold;
-
 
 }
 ul.leftNavigation li.main a:hover, a.selected {
 	color:#000;
-	font-weight:bold;
-	background:url(../images/selectedArow.jpg) no-repeat 0px 8px;
-	margin:0 0 0 0px !important;
 
 }
 ul.leftNavigation li.main a.on {
 	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
 }
-ul.leftNavigation li a:hover, a.selected {
-	background:url(../images/selectedArow.jpg) no-repeat 0px 8px;
-	margin:0 0 0 0px;
-
+ul.leftNavigation li a:hover {
 
 }
 ul.leftNavigation li ul.leftSub li{
@@ -714,17 +646,14 @@ ul.leftNavigation li ul.leftSub a {
 	margin:0 0 0 20px;
 	font-weight:bold;
 	}
-ul.leftNavigation li ul.leftSub a:hover, ul.leftNavigation li ul.leftSub a.selected {
-	background:url(../images/selectedArow.jpg) no-repeat 0px 8px;
-	padding-left:15px ;
+ul.leftNavigation li ul.leftSub a:hover {
+	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+	padding-left:15px;
 	padding-right:0px;
-	margin:0 0 0 20px !important;
-	font-weight:bold;
-	}
-ul.leftNavigation li ul li a:hover, a.selected {
-	background:url(../images/selectedArow.jpg) no-repeat 0px 8px !important;
-	font-weight:bold;
 	margin:0 0 0 20px;
+	}
+ul.leftNavigation li ul li a:hover {
+	background:url(../images/arowRight.jpg) no-repeat left center;
 
 }
 .eidtArow{
@@ -769,7 +698,7 @@ ul.rightNavigation li {
 	color:#000000;
 	display:block;
 	line-height:30px;
-
+	
 	cursor:pointer;
 }
 ul.rightNavigation li.borderNone {
@@ -783,7 +712,7 @@ ul.rightNavigation ul {
 }
 ul.rightNavigation a {
   display: block;
-  text-decoration: none;
+  text-decoration: none;	
   color:#000000;
 }
 
@@ -809,7 +738,7 @@ ul.rightNavigation li a:hover {
 }
 ul.rightNavigation li ul.rigtSub li{
 	background:none;
-
+		
 }
 ul.rightNavigation li ul.rigtSub a {
 	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
@@ -844,90 +773,13 @@ ul.rightNavigation li ul li a:hover {
 }
 
 /*Right menu  end*/
-
-/*Objectives menu start-------------*/
-ul.objectivesNavigation {
-	padding-bottom:5px;
-}
-ul.objectivesNavigation li {
-	font-size:12px;
-	font-weight:normal;
-	color:#000000;
-	display:block;
-	line-height:30px;
-
-	cursor:pointer;
-}
-ul.objectivesNavigation li.borderNone {
-	border-bottom:0px;
-}
-ul.objectivesNavigation li li {
-	float:none;
-}
-ul.objectivesNavigation ul {
-	height:auto;
-}
-ul.objectivesNavigation a {
-  display: block;
-  text-decoration: none;
-  color:#000000;
-}
-
-ul.objectivesNavigation li a {
-background:url(../images/arowRight.jpg) no-repeat 0px 8px;
-  padding:0 10px;
-}
-
-ul.objectivesNavigation li.main a {
-	color:#000000;
-
-}
-ul.objectivesNavigation li.main a:hover {
-	color:#00AA00;
-
-}
-ul.objectivesNavigation li.main a.on {
-	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
-}
-ul.objectivesNavigation li a:hover {
-	color:#00AA00;
-
-}
-ul.objectivesNavigation li ul.objectivesSub li{
-	background:none;
-
-}
-ul.objectivesNavigation li ul.objectivesSub a {
-	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
-	padding-left:15px;
-	padding-right:0px;
-	margin:0 0 0 20px;
-	font-weight:normal;
-	color:#000000;
-	}
-ul.objectivesNavigation li ul.objectivesSub a:hover {
-	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
-	padding-left:15px;
-	padding-right:0px;
-	margin:0 0 0 20px;
-	font-weight:normal;
-	color:#00AA00;
-	}
-ul.objectivesNavigation li ul li a:hover {
-	background:url(../images/arowRight.jpg) no-repeat left center;
-
-}
-
-
-/*Objectives menu  end*/
-
 /*subobjectiveContent----------------*/
 .subobjectiveContent{
 	background:#f0f0ee;
 	border:1px solid #dddddd;
 	width:590px;
 	padding:10px 20px;
-	margin:0 0 20px 20px;
+	margin:0 0 20px 20px;	
 }
 .subobjectiveContent span{
 	color:#444444;
@@ -950,74 +802,6 @@ ul.objectivesNavigation li ul li a:hover {
     -moz-border-radius: 5px;
 }
 /*subobjectiveContent end----------------*/
-.suggestChanges{
-	padding:20px 0 0 10px;
-}
-.suggestChanges a{
-}
-.nextPage{
-	float:right;
-	margin:20px 0px 0 0;
-}
-.nextPage a{
-	background:url(../images/nextPageBg.png) no-repeat;
-	width:11px;
-	height:16px;
-	text-indent:-5000px;
-	float:right;
-}
-.previousPage{
-	float:left;
-	margin:20px 0px 0 0;
-}
-.previousPage a{
-	background:url(../images/previousPageBg.png) no-repeat;
-	width:11px;
-	height:16px;
-	text-indent:-5000px;
-	float:left;
-	margin:0 20px 0 0;
-}
-.headingContent{
-	width:990px;
-	margin:0px auto;
-
-}
-.headingContent .textContent{
-	float:left;
-	width:500px;
-	padding:20px 0;
-}
-.mainTitle{
-	background:url(../images/bigStar.png) left top no-repeat;
-	padding-left:50px;
-	height:30px;
-	font-size:24px;
-	color:#00aa00;
-	line-height:30px;
-	display:block;
-}
-.subTitle{
-	font-size:14px;
-	color:#000000;
-	display:block;
-	padding-left:50px;
-}
-
-.headingContent .imgContent{
-	float:right;
-	width:400px;
-	padding:20px 0;
-}
-.imgContent ul{
-	float:right;
-	padding-right:20px;
-}
- .imgContent ul li{
-	 display:inline;
-	 float:left;
-	 padding:0 5px 0 0;
- }
 
 /*Left end Here*/
 /*right start Here*/
@@ -1034,16 +818,16 @@ ul.objectivesNavigation li ul li a:hover {
 	border:1px solid #dddddd;
 	width:592px;
 	margin:0 auto;
-	padding:19px;
+	padding:0 19px;
 	min-height:550px;
 	border-radius: 5px 5px 5px 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 }
 <<<<<<< HEAD
-
 =======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
+
+>>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
 #createProjecContent .heding{
 
 	font-size:24px;
@@ -1058,19 +842,25 @@ ul.objectivesNavigation li ul li a:hover {
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
-
+=======
+=======
 font-size:24px;
 color:#000000;
 margin:30px 0 0px;
-
-=======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
-}
-
+<<<<<<< HEAD
 <<<<<<< HEAD
 }
+#createProjecContent .heading{
+	font-size:24px;
+	color:#000000;
+	margin:30px 0 0px;
+
 =======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
+=======
+>>>>>>> c6447464926009b2b901d8e938d0c2fbc205d86d
+>>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
+>>>>>>> 1a2fbfcec32587fd45717eb8feca0926ba661c1c
+}
 .formWrapper{
 	float:left;
 	width:420px;
@@ -1111,55 +901,8 @@ margin:30px 0 0px;
 	text-shadow:0 1px #000000;
 	border:1px solid #000000;
 }
-.location_map {
-	width:648px;
-	height:248px;
-	border:1px solid #ddd;
-	margin-bottom:10px;
-}
-/*Create Projec End----------*/
-/*Location*/
-#editLocation {
-	background:#FFF;
-	border:1px solid #dddddd;
-	width:650px;
-	margin:0 auto;
-	padding:19px;
-	min-height:550px;
-	border-radius: 5px 5px 5px 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-}
-#editLocation .textWrapper {
-	margin-bottom:20px;
-}
-#editLocation input.field {
-	width:630px;
-	color:#000;
-	border-radius: 5px 5px 5px 5px;
-}
-.buttonWrapper {
-	height:30px;
-	line-height:30px;
-	float:left;
-	margin-bottom:30px;
-}
-.buttonWrapper .submitbg {
-	float:left;
-	margin-right:20px;
-}
-.buttonWrapper a {
-	font-size:14px;
-	font-weight:bold;
-	color:#000;
-	float:left;
-	padding-top:12px;
-}
-.buttonWrapper a:hover {
-	color:#00AA00;
-}
-/*Location*/
 
+/*Create Projec End----------*/
 /*Footer Start Here*/
 #footer {
 width:990px;
@@ -1170,55 +913,3 @@ margin:35px 0 0;
 /*Other CSS start*/
 .marTop5{margin-top:5px}.marTop10{margin-top:10px}.marTop15{margin-top:15px}.marTop20{margin-top:20px}.marTop25{margin-top:25px}.marTop30{margin-top:30px}.marTop35{margin-top:35px}.marTop40{margin-top:40px}.marTop50{margin-top:50px}.marTop100{margin-top:100px}.marBot5{margin-bottom:5px}.marBot10{margin-bottom:10px}.marBot15{margin-bottom:15px}.marBot20{margin-bottom:20px}.marBot25{margin-bottom:25px}.marBot30{margin-bottom:30px}.marBot35{margin-bottom:35px}.marBot40{margin-bottom:40px}.marBot45{margin-bottom:45px}.marBot50{margin-bottom:50px}.marLeft10{margin-left:10px}.bold{font-weight:bold}.normal{font-weight:normal}.red{color:#F00}.green{color:#008000}.black{color:#000}.white{color:#FFF}.rightSide{float:right}.leftSide{float:left}.underline{text-decoration:underline}
 /*Other CSS end*/
-
-.lightBox {
-    width:373px;
-    min-height:222px;
-    padding:18px;
-    background:#FFF;
-}
-.lightBox h1 {
-    height:20px;
-    font-size:18px;
-    color:#444444;
-    font-weight:normal;
-    line-height:20px;
-    padding-bottom:10px;
-    margin-bottom:10px;
-    border-bottom:1px solid #ddd;
-}
-.textarea {
-    background:url(../images/inputBG.jpg) top repeat-x;
-    border:1px solid #ddd;
-    padding:10px;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:12px;
-    color:#bbbbbb;
-    line-height:16px;
-    font-weight:normal;
-    width:348px;
-    height:113px;
-    margin-bottom:10px;
-}
-.buttonWrapper {
-    height:30px;
-    line-height:30px;
-    margin-bottom:30px;
-}
-.lightBox input.submitbg {
-    margin-right:20px;
-    float:left;
-}
-.lightBox a {
-    font-size:14px;
-    font-weight:bold;
-    color:#000;
-    float:left;
-    padding-top:12px;
-}
-.lightBox a:hover {
-    color:#00AA00;
-}
-#cboxClose{
-    background:none !important;
-}
