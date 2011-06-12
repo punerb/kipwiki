@@ -14,11 +14,10 @@ Kipwiki::Application.routes.draw do
 
   resources :project_types
 
-  resources :projects, :except => [:show, :edit] do
+  resources :projects, :except => [:show, :edit, :display] do
     resources :project_objectives
     member do
       post :add_suggestion
-      get :display
     end
     resources :stakeholders
     resources :project_fundings
@@ -34,12 +33,14 @@ Kipwiki::Application.routes.draw do
   
   match ':city/project/:id' => 'projects#show', :as => 'show_project'
   match ':city/project/:id/edit' => 'projects#edit', :as => 'edit_project'
+  match ':city/project/:id/display' => 'projects#display', :as => 'edit_project'
 #  match '/user/:id' => 'devise/users#show', :as => 'show_user'
 
   match "/auth/:provider/callback" => "authentications#create"
   match "/auth/failure" => "authentications#failure"
   
   match 'project/:id/edit/:action_type' => 'projects#edit', :as => 'edit_project_by_action_type'
+  match 'project/:id/display/:action_type' => 'projects#display', :as => 'display_project_by_action_type'
 
   root :to => "home#index"
   # The priority is based upon order of creation:

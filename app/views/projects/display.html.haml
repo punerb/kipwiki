@@ -1,34 +1,35 @@
 #content
   / div right start
   .right
-    %h1.heading Add/Edit Contents
-    .borderBottom
-    %h1.marTop20 Contents
-    %ul.leftNavigation
-      %li.main
-        = link_to "Project Outline" , "#"
-        %ul.leftSub
-          %li
-            = link_to "Summary", display_project_path(@project, {:view => "summary"}), :class => "eidtArow"
-          %li
-            = link_to "Objectives", display_project_path(@project, {:view => "objectives"}), :class => "okArow"
-          %li
-            = link_to "Key stakeholders" , display_project_path(@project, {:view => "key_stakeholders"})
-      %li
-        = link_to "Funding", display_project_path(@project, {:view => "funding"})
-      %li
-        = link_to "Similar Projects", display_project_path(@project, {:view => "similar_projects"})
-      %li
-        = link_to "Links", display_project_path(@project, {:view => "links"})
-      -#%li
-      -#  = link_to "Comments", display_project_path(@project, {:view => "comments"})
-    .addContent
-      = link_to "Add new content page:", "#"
-    .borderBottom
+    = render "left_bar"
+    -#%h1.heading Add/Edit Contents
+    -#.borderBottom
+    -#%h1.marTop20 Contents
+    -#-#%ul.leftNavigation
+    -#-#  %li.main
+    -#-#    = link_to "Project Outline" , "#"
+    -#-#    %ul.leftSub
+    -#-#      %li
+    -#-#        = link_to "Summary", display_project_by_action_type(@project, "summary"), :class => "eidtArow"
+    -#-#      %li
+    -#-#        = link_to "Objectives", display_project_path(@project, {:view => "objectives"}), :class => "okArow"
+    -#-#      %li
+    -#-#        = link_to "Key stakeholders" , display_project_path(@project, {:view => "key_stakeholders"})
+    -#-#  %li
+    -#-#    = link_to "Funding", display_project_path(@project, {:view => "funding"})
+    -#-#  %li
+    -#-#    = link_to "Similar Projects", display_project_path(@project, {:view => "similar_projects"})
+    -#-#  %li
+    -#-#    = link_to "Links", display_project_path(@project, {:view => "links"})
+    -#-#  -#%li
+    -#-#  -#  = link_to "Comments", display_project_path(@project, {:view => "comments"})
+    -#.addContent
+    -#  = link_to "Add new content page:", "#"
+    -#.borderBottom
   / div right end
   / div left start
   .left
-    = render :partial => "projects/display/#{@render_partial}"
+    = render :partial => "projects/display/#{@selection}"
   / div left End
   .clr
 / content end
