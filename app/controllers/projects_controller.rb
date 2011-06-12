@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
 
   before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion]
   layout "project_layout"
-
   def photos
   end
 
@@ -55,7 +54,7 @@ class ProjectsController < ApplicationController
     @project = Project.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html {render 'new', :layout => 'admin' }# new.html.erb
       format.xml  { render :xml => @project }
     end
   end
@@ -63,6 +62,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    render 'edit', :layout => 'admin'
   end
 
   # POST /projects
@@ -123,6 +123,10 @@ class ProjectsController < ApplicationController
         format.js { render :json => { :success => false }}
       end
     end
+  end
+
+  def search
+    @project = Project.new
   end
 
   private
