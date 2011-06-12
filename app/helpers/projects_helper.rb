@@ -11,4 +11,5 @@ module ProjectsHelper
       link_to "Suggest", authentications_path, :name => field_type
     end
   end
+
 end

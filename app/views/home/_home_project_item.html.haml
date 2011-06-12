@@ -1,12 +1,12 @@
 %li{:class => margin_class}
   .heading
-    = link_to project.title.truncate(40), show_project_path(project.city.parameterize, project.slug)
+    = link_to project.title.truncate(50), show_project_path(project.city.parameterize, project.slug)
   .imageWrapper
     %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
   .voteViewMurge
     .viewWrapper
-      = project.view_count
-      Views
+      = project.view_count || 0
+      View 
     .clr
   .clr
   .textWrapper
@@ -19,4 +19,4 @@
       Summary
     .clr
     = project.description.truncate(160).gsub(/<.*>/, "")
-    = link_to "more", show_project_path(project.city.parameterize, project.slug)
+    %a{:href => show_project_path(project.city, project.slug)} more

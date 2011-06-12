@@ -3,22 +3,36 @@
     #map_home_canvas
       :javascript
         jQuery(document).ready(function() {
+          var coordinates = #{@coordinates.to_json};
+          var center_cord = #{@center_coords.to_json};
           var myOptions = {
             zoom: 12,
-            #{'center: new google.maps.LatLng(' + "18.31" + ', ' + "73.55" + '),'}
+            center: new google.maps.LatLng(center_cord[0], center_cord[1]),
             mapTypeId: google.maps.MapTypeId.ROADMAP
           }
           var map = new google.maps.Map(document.getElementById("map_home_canvas"), myOptions);
-          var marker = new google.maps.Marker({
-            #{'position: new google.maps.LatLng(' + "18.31" + ', ' + "73.55" + '),'}
-            map: map,
-            #{'title: "' + CGI.escapeHTML("adasdd d asd ad") + '"'}
-          });
+           var infoWindow = new google.maps.InfoWindow;
+           $.each(coordinates, function(i, cord) {
+             var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(cord[0], cord[1]),
+                map: map,
+                title: cord[2]});
+
+             google.maps.event.addListener(marker, 'click', function(e) {
+                  infoWindow.setContent(this.title);
+                  infoWindow.open(map, this);
+             });
+
+           });
         });
-    = render 'shared/search'
-    .clr
+    .searchWrapper
+      = javascript_include_tag 'search'
+      = form_tag(project_search_path) do
+        = text_field_tag 'location', 'Search', :class => 'field', :id => 'search_location'
+        = submit_tag nil, :class => 'searchBtn'
+      .clr
   .title
     .text
       Improving local communities one project at a time
     .btn
-      = link_to "Create Project" ,new_project_path ,:class => "sign_up" 
+      %a.sign_up{:href => new_project_path} Create Project
