@@ -1,5 +1,5 @@
 .mainHeading
-  = project.title
+  = link_to project.title, show_project_path(project.city, project.slug)
 .clr
 .murgeWrapper
   .wrapperLeft
@@ -24,7 +24,6 @@
     .textWrapper
       .heading
         %h1 Summary
-        %a{:href => "#{edit_project_path(project.city, project.slug)}"} Edit
         .clr
       %p
         = project.description

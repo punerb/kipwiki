@@ -1,5 +1,8 @@
 class ProjectsController < ApplicationController
   before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display, :show, :edit]
+  before_filter :authenticate_user!, :only => [:create, :edit, :new, :update, :destroy] 
+  before_filter :owner_required!, :only => [:edit, :update, :destroy] 
+  
   layout "project_layout"
   def photos
   end
@@ -39,7 +42,7 @@ class ProjectsController < ApplicationController
   def show
     #this is some ugly ass code - but just temporary - until the view_count are initialized to 0
     @project.view_count.nil? ? @project.view_count = 0 : @project.view_count += 1
-    @project.save!
+    @project.inc(:view_count, 1)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
@@ -68,8 +71,8 @@ class ProjectsController < ApplicationController
   # POST /projects.xml
   def create
     @project = Project.new(params[:project])
-    #Temporarily adding first user for project 
-    #@project.user = User.first if User.first
+    @project.user = current_user
+
     respond_to do |format|
       if @project.save
         format.html { redirect_to(show_project_path(@project.city.parameterize, @project.slug), :notice => 'Project was successfully created.') }
@@ -166,6 +169,13 @@ class ProjectsController < ApplicationController
     unless @project
       flash[:notice] = 'Invalid URL!!!'
       redirect_to request.referrer || projects_url
+    end
+  end
+  
+  def owner_required!
+    unless @project.user == current_user
+      flash[:error] = 'Unauthorized access.'
+      redirect_to root_path
     end
   end
 end

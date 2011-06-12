@@ -12,7 +12,7 @@ class Project
   field :country, :type => String     # From Geocoder location
   field :zip_code, :type => String     # From Geocoder location
   field :categories, :type => Array
-  field :status, :type => String
+  field :status, :type => String  
   field :govt_status, :type => String
   field :tags, :type => Array
   field :slug, :type => String
@@ -61,7 +61,10 @@ class Project
     if changed?
       changes.each_pair { |k, v|
         next if k.to_s == 'view_count'
-        Activity.create(:text => "#{k.humanize} was changed.", :user => user['_id'])
+        begin
+          Activity.create(:text => "#{k.humanize} was changed.", :user => user['_id'])
+        rescue Exception => err
+        end
       }
     end
   }
