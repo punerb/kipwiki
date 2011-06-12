@@ -45,10 +45,10 @@ class StakeholdersController < ApplicationController
     @project.stakeholders << @stakeholder 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to(edit_project_path(@project), :notice => 'Stakeholder was successfully created.') }
+        format.html { redirect_to(edit_project_by_action_type_path(@project, "stakeholder"), :notice => 'Stakeholder was successfully created.') }
         format.xml  { render :xml => @stakeholder, :status => :created, :location => @stakeholder }
       else
-        format.html { redirect_to(edit_project_path(@project), :notice => "error while saving stakeholder") }
+        format.html { redirect_to(edit_project_by_action_type_path(@project, "stakeholder"), :notice => "error while saving stakeholder") }
         format.xml  { render :xml => @stakeholder.errors, :status => :unprocessable_entity }
       end
     end
