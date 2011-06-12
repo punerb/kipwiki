@@ -1,5 +1,6 @@
-%h1 Editing project
-= render 'form'
-= link_to 'Show', @project
-|
-\#{link_to 'Back', projects_path}
+#createProjecContent
+  %h1.heading Edit Project
+  .borderBottom
+  = render 'form' , :button_text => "Update Project"
+
+
