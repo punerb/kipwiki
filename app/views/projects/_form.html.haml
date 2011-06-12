@@ -9,7 +9,7 @@
     %h2 Summary
     %p Describe the reason for the project. It might be a problem to be solved or an opportunity for something new
     .content1
-      = f.text_area(:description, :style => "width:320px;height:70px") 
+      #textarea= f.text_area(:description, :style => "width:320px;height:70px") 
       = f.submit(button_text, :class => "submitBg")
   .clr
 / createProjecContent end
@@ -19,4 +19,4 @@
 / footer end
 .clr
 :javascript
-  var editor1 = new punymce.Editor({id : 'content1', editor_css : ''});
+  var editor1 = new punymce.Editor({id : 'textarea', editor_css : ''});

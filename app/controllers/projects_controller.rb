@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects.xml
 
   layout "project_layout"
-
+  layout "admin", :only => [:edit]
   def photos
   end
 
