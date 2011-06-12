@@ -30,7 +30,7 @@ user = User.create({:first_name =>"Methun",:last_name => ":Chakraborty", :city =
     :project_fundings =>rand(6).times.map{{:name => Faker::Lorem.words(3).join(" "), :amount => 5000-rand(2000).to_i, :currency => "$" }},
     :project_objectives => rand(5).times.map{{:name => Faker::Lorem.words(2).join(" ")}},
     :stakeholders => rand(5).times.map{{:name => Faker::Name.name, :url => Faker::Internet.domain_name }},
-    :user => User.last
+    :user => User.first
   })
   puts "Added Project #{n}"
   puts "Error adding project : #{projects.errors}" if projects.errors.present?

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion]
+  before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display]
   layout "project_layout"
   def photos
   end
@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
     @project = Project.new
 
     respond_to do |format|
-      format.html {render 'new', :layout => 'admin' }# new.html.erb
+      format.html {render 'new' }# new.html.erb
       format.xml  { render :xml => @project }
     end
   end
@@ -128,6 +128,11 @@ class ProjectsController < ApplicationController
 
   def search
     @project = Project.new
+  end
+
+  def display
+    @render_partial = params[:view]
+    render :layout => "admin"
   end
 
   private
