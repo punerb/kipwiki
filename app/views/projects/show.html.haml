@@ -99,6 +99,13 @@
         , 9 Jun 2011
     = render "project_objectives"
   .clr
+  #project_comments
+    %h1 Comments
+    :javascript
+      var fyre = LF({
+        site_id: 285879,
+        version: '1.0'
+      });
 .clr
 
 = content_for :sidebar do
