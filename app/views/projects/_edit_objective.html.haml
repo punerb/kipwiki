@@ -1,0 +1,21 @@
+%form{:action => "#", :method => "post"}
+  .subobjectiveContent
+    %span Enter sub objective
+    .leftSide
+      .leftSide
+        %input.field.subobjective{:name => "", :type => "text", :value => "Sub Objective"}/
+      .rightSide
+        %select.selectWidth
+          %option Priority
+    .leftSide
+      %input.subObjective{:type => "button", :value => "Add sub objective"}/
+    .leftSide.marLeft10 I am done
+    .clr
+%form{:action => "#", :method => "post"}
+  .leftSide
+    %input.field.objective{:name => "", :type => "text", :value => "Objective"}/
+  .rightSide
+    %select.selectWidth
+      %option Priority
+  %input.submitbg{:type => "button", :value => "Add objective"}/
+
