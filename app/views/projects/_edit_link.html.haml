@@ -1,0 +1,24 @@
+%h1.heading Links 
+.borderBottom
+%p Enter external links here, keep the most relevant near the top as only the first few will be displayed to the average user
+%ul.rightNavigation
+  - @project.links.each do |sh|
+    %li
+      = "#{sh.name}, #{sh.url}"
+- project_link = Link.new
+= form_for project_link, :url => project_links_path(@project,project_link) do |f|
+  .leftSide
+    = f.text_field(:name ,:class => "stakeholder", :placeholder => "Link")
+    %br/
+    %br/
+    = f.text_field(:url ,:class => "stakeholder", :placeholder => "URL")
+    %br/
+    = f.submit(:class => "submitbg", :value => "Add Link")
+  / div left End
+.clr
+/ content end
+.clr
+/ footer Start
+#footer
+/ footer end
+.clr
