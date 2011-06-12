@@ -1,6 +1,6 @@
 class Project
   include Mongoid::Document
-  extend Mongoid::Geo::Near
+  include Geocoder::Model::Mongoid
 
   field :title, :type => String
   field :description, :type => String
@@ -35,7 +35,7 @@ class Project
   validates_associated :user
 
   field :coordinates, :type => Array  # For geolocation
-  geo_index :coordinates
+  geocoded_by :address
   
   before_validation { |project| 
    location = Geocoder.search(project.address).first 
