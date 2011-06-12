@@ -352,6 +352,9 @@ input.stakeholder{
 	width:630px;
 	padding:6px 10px;
 }
+input.signpFiled{
+	width:310px;
+}
 select.selectWidth{
 	 height: 34px;
     width: 118px;
@@ -841,8 +844,6 @@ background:url(../images/arowRight.jpg) no-repeat 0px 8px;
 
 ul.leftNavigation li.main a {
 	font-weight:bold;
-	
-
 }
 ul.leftNavigation li.main a:hover, a.selected {
 	color:#000;
@@ -857,8 +858,6 @@ ul.leftNavigation li.main a.on {
 ul.leftNavigation li a:hover, a.selected {
 	background:url(../images/selectedArow.jpg) no-repeat 0px 8px;
 	margin:0 0 0 0px;
-	
-
 }
 ul.leftNavigation li ul.leftSub li{
 	background:none;
@@ -881,7 +880,6 @@ ul.leftNavigation li ul li a:hover, a.selected {
 	background:url(../images/selectedArow.jpg) no-repeat 0px 8px !important;
 	font-weight:bold;
 	margin:0 0 0 20px;
-
 }
 .eidtArow{
 	background:url(../images/eidtArow.jpg) no-repeat left center !important;
@@ -1071,9 +1069,7 @@ ul.objectivesNavigation li ul.objectivesSub a:hover {
 	}
 ul.objectivesNavigation li ul li a:hover {
 	background:url(../images/arowRight.jpg) no-repeat left center;
-
 }
-
 
 /*Objectives menu  end*/
 
@@ -1196,10 +1192,7 @@ ul.objectivesNavigation li ul li a:hover {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
 #createProjecContent .heding{
 
 	font-size:24px;
@@ -1210,23 +1203,15 @@ ul.objectivesNavigation li ul li a:hover {
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
-<<<<<<< HEAD
+	font-size:24px;
+	color:#000000;
+	margin:30px 0 0px;
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
 
-font-size:24px;
-color:#000000;
-margin:30px 0 0px;
-
-=======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
 }
 
-<<<<<<< HEAD
-}
-=======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
 .formWrapper{
 	float:left;
 	width:420px;
@@ -1315,7 +1300,54 @@ margin:30px 0 0px;
 	color:#00AA00;
 }
 /*Location*/
-
+/*signupContent start*/
+.signupContent{
+	background:#eeeeee;
+	border:1px solid #c6c6c6;
+	width:390px;
+	margin:60px auto;
+	padding:20px 30px 30px;
+	border-radius: 5px 5px 5px 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+}
+.signupContent .signupLogo{
+	background:url(../images/signupLogo.png) no-repeat;
+	width:150px;
+	height:50px;
+	float:left;
+	margin-bottom:10px;
+}
+.signupContent .loginText{
+	font-size:18px;
+	color:#000000;
+	font-weight:normal;
+	padding: 20px 0 0 10px;
+	float:left;
+}
+.signupContent .signupBorder{
+	background:url(../images/signupBottomBorder.jpg) repeat-x;
+	padding:5px 0 0 0;
+}
+.signupFieldWrapper{
+	margin:0;
+	color:#444444;
+}
+.signupFieldWrapper label{
+	width:240px;
+	font-size:14px;
+	color:#444444;
+	font-weight:bold;
+	float:left;
+	margin:15px 0 10px;
+}
+.signupFieldWrapper span{
+	color:#00aa00;
+	float:left;
+	margin:15px 0 10px;
+}
+	
+/*signupContent end----------*/
 /*Footer Start Here*/
 #footer {
 width:990px;

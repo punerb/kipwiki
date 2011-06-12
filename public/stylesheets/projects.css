@@ -1222,3 +1222,13 @@ margin:35px 0 0;
 #cboxClose{
     background:none !important;
 }
+#project_comments{
+    margin-top: 20px;
+}
+#project_comments h1{
+    margin: 0;
+}
+
+#project_comments #livefyre{
+    margin: 0;
+}
