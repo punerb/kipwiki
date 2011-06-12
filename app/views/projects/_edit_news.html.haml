@@ -1,0 +1,24 @@
+%h1.heading News
+.borderBottom
+%p News related to the project
+%ul.rightNavigation
+  - @project.news.each do |sh|
+    %li
+      = sh.content 
+- news = News.new
+= form_for news, :url => project_news_index_path(@project, news) do |f|
+  .leftSide
+    = f.text_area(:content ,:class => "stakeholder", :placeholder => "News", :id => "project[content]")
+    %br/
+    = f.submit(:class => "submitbg", :value => "Add News")
+  / div left End
+.clr
+/ content end
+.clr
+/ footer Start
+#footer
+/ footer end
+.clr
+:javascript
+  var editor1 = new punymce.Editor({id : 'project[content]'});
+
