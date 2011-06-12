@@ -21,7 +21,8 @@
        $.each(coordinates, function(i) {
          var marker = new google.maps.Marker({
          position: new google.maps.LatLng(coordinates[i][0], coordinates[i][1]),
-         map: map 
+         map: map,
+         title: coordinates[0][2]
        });
        });
      });
