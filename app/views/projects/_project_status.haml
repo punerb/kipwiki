@@ -1,16 +1,9 @@
 #project_status.borderBottom
   %h3 Phase / Status
   %ul
-    %li
-      %input.checkBox{:type => "checkbox"}/
-      %label.label Local Project
-    %li
-      %input.checkBox{:type => "checkbox"}/
-      %label.label Property
-    %li
-      %input.checkBox{:type => "checkbox"}/
-      %label.label Suspendisse
-    %li
-      %input.checkBox{:type => "checkbox"}/
-      %label.label Pellentesque
+    - APP_CONFIG[:statuses].each do |status|
+      %li
+        %input.checkBox{:type => "checkbox", :checked => (@project.status)==status}/
+        %label.label
+          = status
     .clr

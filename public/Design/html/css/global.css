@@ -406,7 +406,11 @@ margin-bottom:15px;
 float:left;
 width:21px;
 }
-#project_type ul li .label, #project_status ul li .label {
+#project_type ul li .label, #project_status ul li .labelWrapper {
+	width:100px;
+	float:right !important;
+}
+#project_type ul li .label, #project_status ul li .labelWrapper .label {
 float:left;
 font-size:12px;
 font-weight:bold;
