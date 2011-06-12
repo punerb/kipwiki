@@ -1,5 +1,8 @@
 class ProjectsController < ApplicationController
   before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display, :show, :edit]
+  before_filter :authenticate_user!, :only => [:create, :edit, :new, :update, :destroy] 
+  before_filter :owner_required!, :only => [:edit, :update, :destroy] 
+  
   layout "project_layout"
   def photos
   end
@@ -165,6 +168,13 @@ class ProjectsController < ApplicationController
     unless @project
       flash[:notice] = 'Invalid URL!!!'
       redirect_to request.referrer || projects_url
+    end
+  end
+  
+  def owner_required!
+    unless @project.user == current_user
+      flash[:error] = 'Unauthorized access.'
+      redirect_to root_path
     end
   end
 end
