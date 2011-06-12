@@ -15,7 +15,6 @@ gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'geocoder'
 gem 'faker'
 gem 'omniauth', "0.2.6"
-gem 'mongoid_geo'
 
 group :development do
   gem 'mongrel' , '~> 1.2.0.pre2'
