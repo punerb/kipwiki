@@ -58,7 +58,7 @@ class Project
     if changed?
       changes.each_pair { |k, v|
         next if k.to_s == 'view_count'
-        Activity.create(:text => "#{k.humanize} was changed.", :user => user.id)
+        Activity.create(:text => "#{k.humanize} was changed.", :user => user['_id'])
       }
     end
   }

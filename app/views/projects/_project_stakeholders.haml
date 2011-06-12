@@ -2,14 +2,14 @@
   .heading
     %h1 Stakeholders
     %a{:href => "#"} Add new
-    = edit_link("stakeholders")
+    = edit_link(@project, "stakeholders")
     .clr
   %ul.stakeholders
     - if @project.stakeholders.nil? || @project.stakeholders.empty?
       %li
         %p
           There are no stakeholders for this project yet. Click
-          = edit_link("stakeholders")
+          = edit_link(@project, "stakeholders")
           to add some
     - else
       - @project.stakeholders.each do |stakeholder|
