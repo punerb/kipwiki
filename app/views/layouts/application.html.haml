@@ -19,7 +19,7 @@
             .navigation
               %ul.main
                 %li.selected
-                  %a{:href => "#"} Projects
+                  = link_to "Projects", projects_path
                 %li
                   %a{:href => "#"} Notifications
                 %li
@@ -56,95 +56,66 @@
               %input.searchBtn{:type => "submit"}/
             #map.project_map
             #project_type.borderBottom
-              %h3 Project Type
+              %h3 Category
               %ul
-                %li
-                  = check_box_tag 'local_project', 'Local_project', false, :class => 'project_types'
-                  %label.label Local Project
-                %li
-                  = check_box_tag 'property', 'Property', false, :class => 'project_types'
-                  %label.label Property
-                %li
-                  = check_box_tag 'suspendisse', 'Suspendisse', false, :class => 'project_types'
-                  %label.label Suspendisse
-                %li
-                  = check_box_tag 'pellentesque', 'Pellentesque', false, :class => 'project_types'
-                  %label.label Pellentesque
+                -APP_CONFIG[:categories].each do |category|
+                  %li
+                    = check_box_tag category.gsub(/\W/, ''), category, false, :class => 'category'
+                    %label.label= category
               .clr
             #project_status.borderBottom
               %h3 Phase / Status
               %ul
-                %li
-                  = check_box_tag 'initiating', 'Initiating', false, :class => 'project_statuses'
-                  %label.label Local Project
-                %li
-                  %input.checkBox{:type => "checkbox"}/
-                  %label.label Property
-                %li
-                  %input.checkBox{:type => "checkbox"}/
-                  %label.label Suspendisse
-                %li
-                  %input.checkBox{:type => "checkbox"}/
-                  %label.label Pellentesque
+                -APP_CONFIG[:statuses].each do |status|
+                  %li
+                    = check_box_tag status.gsub(/\W/, ''), status, false, :class => 'status'
+                    %label.label= status
+              .clr
+            #project_scope.borderBottom
+              %h3 Scope
+              %ul
+                -APP_CONFIG[:project_scopes].each do |scope|
+                  %li
+                    = check_box_tag scope.gsub(/\W/, ''), scope, false, :class => 'scope'
+                    %label.label= scope
               .clr
             #project_tags.borderBottom
-              %h3 Tags
-              .tabWrapper
-                %ul.tabs
-                  %li.first
-                    %a{:href => "#tab1"} Historic
-                  %li
-                    %a{:href => "#tab2"} Hindu
-                  %li
-                    %a{:href => "#tab3"} Worship
-                  %li
-                    %a{:href => "#tab4"} Religion
-                  %li
-                    %a{:href => "#tab5"} Temple
-                  %li
-                    %a{:href => "#tab6"} Heritage
-                  %li
-                    %a{:href => "#tab7"} Reconstruction
-                .clr
-                .inputWrapper.borderBottom
-                  %input.field{:type => "text", :value => "Search"}/
-                  %input.addBtn{:type => "submit"}/
-                .tab_container
-                  #tab1.tab_content
-                    .textWrapper
-                      %h3 Activity Feed
-                      %p Content Added - Tags, Similar Projects
-                      %p
-                        %span> Josh X
-                        , 30 min ago
-                      %p Content Added - Phase / Status
-                      %p
-                        %span> Josh X
-                        , 2 hrs ago
-                      %p Content Added - Project Type
-                      %p
-                        %span> Josh X
-                        , 4 hrs ago
-                      %p Content Added - Project Objectives
-                      %p
-                        %span> Josh X
-                        , 5 hrs ago
-                      %p Fields Added - Project Objectives,Contents
-                      %p
-                        %span> Josh X
-                        , 5 hrs ago
-                  #tab2.tab_content
-                    2
-                  #tab3.tab_content
-                    3
-                  #tab4.tab_content
-                    4
-                  #tab5.tab_content
-                    5
-                  #tab6.tab_content
-                    6
-                  #tab7.tab_content
-                    7
+              .tab_container
+                #tab1.tab_content
+                  .textWrapper
+                    %h3 Activity Feed
+                    %p Content Added - Tags, Similar Projects
+                    %p
+                      %span> Josh X
+                      , 30 min ago
+                    %p Content Added - Phase / Status
+                    %p
+                      %span> Josh X
+                      , 2 hrs ago
+                    %p Content Added - Project Type
+                    %p
+                      %span> Josh X
+                      , 4 hrs ago
+                    %p Content Added - Project Objectives
+                    %p
+                      %span> Josh X
+                      , 5 hrs ago
+                    %p Fields Added - Project Objectives,Contents
+                    %p
+                      %span> Josh X
+                      , 5 hrs ago
+                #tab2.tab_content
+                  2
+                #tab3.tab_content
+                  3
+                #tab4.tab_content
+                  4
+                #tab5.tab_content
+                  5
+                #tab6.tab_content
+                  6
+                #tab7.tab_content
+                  7
             #project_similar_projects.borderBottom
               %h3 Similar Projects
               = succeed "," do

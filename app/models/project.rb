@@ -1,6 +1,6 @@
 class Project
   include Mongoid::Document
-  include Geocoder::Model::Mongoid
+  extend Mongoid::Geo::Near
 
   field :title, :type => String
   field :description, :type => String
@@ -11,13 +11,13 @@ class Project
   field :state, :type => String
   field :country, :type => String     # From Geocoder location
   field :zip_code, :type => String     # From Geocoder location
-  field :coordinates, :type => Array  # For geolocation
   field :categories, :type => Array
   field :status, :type => String
   field :govt_status, :type => String
   field :tags, :type => Array
   field :slug, :type => String
-  field :scope, :type => String
+  field :caption, :type => String
+  field :project_scope, :type => String
 
   embeds_many :stakeholders
   embeds_many :links
@@ -28,18 +28,19 @@ class Project
   
   belongs_to :user
 
-  #validates :title, :description, :address, :presence => true
-  #validates_associated :user
+  validates :title, :description, :address, :presence => true
+  validates_associated :user
 
-  geocoded_by :address
+  field :coordinates, :type => Array  # For geolocation
+  geo_index :coordinates
   
   after_validation { |project| 
    location =   Geocoder.search(project.address).first 
    if location
      project.coordinates = location.coordinates
-     project.city = location.city
-     project.country = location.country
-     project.state = location.state
+     project.city = location.city.titleize
+     project.country = location.country.titleize
+     project.state = location.state.titleize
    end
   }
   
