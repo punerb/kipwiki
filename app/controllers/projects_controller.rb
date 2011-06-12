@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display, :show, :edit]
   before_filter :authenticate_user!, :only => [:create, :edit, :new, :update, :destroy] 
-  before_filter :owner_required!, :only => [:edit, :update, :destroy] 
+  before_filter :owner_required!, :only => [:edit, :destroy] 
   
   layout "project_layout"
   def photos
