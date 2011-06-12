@@ -572,6 +572,18 @@ float:right;
 width:370px;
 margin:0;
 }
+
+.imageWrapper {
+	width:258px;
+	height:193px;
+	border:1px solid #ddd;
+	margin-right:20px;
+	float:left;
+}
+.imageWrapper img {
+	max-height:193px;
+	max-width:258px;
+}
 /*left menu start-------------*/
 ul.leftNavigation {
 	padding-bottom:5px;
