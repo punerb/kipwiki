@@ -76,7 +76,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to(show_project_path(@project.city.parameterize, @project.slug), :notice => 'Project was successfully created.') }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "new", :layout => 'admin' }
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       end
     end
