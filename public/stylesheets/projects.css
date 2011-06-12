@@ -293,13 +293,16 @@ input.large{
     float:left;
 }
 #content .voteWrapper {
-    background:url(../images/voteIcon.png) center left no-repeat;
-    padding-left:30px;
-    font-size:12px;
-    font-weight:normal;
-    line-height:20px;
-    color:#444444;
-    float:left;
+/* background:url(../images/voteIcon.png) center left no-repeat; */
+/* this is because we removed the heart icon and replaced it with the fb like */
+padding-right: 30px;
+margin-left: 0  !important;
+padding-left:30px;
+font-size:12px;
+font-weight:normal;
+line-height:20px;
+color:#444444;
+float:left;
 }
 #content .voteViewMurge {
     float:right;
@@ -308,14 +311,25 @@ input.large{
     margin-left:30px;
 }
 #content .loaderWrapper {
-    width:370px;
-    margin-bottom:20px;
+width:360px;
+margin-bottom:20px;
 }
+
 #content .loaderWrapper .loader {
-    height:25px;
-    width:370px;
-    margin-bottom:10px;
+    background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    height: 23px;
+    margin-bottom: 10px;
+    width: 100%;
 }
+
+#content .loaderWrapper #progressBar{
+    height: 100%;
+    border-radius: 5px;
+    background: url(/images/loadingImage.jpg) repeat-x;
+}
+
 #content .loaderWrapper .text {
     font-size:14px;
     font-weight:bold;
@@ -655,21 +669,10 @@ ul.leftNavigation li ul li a:hover {
     -moz-border-radius: 5px;
 }
 
-#createProjecContent .heding{
-    <<<<<<< HEAD
-    font-size:24px;
-    color:#000000;
-    margin:30px 0 0px;
-}
 #createProjecContent .heading{
     font-size:24px;
     color:#000000;
     margin:30px 0 0px;
-=======
-font-size:24px;
-    color:#000000;
-    margin:30px 0 0px;
->>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
 }
 .formWrapper{
     float:left;

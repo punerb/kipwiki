@@ -196,6 +196,23 @@ display:block;
 .navigation ul.subMenu li a:hover, .navigation ul.subMenu li.selected a {
 color:#000;
 }
+.navigation a.sign_up {
+	background:url(../images/submitBg.jpg) left top repeat-x;
+	height:33px;
+	border:1px solid #00aa00;
+	border-radius: 5px 5px 5px 5px;
+	padding:0 10px;
+	font-size:16px;
+	font-weight:bold;
+	line-height:33px;
+	color:#FFF;
+	float:right;
+	text-shadow:0 1px #00aa00;
+	margin-top:8px;
+	cursor:pointer;
+}
+
+/*header part End*/
 /* Content CSS start */
 #content {
 background:#FFF;
@@ -334,7 +351,19 @@ margin-bottom:20px;
 #content .loaderWrapper .loader {
 height:25px;
 width:370px;
+border:1px solid #aaaaaa;
+background:#eeeeee;
+border-radius: 5px 5px 5px 5px;
 margin-bottom:10px;
+}
+.loader .loading {
+	background:url(../images/lodingImage.jpg) top left repeat-x;
+	border:1px solid #00aa00;
+	border-radius: 5px 0 0 5px ;
+	height:23px;
+	width:50px;
+	float:left;
+	
 }
 #content .loaderWrapper .text {
 font-size:14px;
@@ -495,12 +524,17 @@ min-height:550px;
 }
 #content .left .mainHeading {
 background:url(../images/bigStar.png) left top no-repeat;
+background-position:0 0;
 padding-left:50px;
 height:30px;
 margin-bottom:20px;
 font-size:24px;
 color:#00aa00;
 line-height:30px;
+}
+#content .left .off {
+background:url(../images/bigStar.png) left top no-repeat;
+background-position:0 -40px;
 }
 /*listTypeLink Start*/
 /*left menu start*/
