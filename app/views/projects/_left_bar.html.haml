@@ -7,17 +7,17 @@
     %a.head{:href => "#"} Project Outline
     %ul.leftSub
       %li
-        = link_to "Summary", display_project_by_action_type_path(@project,"summary"), :class => "summary"
+        = link_to "Summary", display_project_by_action_type_path(@project,"summary"), :class => select_if(@selection, "summary")
       %li
-        = link_to "Objectives", display_project_by_action_type_path(@project,"objective"), :class => "objectives"
+        = link_to "Objectives", display_project_by_action_type_path(@project,"objective"), :class => select_if(@selection, "objective")
       %li
-        = link_to "Stakeholders", display_project_by_action_type_path(@project, "stakeholder")
+        = link_to "Stakeholders", display_project_by_action_type_path(@project, "stakeholder"), :class => select_if(@selection, "stakeholder")
   %li
-    = link_to "Funding", display_project_by_action_type_path(@project, "funding")
+    = link_to "Funding", display_project_by_action_type_path(@project, "funding"), :class => select_if(@selection, "funding")
   %li
-    = link_to "Links", display_project_by_action_type_path(@project, "link")
+    = link_to "Links", display_project_by_action_type_path(@project, "link"), :class => select_if(@selection, "link")
   %li
-    = link_to "News", edit_project_by_action_type_path(@project, "news")
+    = link_to "News", edit_project_by_action_type_path(@project, "news"), :class => select_if(@selection, "news")
 .addContent
   %a{:href => "#"} Add new content page
 .borderBottom
