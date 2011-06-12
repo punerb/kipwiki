@@ -19,34 +19,7 @@
     
   %body
     #wrapper
-      / header start
-      #header
-        .headerContent
-          .logo
-            = link_to "KipWiki", root_path
-          .navigation
-            %ul.main
-              %li.selected
-                = link_to "Projects", projects_path 
-              %li
-                %a{:href => "#"} Notifications
-              %li
-                = link_to "Create Project" , new_project_path
-            %ul.subMenu
-              %li
-                %a{:href => "#"} About
-              %li
-                %a{:href => "#"} Profile
-              %li
-                %a{:href => "#"} Help & Feedback
-              %li
-                - if user_signed_in?
-                  = link_to "Logout", destroy_user_session_path
-                - else
-                  = link_to "Signup/Login", authentications_path
-            .clr
-        .clr
-      / Header End here
+      = render :partial => "layouts/header"
       .clr
       / content start
       #content

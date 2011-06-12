@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
-
-  before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display]
+  before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display, :show, :edit]
   layout "project_layout"
   def photos
   end
@@ -19,8 +18,8 @@ class ProjectsController < ApplicationController
     @print = Print.find(params[:print_id]) rescue nil
     @print.destroy if @print
     respond_to do |format|
-      format.html{ redirect_to projects_path}
-      format.js{}
+      format.html{ redirect_to edit_project_path(@print.project.city, @print.project.slug)}
+      format.js{ render :nothing }
     end
   end
 
@@ -38,7 +37,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.xml
   def show
-    @project = Project.where(:city => params[:city].titleize, :slug => params[:id]).first
     #this is some ugly ass code - but just temporary - until the view_count are initialized to 0
     @project.view_count.nil? ? @project.view_count = 0 : @project.view_count += 1
     @project.save!
@@ -54,16 +52,15 @@ class ProjectsController < ApplicationController
     @project = Project.new
 
     respond_to do |format|
-      format.html {render 'new' }# new.html.erb
+      format.html {render 'new', :layout => 'admin' }# new.html.erb
       format.xml  { render :xml => @project }
     end
   end
 
   # GET /projects/1/edit
   def edit
-    @selection = "summary"
+    @selection = 'summary'
     @selection = params[:action_type] unless params[:action_type].nil?
-    @project = Project.find(params[:id])
     render 'edit', :layout => 'admin'
   end
 
@@ -160,7 +157,11 @@ class ProjectsController < ApplicationController
   private
 
   def load_project
-    @project = Project.find(params[:id]) rescue nil
+    if params[:city]
+      @project = Project.where(:city => params[:city].titleize, :slug => params[:id]).first rescue nil
+    else
+      @project = Project.find(params[:id]) rescue nil
+    end
     unless @project
       flash[:notice] = 'Invalid URL!!!'
       redirect_to request.referrer || projects_url

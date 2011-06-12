@@ -8,8 +8,6 @@ Kipwiki::Application.routes.draw do
   match '/projects/:print_id/delete_attachment', :to => 'projects#delete_attachment', :as => :delete_attachment
   resources :project_objectives
 
-  resources :project_fundings
-
   resources :tags
 
   resources :project_statuses
@@ -22,9 +20,10 @@ Kipwiki::Application.routes.draw do
       get :display
     end
     resources :stakeholders
+    resources :project_fundings
+    resources :links
   end
 
-  resources :links
   get "home/index"
   match '/filter', :to => "home#filter"
   
@@ -33,6 +32,7 @@ Kipwiki::Application.routes.draw do
   devise_for :users
   
   match ':city/project/:id' => 'projects#show', :as => 'show_project'
+  match ':city/project/:id/edit' => 'projects#edit', :as => 'edit_project'
 #  match '/user/:id' => 'devise/users#show', :as => 'show_user'
 
   match "/auth/:provider/callback" => "authentications#create"

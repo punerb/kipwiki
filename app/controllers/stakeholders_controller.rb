@@ -41,13 +41,14 @@ class StakeholdersController < ApplicationController
   # POST /stakeholders.xml
   def create
     @stakeholder = Stakeholder.new(params[:stakeholder])
-
+    @project = Project.find(params[:project_id])
+    @project.stakeholders << @stakeholder 
     respond_to do |format|
-      if @stakeholder.save
-        format.html { redirect_to(@stakeholder, :notice => 'Stakeholder was successfully created.') }
+      if @project.save
+        format.html { redirect_to(edit_project_by_action_type_path(@project, "stakeholder"), :notice => 'Stakeholder was successfully created.') }
         format.xml  { render :xml => @stakeholder, :status => :created, :location => @stakeholder }
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to(edit_project_by_action_type_path(@project, "stakeholder"), :notice => "error while saving stakeholder") }
         format.xml  { render :xml => @stakeholder.errors, :status => :unprocessable_entity }
       end
     end

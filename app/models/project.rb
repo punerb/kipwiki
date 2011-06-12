@@ -54,10 +54,11 @@ class Project
   }
   
   before_save {
+    return if new_record?
     if changed?
       changes.each_pair { |k, v|
         next if k.to_s == 'view_count'
-        Activity.create(:text => "#{k.to_s} was changed.", :user => user.id)
+        Activity.create(:text => "#{k.humanize} was changed.", :user => user.id)
       }
     end
   }

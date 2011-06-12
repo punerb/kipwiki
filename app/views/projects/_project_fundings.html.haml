@@ -2,13 +2,21 @@
   .heading
     %h1 Funding
     %a{:href => "#"} Add new
-    %a{:href => "#"} Edit
+    = edit_link("fundings")
     .clr
   %ul.funding
-    - @project.project_fundings.each do |fund|
+    - if @project.project_fundings.nil? || @project.project_fundings.empty?
       %li
         %p
-          = fund["name"]
-        %span
-          = fund["amount"]
+          There are no funds for this project yet. Click
+          = edit_link("fundings")
+          to add some
+    - else
+      - @project.project_fundings.each do |funding|
+        %li
+          %p
+            = funding.name
+          %span
+            = funding.currency
+            = funding.amount
     .clr

@@ -2,6 +2,10 @@
    Plupload
 ------------------------------------------------------------------- */
 
+.photos {
+width: 420px;
+}
+
 .plupload_button {
 	display: -moz-inline-box; /* FF < 3*/
 	display: inline-block;

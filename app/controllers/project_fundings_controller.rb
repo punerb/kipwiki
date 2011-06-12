@@ -40,14 +40,15 @@ class ProjectFundingsController < ApplicationController
   # POST /project_fundings
   # POST /project_fundings.xml
   def create
-    @project_funding = ProjectFunding.new(params[:project_funding])
-
+    project_funding = ProjectFunding.new(params[:project_funding])
+    @project = Project.find(params[:project_id])
+    @project.project_fundings << project_funding
     respond_to do |format|
-      if @project_funding.save
-        format.html { redirect_to(@project_funding, :notice => 'Project funding was successfully created.') }
+      if @project.save
+        format.html { redirect_to(edit_project_by_action_type_path(@project, "funding"), :notice => 'Project funding was successfully created.') }
         format.xml  { render :xml => @project_funding, :status => :created, :location => @project_funding }
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to(edit_project_by_action_type_path(@project, "funding"), :notice => 'Error saving the project') }
         format.xml  { render :xml => @project_funding.errors, :status => :unprocessable_entity }
       end
     end

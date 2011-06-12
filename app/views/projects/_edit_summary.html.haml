@@ -1,8 +1,3 @@
 %h1.heading Summary
 .borderBottom
-%p Describe the reason for the project. It might be a problem to be solved or an opportunity for something new
-= form_for(@project) do |f|
-  .content1
-    = f.text_area :description, :id => "helo"
-    = f.submit (:class => "submitbg" , :value => "Save Summary")
-
+= render 'form'

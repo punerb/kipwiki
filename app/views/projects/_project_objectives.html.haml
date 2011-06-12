@@ -4,9 +4,15 @@
     %a{:href => "#"} Add new
     =link_to "Edit", "#", :class => "edit", :rel => "project_objectives"
     .clr
-  %ul.funding
-    - @project.project_objectives.each do |obj|
+  %ul.objectives
+    - if @project.project_objectives.nil? || @project.project_objectives.empty?
       %li
-        =obj["name"]
-
-  .clr
+        %p
+          There are no objectives for this project yet. Click
+          = edit_link("objectives")
+          to add some
+    - else
+      - @project.project_objectives.each do |objective|
+        %li
+          = link_to objective.name, '#' #show_objective_path(objective)
+    .clr
