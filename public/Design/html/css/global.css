@@ -644,28 +644,32 @@ padding:20px 19px 20px 20px;
 /* Content CSS end */
 /*Create Projec start----------*/
 #createProjecContent{
-background:#FFF;
-border:1px solid #dddddd;
-width:592px;
-margin:0 auto;
-padding:0 19px;
-min-height:550px;
-border-radius: 5px 5px 5px 5px;
--webkit-border-radius: 5px;
--moz-border-radius: 5px;
+	background:#FFF;
+	border:1px solid #dddddd;
+	width:592px;
+	margin:0 auto;
+	padding:0 19px;
+	min-height:550px;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
 }
-<<<<<<< HEAD
+
 #createProjecContent .heding{
-font-size:24px;
-color:#000000;
-margin:30px 0 0px;
-=======
+<<<<<<< HEAD
+	font-size:24px;
+	color:#000000;
+	margin:30px 0 0px;
+}
 #createProjecContent .heading{
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
-
->>>>>>> aa22b39b3706bc379ed737710dde30019cc27042
+=======
+font-size:24px;
+color:#000000;
+margin:30px 0 0px;
+>>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
 }
 .formWrapper{
 float:left;
@@ -673,33 +677,35 @@ width:420px;
 margin-bottom:30px;
 }
 #createProjecContent h2{
-font-size:14px;
-color:#444444;
-margin:10px 0 0px;
+	font-size:14px;
+	color:#444444;
+	margin:10px 0 0px;
 }
 #createProjecContent p{
-font-size:12px;
-color:#aaaaaa;
-line-height:18px;
-padding:5px 0 5px 0;
+	font-size:12px;
+	color:#aaaaaa;
+	line-height:18px;
+	padding:5px 0 5px 0;
 }
-.submitBg{
-background:url(../images/submitBg.jpg) left top repeat-x;
-height:33px;
-margin:10px 0 0 0;
-padding: 0 10px;
-text-align:center;
-cursor:pointer;
-font-size:16px;
-line-height:33px;
-font-weight:bold;
-color:#FFF;
-text-shadow:0 1px #00aa00;
-border:0px;
-border-radius: 5px 5px 5px 5px;
--webkit-border-radius: 5px;
--moz-border-radius: 5px;
+
+.submitbg {
+	background:url(../images/submitBg.jpg) left top repeat-x;
+	height:33px;
+	margin:10px 0 0 0;
+	padding: 0 10px;
+	text-align:center;
+	cursor:pointer;
+	font-size:16px;
+	line-height:33px;
+	font-weight:bold;
+	color:#FFF;
+	text-shadow:0 1px #00aa00;
+	border:0px;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 }
+
 /*Create Projec End----------*/
 /*Footer Start Here*/
 #footer {
