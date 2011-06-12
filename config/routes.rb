@@ -6,7 +6,7 @@ Kipwiki::Application.routes.draw do
   match '/projects/:id/photos', :to => 'projects#photos', :as => :photos
   match '/projects/:id/upload_attachment', :to => 'projects#upload_attachment', :as => :upload_attachment
   match '/projects/:print_id/delete_attachment', :to => 'projects#delete_attachment', :as => :delete_attachment
-  resources :project_objectives
+
 
   resources :tags
 
@@ -15,6 +15,7 @@ Kipwiki::Application.routes.draw do
   resources :project_types
 
   resources :projects, :except => [:show, :edit] do
+    resources :project_objectives
     member do
       post :add_suggestion
       get :display

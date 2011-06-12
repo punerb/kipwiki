@@ -59,6 +59,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    @project = Project.find(params[:id])
     @selection = 'summary'
     @selection = params[:action_type] unless params[:action_type].nil?
     render 'edit', :layout => 'admin'
