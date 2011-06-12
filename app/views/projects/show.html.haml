@@ -44,9 +44,11 @@
           star5
       .voteViewMurge
         .viewWrapper
-          99999 View
+          = @project.view_count
+          Views
         .voteWrapper
-          99999 View
+          = @project.vote_count
+          Votes
         .clr
       .clr
     .loaderWrapper
@@ -97,6 +99,13 @@
         , 9 Jun 2011
     = render "project_objectives"
   .clr
+  #project_comments
+    %h1 Comments
+    :javascript
+      var fyre = LF({
+        site_id: 285879,
+        version: '1.0'
+      });
 .clr
 
 = content_for :sidebar do
