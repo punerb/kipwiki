@@ -2,8 +2,13 @@
   %h3 Project Type
   %ul
     - APP_CONFIG[:categories].each do |type|
+      - unless @project.categories.nil?
+        - checked = @project.categories.include? type
       %li
-        %input.checkBox{:type => "checkbox", :checked => (@project.categories.nil? ? "false" : (@project.categories.include? type)), :disabled => "true"}/
+        - if checked
+          %input.checkBox{:type => "checkbox", :disabled => "true", :checked => true}/
+        - else
+          %input.checkBox{:type => "checkbox", :disabled => "true"}/
         %label.label
           = type
     .clr
