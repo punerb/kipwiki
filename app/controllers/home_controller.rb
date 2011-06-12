@@ -6,9 +6,9 @@ class HomeController < ApplicationController
     @center_coords = request.location.coordinates.reverse
     #@center_coords = Geocoder.coordinates('pune')
     
-    @featured_pojects = Project.where(:featured => true).limit(3)
+    @featured_projects = Project.where(:featured => true).limit(3)
     @local_projects = Project.near(@center_coords, 50, :units => :km).limit(3)
-    @coordinates = @featured_pojects.collect {|project| project.coordinates << project.title }
+    @coordinates = @featured_projects.collect {|project| project.coordinates << project.title }
     @coordinates.concat @local_projects.collect {|project| project.coordinates << project.title }
   end
   

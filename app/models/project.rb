@@ -24,12 +24,12 @@ class Project
   embeds_many :links
   embeds_many :project_fundings
   embeds_many :news  
-  has_many :project_objectives
+  embeds_many :activities
 
+  has_many :project_objectives
   has_many :prints
   has_many :documents
   has_many :suggestions
-  has_many :activities
   
   belongs_to :user
 
@@ -62,7 +62,7 @@ class Project
       changes.each_pair { |k, v|
         next if k.to_s == 'view_count'
         begin
-          Activity.create(:text => "#{k.humanize} was changed.", :user => user['_id'])
+          self.activities.create(:text => "#{k.humanize} was changed.", :user => self.user)
         rescue Exception => err
         end
       }
