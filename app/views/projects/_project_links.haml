@@ -1,10 +1,9 @@
 .borderBottom
   .heading
     %h1 Links
-    %a{:href => "#"} Add new
     = edit_link(@project, "links")
     .clr
-  %ul.links
+  %ul.listLinks
     - if @project.links.nil? || @project.links.empty?
       %li
         %p
@@ -14,6 +13,6 @@
     - else
       - @project.links.each do |link|
         %li
-          %p
-            = link_to link.name, link.url
+          = link.name
+          = link_to link.url, link.url
     .clr
