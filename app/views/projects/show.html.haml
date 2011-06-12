@@ -23,7 +23,7 @@
       .heading
         %h1 Contents
         %a{:href => "#"} Add new
-        %a{:href => "#"} Edit
+        = edit_link("contents")
         .clr
       .inputWrapper
         %input.field{:type => "text", :value => "Search within a Project"}/
@@ -76,14 +76,14 @@
     .textWrapper
       .heading
         %h1 Summary
-        = link_to "Edit", "#", :class => "edit", :rel => "summary"
+        = edit_link("summary")
         .clr
       = @project.description
     .textWrapper
       .heading
         %h1 News
         %a{:href => "#"} Add new
-        %a{:href => "#"} Edit
+        = edit_link("news")
         .clr
       %p
         = "Project new here"
@@ -124,7 +124,7 @@
       .lightboxContent
         %form{ :action => add_suggestion_project_path(@project), :id => "addSuggestionForm" }
           = hidden_field_tag 'suggestion[field_name]', "", :class => "fieldInput"
-          %textarea.textarea{:name => 'suggestion[text]'}
+          %textarea.textarea{:name => 'suggestion[text]', :class => "fieldSummary"}
           .buttonWrapper
             %input.submitbg{:type => "submit", :value => "Add Suggestion", :class => "submitSuggestion"}
               = link_to "Close", "#", :class => "closeColorbox"
