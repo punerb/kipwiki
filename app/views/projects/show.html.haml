@@ -28,7 +28,9 @@
       .inputWrapper
         %input.field{:type => "text", :value => "Search within a Project"}/
         %input.searchBtn{:type => "submit"}/
-    = render "project_fundings"
+    = render :partial => "project_fundings"
+    = render :partial => "project_stakeholders"
+    = render :partial => "project_links"
   .wrapperRight
     .marBot10
       %ul.rating
@@ -63,7 +65,7 @@
         %h1 Summary
         = edit_link("summary")
         .clr
-      = @project.description
+      = raw sanitize(@project.description)
     .textWrapper
       .heading
         %h1 News
