@@ -15,10 +15,8 @@
             #{'title: "' + CGI.escapeHTML("adasdd d asd ad") + '"'}
           });
         });
-    .searchWrapper
-      %input.field{:type => "text", :value => "Search"}/
-      %input.searchBtn{:type => "submit"}/
-      .clr
+    = render 'shared/search'
+    .clr
   .title
     .text
       Improving local communities one project at a time
