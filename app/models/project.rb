@@ -26,7 +26,8 @@ class Project
 
   has_many :prints
   has_many :documents
-  
+  has_many :suggestions
+
   belongs_to :user
 
   validates :title, :description, :address, :presence => true
@@ -65,8 +66,13 @@ class Project
 
   def keywords
     # returns a project's keywords, which are basically keywords form the title union with it's tags
-    [self.title.split(" ") << self.tags].flatten.uniq.compact
-    #todo: remove common noise like 'The' or 'A' or 'And' or 'in' from the title since they are not really keywords
+    fillers = "a|the|this|that|is|are|was|or|of|here|there|thus|hence|therefore"
+    words = [self.title.downcase.gsub(/(^|\s)\d*(\s|$)|#{fillers}/,"").split(" ") << self.tags].flatten.uniq.compact
+    #words << self.city
+    #words << self.state
+    #words << self.country
+    #words << self.zip_code
+    #words.flatten.uniq.compact
     #todo: need to sanitize the keywords so that they are all lowercase as well
     
   end

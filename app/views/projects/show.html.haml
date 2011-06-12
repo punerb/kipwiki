@@ -76,7 +76,7 @@
     .textWrapper
       .heading
         %h1 Summary
-        %a{:href => "#"} Edit
+        = link_to "Edit", "#", :class => "edit", :rel => "summary"
         .clr
       = @project.description
     .textWrapper
@@ -115,3 +115,20 @@
   = render :partial => 'projects/project_tags'
   = render :partial => 'projects/project_activity_feed'
   = render :partial => 'projects/similar_projects'
+
+//Contents for suggestion lightbox
+%div{:style=>"display:none"}
+  #suggestion_box
+    .lightBox
+      %h1 Suggest Changes
+      .lightboxContent
+        %form{ :action => add_suggestion_project_path(@project), :id => "addSuggestionForm" }
+          = hidden_field_tag 'suggestion[field_name]', "", :class => "fieldInput"
+          %textarea.textarea{:name => 'suggestion[text]'}
+          .buttonWrapper
+            %input.submitbg{:type => "submit", :value => "Add Suggestion", :class => "submitSuggestion"}
+              = link_to "Close", "#", :class => "closeColorbox"
+      .lightboxSuccess{:style=>"display:none"}
+        %p You suggestion has been submitted and sent to Project Admin for Approval.
+      .lightboxError{:style=>"display:none"}
+        %p Error Saving you suggestion !!! Please try again.
