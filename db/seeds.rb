@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
 include Faker 
 locations=["Pune","Mumbai","Delhi","Goregaon"] 
 names= ["Mettin", "Chattin" ,"Methun" ]
@@ -29,6 +30,8 @@ begin
       :stakeholders => [ {:name => Faker::Name.name, :url => Faker::Internet.domain_name } ],
       :user => user
    })
+   puts "Added Project #{n}"
+   puts "Error adding project : #{projects.errors}" if projects.errors.present?
   end
 rescue Exception => ex
   puts ex
