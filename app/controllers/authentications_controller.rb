@@ -1,6 +1,7 @@
 class AuthenticationsController < ApplicationController
   # GET /authentications
   # GET /authentications.xml
+  layout "home_layout"
   def index
     @authentications = Authentication.all
 
