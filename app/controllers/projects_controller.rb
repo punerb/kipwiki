@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
   # GET /projects.xml
 
   layout "project_layout"
-  layout "admin", :only => [:edit]
   def photos
   end
 
@@ -54,7 +53,7 @@ class ProjectsController < ApplicationController
     @project = Project.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html {render 'new', :layout => 'admin' }# new.html.erb
       format.xml  { render :xml => @project }
     end
   end
@@ -62,6 +61,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    render 'edit', :layout => 'admin'
   end
 
   # POST /projects
