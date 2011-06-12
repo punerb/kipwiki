@@ -3,7 +3,9 @@ class HomeController < ApplicationController
   layout "home_layout"
   
   def index
-    @projects = Project.all
+    @featured_projects = Project.where({:featured => true})
+    # to be changed
+    @local_projects = Project.all
   end
   
   def filter

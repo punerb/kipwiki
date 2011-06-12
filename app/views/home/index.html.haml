@@ -3,14 +3,12 @@
   %h2 Featured Projects
   .clr
   %ul
-    = render "home_project_item" , :margin_class => ""
-    = render "home_project_item" , :margin_class => ""
-    = render "home_project_item" , :margin_class => "marNone"
+    - @featured_projects.each do |project|
+      = render "home_project_item" , :margin_class => "", :project => project
   .clr
   %h2 Local Projects
   %ul
-    = render "home_project_item" ,:margin_class => ""
-    = render "home_project_item" ,:margin_class => ""
-    = render "home_project_item" ,:margin_class => "marNone"
+    - @local_projects.each do |project|
+      = render "home_project_item" , :margin_class => "", :project => project
 .clr
 / content end
