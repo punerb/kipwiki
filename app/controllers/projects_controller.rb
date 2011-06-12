@@ -40,6 +40,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.where(:city => params[:city].titleize, :slug => params[:id]).first
+    #this is some ugly ass code - but just temporary - until the view_count are initialized to 0
+    @project.view_count.nil? ? @project.view_count = 0 : @project.view_count += 1
+    @project.save!
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }

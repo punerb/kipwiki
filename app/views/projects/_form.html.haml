@@ -1,23 +1,22 @@
-= form_for(@project) do |f|
-  - if @project.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@project.errors.count, "error")
-        prohibited this project from being saved:
-      %ul
-        - @project.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :title
-    %br/
-    = f.text_field :title
-  .field
-    = f.label :description
-    %br/
-    = f.text_area :description
-  .field
-    = f.label :address
-    %br/
-    = f.text_area :address
-  .actions
-    = f.submit
+.formWrapper
+  %h2 Project Title
+  %p Write a one sentence summary of your description
+  = form_for(@project) do |f| 
+    = f.text_field (:title, :class => "field large", :placeholder => "Hint summarise your description")
+    %h2 Location
+    = f.text_field (:address, :class => "field large marTop10", :placeholder => "Enter the address of the project")
+    %p This address should be plottable on a google map - be as specific as the problem is. i.e if the problem is city based enter only the city and the country, if the problem has an exact address enter the exact address including street no. and name, suburb, city, country and postcode
+    %h2 Summary
+    %p Describe the reason for the project. It might be a problem to be solved or an opportunity for something new
+    .content1
+      = f.text_area(:description, :style => "width:320px;height:70px") 
+      = f.submit(button_text, :class => "submitBg")
+  .clr
+/ createProjecContent end
+.clr
+/ footer Start
+#footer
+/ footer end
+.clr
+:javascript
+  var editor1 = new punymce.Editor({id : 'content1', editor_css : ''});
