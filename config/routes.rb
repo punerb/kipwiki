@@ -16,7 +16,11 @@ Kipwiki::Application.routes.draw do
 
   resources :project_types
 
-  resources :projects
+  resources :projects do
+    member do
+      post :add_suggestion
+    end
+  end
 
   resources :links
   get "home/index"

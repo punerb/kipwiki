@@ -103,19 +103,10 @@
 .buttonWrapper {
 	height:30px;
 	line-height:30px;
+	float:left;
 	margin-bottom:30px;
 }
 .lightBox input.submitbg {
 	margin-right:20px;
 	float:left;
-}
-.lightBox a {
-	font-size:14px;
-	font-weight:bold;
-	color:#000;
-	float:left;
-	padding-top:12px;
-}
-.lightBox a:hover {
-	color:#00AA00;
 }
