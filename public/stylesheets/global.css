@@ -1248,7 +1248,7 @@ ul.objectivesNavigation li ul li a:hover {
     -moz-border-radius: 5px;
 }
 .submitbg:hover{
-	background:url(../images/submitHoverBg.jpg) left top repeat-x;
+	background:url(/images/submitHoverBg.jpg) left top repeat-x;
 	height:33px;
 	text-shadow:0 1px #000000;
 	border:1px solid #000000;

@@ -1,4 +1,7 @@
 class ProjectObjectivesController < ApplicationController
+
+  before_filter :set_objectives
+
   # GET /project_objectives
   # GET /project_objectives.xml
   def index
@@ -40,11 +43,11 @@ class ProjectObjectivesController < ApplicationController
   # POST /project_objectives
   # POST /project_objectives.xml
   def create
-    @project_objective = ProjectObjective.new(params[:project_objective])
+    @project_objective = @project.project_objectives.new(params[:project_objective])
 
     respond_to do |format|
       if @project_objective.save
-        format.html { redirect_to(@project_objective, :notice => 'Project objective was successfully created.') }
+        format.html { redirect_to(edit_project_path(@project), :notice => 'Project objective was successfully created.') }
         format.xml  { render :xml => @project_objective, :status => :created, :location => @project_objective }
       else
         format.html { render :action => "new" }
@@ -57,14 +60,15 @@ class ProjectObjectivesController < ApplicationController
   # PUT /project_objectives/1.xml
   def update
     @project_objective = ProjectObjective.find(params[:id])
+    @project_objective.sub_project_objectives.push(params[:project_objective][:sub_project_objectives])
 
     respond_to do |format|
-      if @project_objective.update_attributes(params[:project_objective])
-        format.html { redirect_to(@project_objective, :notice => 'Project objective was successfully updated.') }
+      if @project_objective.save#update_attributes(params[:project_objective])
+        format.html { redirect_to(edit_project_path(@project), :notice => 'Project objective was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @project_objective.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => edit_project_path(@project), :status => :unprocessable_entity }
       end
     end
   end
@@ -80,4 +84,11 @@ class ProjectObjectivesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+
+  def set_objectives
+    @project = Project.find(params[:project_id])
+  end
+
 end
