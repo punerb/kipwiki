@@ -289,7 +289,6 @@ input.objective{
 }
 input.stakeholder{
 	width:630px;
-	margin:0 0px 0px 0;
 	padding:6px 10px;
 }
 select.selectWidth{
@@ -668,7 +667,7 @@ ul.leftNavigation a {
 
 ul.leftNavigation li a {
 background:url(../images/arowRight.jpg) no-repeat 0px 8px;
-  padding:0 10px;
+  padding:0 10px 0 15px;
   font-weight:bold;
 }
 
@@ -833,6 +832,83 @@ ul.rightNavigation li ul li a:hover {
 }
 
 /*Right menu  end*/
+
+/*Objectives menu start-------------*/
+ul.objectivesNavigation {
+	padding-bottom:5px;
+}
+ul.objectivesNavigation li {
+	font-size:12px;
+	font-weight:normal;
+	color:#000000;
+	display:block;
+	line-height:30px;
+	
+	cursor:pointer;
+}
+ul.objectivesNavigation li.borderNone {
+	border-bottom:0px;
+}
+ul.objectivesNavigation li li {
+	float:none;
+}
+ul.objectivesNavigation ul {
+	height:auto;
+}
+ul.objectivesNavigation a {
+  display: block;
+  text-decoration: none;	
+  color:#000000;
+}
+
+ul.objectivesNavigation li a {
+background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+  padding:0 10px;
+}
+
+ul.objectivesNavigation li.main a {
+	color:#000000;
+
+}
+ul.objectivesNavigation li.main a:hover {
+	color:#00AA00;
+
+}
+ul.objectivesNavigation li.main a.on {
+	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+}
+ul.objectivesNavigation li a:hover {
+	color:#00AA00;
+
+}
+ul.objectivesNavigation li ul.objectivesSub li{
+	background:none;
+		
+}
+ul.objectivesNavigation li ul.objectivesSub a {
+	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+	padding-left:15px;
+	padding-right:0px;
+	margin:0 0 0 20px;
+	font-weight:normal;
+	color:#000000;
+	}
+ul.objectivesNavigation li ul.objectivesSub a:hover {
+	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+	padding-left:15px;
+	padding-right:0px;
+	margin:0 0 0 20px;
+	font-weight:normal;
+	color:#00AA00;
+	}
+ul.objectivesNavigation li ul li a:hover {
+	background:url(../images/arowRight.jpg) no-repeat left center;
+
+}
+
+
+/*Objectives menu  end*/
+
 /*subobjectiveContent----------------*/
 .subobjectiveContent{
 	background:#f0f0ee;

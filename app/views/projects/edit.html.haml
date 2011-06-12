@@ -1,40 +1,10 @@
 #content
-  / div right start
   .right
-    %h1.heading Add/Edit Contents
-    .borderBottom
-    %h1.marTop20 Contents
-    %ul.leftNavigation
-      %li.main
-        = link_to "Project Outline" , "#" 
-        %ul.leftSub
-          %li
-            = link_to "Summary","#", :class => "eidtArow" 
-          %li
-            = link_to "Objectives", "#", :class => "okArow"
-          %li
-            = link_to "Key stakeholders" , "#"
-      %li
-        = link_to "Funding", "#"
-      %li
-        = link_to "Similar Projects", "#"
-      %li
-        = link_to "Links", "#"
-      %li
-        = link_to "Comments", "#"
-    .addContent
-      = link_to "Add new content page:", "#"
-    .borderBottom
+    = render "left_bar"
   / div right end
   / div left start
   .left
-    %h1.heading Summary
-    .borderBottom
-    %p Describe the reason for the project. It might be a problem to be solved or an opportunity for something new
-    = form_for(@project) do |f|
-      .content1
-        = f.text_area :description, :id => "helo"
-        = f.submit :class => "submitbg" , :value => "Save Summary"
+    = render "edit_#{@selection}"   
   / div left End
   .clr
 / content end
