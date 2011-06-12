@@ -7,10 +7,9 @@
 <link href="css/slider.css" rel="stylesheet" type="text/css" />
 
 </head>
-		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/1.5.1.js"></script>
 		<script type="text/javascript" src="js/jquery-ui-1.8.6.custom.min.js"></script>
-		<script type="text/javascript" src="js/corners.js"></script>
-		<script type="text/javascript" src="js/easySlider1.7.js"> </script>
+		<script type="text/javascript" src="js/slides.min.jquery.js"> </script>
 <script>
 $(document).ready(function() {
 
@@ -39,13 +38,37 @@ $(document).ready(function() {
 });
 
 <!--for slider-->
-$(document).ready(function(){	
-			$("#slider").easySlider({
-				auto: true, 
-				continuous: true,
-				numeric: true
+$(function(){
+			$('#slides').slides({
+				preload: true,
+				play: 5000,
+				pause: 2500,
+				hoverPause: true,
+				animationStart: function(current){
+					$('.caption').animate({
+						bottom:0
+					},100);
+					if (window.console && console.log) {
+						// example return of current slide number
+						console.log('animationStart on slide: ', current);
+					};
+				},
+				animationComplete: function(current){
+					$('.caption').animate({
+						
+					},200);
+					if (window.console && console.log) {
+						// example return of current slide number
+						console.log('animationComplete on slide: ', current);
+					};
+				},
+				slidesLoaded: function() {
+					$('.caption').animate({
+						bottom:0
+					},200);
+				}
 			});
-		});	 
+		});
 <!--for slider End-->
 
 
@@ -103,20 +126,47 @@ $(document).ready(function(){
                 <div class="murgeWrapper">
                 	<div class="wrapperLeft">
                     	<div class="borderBottom">
-                            <div id="slider">
-                                <ul>				
-                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a>
-                                    	<p>Photo Caption</p>
-                                    </li>
-                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a>
-                                    	<p>Photo Caption</p>
-                                    </li>
-                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a>
-                                    	<p>Photo Caption</p>
-                                    </li>
-                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a></li>	
-                                </ul>
-                            </div>
+                        	<div id="slides">
+                            <div id="slider_project">
+                            	<!--slider start-->
+                                <div id="slides">
+                                    <div class="slides_container">
+                                        <div class="slide">
+                                            <a href="#">
+                                            <img src="../../images/testPhoto.jpg" width="258" height="193" alt="Slide 1"></a>
+                                            <div class="caption" style="bottom:0">
+                                                <p>Photo caption</p>
+                                            </div>
+                                        </div>
+                                        <div class="slide">
+                                            <a href="#">
+                                            <img src="../../images/testPhoto.jpg" width="258" height="193"  alt="Slide 2"></a>
+                                            <div class="caption">
+                                                <p>Photo caption</p>
+                                            </div>
+                                        </div>
+                                        <div class="slide">
+                                            <a href="#"><img src="../../images/testPhoto.jpg" width="258" height="193"  alt="Slide 3"></a>
+                                            <div class="caption">
+                                                <p>Photo caption</p>
+                                            </div>
+                                        </div>
+                                        <div class="slide">
+                                            <a href="#"><img src="../../images/testPhoto.jpg" width="258" height="193"  alt="Slide 4"></a>
+                                            <div class="caption">
+                                                <p>Photo caption</p>
+                                            </div>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <a href="#" class="prev">Previous</a>
+                                    <a href="#" class="next">Next</a>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="clr"></div>
+                                <!--slider start end-->
+						</div>
+                        </div>
                         </div>
                         <div class="borderBottom">
                         	<div class="heading">

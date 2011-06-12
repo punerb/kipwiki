@@ -63,22 +63,22 @@ class Project
     all_similar_projects.sort{|b,a| a[:s] <=> b[:s]}[0..4].collect{|proj| proj[:p]} 
   end
 
-  private
-
   def keywords
     # returns a project's keywords, which are basically keywords form the title union with it's tags
-    [self.title.split(" ") << self.tags].flatten.uniq
+    [self.title.split(" ") << self.tags].flatten.uniq.compact
     #todo: remove common noise like 'The' or 'A' or 'And' or 'in' from the title since they are not really keywords
     #todo: need to sanitize the keywords so that they are all lowercase as well
     
   end
+  
+  private
   
   def calculate_similarity_with other_project
     other_keywords = other_project.keywords #will never be zero since the title is compulsory so the number of keywords is always at least 1
     similarity = (self.keywords & other_keywords).count.to_f / other_keywords.count
 
     #0.01 is an arbitrary value, to differentiate between two similarities which are each 100%. This way, two similarities of 100%, where one overlaps 3 times and the other one 7 times, gives the 7-time-overlap scenario a higher similarity rating over the 3-time-overlap scenario
-    similarity += 0.01*other_keywords if similarity == 1 
+    #similarity = similarity + 0.01*other_keywords.count.to_f if similarity == 1.0 
   end
   
 end
