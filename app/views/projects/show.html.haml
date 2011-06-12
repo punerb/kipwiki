@@ -30,29 +30,7 @@
       .inputWrapper
         %input.field{:type => "text", :value => "Search within a Project"}/
         %input.searchBtn{:type => "submit"}/
-    .borderBottom
-      .heading
-        %h1 Funding
-        %a{:href => "#"} Add new
-        %a{:href => "#"} Edit
-        .clr
-      %ul.funding
-        %li
-          %p Estimated Cost April '11
-          %span $1,800,000
-        %li
-          %p Current Total t Funding
-          %span $1,200,000
-        %li
-          %p Federal Gov. Contribution
-          %span $ 800,000
-        %li
-          %p State Gov. Contribution
-          %span $ 100,000
-        %li
-          %p Private Donations
-          %span $ 300,000
-        .clr
+    = render "projects_fundings"
   .wrapperRight
     .marBot10
       %ul.rating
@@ -75,7 +53,7 @@
       .clr
     .loaderWrapper
       .loader
-        %img{:alt => "", :height => "25px", :src => "images/loader.jpg", :width => "370px"}/
+        %img{:alt => "", :height => "25px", :src => "/images/loader.jpg", :width => "370px"}/
       .text
         10% Planning Complete
     .socialShare
@@ -119,13 +97,7 @@
       %p
         %span Fuscemassa
         , 9 Jun 2011
-    .textWrapper
-      .heading
-        %h1 Project Objectives
-        %a{:href => "#"} Add new
-        %a{:href => "#"} Edit
-        .clr
-      .clr
+    = render "project_objectives"
   .clr
 .clr
 

@@ -16,17 +16,20 @@
    
     10.times do |n|
       projects = Project.create({ 
-        :title =>"Poject#{n}",
+        :title => Faker::Lorem.words(6).join(" "),
         :city => locations.shuffle.first,
-        :address =>[Faker::Address.street_address, Faker::Address.secondary_address, locations[rand(locations.length)]].join(" "),
+        :address =>[ Faker::Address.street_address, Faker::Address.secondary_address, locations[rand(locations.length)]].join(" "),
         :description => Faker::Lorem.sentences(10),
-        :categories => [ APP_CONFIG[:categories][rand(4)], APP_CONFIG[:categories][rand(4)] ],
+        :categories => [
+            APP_CONFIG[:categories][rand(4)], APP_CONFIG[:categories][rand(4)]
+        ],
         :status => APP_CONFIG[:statuses][rand(4)],
         :project_scope => APP_CONFIG[:project_scopes][rand(4)], 
-        :tags => [tags[rand(4)], tags[rand(4)], tags[rand(4)]],
-        :links => [ {:name => Faker::Lorem.words(3).join(" "), :url => Faker::Internet.domain_name } ],
-        :project_fundings =>[ {:name => "Innovation", :amount => 1111 , :currency => "$" }],
-        :stakeholders => [ {:name => Faker::Name.name, :url => Faker::Internet.domain_name } ],
+        :tags => tags.shuffle.take(rand(tags.count)),
+        :links => rand(5).times.map{{:name => Faker::Lorem.words(3).join(" "), :url => Faker::Internet.domain_name }},
+        :project_fundings =>rand(6).times.map{{:name => Faker::Lorem.words(3).join(" "), :amount => 5000-rand(2000).to_i, :currency => "$" }},
+        :project_objectives => rand(5).times.map{{:name => Faker::Lorem.words(2).join(" ")}},
+        :stakeholders => rand(5).times.map{{:name => Faker::Name.name, :url => Faker::Internet.domain_name }},
         :user => User.last
      })
     puts "Added Project #{n}"

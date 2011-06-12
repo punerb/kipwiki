@@ -1,0 +1,12 @@
+.textWrapper
+  .heading
+    %h1 Project Objectives
+    %a{:href => "#"} Add new
+    %a{:href => "#"} Edit
+    .clr
+  %ul.funding
+    - @project.project_objectives.each do |obj|
+      %li
+        =obj["name"]
+
+  .clr
