@@ -1,5 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  layout "home_layout"
+
   def create
     super
     session[:omniauth] = nil unless @user.new_record?

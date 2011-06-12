@@ -1,29 +1,36 @@
-%h2 Sign up
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  %p
-    = f.label :first_name
-    %br/
-    = f.text_field :first_name
-  %p
-    = f.label :last_name
-    %br/
-    = f.text_field :last_name
-  %p
-    = f.label :city
-    %br/
-    = f.text_field :city
-  %p
-    = f.label :email
-    %br/
-    = f.email_field :email
-  %p
-    = f.label :password
-    %br/
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %p= f.submit "Sign up"
-= render :partial => "devise/shared/links"
+/ signupContent start here
+.signupContent
+  .signupLogo
+  .loginText Signup
+  .clr
+  .signupBorder
+  .signupFieldWrapper
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      %label First Name
+      .clr
+      = f.text_field(:first_name , :class => "field signpFiled" , :value => "First name")
+      .clr
+      %label Last Name
+      .clr
+      = f.text_field(:last_name,:class => "field signpFiled" ,:value => "Last Name")
+      .clr
+      %label Email
+      .clr
+      = f.text_field(:email,:class => "field signpFiled", :value => "user@example.com")
+      %label City
+      .clr
+      = f.text_field(:city,:class => "field signpFiled", :value => "city..")
+      %label Password
+      .clr
+      = f.password_field(:password,:class => "field signpFiled")
+      %label Confirm Password
+      .clr
+      = f.password_field(:password_confirmation , :class => "field signpFiled")
+      .clr
+      .leftSide
+        .leftSide
+          %input.submitbg{:name => "", :type => "submit", :value => "Signup"}/
+      .clr
+      = render :partial => "devise/shared/links"
+/ signupContent end here
