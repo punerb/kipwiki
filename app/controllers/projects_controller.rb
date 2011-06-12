@@ -124,6 +124,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def search
+    @project = Project.new
+  end
+
   private
 
   def load_project
