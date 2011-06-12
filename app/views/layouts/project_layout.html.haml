@@ -21,11 +21,11 @@
           .navigation
             %ul.main
               %li.selected
-                %a{:href => "#"} Projects
+                %a{:href => projects_path} Projects
               %li
                 %a{:href => "#"} Notifications
               %li
-                %a{:href => "#"} Create Project
+                %a{:href => new_project_path} Create Project
             %ul.subMenu
               %li
                 %a{:href => "#"} About
@@ -49,17 +49,10 @@
         / div left start
         .left
           = yield
-          %h2 Comments
-          :javascript
-            //var fyre = LF({
-            //  site_id: 285879,
-            //  version: '1.0'
-            //});
           .clr
         / div left End
         / div right start
         #sidebar.right
-          %h2 Sidebar
           = yield(:sidebar)
           / footer end
           .clr
@@ -69,19 +62,3 @@
       .clr
       / footer Start
       #footer
-
-        - if show_title?
-          %h1= yield(:title)
-
-        = yield
-      %h2 Comments
-      :javascript
-        var fyre = LF({
-          site_id: 285879,
-          version: '1.0'
-        });
-
-    #sidebar{:style => "float: right; width: 200px; border: 1px solid;"}
-      %h2 Sidebar
-      = yield(:sidebar)
-    #footer
