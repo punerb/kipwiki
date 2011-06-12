@@ -73,31 +73,7 @@
   
   %body
     #wrapper
-      / header start
-      #header
-        .headerContent
-          .logo
-            %a{:href => "#"} kipWiki
-          .navigation
-            %ul.main
-              %li.selected
-                %a{:href => "#"} Projects
-              %li
-                %a{:href => "#"} Notifications
-              %li
-                %a{:href => "#"} Create Project
-            %a.sign_up{:href => "#"} Signup
-            %ul.subMenu
-              %li
-                %a{:href => "#"} About
-              %li
-                %a{:href => "#"} Profile
-              %li
-                %a{:href => "#"} Help & Feedback
-              %li
-                %a{:href => "#"} Login
-            .clr
-        .clr
+      = render :partial => "layouts/header"
       / Header End here
       .clr
       #projectWorkingWrapper
