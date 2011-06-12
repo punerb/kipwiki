@@ -49,7 +49,6 @@ class Project
    project.slug = project.title.parameterize
   }
  
- 
   MIN_SIMILARITY_THRESHOLD = 0.2 
   def similar_projects
     all_similar_projects = []

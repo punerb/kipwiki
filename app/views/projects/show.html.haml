@@ -44,9 +44,11 @@
           star5
       .voteViewMurge
         .viewWrapper
-          99999 View
+          = @project.view_count
+          Views
         .voteWrapper
-          99999 View
+          = @project.vote_count
+          Votes
         .clr
       .clr
     .loaderWrapper
