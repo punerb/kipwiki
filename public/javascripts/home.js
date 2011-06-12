@@ -1,4 +1,12 @@
 
+$(document).ready(function(){
+  alert('x');
+  $('.filter').click(function(){
+    var cats = $('.category').filter(":checked");
+    console.log(cats);
+  });
+});
+
 var projectJS = {
   find_in_hash: function (os, q){
       var ret = jQuery.grep(os, function(o, i) {
@@ -15,4 +23,3 @@ var projectJS = {
       })
     }
 }
-
