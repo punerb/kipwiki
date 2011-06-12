@@ -1,3 +1,9 @@
 #project_type.borderBottom
   %h3 Project Type
-  STYLE ME!!
+  %ul
+    - APP_CONFIG[:categories].each do |type|
+      %li
+        %input.checkBox{:type => "checkbox"}/
+        %label.label
+          = type
+    .clr
