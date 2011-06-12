@@ -8,7 +8,7 @@
     %meta{:content => "KipWiki", :property => "og:site_name"}/
     %link{ :rel => "shortcut icon", :href => "/images/favicon.ico", :type => "image/x-icon"}/
     %title
-      = yield(:title) || "KipWiki"
+      = yield(:title).present? ? yield(:title) : "KipWiki"
     = stylesheet_link_tag "colorbox", "slider", "projects","editor"
     = javascript_include_tag "jquery", "colorbox", "application","punymce/puny_mce", "slides.min.jquery"
     = javascript_include_tag "livefyre", :src => 'http://livefyre.com/wjs/javascripts/livefyre.js'

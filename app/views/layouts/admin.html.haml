@@ -4,7 +4,8 @@
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %link{ :rel => "shortcut icon", :href => "/images/favicon.ico", :type => "image/x-icon"}/
 
-    %title KipWiki
+    %title
+      = yield(:title).present? ? yield(:title) : "KipWiki"
   = stylesheet_link_tag "colorbox", "slider", "projects" , "global", "project_edit", "editor"
   = javascript_include_tag "jquery", "colorbox", "easySlider1.7", "application", "punymce/puny_mce"
   %body
