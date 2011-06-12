@@ -1,9 +1,9 @@
 .leftSide
   .leftSide
-    %h1.heading Summary
+    %h1.heading News
   .leftSide
     .suggestChanges
-      = link_to "Edit", edit_project_by_action_type_path(@project, "summary")
+      = link_to "Edit", edit_project_by_action_type_path(@project, "news")
 .rightSide
   .nextPage
     = link_to "next", display_project_by_action_type_path(@project, "objective")
@@ -12,4 +12,6 @@
 .clr
 .borderBottom
 %p.marTop15
-  = @project.description
+  - @project.news.each do |n|
+    %p
+      =raw n.content

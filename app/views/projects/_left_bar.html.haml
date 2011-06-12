@@ -17,7 +17,7 @@
   %li
     = link_to "Links", display_project_by_action_type_path(@project, "link"), :class => select_if(@selection, "link")
   %li
-    = link_to "News", edit_project_by_action_type_path(@project, "news"), :class => select_if(@selection, "news")
+    = link_to "News", display_project_by_action_type_path(@project, "news"), :class => select_if(@selection, "news")
 .addContent
   %a{:href => "#"} Add new content page
 .borderBottom

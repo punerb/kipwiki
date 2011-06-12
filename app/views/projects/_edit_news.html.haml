@@ -4,7 +4,7 @@
 %ul.rightNavigation
   - @project.news.each do |sh|
     %li
-      = sh.content 
+      =raw sh.content
 - news = News.new
 = form_for news, :url => project_news_index_path(@project, news) do |f|
   .leftSide

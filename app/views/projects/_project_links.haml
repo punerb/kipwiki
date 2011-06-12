@@ -14,5 +14,5 @@
       - @project.links.each do |link|
         %li
           = link.name
-          = link_to link.url, link.url
+          = link_to link.url, link.url, :target => "blank"
     .clr
