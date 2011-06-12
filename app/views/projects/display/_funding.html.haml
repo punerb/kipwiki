@@ -1,0 +1,21 @@
+.leftSide
+  .leftSide
+    %h1.heading Funding
+  .leftSide
+    .suggestChanges
+      %a{:href => "#"} Edit
+.rightSide
+  .nextPage
+    = link_to "next", display_project_path(@project, {:view => "similar_projects"})
+  .previousPage
+    = link_to "next", display_project_path(@project, {:view => "key_stakeholders"})
+.clr
+.borderBottom
+%p.marTop15
+%ul.objectivesNavigation.black
+
+  - @project.project_fundings.each do |obj|
+    %ul
+      %li
+        %strong{:style => "font-size:13px; line-height:20px;"}
+          = obj.name
