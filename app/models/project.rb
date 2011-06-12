@@ -7,7 +7,6 @@ class Project
   field :address, :type => String
   field :view_count, :type => Integer 
   field :vote_count, :type => Integer
-  field :address, :type => String     # Used for geo-location
   field :city, :type => String        # From Geocoder location
   field :state, :type => String
   field :country, :type => String     # From Geocoder location
@@ -76,7 +75,7 @@ class Project
   
   def calculate_similarity_with other_project
     other_keywords = other_project.keywords #will never be zero since the title is compulsory so the number of keywords is always at least 1
-    similarity = (self.keywords & other_keywords).count.to_f / other_keywords.count
+    similarity = (self.keywords & other_keywords).count.to_f / other_keywords.count.to_f
 
     #0.01 is an arbitrary value, to differentiate between two similarities which are each 100%. This way, two similarities of 100%, where one overlaps 3 times and the other one 7 times, gives the 7-time-overlap scenario a higher similarity rating over the 3-time-overlap scenario
     #similarity = similarity + 0.01*other_keywords.count.to_f if similarity == 1.0 
