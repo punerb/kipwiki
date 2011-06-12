@@ -10,6 +10,8 @@
       = yield(:title) || "Project Title"
     = stylesheet_link_tag "colorbox", "slider", "projects","editor","global"
     = javascript_include_tag "jquery", "colorbox", "easySlider1.7", "application","jquery-ui-1.8.6.custom.min.js","slides.min.jquery.js"
+    = csrf_meta_tag
+    = yield(:head)
     :javascript
       $(document).ready(function() {
       	//When page loads...
@@ -74,7 +76,6 @@
   %body
     #wrapper
       = render :partial => "layouts/header"
-      / Header End here
       .clr
       #projectWorkingWrapper
         %ul
@@ -101,179 +102,7 @@
               Turning ideas into action
       / content start
       #content
-        .homeWrapper
-          .mapWrapper
-            %img{:alt => "", :height => "288", :src => "images/homePageMap.jpg", :width => "977"}/
-            .searchWrapper
-              %input.field{:type => "text", :value => "Search"}/
-              %input.searchBtn{:type => "submit"}/
-              .clr
-          .title
-            .text
-              Improving local communities one project at a time
-            .btn
-              %a.sign_up{:href => "#"} Create Project
-        .fatureProjectsWrapper
-          %h2 Featured Projects
-          .clr
-          %ul
-            %li
-              .heading
-                Renovation of xxxxxx Temple, Deccan
-              .imageWrapper
-                %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
-              .voteViewMurge
-                .viewWrapper
-                  99999 View
-                .voteWrapper
-                  99999 View
-                .clr
-              .clr
-              .textWrapper
-                .heading
-                  Location
-                .clr
-                15 Josh street, Deccan
-              .textWrapper
-                .heading
-                  Summary
-                .clr
-                The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned....
-                %a{:href => "#"} more
-            %li
-              .heading
-                Renovation of xxxxxx Temple, Deccan
-              .imageWrapper
-                %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
-              .voteViewMurge
-                .viewWrapper
-                  99999 View
-                .voteWrapper
-                  99999 View
-                .clr
-              .clr
-              .textWrapper
-                .heading
-                  Location
-                .clr
-                15 Josh street, Deccan
-              .textWrapper
-                .heading
-                  Summary
-                .clr
-                The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned....
-                %a{:href => "#"} more
-            %li.marNone
-              .heading
-                Renovation of xxxxxx Temple, Deccan
-              .imageWrapper
-                %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
-              .voteViewMurge
-                .viewWrapper
-                  99999 View
-                .voteWrapper
-                  99999 View
-                .clr
-              .clr
-              .textWrapper
-                .heading
-                  Location
-                .clr
-                15 Josh street, Deccan
-              .textWrapper
-                .heading
-                  Summary
-                .clr
-                The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned....
-                %a{:href => "#"} more
-          .clr
-          %h2 Local Projects
-          %ul
-            %li
-              .heading
-                Renovation of xxxxxx Temple, Deccan
-              .imageWrapper
-                %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
-              .voteViewMurge
-                .viewWrapper
-                  99999 View
-                .voteWrapper
-                  99999 View
-                .clr
-              .clr
-              .textWrapper
-                .heading
-                  Location
-                .clr
-                15 Josh street, Deccan
-              .textWrapper
-                .heading
-                  Summary
-                .clr
-                The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned....
-                %a{:href => "#"} more
-            %li
-              .heading
-                Renovation of xxxxxx Temple, Deccan
-              .imageWrapper
-                %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
-              .voteViewMurge
-                .viewWrapper
-                  99999 View
-                .voteWrapper
-                  99999 View
-                .clr
-              .clr
-              .textWrapper
-                .heading
-                  Location
-                .clr
-                15 Josh street, Deccan
-              .textWrapper
-                .heading
-                  Summary
-                .clr
-                The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned....
-                %a{:href => "#"} more
-            %li.marNone
-              .heading
-                Renovation of xxxxxx Temple, Deccan
-              .imageWrapper
-                %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
-              .voteViewMurge
-                .viewWrapper
-                  99999 View
-                .voteWrapper
-                  99999 View
-                .clr
-              .clr
-              .textWrapper
-                .heading
-                  Location
-                .clr
-                15 Josh street, Deccan
-              .textWrapper
-                .heading
-                  Summary
-                .clr
-                The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned....
-                %a{:href => "#"} more
-        .clr
-      / content end
+        = yield
       .clr
-      / footer Start
-      #footer
-        %ul
-          %li.selected
-            %a{:href => "#"} Home
-          %li
-            %a{:href => "#"} Projects
-          %li
-            %a{:href => "#"} Notifications
-          %li
-            %a{:href => "#"} Create Projects
-          %li.borderNone
-            %a{:href => "#"} About
-        .copyRight kipwiki &copy; 2011
-      / footer end
+        = render :partial => "layouts/footer"
       .clr

@@ -1,0 +1,32 @@
+.mainHeading
+  = project.title
+.clr
+.murgeWrapper
+  .wrapperLeft
+    .imageWrapper
+      %img{:alt => "#{project.title}", :height => "193", :src => "/images/testPhoto.jpg", :width => "258"}/
+  .wrapperRight
+    .marBot10
+      .voteViewMurge
+        .viewWrapper
+          = project.view_count || 0 
+          View
+        .voteWrapper
+          = render :partial => 'fb_like'
+        .clr
+      .clr
+    .textWrapper
+      .heading
+        %h1 Location
+        .clr
+      %p
+        = project.address
+    .textWrapper
+      .heading
+        %h1 Summary
+        %a{:href => "#{edit_project_path(project.city, project.slug)}"} Edit
+        .clr
+      %p
+        = project.description
+  .clr
+.clr

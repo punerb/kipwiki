@@ -1,39 +1,28 @@
-.mainHeading
-  Renovation of xxxxxx Temple, Deccan
-.clr
-.murgeWrapper
-  .wrapperLeft
-    .imageWrapper
-      %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
-  .wrapperRight
-    .marBot10
-      .voteViewMurge
-        .viewWrapper
-          99999 View
-        .voteWrapper
-          99999 View
-        .clr
-      .clr
-    .textWrapper
-      .heading
-        %h1 Location
-        .clr
-      %p
-        15 Josh street, Deccan
-    .textWrapper
-      .heading
-        %h1 Summary
-        %a{:href => "#"} Edit
-        .clr
-      %p
-        The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned.
-  .clr
-.clr
+-@projects.each do |project|
+  %div{:id => "project_#{project.id}"}
+    = render 'search_project', :project => project
 
 - content_for :sidebar do
-  .inputWrapper
-    %input.field{:type => "text", :value => "Search"}/
-    %input.searchBtn{:type => "submit"}/
+  = render 'shared/search'
   #map.project_map
-  = render :partial => 'projects/project_type'
-  = render :partial => 'projects/project_status'
+  = render 'shared/filter_sidebar'
+
+#map_js
+  :javascript
+     jQuery(document).ready(function() {
+        var coordinates = #{@coordinates.to_json}; 
+        var center_cord = #{@loc_center.to_json};
+        var myOptions = {
+           zoom: 12,
+           center: new google.maps.LatLng(center_cord[0], center_cord[1]),
+           mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+        var map = new google.maps.Map(document.getElementById("map"), myOptions);
+       $.each(coordinates, function(i) {
+         var marker = new google.maps.Marker({
+         position: new google.maps.LatLng(coordinates[i][0], coordinates[i][1]),
+         map: map 
+       });
+       });
+     });
+
