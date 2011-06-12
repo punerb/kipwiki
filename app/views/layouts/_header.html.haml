@@ -15,8 +15,11 @@
       %ul.subMenu
         %li
           %a{:href => "#"} About
-        %li
-          %a{:href => "#"} Profile
+        %li 
+          - if user_signed_in?
+            = link_to "Profile", edit_user_registration_path
+          - else
+            %a{:href => "#"} Profile
         %li
           %a{:href => "#"} Help & Feedback
         %li
