@@ -26,7 +26,8 @@ class Project
 
   has_many :prints
   has_many :documents
-  
+  has_many :suggestions
+
   belongs_to :user
 
   validates :title, :description, :address, :presence => true
@@ -48,6 +49,20 @@ class Project
   before_create { |project|
    project.slug = project.title.parameterize
   }
+
+  def project_completion
+    # works by adding up weighted scores for the presence of content in a number of select fields
+    # since there are compulsory_fields title, description, location, we never start with 0% :-p
+    completion_value = (100*rand).round
+=begin
+    if image
+    project_type
+    project_status : weight: 60%
+    project_objectives
+    project_stakeholders
+    project_funding
+=end
+  end
  
   MIN_SIMILARITY_THRESHOLD = 0.2 
   def similar_projects
@@ -65,8 +80,13 @@ class Project
 
   def keywords
     # returns a project's keywords, which are basically keywords form the title union with it's tags
-    [self.title.split(" ") << self.tags].flatten.uniq.compact
-    #todo: remove common noise like 'The' or 'A' or 'And' or 'in' from the title since they are not really keywords
+    fillers = "a|the|this|that|is|are|was|or|of|here|there|thus|hence|therefore"
+    words = [self.title.downcase.gsub(/(^|\s)\d*(\s|$)|#{fillers}/,"").split(" ") << self.tags].flatten.uniq.compact
+    #words << self.city
+    #words << self.state
+    #words << self.country
+    #words << self.zip_code
+    #words.flatten.uniq.compact
     #todo: need to sanitize the keywords so that they are all lowercase as well
     
   end
