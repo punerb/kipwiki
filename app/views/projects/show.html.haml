@@ -65,7 +65,7 @@
         %h1 Summary
         = edit_link("summary")
         .clr
-      = @project.description
+      = raw sanitize(@project.description)
     .textWrapper
       .heading
         %h1 News
