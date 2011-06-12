@@ -1,7 +1,2 @@
 %h1 Home#index
 %p Find me in app/views/home/index.html.haml
-
-- content_for :head do
-  :javascript
-    var projects = #{@projects.to_json}
-  = javascript_include_tag "home"
