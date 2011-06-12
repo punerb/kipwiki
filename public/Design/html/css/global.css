@@ -592,6 +592,18 @@ float:right;
 width:370px;
 margin:0;
 }
+
+.imageWrapper {
+	width:258px;
+	height:193px;
+	border:1px solid #ddd;
+	margin-right:20px;
+	float:left;
+}
+.imageWrapper img {
+	max-height:193px;
+	max-width:258px;
+}
 /*left menu start-------------*/
 ul.leftNavigation {
 	padding-bottom:5px;
@@ -818,16 +830,12 @@ ul.rightNavigation li ul li a:hover {
 	border:1px solid #dddddd;
 	width:592px;
 	margin:0 auto;
-	padding:0 19px;
+	padding:19px;
 	min-height:550px;
 	border-radius: 5px 5px 5px 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
 #createProjecContent .heding{
 
 	font-size:24px;
@@ -838,29 +846,8 @@ ul.rightNavigation li ul li a:hover {
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
-<<<<<<< HEAD
-	font-size:24px;
-	color:#000000;
-	margin:30px 0 0px;
-=======
-=======
-font-size:24px;
-color:#000000;
-margin:30px 0 0px;
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-#createProjecContent .heading{
-	font-size:24px;
-	color:#000000;
-	margin:30px 0 0px;
 
-=======
-=======
->>>>>>> c6447464926009b2b901d8e938d0c2fbc205d86d
->>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
->>>>>>> 1a2fbfcec32587fd45717eb8feca0926ba661c1c
-}
 .formWrapper{
 	float:left;
 	width:420px;
@@ -901,8 +888,55 @@ margin:30px 0 0px;
 	text-shadow:0 1px #000000;
 	border:1px solid #000000;
 }
-
+.location_map {
+	width:648px;
+	height:248px;
+	border:1px solid #ddd;
+	margin-bottom:10px;
+}
 /*Create Projec End----------*/
+/*Location*/
+#editLocation {
+	background:#FFF;
+	border:1px solid #dddddd;
+	width:650px;
+	margin:0 auto;
+	padding:19px;
+	min-height:550px;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+#editLocation .textWrapper {
+	margin-bottom:20px;
+}
+#editLocation input.field {
+	width:630px;
+	color:#000;
+	border-radius: 5px 5px 5px 5px;
+}
+.buttonWrapper {
+	height:30px;
+	line-height:30px;
+	float:left;
+	margin-bottom:30px;
+}
+.buttonWrapper .submitbg {
+	float:left;
+	margin-right:20px;
+}
+.buttonWrapper a {
+	font-size:14px;
+	font-weight:bold;
+	color:#000;
+	float:left;
+	padding-top:12px;
+}
+.buttonWrapper a:hover {
+	color:#00AA00;
+}
+/*Location*/
+
 /*Footer Start Here*/
 #footer {
 width:990px;
