@@ -4,12 +4,18 @@
 %ul.rightNavigation
   - @project.stakeholders.each do |sh|
     %li
-      = link_to sh.name, sh.url 
-      = check_box(sh.key) 
-= form_for :url => project_stakeholders_path(@project) do |f|
+      = link_to sh.key ? "#{sh.name} (key stakeholder)" : sh.name, sh.url 
+- stakeholder = Stakeholder.new
+= form_for stakeholder, :url => project_stakeholders_path(@project,stakeholder) do |f|
   .leftSide
-    = f.text_field(:class => "stakeholder" , :placeholder => "Stakeholder Name")
-    = f.submit(:class => "submitbg", :value => "Add Key Stakeholder")
+    = f.text_field(:name ,:class => "stakeholder", :placeholder => "Stakeholder Name")
+    = f.check_box(:key)
+    %label Key Stakeholder 
+    %br/
+    %br/
+    = f.text_field(:url ,:class => "stakeholder", :placeholder => "URL")
+    %br/
+    = f.submit(:class => "submitbg", :value => "Add Stakeholder")
   / div left End
 .clr
 / content end
