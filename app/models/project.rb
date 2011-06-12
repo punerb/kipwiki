@@ -27,7 +27,8 @@ class Project
   has_many :prints
   has_many :documents
   has_many :suggestions
-
+  has_many :activities
+  
   belongs_to :user
 
   validates :title, :description, :address, :presence => true
@@ -36,20 +37,31 @@ class Project
   field :coordinates, :type => Array  # For geolocation
   geo_index :coordinates
   
-  after_validation { |project| 
-   location =   Geocoder.search(project.address).first 
-   if location
+  before_validation { |project| 
+   location = Geocoder.search(project.address).first 
+   if location and not (location.city.empty? or location.country.empty?)
      project.coordinates = location.coordinates
-     project.city = location.city.titleize
-     project.country = location.country.titleize
-     project.state = location.state.titleize
+     project.city = location.city.parameterize.titleize
+     project.country = location.country.parameterize.titleize
+     project.state = location.state.parameterize.titleize
+   else
+     self.errors[:address] = 'cannot be verified'
    end
   }
   
   before_create { |project|
    project.slug = project.title.parameterize
   }
-
+  
+  before_save {
+    if changed?
+      changes.each_pair { |k, v|
+        next if k.to_s == 'view_count'
+        Activity.create(:text => "#{k.to_s} was changed.", :user => user.id)
+      }
+    end
+  }
+  
   def project_completion
     # works by adding up weighted scores for the presence of content in a number of select fields
     # since there are compulsory_fields title, description, location, we never start with 0% :-p

@@ -8,7 +8,7 @@
     %p This address should be plottable on a google map - be as specific as the problem is. i.e if the problem is city based enter only the city and the country, if the problem has an exact address enter the exact address including street no. and name, suburb, city, country and postcode
     %h2 Summary
     %p Describe the reason for the project. It might be a problem to be solved or an opportunity for something new
-    = f.text_area(:description, :style => "width:320px;height:70px") 
+    = f.text_area(:description, :style => "width:320px;height:70px", :id => "project[description]")
     = f.submit(button_text, :class => "submitbg")
   .clr
 / createProjecContent end
@@ -18,4 +18,4 @@
 / footer end
 .clr
 :javascript
-  var editor1 = new punymce.Editor({id : 'project_description', editor_css : ''});
+  var editor1 = new punymce.Editor({id : 'project[description]'});
