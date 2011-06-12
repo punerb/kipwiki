@@ -6,9 +6,9 @@
       %a{:href => "#"} Suggest Changes
 .rightSide
   .nextPage
-    %a{:href => "#"}
+    = link_to "next", display_project_path(@project, {:view => "key_stakeholders"})
   .previousPage
-    %a{:href => "#"}
+    = link_to "next", display_project_path(@project, {:view => "summary"})
 .clr
 .borderBottom
 %p.marTop15 Here you can try and develop your project objectives. It can help to think of your expectations for a completed project, what will the project deliver? What criteria can you think of that would make the project a success?

@@ -1,6 +1,3 @@
-
-
-
 #content
   / div right start
   .right
@@ -20,11 +17,11 @@
       %li
         = link_to "Funding", display_project_path(@project, {:view => "funding"})
       %li
-        = link_to "Similar Projects", display_project_path(@project, {:view => "similer_projects"})
+        = link_to "Similar Projects", display_project_path(@project, {:view => "similar_projects"})
       %li
         = link_to "Links", display_project_path(@project, {:view => "links"})
-      %li
-        = link_to "Comments", display_project_path(@project, {:view => "comments"})
+      -#%li
+      -#  = link_to "Comments", display_project_path(@project, {:view => "comments"})
     .addContent
       = link_to "Add new content page:", "#"
     .borderBottom

@@ -197,7 +197,7 @@ display:block;
 .navigation ul.subMenu li a:hover, .navigation ul.subMenu li.selected a {
 color:#000;
 }
-.navigation a.sign_up {
+a.sign_up {
 	background:url(../images/submitBg.jpg) left top repeat-x;
 	height:33px;
 	border:1px solid #00aa00;
@@ -212,8 +212,69 @@ color:#000;
 	margin-top:8px;
 	cursor:pointer;
 }
+a.sign_up:hover {
+	background:url(../images/submitHoverBg.jpg) left top repeat-x;
+	border:1px solid #000;
+	text-shadow:0 1px #000;
+}
 
 /*header part End*/
+/*project Working*/
+#projectWorkingWrapper {
+	width:990px;
+	height:100px;
+	margin:0 auto 20px;
+}
+#projectWorkingWrapper ul li {
+	width:278px;
+	height:100px;
+	display:block;
+	float:left;
+	margin-right:8px;
+	background:url(../images/prograceBg.png) top left no-repeat;
+	background-position:0 0;
+	padding-right:64px;
+}
+#projectWorkingWrapper ul li.last {
+	width:290px;
+	height:100px;
+	display:block;
+	float:left;
+	background:url(../images/prograceBg.png) top left no-repeat;
+	background-position:-360px 0;
+	padding:0;
+	margin:0;
+}
+#projectWorkingWrapper ul li .holder {
+	width:180px;
+	height:75px;
+	margin:15px 0 0 20px;
+	background:url(../images/hompageIcons.png) top left no-repeat;
+	background-position:0 7px;
+	font-size:12px;
+	font-weight:normal;
+	line-height:16px;
+	color:#505050;
+	padding-left:78px;
+}
+#projectWorkingWrapper ul li .holder .heading {
+	font-size:18px;
+	font-weight:bold;
+	line-height:20px;
+	color:#000;
+	margin-bottom:5px;
+}
+#projectWorkingWrapper ul li .shareIcon {
+	background:url(../images/hompageIcons.png) top left no-repeat;
+	background-position:-60px -100px;
+}
+#projectWorkingWrapper ul li .developeIcon {
+	background:url(../images/hompageIcons.png) top left no-repeat;
+	background-position:-120px -193px;
+}
+/*project Working End*/
+
+
 /* Content CSS start */
 #content {
 background:#FFF;
@@ -290,6 +351,9 @@ input.objective{
 input.stakeholder{
 	width:630px;
 	padding:6px 10px;
+}
+input.signpFiled{
+	width:310px;
 }
 select.selectWidth{
 	 height: 34px;
@@ -513,7 +577,93 @@ background:#00cc00;
 	font-weight:bold;
 }
 /*tabs*/
+/*home Page*/
+/*home Page*/
 /*priject page End*/
+.homeWrapper {
+}
+.mapWrapper {
+	width:978px;
+	height:288px;
+	margin:5px;
+	border:1px solid #ddd;
+}
+.homeWrapper .title {
+	height:35px;
+	border-bottom:1px solid #ddd;
+	background:url(../images/redioSliderBg.jpg) left top repeat-x;
+	margin:0 20px 20px 20px;
+	padding:10px 0 29px 0;
+}
+.homeWrapper .title .text {
+	float:left;
+	font-size:24px;
+	color:#444444;
+	line-height:35px;
+}
+.homeWrapper .title .btn {
+	float:right;
+}
+.fatureProjectsWrapper {
+	width:930px;
+	margin:0 auto;
+}
+.fatureProjectsWrapper h2 {
+	padding:0 0 10px 0;
+	height:20px;
+	font-size:18px;
+	font-weight:normal;
+	color:#444444;
+	line-height:20px;
+}
+.fatureProjectsWrapper ul li {
+	display:block;
+	float:left;
+	width:260px;
+	min-height:410px;
+	margin:0 27px 20px 0;
+	border:1px solid #ddd;
+	padding:15px;
+	border-radius: 5px 5px 5px 5px;
+}
+.fatureProjectsWrapper ul li.marNone {
+	margin:0 0 20px 0;
+}
+.fatureProjectsWrapper ul li .heading {
+	height:25px;
+	background:url(../images/fatureProjectsWrapperHeading.png) center left no-repeat;
+	padding-left:25px !important;
+	font-size:12px;
+	color:#00aa00;
+	font-weight:normal;
+	line-height:25px;
+}
+.fatureProjectsWrapper ul li .imageWrapper {
+	margin:0 0 10px 0;
+}
+.fatureProjectsWrapper ul li .voteViewMurge {
+	float:left !important;
+	margin-bottom:15px;
+}
+.fatureProjectsWrapper ul li .textWrapper { 
+	width:260px;
+	margin-bottom:10px;
+	font-size:12px;
+	line-height:16px;
+	color:#666666;
+	font-weight:normal;
+	padding:0 !important;
+	border:none !important;
+}
+.fatureProjectsWrapper ul li .textWrapper .heading {
+	font-size:12px;
+	line-height:16px;
+	font-weight:bold;
+	color:#444444;
+	margin:0 !important;
+	padding:0 !important;
+	background:none; 
+}
 /*Left Start Here*/
 #content .left {
 float:left;
@@ -673,8 +823,6 @@ background:url(../images/arowRight.jpg) no-repeat 0px 8px;
 
 ul.leftNavigation li.main a {
 	font-weight:bold;
-	
-
 }
 ul.leftNavigation li.main a:hover, a.selected {
 	color:#000;
@@ -689,8 +837,6 @@ ul.leftNavigation li.main a.on {
 ul.leftNavigation li a:hover, a.selected {
 	background:url(../images/selectedArow.jpg) no-repeat 0px 8px;
 	margin:0 0 0 0px;
-	
-
 }
 ul.leftNavigation li ul.leftSub li{
 	background:none;
@@ -713,7 +859,6 @@ ul.leftNavigation li ul li a:hover, a.selected {
 	background:url(../images/selectedArow.jpg) no-repeat 0px 8px !important;
 	font-weight:bold;
 	margin:0 0 0 20px;
-
 }
 .eidtArow{
 	background:url(../images/eidtArow.jpg) no-repeat left center !important;
@@ -903,9 +1048,7 @@ ul.objectivesNavigation li ul.objectivesSub a:hover {
 	}
 ul.objectivesNavigation li ul li a:hover {
 	background:url(../images/arowRight.jpg) no-repeat left center;
-
 }
-
 
 /*Objectives menu  end*/
 
@@ -1028,10 +1171,7 @@ ul.objectivesNavigation li ul li a:hover {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
 #createProjecContent .heding{
 
 	font-size:24px;
@@ -1042,23 +1182,15 @@ ul.objectivesNavigation li ul li a:hover {
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
-<<<<<<< HEAD
+	font-size:24px;
+	color:#000000;
+	margin:30px 0 0px;
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
 
-font-size:24px;
-color:#000000;
-margin:30px 0 0px;
-
-=======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
 }
 
-<<<<<<< HEAD
-}
-=======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
 .formWrapper{
 	float:left;
 	width:420px;
@@ -1147,12 +1279,90 @@ margin:30px 0 0px;
 	color:#00AA00;
 }
 /*Location*/
-
+/*signupContent start*/
+.signupContent{
+	background:#eeeeee;
+	border:1px solid #c6c6c6;
+	width:390px;
+	margin:60px auto;
+	padding:20px 30px 30px;
+	border-radius: 5px 5px 5px 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+}
+.signupContent .signupLogo{
+	background:url(../images/signupLogo.png) no-repeat;
+	width:150px;
+	height:50px;
+	float:left;
+	margin-bottom:10px;
+}
+.signupContent .loginText{
+	font-size:18px;
+	color:#000000;
+	font-weight:normal;
+	padding: 20px 0 0 10px;
+	float:left;
+}
+.signupContent .signupBorder{
+	background:url(../images/signupBottomBorder.jpg) repeat-x;
+	padding:5px 0 0 0;
+}
+.signupFieldWrapper{
+	margin:0;
+	color:#444444;
+}
+.signupFieldWrapper label{
+	width:240px;
+	font-size:14px;
+	color:#444444;
+	font-weight:bold;
+	float:left;
+	margin:15px 0 10px;
+}
+.signupFieldWrapper span{
+	color:#00aa00;
+	float:left;
+	margin:15px 0 10px;
+}
+	
+/*signupContent end----------*/
 /*Footer Start Here*/
 #footer {
 width:990px;
-height:200px;
-margin:35px 0 0;
+height:15px;
+margin:20px auto 20px;
+}
+#footer ul {
+	float:left;
+}
+#footer ul li {
+	float:left;
+	padding-right:10px;
+	margin-right:10px;
+	border-right:1px solid #666666;
+}
+#footer ul li.borderNone {
+	border-right:none;
+	padding-right:0;
+}
+#footer ul li a {
+	font-size:12px;
+	line-height:15px;
+	color:#00aa00;
+	font-weight:normal;
+}
+#footer ul li a:hover, #footer ul li.selected a {
+	color:#000;
+}
+#footer .copyRight {
+	float:right;
+	height:15px;
+	line-height:15px;
+	font-size:12px;
+	color:#aaaaaa;
+	text-shadow:0 1px #FFF;
+	font-weight:normal;
 }
 /*Footer CSS end*/
 /*Other CSS start*/
