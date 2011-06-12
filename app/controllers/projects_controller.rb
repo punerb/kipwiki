@@ -1,10 +1,7 @@
 class ProjectsController < ApplicationController
-  before_filter :load_project, :only => [:upload_attachment, :photos]
-  # GET /projects
-  # GET /projects.xml
 
+  before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion]
   layout "project_layout"
-
   def photos
   end
 
@@ -26,6 +23,9 @@ class ProjectsController < ApplicationController
       format.js{}
     end
   end
+
+  # GET /projects
+  # GET /projects.xml
   def index
     @projects = Project.all
 
@@ -39,6 +39,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.where(:city => params[:city].titleize, :slug => params[:id]).first
+    #this is some ugly ass code - but just temporary - until the view_count are initialized to 0
+    @project.view_count.nil? ? @project.view_count = 0 : @project.view_count += 1
+    @project.save!
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
@@ -51,7 +54,7 @@ class ProjectsController < ApplicationController
     @project = Project.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html {render 'new', :layout => 'admin' }# new.html.erb
       format.xml  { render :xml => @project }
     end
   end
@@ -59,6 +62,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    render 'edit', :layout => 'admin'
   end
 
   # POST /projects
@@ -104,6 +108,25 @@ class ProjectsController < ApplicationController
       format.html { redirect_to(projects_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def add_suggestion
+    @suggestion = @project.suggestions.new(params[:suggestion])
+    logger.info("=========")
+    logger.info(current_user.inspect)
+    logger.info(session.inspect)
+    @suggestion.user = current_user
+    respond_to do |format|
+      if @suggestion.save
+        format.js { render :json => {:success => true} }
+      else
+        format.js { render :json => { :success => false }}
+      end
+    end
+  end
+
+  def search
+    @project = Project.new
   end
 
   private
