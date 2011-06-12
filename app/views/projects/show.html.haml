@@ -15,6 +15,24 @@
       .inputWrapper
         %input.field{:type => "text", :value => "Search within a Project"}/
         %input.searchBtn{:type => "submit"}/
+      %ul.leftNavigation
+        %li.main
+          %a.head{:href => "#"} Project Outline
+          %ul.leftSub
+            %li
+              %a{:href => "#summary"} Summary
+            %li
+              %a{:href => "#objectives"} Objectives
+            %li
+              %a{:href => "#stakeholders"} Key stakeholders
+        %li
+          %a{:href => "#fundings"} Funding
+        %li
+          %a{:href => "#similar_projects"} Similar Projects
+        %li
+          %a{:href => "#links"} Links
+        %li
+          %a{:href => "#comments"} Comments
     = render :partial => "project_fundings"
     = render :partial => "project_stakeholders"
     = render :partial => "project_links"
@@ -57,6 +75,7 @@
     = render "project_news"
   .clr
   #project_comments
+    %a{:name => "comments"}
     %h1 Comments
     :javascript
       var fyre = LF({
