@@ -1212,3 +1212,9 @@ margin:35px 0 0;
 #project_comments #livefyre{
     margin: 0;
 }
+
+ul li input[checked] + label{
+    color: #00AA00 !important;
+    font-weight: bold;
+    text-decoration: underline;
+}
