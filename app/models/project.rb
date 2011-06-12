@@ -37,13 +37,15 @@ class Project
   field :coordinates, :type => Array  # For geolocation
   geo_index :coordinates
   
-  after_validation { |project| 
-   location =   Geocoder.search(project.address).first 
-   if location
+  before_validation { |project| 
+   location = Geocoder.search(project.address).first 
+   if location and not (location.city.empty? or location.country.empty?)
      project.coordinates = location.coordinates
-     project.city = location.city.titleize
-     project.country = location.country.titleize
-     project.state = location.state.titleize
+     project.city = location.city.parameterize.titleize
+     project.country = location.country.parameterize.titleize
+     project.state = location.state.parameterize.titleize
+   else
+     self.errors[:address] = 'cannot be verified'
    end
   }
   
