@@ -127,7 +127,6 @@ class ProjectsController < ApplicationController
   def search
     lat_lng = Geocoder.coordinates(params[:location])
     lat_lng = request.location.coordinates if lat_lng.nil? and request.ip == '127.0.0.1'
-    p lat_lng
 
     #Geocoder finding record after reversing the lat-lng.So it will give 
     #wrong result if we dont reverse! DO NOT CHANGE - Jiren
