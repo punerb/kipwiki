@@ -23,6 +23,7 @@ class Project
   embeds_many :stakeholders
   embeds_many :links
   embeds_many :project_fundings
+  embeds_many :news  
   has_many :project_objectives
 
   has_many :prints
@@ -32,7 +33,8 @@ class Project
   
   belongs_to :user
 
-  validates :title, :description, :address, :presence => true
+  validates :description, :address, :presence => true
+  validates :title, :presence => true , :length => {:maximum => 50}
   validates_associated :user
 
   field :coordinates, :type => Array  # For geolocation

@@ -1,5 +1,6 @@
 Kipwiki::Application.routes.draw do
 
+
   resources :authentications
   match '/projects/search' => 'projects#search', :as => :project_search
 
@@ -22,6 +23,7 @@ Kipwiki::Application.routes.draw do
     resources :stakeholders
     resources :project_fundings
     resources :links
+    resources :news
   end
 
   get "home/index"

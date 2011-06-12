@@ -1,0 +1,21 @@
+%h1.heading Project Funding 
+.borderBottom
+%p How do you think the project might be funded?
+%p Will it be a local government project, state, federal, NGO or a private business project?
+%ul.rightNavigation
+  - @project.project_fundings.each do |sh|
+    %li
+      = link_to sh.name, "#"
+- project_funding = ProjectFunding.new
+= form_for project_funding, :url => project_project_fundings_path(@project,project_funding) do |f|
+  .leftSide
+    = f.text_field(:name ,:class => "stakeholder", :placeholder => "Project Funding")
+    = f.submit(:class => "submitbg", :value => "Add Project Funding")
+  / div left End
+.clr
+/ content end
+.clr
+/ footer Start
+#footer
+/ footer end
+.clr

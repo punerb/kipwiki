@@ -16,6 +16,8 @@
     = link_to "Funding", display_project_by_action_type_path(@project, "funding")
   %li
     = link_to "Links", display_project_by_action_type_path(@project, "link")
+  %li
+    = link_to "News", edit_project_by_action_type_path(@project, "news")
 .addContent
   %a{:href => "#"} Add new content page
 .borderBottom
