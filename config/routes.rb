@@ -14,7 +14,7 @@ Kipwiki::Application.routes.draw do
 
   resources :project_types
 
-  resources :projects do
+  resources :projects, :except => [:show, :edit] do
     member do
       post :add_suggestion
       get :display
