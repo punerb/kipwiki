@@ -3,12 +3,12 @@
     %h1.heading Stakeholders
   .leftSide
     .suggestChanges
-      %a{:href => "#"} Suggest ChangSes
+      = link_to "Edit", edit_project_by_action_type_path(@project, "stakeholder")
 .rightSide
   .nextPage
-    = link_to "next", display_project_path(@project, {:view => "funding"})
+    = link_to "next", display_project_by_action_type_path(@project, "funding")
   .previousPage
-    = link_to "next", display_project_path(@project, {:view => "objectives"})
+    = link_to "next", display_project_by_action_type_path(@project, "objective")
 .clr
 .borderBottom
 %ul.objectivesNavigation.black.marTop15

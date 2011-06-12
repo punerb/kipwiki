@@ -1,4 +1,4 @@
-%ul.black
+%ul.black.borderBottom
   - @project.project_objectives.each do |obj|
     %li{:style => "display:list-item; list-style-type:disc;margin-left:20px;"}
       %strong{:style => "font-size:13px; line-height:30px;"}
@@ -22,40 +22,24 @@
                 = sub.text_field :name
               = text_field_tag "project_objective[sub_project_objectives][]", "", :class => "subobjective"
               -#%input.field.subobjective{:name => "", :type => "text", :value => "Sub Objective"}/
-            .rightSide
-              %select.selectWidth
-                %option High
-                %option Medium
-                %option Low
+            -#.rightSide
+            -#  %select.selectWidth
+            -#    %option High
+            -#    %option Medium
+            -#    %option Low
           .leftSide
-            = submit_tag "Add Sub Objective"
+            = submit_tag "Add Sub Objective", :class => "subObjective"
             -#%input.subObjective{:type => "button", :value => "Add sub objective"}/
           .leftSide.marLeft10 I am done
           .clr
 
-= form_for [@project, @project.project_objectives.new] do |f|
-  .leftSide
-    -#%input.field.objective{:name => "", :type => "text", :value => "Objective"}/
-    = f.text_field :name, :value => "Objective", :class => "field objective"
-  .rightSide
+%div.marTop15
+  = form_for [@project, @project.project_objectives.new] do |f|
+    .leftSide
+      -#%input.field.objective{:name => "", :type => "text", :value => "Objective"}/
+      = f.text_field :name, :value => "Objective", :class => "field objective"
     .rightSide
-      = collection_select "project_objective", "priority", ["High", "Medium", "Low"], :to_s, :to_s
-  = submit_tag "Add Objective", :class => "submitbg"
-
-
-
-%div{:style => "display:none"}
-  .subobjectiveContent
-    %span Enter sub objective
-    .leftSide
-      .leftSide
-        %input.field.subobjective{:name => "", :type => "text", :value => "Sub Objective"}/
       .rightSide
-        %select.selectWidth
-          %option High
-          %option Medium
-          %option Low
-    .leftSide
-      %input.subObjective{:type => "button", :value => "Add sub objective"}/
-    .leftSide.marLeft10 I am done
-    .clr
+        = collection_select "project_objective", "priority", ["High", "Medium", "Low"], :to_s, :to_s
+    = submit_tag "Add Objective", :class => "submitbg"
+

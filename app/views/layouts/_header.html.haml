@@ -5,18 +5,21 @@
       = link_to "KipWiki", root_path
     .navigation
       %ul.main
-        %li.selected
+        %li{:class => select_main_menu_if("projects#index", [controller_name, action_name].join("#"))}
           = link_to "Projects", projects_path
         %li
           %a{:href => "#"} Notifications
-        %li
+        %li{:class => select_main_menu_if("projects#new", [controller_name, action_name].join("#"))}
           = link_to "Create Project" , new_project_path
       = link_to "Signup", authentications_path , :class => "sign_up" unless user_signed_in?
       %ul.subMenu
         %li
           %a{:href => "#"} About
-        %li
-          %a{:href => "#"} Profile
+        %li 
+          - if user_signed_in?
+            = link_to "Profile", edit_user_registration_path
+          - else
+            %a{:href => "#"} Profile
         %li
           %a{:href => "#"} Help & Feedback
         %li
