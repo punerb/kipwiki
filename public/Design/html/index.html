@@ -7,11 +7,9 @@
 <link href="css/slider.css" rel="stylesheet" type="text/css" />
 
 </head>
-		<script type="text/javascript" src="js/javascript.js"> </script>
-		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/1.5.1.js"></script>
 		<script type="text/javascript" src="js/jquery-ui-1.8.6.custom.min.js"></script>
-		<script type="text/javascript" src="js/corners.js"></script>
-		<script type="text/javascript" src="js/easySlider1.7.js"> </script>
+		<script type="text/javascript" src="js/slides.min.jquery.js"> </script>
 <script>
 $(document).ready(function() {
 
@@ -38,15 +36,42 @@ $(document).ready(function() {
 	});
 
 });
+
 <!--for slider-->
-$(document).ready(function(){	
-			$("#slider").easySlider({
-				auto: true, 
-				continuous: true,
-				numeric: true
+$(function(){
+			$('#slides').slides({
+				preload: true,
+				play: 5000,
+				pause: 2500,
+				hoverPause: true,
+				animationStart: function(current){
+					$('.caption').animate({
+						bottom:0
+					},100);
+					if (window.console && console.log) {
+						// example return of current slide number
+						console.log('animationStart on slide: ', current);
+					};
+				},
+				animationComplete: function(current){
+					$('.caption').animate({
+						
+					},200);
+					if (window.console && console.log) {
+						// example return of current slide number
+						console.log('animationComplete on slide: ', current);
+					};
+				},
+				slidesLoaded: function() {
+					$('.caption').animate({
+						bottom:0
+					},200);
+				}
 			});
-		});	 
+		});
 <!--for slider End-->
+
+
 </script>
 <body>
 	<div id="wrapper">
@@ -101,14 +126,47 @@ $(document).ready(function(){
                 <div class="murgeWrapper">
                 	<div class="wrapperLeft">
                     	<div class="borderBottom">
-                            <div id="slider">
-                                <ul>				
-                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a></li>
-                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a></li>
-                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a></li>
-                                    <li><a href="#"><img src="images/testPhoto.jpg" alt="" /></a></li>	
-                                </ul>
-                            </div>
+                        	<div id="slides">
+                            <div id="slider_project">
+                            	<!--slider start-->
+                                <div id="slides">
+                                    <div class="slides_container">
+                                        <div class="slide">
+                                            <a href="#">
+                                            <img src="../../images/testPhoto.jpg" width="258" height="193" alt="Slide 1"></a>
+                                            <div class="caption" style="bottom:0">
+                                                <p>Photo caption</p>
+                                            </div>
+                                        </div>
+                                        <div class="slide">
+                                            <a href="#">
+                                            <img src="../../images/testPhoto.jpg" width="258" height="193"  alt="Slide 2"></a>
+                                            <div class="caption">
+                                                <p>Photo caption</p>
+                                            </div>
+                                        </div>
+                                        <div class="slide">
+                                            <a href="#"><img src="../../images/testPhoto.jpg" width="258" height="193"  alt="Slide 3"></a>
+                                            <div class="caption">
+                                                <p>Photo caption</p>
+                                            </div>
+                                        </div>
+                                        <div class="slide">
+                                            <a href="#"><img src="../../images/testPhoto.jpg" width="258" height="193"  alt="Slide 4"></a>
+                                            <div class="caption">
+                                                <p>Photo caption</p>
+                                            </div>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <a href="#" class="prev">Previous</a>
+                                    <a href="#" class="next">Next</a>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="clr"></div>
+                                <!--slider start end-->
+						</div>
+                        </div>
                         </div>
                         <div class="borderBottom">
                         	<div class="heading">
@@ -119,6 +177,32 @@ $(document).ready(function(){
                                 <input type="text" class="field" value="Search within a Project" />
                                 <input type="submit" class="searchBtn" />
                             </div>
+                            <ul class="leftNavigation">
+                                <li class="main"><a href="#" class="head">Project Outline</a>
+                                    <ul class="leftSub">
+                                        <li><a href="#">Summary</a></li>
+                                        <li><a href="#">Objectives</a></li>
+                                        <li> <a href="#">Key stakeholders</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li><a href="#">Funding</a></li>
+                                <li><a href="#">Similar Projects</a></li>
+                                <li> <a href="#">Links</a></li>
+                                <li> <a href="#">Comments</a></li>
+                            </ul>
+                        </div>
+                        <div class="borderBottom">
+                        	<div class="heading">
+                            	<h1>Key Stakeholders</h1><a href="#">Add new</a><a href="#">Edit</a>
+                                <div class="clr"></div>	 
+                            </div>
+                            <ul class="leftNavigation black">
+                                <li class="main"><a href="#" class="head">Nearby residents of area</a></li>
+                                <li><a href="#">Organisations wishing to use the community facility</a></li>
+                                <li><a href="#">Local Government</a></li>
+                                <li> <a href="#">Department for Heritage and Conservation</a></li>
+                            </ul>
                         </div>
                         <div class="borderBottom">
                         	<div class="heading">
@@ -245,40 +329,42 @@ $(document).ready(function(){
                             	<h1>Project Objectives</h1><a href="#">Add new</a><a href="#">Edit</a>
                                 <div class="clr"></div>	 
                             </div>
-                            <!--<ul class="listTypeLinks">
-                                <li class="mainLink">
-                                    <a class="head" href="#">Repair the temple to it's original condition (High Priority)</a>
-                                    <ul class="subLink">
+                            <ul class="leftNavigation black">
+                                <li class="main"><a href="#" class="head">Repair the temple to it's original condition (High Priority)</a>
+                                    <ul class="leftSub black">
                                         <li><a href="#">Assess damage</a></li>
                                         <li><a href="#">Complete Construction Plan</a></li>
-                                        <li><a href="#">Obtain Funding</a></li>
-                                    </ul> 
+                                    </ul>
                                 </li>
-                                <li class="mainLink">
-                                    <a class="head" href="#">Ensure the temple is maintained in it's original condition (High Priority)</a>
-                                    <ul class="subLink">
+                                <li><a href="#">Ensure the temple is maintained in it's original condition (High Priority)</a>
+                                	<ul class="leftSub">
                                         <li><a href="#">Develop a maintenance Plan</a></li>
-                                        <li><a href="#">Annual Review</a></li>
-                                    </ul> 
+                                    </ul>
                                 </li>
-                                <li class="mainLink">
-                                    <a class="head" href="#">Execute maintenance Plan</a>
-                                    <ul class="subLink">
-                                        <li><a href="#">Effects A</a></li>
-                                        <li><a href="#">Effects B</a></li>
-                                        <li><a href="#">Effects C</a></li>
-                                        <li><a href="#">Effects D</a></li>
-                                    </ul> 
-                                </li>
-                                <li class="main">
-                                    <a class="head" href="#">Fund maintenance</a>
-                                </li>
-                            </ul>-->
+                                <li><a href="#"> Execute maintenance Plan</a></li>
+                                <li> <a href="#">Fund maintenance</a></li>
+                            </ul>
                             <div class="clr"></div>
                         </div>
                         
                 	</div>
                     <div class="clr"></div>
+                </div>
+                <div class="borderBottom">
+                	<div class="heading">
+                  		<h1>Links</h1><a href="#">Add new</a><a href="#">Edit</a>
+                        <div class="clr"></div>	 
+                  	</div>
+                    <ul class="listLinks">
+                    	<li>
+                        	Pune Municipal Council <a href="#">Website www.punecorporation.org</a>
+                        </li>
+                        <li>
+                        	Plan to Protect Pune's 125 Relgious Structures - News Article  <a href="#">http://www.indianexpress.com/ie/daily/19980328/08750124.html</a>
+                        </li>
+
+                        <div class="clr"></div>
+                    </ul>
                 </div>
                 <div class="clr"></div>
             </div>
@@ -324,25 +410,27 @@ $(document).ready(function(){
                             <li><a href="#tab7">Reconstruction</a></li>
                             <div class="clr"></div>
                         </ul>
-                        <div class="inputWrapper borderBottom">
+                        <div class="inputWrapper">
                 			<input type="text" class="field" value="Search" />
                     		<input type="submit" class="addBtn" />
                 		</div>
                         <div class="tab_container">
                         	<div id="tab1" class="tab_content">
-                            	<div class="textWrapper">
+                            	
                             		<h3>Activity Feed</h3>
-                                    <p>Content Added - Tags, Similar Projects</p>
-                                    <p><span>Josh X</span>, 30 min ago</p>
-                                    <p>Content Added - Phase / Status</p>
-                                    <p><span>Josh X</span>, 2 hrs ago</p>
-                                    <p>Content Added - Project Type</p>
-                                    <p><span>Josh X</span>, 4 hrs ago</p>
-                                    <p>Content Added - Project Objectives</p>
-                                    <p><span>Josh X</span>, 5 hrs ago</p>
-                                    <p>Fields Added - Project Objectives,Contents</p>
-                                    <p><span>Josh X</span>, 5 hrs ago</p>
-                                </div>
+                                    <ul class="activity">
+                                    <li>Content Added - Tags, Similar Projects</li>
+                                    <li><span>Josh X</span>, 30 min ago</li>
+                                    <li>Content Added - Phase / Status</li>
+                                    <li><span>Josh X</span>, 2 hrs ago</li>
+                                    <li>Content Added - Project Type</li>
+                                    <li><span>Josh X</span>, 4 hrs ago</li>
+                                    <li>Content Added - Project Objectives</li>
+                                   	<li><span>Josh X</span>, 5 hrs ago</li>
+                                    <li>Fields Added - Project Objectives,Contents</li>
+                                    <li><span>Josh X</span>, 5 hrs ago</li>
+                                    </ul>
+                                
                             </div>
                             <div id="tab2" class="tab_content">
                             	2
