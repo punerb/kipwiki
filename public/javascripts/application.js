@@ -1,12 +1,6 @@
 /* comment */
 //for slider
 jQuery(function(){
-    $("#slider").easySlider({
-        auto: true,
-        continuous: true,
-        numeric: true
-    });
-
     $(".edit").colorbox({
         innerHeight:285,
         innerWidth:420,
