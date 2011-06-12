@@ -11,6 +11,7 @@ class User
   devise :database_authenticatable, :registerable, :validatable,
          :recoverable, :rememberable, :trackable
   has_many :projects
+  has_many :suggestions
   references_many :authentications, :autosave => true
 
 
