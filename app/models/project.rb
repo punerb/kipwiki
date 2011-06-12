@@ -27,7 +27,8 @@ class Project
   has_many :prints
   has_many :documents
   has_many :suggestions
-
+  has_many :activities
+  
   belongs_to :user
 
   validates :title, :description, :address, :presence => true
@@ -49,7 +50,16 @@ class Project
   before_create { |project|
    project.slug = project.title.parameterize
   }
-
+  
+  before_save {
+    if changed?
+      changes.each_pair { |k, v|
+        next if k.to_s == 'view_count'
+        Activity.create(:text => "#{k.to_s} was changed.", :user => user.id)
+      }
+    end
+  }
+  
   def project_completion
     # works by adding up weighted scores for the presence of content in a number of select fields
     # since there are compulsory_fields title, description, location, we never start with 0% :-p
