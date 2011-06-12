@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+
+#content .left {
+	float:right;
+	border-left:1px solid #dddddd;
+	border-right:0px solid #dddddd;
+}
+#content .right {
+	float:left;
+}

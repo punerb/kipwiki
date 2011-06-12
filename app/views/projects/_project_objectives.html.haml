@@ -2,7 +2,7 @@
   .heading
     %h1 Project Objectives
     %a{:href => "#"} Add new
-    %a{:href => "#"} Edit
+    =link_to "Edit", "#", :class => "edit", :rel => "project_objectives"
     .clr
   %ul.funding
     - @project.project_objectives.each do |obj|
