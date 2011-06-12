@@ -114,6 +114,7 @@ class ProjectsController < ApplicationController
     @suggestion = @project.suggestions.new(params[:suggestion])
     logger.info("=========")
     logger.info(current_user.inspect)
+    logger.info(session.inspect)
     @suggestion.user = current_user
     respond_to do |format|
       if @suggestion.save
@@ -122,6 +123,10 @@ class ProjectsController < ApplicationController
         format.js { render :json => { :success => false }}
       end
     end
+  end
+
+  def search
+    @project = Project.new
   end
 
   private

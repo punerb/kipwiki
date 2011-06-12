@@ -30,16 +30,20 @@ jQuery(function(){
     $(".submitSuggestion").live("click",
             function(event){
                 event.preventDefault();
-                form = $("#addSuggestionForm");
-                $.post(form.attr("action"), form.serialize(), function(data){
-                    if(data.success){
-                        $(".lightboxContent").hide();
-                        $(".lightboxSuccess").show();
-                    }else{
-                        $(".lightboxContent").hide();
-                        $(".lightboxError").show();
-                    }
-                }, "json")
+                if($(".fieldSummary").val()){
+                    form = $("#addSuggestionForm");
+                    $.post(form.attr("action"), form.serialize(), function(data){
+                        if(data.success){
+                            $(".lightboxContent").hide();
+                            $(".lightboxSuccess").show();
+                        }else{
+                            $(".lightboxContent").hide();
+                            $(".lightboxError").show();
+                        }
+                    }, "json")
+                }else{
+                    $(".fieldSummary").after("<h2>Suggestion Can't be blank!</h2>")
+                }
             })
 
 });
