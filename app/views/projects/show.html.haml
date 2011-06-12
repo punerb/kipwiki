@@ -7,18 +7,9 @@
     .borderBottom
       #slider
         %ul
-          %li
-            %a{:href => "#"}
-              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
-          %li
-            %a{:href => "#"}
-              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
-          %li
-            %a{:href => "#"}
-              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
-          %li
-            %a{:href => "#"}
-              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
+          - @project.prints.each do |print|
+            %li
+              = link_to image_tag(print.attachment.url(:slider)), edit_project_path(@project.city, @project.slug)
     .borderBottom
       .heading
         %h1 Contents
