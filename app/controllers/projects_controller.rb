@@ -153,8 +153,9 @@ class ProjectsController < ApplicationController
   end
 
   def display
-    @render_partial = params[:view]
-    render :layout => "admin"
+    @selection = 'summary'
+    @selection = params[:action_type] unless params[:action_type].nil?
+    render :display, :layout => "admin"
   end
 
   private

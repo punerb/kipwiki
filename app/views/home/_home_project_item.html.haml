@@ -1,23 +1,22 @@
 %li{:class => margin_class}
   .heading
-    Renovation of xxxxxx Temple, Deccan
+    = link_to project.title.truncate(40), show_project_path(project.city.parameterize, project.slug)
   .imageWrapper
     %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
   .voteViewMurge
     .viewWrapper
-      99999 View
-    .voteWrapper
-      99999 View
+      = project.view_count
+      Views
     .clr
   .clr
   .textWrapper
     .heading
-      Location
+      Address
     .clr
-    15 Josh street, Deccan
+    = project.address
   .textWrapper
     .heading
       Summary
     .clr
-    The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned....
-    %a{:href => "#"} more
+    = project.description.truncate(160).gsub(/<.*>/, "")
+    = link_to "more", show_project_path(project.city.parameterize, project.slug)
