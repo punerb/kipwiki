@@ -3,12 +3,12 @@
     %h1.heading Funding
   .leftSide
     .suggestChanges
-      = edit_link(@project, "fundings")
+      = link_to "Edit", edit_project_by_action_type_path(@project, "funding")
 .rightSide
   .nextPage
-    = link_to "next", display_project_path(@project, {:view => "similar_projects"})
+    = link_to "next", display_project_by_action_type_path(@project, "link")
   .previousPage
-    = link_to "next", display_project_path(@project, {:view => "key_stakeholders"})
+    = link_to "next", display_project_by_action_type_path(@project, "stakeholder")
 .clr
 .borderBottom
 %p.marTop15

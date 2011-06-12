@@ -1,4 +1,5 @@
 #project_similar_projects.borderBottom
+  %a{:name => "similar_projects"}
   %h3 Similar Projects
   - similar_projects = @project.similar_projects
   - if similar_projects.nil? || similar_projects.empty?

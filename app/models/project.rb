@@ -12,7 +12,7 @@ class Project
   field :country, :type => String     # From Geocoder location
   field :zip_code, :type => String     # From Geocoder location
   field :categories, :type => Array
-  field :status, :type => String
+  field :status, :type => String  
   field :govt_status, :type => String
   field :tags, :type => Array
   field :slug, :type => String
@@ -23,6 +23,7 @@ class Project
   embeds_many :stakeholders
   embeds_many :links
   embeds_many :project_fundings
+  embeds_many :news  
   has_many :project_objectives
 
   has_many :prints
@@ -32,7 +33,8 @@ class Project
   
   belongs_to :user
 
-  validates :title, :description, :address, :presence => true
+  validates :description, :address, :presence => true
+  validates :title, :presence => true , :length => {:maximum => 50}
   validates_associated :user
 
   field :coordinates, :type => Array  # For geolocation
@@ -59,7 +61,10 @@ class Project
     if changed?
       changes.each_pair { |k, v|
         next if k.to_s == 'view_count'
-        Activity.create(:text => "#{k.humanize} was changed.", :user => user['_id'])
+        begin
+          Activity.create(:text => "#{k.humanize} was changed.", :user => user['_id'])
+        rescue Exception => err
+        end
       }
     end
   }

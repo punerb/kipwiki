@@ -1,23 +1,22 @@
 %li{:class => margin_class}
   .heading
-    = project.title
+    = link_to project.title.truncate(50), show_project_path(project.city.parameterize, project.slug)
   .imageWrapper
     %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
   .voteViewMurge
     .viewWrapper
       = project.view_count || 0
-      View &nbsp&nbsp
-    = render :partial => 'projects/fb_like'
+      View 
     .clr
   .clr
   .textWrapper
     .heading
-      Location
+      Address
     .clr
-    = project.address 
+    = project.address
   .textWrapper
     .heading
       Summary
     .clr
-    = truncate(project.description, :length => 50)
+    = project.description.truncate(160).gsub(/<.*>/, "")
     %a{:href => show_project_path(project.city, project.slug)} more
