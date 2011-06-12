@@ -7,19 +7,15 @@
     %a.head{:href => "#"} Project Outline
     %ul.leftSub
       %li
-        %a.okArow{:href => "#"} Summary
+        = link_to "Summary", edit_project_by_action_type_path(@project,"summary"), :class => "okArow"
       %li
         %a.eidtArow{:href => "#"} Objectives
       %li
-        %a{:href => "#"} Key stakeholders
+        = link_to "Stakeholders", edit_project_by_action_type_path(@project, "stakeholder") 
   %li
-    %a{:href => "#"} Funding
+    = link_to "Funding", edit_project_by_action_type_path(@project, "funding")
   %li
-    %a{:href => "#"} Similar Projects
-  %li
-    %a{:href => "#"} Links
-  %li
-    %a{:href => "#"} Comments
+    = link_to "Links", edit_project_by_action_type_path(@project, "link")
 .addContent
   %a{:href => "#"} Add new content page
 .borderBottom

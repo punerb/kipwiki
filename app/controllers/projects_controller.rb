@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
-
-  before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display]
+  before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display, :show, :edit]
   layout "project_layout"
   def photos
   end
@@ -19,8 +18,8 @@ class ProjectsController < ApplicationController
     @print = Print.find(params[:print_id]) rescue nil
     @print.destroy if @print
     respond_to do |format|
-      format.html{ redirect_to projects_path}
-      format.js{}
+      format.html{ redirect_to edit_project_path(@print.project.city, @print.project.slug)}
+      format.js{ render :nothing }
     end
   end
 
@@ -38,7 +37,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.xml
   def show
-    @project = Project.where(:city => params[:city].titleize, :slug => params[:id]).first
     #this is some ugly ass code - but just temporary - until the view_count are initialized to 0
     @project.view_count.nil? ? @project.view_count = 0 : @project.view_count += 1
     @project.save!
@@ -54,15 +52,16 @@ class ProjectsController < ApplicationController
     @project = Project.new
 
     respond_to do |format|
-      format.html {render 'new' }# new.html.erb
+      format.html {render 'new', :layout => 'admin' }# new.html.erb
       format.xml  { render :xml => @project }
     end
   end
 
   # GET /projects/1/edit
   def edit
-    @selection = "objective"
     @project = Project.find(params[:id])
+    @selection = 'summary'
+    @selection = params[:action_type] unless params[:action_type].nil?
     render 'edit', :layout => 'admin'
   end
 
@@ -125,9 +124,30 @@ class ProjectsController < ApplicationController
       end
     end
   end
-
+  
   def search
+    lat_lng = Geocoder.coordinates(params[:location])
+    lat_lng = request.location.coordinates if lat_lng.nil? and request.ip == '127.0.0.1'
+    p lat_lng
+
+    #Geocoder finding record after reversing the lat-lng.So it will give 
+    #wrong result if we dont reverse! DO NOT CHANGE - Jiren
+     
+    if lat_lng
+      @projects = Project.near(lat_lng.reverse, 50, :units => :km)
+      @coordinates = @projects.collect {|x| x.coordinates}
+      @loc_center = Geocoder::Calculations.geographic_center(@coordinates) unless @coordinates.empty?
+    else
+      @projects = []
+    end
+
+    #Hack For rendering project type - Gautam
     @project = Project.new
+
+    respond_to do |format|
+      format.html
+      format.json {render :json => @projects}
+    end
   end
 
   def display
@@ -138,7 +158,11 @@ class ProjectsController < ApplicationController
   private
 
   def load_project
-    @project = Project.find(params[:id]) rescue nil
+    if params[:city]
+      @project = Project.where(:city => params[:city].titleize, :slug => params[:id]).first rescue nil
+    else
+      @project = Project.find(params[:id]) rescue nil
+    end
     unless @project
       flash[:notice] = 'Invalid URL!!!'
       redirect_to request.referrer || projects_url

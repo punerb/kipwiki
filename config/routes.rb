@@ -1,16 +1,12 @@
 Kipwiki::Application.routes.draw do
 
   resources :authentications
-  get '/projects/search'=> 'projects#search'
+  match '/projects/search' => 'projects#search', :as => :project_search
 
   match '/projects/:id/photos', :to => 'projects#photos', :as => :photos
   match '/projects/:id/upload_attachment', :to => 'projects#upload_attachment', :as => :upload_attachment
   match '/projects/:print_id/delete_attachment', :to => 'projects#delete_attachment', :as => :delete_attachment
 
-
-  resources :project_fundings
-
-  resources :stakeholders
 
   resources :tags
 
@@ -18,15 +14,17 @@ Kipwiki::Application.routes.draw do
 
   resources :project_types
 
-  resources :projects do
+  resources :projects, :except => [:show, :edit] do
     resources :project_objectives
     member do
       post :add_suggestion
       get :display
     end
+    resources :stakeholders
+    resources :project_fundings
+    resources :links
   end
 
-  resources :links
   get "home/index"
   match '/filter', :to => "home#filter"
   
@@ -35,11 +33,13 @@ Kipwiki::Application.routes.draw do
   devise_for :users
   
   match ':city/project/:id' => 'projects#show', :as => 'show_project'
+  match ':city/project/:id/edit' => 'projects#edit', :as => 'edit_project'
 #  match '/user/:id' => 'devise/users#show', :as => 'show_user'
 
   match "/auth/:provider/callback" => "authentications#create"
   match "/auth/failure" => "authentications#failure"
-
+  
+  match 'project/:id/edit/:action_type' => 'projects#edit', :as => 'edit_project_by_action_type'
 
   root :to => "home#index"
   # The priority is based upon order of creation:

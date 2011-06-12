@@ -2,18 +2,8 @@
   %h3 Tags
   .tabWrapper
     %ul.tabs
-      %li.first
-        %a{:href => "#tab1"} Historic
-      %li
-        %a{:href => "#tab2"} Hindu
-      %li
-        %a{:href => "#tab3"} Worship
-      %li
-        %a{:href => "#tab4"} Religion
-      %li
-        %a{:href => "#tab5"} Temple
-      %li
-        %a{:href => "#tab6"} Heritage
-      %li
-        %a{:href => "#tab7"} Reconstruction
+      - # this is just temporary, and should be made @project.tags instead of .keywords once the tag model is implemented
+      - @project.keywords.each do |keyword|
+        %li
+          = link_to keyword, "#" + keyword
       .clr
