@@ -24,7 +24,7 @@ jQuery(function(){
     $(".closeColorbox").live("click",
             function(event){
                 event.preventDefault();
-                $.colorbox.close();
+                close_lightbox();
             });
 
     $(".submitSuggestion").live("click",
@@ -36,6 +36,7 @@ jQuery(function(){
                         if(data.success){
                             $(".lightboxContent").hide();
                             $(".lightboxSuccess").show();
+                            setTimeout("close_lightbox()", 3000)
                         }else{
                             $(".lightboxContent").hide();
                             $(".lightboxError").show();
@@ -46,5 +47,21 @@ jQuery(function(){
                 }
             })
 
+    $(".addSubObjectiveLink").click(function(event){
+        event.preventDefault();
+        $(this).parents("li").find(".subobjectiveContent").toggle();
+    })
+
+    $(".deleteObjective").click(function(event){
+        event.preventDefault();
+        $.post($(this).attr("href"), {"_method" : "delete"});
+        location.reload();
+    })
+
 });
+
+
+function close_lightbox(){
+    $.colorbox.close();
+}
 //for slider End

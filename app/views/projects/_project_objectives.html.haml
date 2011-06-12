@@ -2,14 +2,14 @@
   .heading
     %h1 Project Objectives
     %a{:href => "#"} Add new
-    =link_to "Edit", "#", :class => "edit", :rel => "project_objectives"
+    = edit_link(@project, "objectives")
     .clr
   %ul.objectives
     - if @project.project_objectives.nil? || @project.project_objectives.empty?
       %li
         %p
           There are no objectives for this project yet. Click
-          = edit_link("objectives")
+          = edit_link(@project, "objectives")
           to add some
     - else
       - @project.project_objectives.each do |objective|

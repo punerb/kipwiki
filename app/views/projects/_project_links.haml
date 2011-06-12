@@ -2,17 +2,18 @@
   .heading
     %h1 Links
     %a{:href => "#"} Add new
-    = edit_link("links")
+    = edit_link(@project, "links")
     .clr
   %ul.links
     - if @project.links.nil? || @project.links.empty?
       %li
         %p
           There are no links for this project yet. Click
-          = edit_link("links")
+          = edit_link(@project, "links")
           to add some
     - else
       - @project.links.each do |link|
         %li
-          = link_to link.name, link.url
+          %p
+            = link_to link.name, link.url
     .clr
