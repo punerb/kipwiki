@@ -14,7 +14,7 @@
       .heading
         %h1 Contents
         %a{:href => "#"} Add new
-        = edit_link("contents")
+        = edit_link(@project, "contents")
         .clr
       .inputWrapper
         %input.field{:type => "text", :value => "Search within a Project"}/
@@ -54,7 +54,7 @@
     .textWrapper
       .heading
         %h1 Summary
-        = edit_link("summary")
+        = edit_link(@project, "summary")
         .clr
       = raw sanitize(@project.description)
     = render "project_objectives"

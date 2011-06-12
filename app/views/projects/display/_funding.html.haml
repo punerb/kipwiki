@@ -3,7 +3,7 @@
     %h1.heading Funding
   .leftSide
     .suggestChanges
-      %a{:href => "#"} Edit
+      = edit_link(@project, "fundings")
 .rightSide
   .nextPage
     = link_to "next", display_project_path(@project, {:view => "similar_projects"})
