@@ -7,18 +7,9 @@
     .borderBottom
       #slider
         %ul
-          %li
-            %a{:href => "#"}
-              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
-          %li
-            %a{:href => "#"}
-              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
-          %li
-            %a{:href => "#"}
-              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
-          %li
-            %a{:href => "#"}
-              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
+          - @project.prints.each do |print|
+            %li
+              = link_to image_tag(print.attachment.url(:slider)), edit_project_path(@project.city, @project.slug)
     .borderBottom
       .heading
         %h1 Contents
@@ -66,25 +57,8 @@
         = edit_link("summary")
         .clr
       = raw sanitize(@project.description)
-    .textWrapper
-      .heading
-        %h1 News
-        %a{:href => "#"} Add new
-        = edit_link("news")
-        .clr
-      %p
-        = "Project new here"
-        %a{:href => "#"} more
-      %p
-        %span> Kohsi
-        , 3 hrs ago
-      %p
-        One more news here
-        %a{:href => "#"} more
-      %p
-        %span Fuscemassa
-        , 9 Jun 2011
     = render "project_objectives"
+    = render "project_news"
   .clr
   #project_comments
     %h1 Comments
