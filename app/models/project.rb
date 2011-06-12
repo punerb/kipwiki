@@ -18,6 +18,7 @@ class Project
   field :slug, :type => String
   field :caption, :type => String
   field :project_scope, :type => String
+  field :featured, :type => Boolean, :default => false
 
   embeds_many :stakeholders
   embeds_many :links
