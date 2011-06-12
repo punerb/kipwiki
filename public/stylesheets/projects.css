@@ -1218,3 +1218,8 @@ margin:35px 0 0;
     font-weight: bold;
     text-decoration: underline;
 }
+
+#map_home_canvas{
+	height:288px;
+	width:977px;
+}
