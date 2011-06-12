@@ -1,7 +1,7 @@
 Kipwiki::Application.routes.draw do
 
   resources :authentications
-  post 'projects/search' => 'projects#search', :as => :project_search
+  match '/projects/search' => 'projects#search', :as => :project_search
 
   match '/projects/:id/photos', :to => 'projects#photos', :as => :photos
   match '/projects/:id/upload_attachment', :to => 'projects#upload_attachment', :as => :upload_attachment

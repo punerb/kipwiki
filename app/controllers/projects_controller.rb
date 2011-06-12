@@ -126,25 +126,28 @@ class ProjectsController < ApplicationController
   end
   
   def search
-    lat_lng = Geocoder.search(params[:location])
-    if lat_lng.empty?
-      @projects = []
-    else
-      #Geocoder finding record after reversing the lat-lng.So it will give 
-      #wrong result if we dont reverse! DO NOT CHANGE - Jiren Patel
+    lat_lng = Geocoder.coordinates(params[:location])
+    lat_lng = request.location.coordinates if lat_lng.nil? and request.ip == '127.0.0.1'
+    p lat_lng
 
+    #Geocoder finding record after reversing the lat-lng.So it will give 
+    #wrong result if we dont reverse! DO NOT CHANGE - Jiren
+     
+    if lat_lng
       @projects = Project.near(lat_lng.reverse, 50, :units => :km)
-               
-      redirect_to do |format|
-        format.html {render :index}
-        format.json {render :json => @projects}
-      end
+      @coordinates = @projects.collect {|x| x.coordinates}
+      @loc_center = Geocoder::Calculations.geographic_center(@coordinates) unless @coordinates.empty?
+    else
+      @projects = []
     end
-  end
 
-
-  def search
+    #Hack For rendering project type - Gautam
     @project = Project.new
+
+    respond_to do |format|
+      format.html
+      format.json {render :json => @projects}
+    end
   end
 
   private
