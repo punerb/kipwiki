@@ -1,2 +1,38 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+= render :partial => "map_global_projects"
+.fatureProjectsWrapper
+  %h2 Featured Projects
+  .clr
+  %ul
+    = render :partial => "home_project_item"
+    = render :partial => "home_project_item"
+    = render :partial => "home_project_item" , :locals => {:no_margin => "marNone"}
+  .clr
+  %h2 Local Projects
+  %ul
+    = render :partial => "home_project_item"
+    = render :partial => "home_project_item"
+    %li.marNone
+      .heading
+        Renovation of xxxxxx Temple, Deccan
+      .imageWrapper
+        %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
+      .voteViewMurge
+        .viewWrapper
+          99999 View
+        .voteWrapper
+          99999 View
+        .clr
+      .clr
+      .textWrapper
+        .heading
+          Location
+        .clr
+        15 Josh street, Deccan
+      .textWrapper
+        .heading
+          Summary
+        .clr
+        The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned....
+        %a{:href => "#"} more
+.clr
+/ content end
