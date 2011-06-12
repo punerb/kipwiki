@@ -1,0 +1,18 @@
+.leftSide
+  .leftSide
+    %h1.heading Similar Projects
+  .leftSide
+    .suggestChanges
+      %a{:href => "#"} Edit
+.rightSide
+  .nextPage
+    = link_to "next", display_project_path(@project, {:view => "links"})
+  .previousPage
+    = link_to "next", display_project_path(@project, {:view => "funding"})
+.clr
+.borderBottom
+%p.marTop15
+%ul.objectivesNavigation.black
+  - @project.similar_projects.each do |obj|
+    %li.main
+      = link_to obj.title, "#"#project_path(obj)

@@ -6,9 +6,9 @@
       %a{:href => "#"} Suggest Changes
 .rightSide
   .nextPage
-    %a{:href => "#"}
+    = link_to "next", display_project_path(@project, {:view => "objectives"})
   .previousPage
-    %a{:href => "#"}
+    = link_to "next", display_project_path(@project, {:view => "links"})
 .clr
 .borderBottom
 %p.marTop15
