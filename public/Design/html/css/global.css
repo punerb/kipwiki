@@ -584,6 +584,27 @@ background:#00cc00;
 	height:288px;
 	margin:5px;
 	border:1px solid #ddd;
+	position:relative;
+}
+.mapWrapper .searchWrapper {
+	width:260px;
+	height:35px;
+	padding:5px;
+	background:url(../images/searchWrapperBg.png) left repeat-x; 
+	border-radius: 5px 5px 5px 5px;
+	position:absolute;
+	top:10px;
+	right:10px;
+}
+.searchWrapper input.field {
+	width:203px;
+	border-radius: 5px 0 0 5px;
+	float:left;
+}
+.searchWrapper input.searchBtn {
+	text-indent:-5000px;
+	float:right;
+	width:35px;
 }
 .homeWrapper .title {
 	height:35px;
