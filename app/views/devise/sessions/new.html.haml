@@ -1,16 +1,31 @@
-%h2 Sign in
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  %p
-    = f.label :email
-    %br/
-    = f.email_field :email
-  %p
-    = f.label :password
-    %br/
-    = f.password_field :password
-  - if devise_mapping.rememberable?
-    %p
-      = f.check_box :remember_me
-      = f.label :remember_me
-  %p= f.submit "Sign in"
-= render :partial => "devise/shared/links"
+/ signupContent start here
+.signupContent
+  .signupLogo
+  .loginText Login / Sign In
+  .clr
+  .signupBorder
+  .signupFieldWrapper
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      %label Email
+      %span
+      .clr
+      = f.email_field :email , :class => "field signpFiled" 
+      .clr
+      %label Password
+      %span
+        %a{:href => "#"} Forgot Password
+      .clr
+      = f.password_field :password , :class => "field signpFiled"
+      .clr
+      .marTop10
+      - if devise_mapping.rememberable?
+        = f.check_box :remember_me
+        Remember me
+      .clr
+      .leftSide
+        .leftSide
+          %input.submitbg{:name => "", :type => "submit", :value => "Login"}/
+        .marLeft10.rightSide.marTop25
+          Don't have an account?
+          %a{:href => "#"} Sign Up
+      .clr
