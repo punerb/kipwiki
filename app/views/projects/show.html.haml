@@ -47,8 +47,7 @@
           = @project.view_count
           Views
         .voteWrapper
-          = @project.vote_count
-          Votes
+          = render :partial => 'projects/fb_like'
         .clr
       .clr
     .loaderWrapper

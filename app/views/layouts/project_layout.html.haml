@@ -2,6 +2,10 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    - # This can be further customized here: http://developers.facebook.com/docs/reference/plugins/like/ -Anthony
+    %meta{:content => "KipWiki - Knowledge is Power", :property => "og:title"}/
+    %meta{:content => "non_profit", :property => "og:type"}/
+    %meta{:content => "KipWiki", :property => "og:site_name"}/
     %title
       = yield(:title) || "Project Title"
     = stylesheet_link_tag "colorbox", "slider", "projects"
