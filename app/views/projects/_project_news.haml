@@ -1,10 +1,24 @@
-.borderBottom
+.textWrapper
   .heading
-    %h1 Funding
+    %h1 News
     %a{:href => "#"} Add new
-    = edit_link("fundings")
+    = edit_link("news")
     .clr
-  %ul.funding
+  %p
+    = "Project new here"
+    %a{:href => "#"} more
+  %p
+    %span> Kohsi
+    , 3 hrs ago
+  %p
+    One more news here
+    %a{:href => "#"} more
+  %p
+    %span Fuscemassa
+    , 9 Jun 2011
+/
+  this thing still needs to be made dynamic
+  %ul.news
     - if @project.project_fundings.nil? || @project.project_fundings.empty?
       %li
         %p
