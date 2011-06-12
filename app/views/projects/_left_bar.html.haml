@@ -11,7 +11,7 @@
       %li
         %a.eidtArow{:href => "#"} Objectives
       %li
-        %a{:href => "#"} Key stakeholders
+        = link_to "Stakeholders", edit_project_by_action_type_path(@project, "stakeholder") 
   %li
     %a{:href => "#"} Funding
   %li

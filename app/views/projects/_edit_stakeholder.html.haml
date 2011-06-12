@@ -2,16 +2,14 @@
 .borderBottom
 %p There will be lots of different people who have an interest in the project for a variety of reasons. You can list them here and begin identifying the key stakeholders. -Approval must be meet by these people for the project to be judged an overall success.
 %ul.rightNavigation
-  %li
-    %a{:href => "#"} Nearby residents of area
-  %li
-    %a{:href => "#"} Organisations wishing to use the community facility
-  %li
-    %a{:href => "#"} Local Government
-%form{:action => "#", :method => "post"}
+  - @project.stakeholders.each do |sh|
+    %li
+      = link_to sh.name, sh.url 
+      = check_box(sh.key) 
+= form_for :url => project_stakeholders_path(@project) do |f|
   .leftSide
-    %input.field.stakeholder{:name => "", :type => "text", :value => "Key Stakeholder"}/
-  %input.submitbg{:type => "button", :value => "Add Key Stakeholder"}/
+    = f.text_field(:class => "stakeholder" , :placeholder => "Stakeholder Name")
+    = f.submit(:class => "submitbg", :value => "Add Key Stakeholder")
   / div left End
 .clr
 / content end
