@@ -1,16 +1,9 @@
 #project_type.borderBottom
   %h3 Project Type
   %ul
-    %li
-      %input.checkBox{:type => "checkbox"}/
-      %label.label Local Project
-    %li
-      %input.checkBox{:type => "checkbox"}/
-      %label.label Property
-    %li
-      %input.checkBox{:type => "checkbox"}/
-      %label.label Suspendisse
-    %li
-      %input.checkBox{:type => "checkbox"}/
-      %label.label Pellentesque
+    - APP_CONFIG[:categories].each do |type|
+      %li
+        %input.checkBox{:type => "checkbox"}/
+        %label.label
+          = type
     .clr
