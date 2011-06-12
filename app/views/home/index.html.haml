@@ -4,11 +4,11 @@
   .clr
   %ul
     - @featured_projects.each do |project|
-      = render "home_project_item" , :margin_class => "", :project => project
+      = render "home_project_item" , :project => project, :margin_class => (project == @featured_projects.last) ? "marNone" : ""
   .clr
   %h2 Local Projects
   %ul
     - @local_projects.each do |project|
-      = render "home_project_item" , :margin_class => "", :project => project
+      = render "home_project_item" , :project => project, :margin_class => (project == @local_projects.last) ? "marNone" : ""
 .clr
 / content end
