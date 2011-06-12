@@ -6,6 +6,7 @@ class Print < Asset
     :storage => 's3',
     :s3_credentials => YAML.load_file("#{Rails.root}/config/s3.yml"),
     :bucket => 'photos',
+    :path => ":attachment/:id/:style/:basename.:extension",
     :default_url => "/images/missing.png"
 
   validates_attachment_size :attachment, :less_than => 1.megabytes, :message => 'file size maximum 1 MB allowed'

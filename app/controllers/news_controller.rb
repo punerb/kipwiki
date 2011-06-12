@@ -40,15 +40,16 @@ class NewsController < ApplicationController
   # POST /news
   # POST /news.xml
   def create
-    @news = News.new(params[:news])
-
-    respond_to do |format|
-      if @news.save
-        format.html { redirect_to(@news, :notice => 'News was successfully created.') }
-        format.xml  { render :xml => @news, :status => :created, :location => @news }
+     news = News.new(params[:news])
+     @project = Project.find(params[:project_id])
+     @project.news << news
+     respond_to do |format|
+      if @project.save
+        format.html { redirect_to(edit_project_by_action_type_path(@project, "news"), :notice => 'News was successfully created.') }
+        format.xml  { render :xml => @stakeholder, :status => :created, :location => @stakeholder }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @news.errors, :status => :unprocessable_entity }
+        format.html { redirect_to(edit_project_by_action_type_path(@project, "news"), :notice => "error while saving news") }
+        format.xml  { render :xml => @stakeholder.errors, :status => :unprocessable_entity }
       end
     end
   end
