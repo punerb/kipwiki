@@ -53,7 +53,7 @@
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
         / div left start
-        .left
+        #project_list.left
           = yield
           .clr
         / div left End

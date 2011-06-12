@@ -1,11 +1,11 @@
 -@projects.each do |project|
-  = render 'search_project', :project => project
+  %div{:id => "project_#{project.id}"}
+    = render 'search_project', :project => project
 
 - content_for :sidebar do
   = render 'shared/search'
   #map.project_map
-  = render :partial => 'projects/project_type'
-  = render :partial => 'projects/project_status'
+  = render 'shared/filter_sidebar'
 
 #map_js
   :javascript
