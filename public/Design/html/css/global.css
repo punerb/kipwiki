@@ -656,6 +656,7 @@ padding:20px 19px 20px 20px;
 }
 
 #createProjecContent .heding{
+<<<<<<< HEAD
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
@@ -664,6 +665,11 @@ padding:20px 19px 20px 20px;
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
+=======
+font-size:24px;
+color:#000000;
+margin:30px 0 0px;
+>>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
 }
 .formWrapper{
 float:left;
