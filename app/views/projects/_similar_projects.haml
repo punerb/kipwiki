@@ -1,11 +1,10 @@
-#similar_projects.borderBottom
+#project_similar_projects.borderBottom
   %h3 Similar Projects
-  STYLE ME!!!
-  %p
-    - similar_projects = [@project, @project, @project, @project] #this is just for testing purposes. The below code is the real one
-    - #similar_projects = @project.similar_projects
-    - if similar_projects.nil? || similar_projects.empty?
-      There are no similar projects.
-    - else
-      - similar_projects.each do |project|
-        = link_to project.title, "#"
+  = succeed "," do
+    %a{:href => "#"} Jain Temple Reconstruction
+  %a{:href => "#"} Baner Road Pune
+  = succeed "," do
+    %a{:href => "#"} Temple Complex Restoration
+  = succeed "," do
+    %a{:href => "#"} Pune Centre
+  %a{:href => "#"} Restoration and Preservation of Hindu Temples in Pune
