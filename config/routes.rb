@@ -8,8 +8,6 @@ Kipwiki::Application.routes.draw do
   match '/projects/:print_id/delete_attachment', :to => 'projects#delete_attachment', :as => :delete_attachment
   resources :project_objectives
 
-  resources :project_fundings
-
   resources :tags
 
   resources :project_statuses
@@ -22,9 +20,10 @@ Kipwiki::Application.routes.draw do
       get :display
     end
     resources :stakeholders
+    resources :project_fundings
+    resources :links
   end
 
-  resources :links
   get "home/index"
   match '/filter', :to => "home#filter"
   

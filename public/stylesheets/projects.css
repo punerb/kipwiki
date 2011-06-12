@@ -474,7 +474,6 @@ width:21px;
 #project_type ul li .label, #project_status ul li .labelWrapper .label {
 float:left;
 font-size:12px;
-font-weight:bold;
 color:#000000;
 line-height:16px;
 }
@@ -1040,10 +1039,6 @@ ul.objectivesNavigation li ul li a:hover {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
 #createProjecContent .heding{
 
 	font-size:24px;
@@ -1054,23 +1049,8 @@ ul.objectivesNavigation li ul li a:hover {
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
-<<<<<<< HEAD
-	font-size:24px;
-	color:#000000;
-	margin:30px 0 0px;
-
-font-size:24px;
-color:#000000;
-margin:30px 0 0px;
-
-=======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
 }
 
-<<<<<<< HEAD
-}
-=======
->>>>>>> 1d92712b9b49b32ecade6b7fca0a84378e82d7d6
 .formWrapper{
 	float:left;
 	width:420px;
@@ -1231,4 +1211,10 @@ margin:35px 0 0;
 
 #project_comments #livefyre{
     margin: 0;
+}
+
+ul li input[checked] + label{
+    color: #00AA00 !important;
+    font-weight: bold;
+    text-decoration: underline;
 }
