@@ -3,7 +3,7 @@
     %h1 Stakeholders
     = edit_link(@project, "stakeholders")
     .clr
-  %ul.stakeholders
+  %ul.leftNavigation.black
     - if @project.stakeholders.nil? || @project.stakeholders.empty?
       %li
         %p
