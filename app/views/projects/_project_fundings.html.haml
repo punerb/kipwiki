@@ -2,14 +2,14 @@
   .heading
     %h1 Funding
     %a{:href => "#"} Add new
-    = edit_link("fundings")
+    = edit_link(@project, "fundings")
     .clr
   %ul.funding
     - if @project.project_fundings.nil? || @project.project_fundings.empty?
       %li
         %p
           There are no funds for this project yet. Click
-          = edit_link("fundings")
+          = edit_link(@project, "fundings")
           to add some
     - else
       - @project.project_fundings.each do |funding|

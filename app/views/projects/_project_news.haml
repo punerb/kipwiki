@@ -2,7 +2,7 @@
   .heading
     %h1 News
     %a{:href => "#"} Add new
-    = edit_link("news")
+    = edit_link(@project, "news")
     .clr
   %p
     = "Project new here"
@@ -16,21 +16,3 @@
   %p
     %span Fuscemassa
     , 9 Jun 2011
-/
-  this thing still needs to be made dynamic
-  %ul.news
-    - if @project.project_fundings.nil? || @project.project_fundings.empty?
-      %li
-        %p
-          There are no funds for this project yet. Click
-          = edit_link("fundings")
-          to add some
-    - else
-      - @project.project_fundings.each do |funding|
-        %li
-          %p
-            = funding.name
-          %span
-            = funding.currency
-            = funding.amount
-    .clr
