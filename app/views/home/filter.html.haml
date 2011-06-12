@@ -3,5 +3,5 @@
 
 - content_for :head do
   :javascript
-    var projects = #{@projects.to_json}
+    var all_projects = #{@projects.to_json}
   = javascript_include_tag "home"
