@@ -40,15 +40,16 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.xml
   def create
-    @link = Link.new(params[:link])
-
+    link = Link.new(params[:link])
+    @project = Project.find(params[:project_id])
+    @project.links << link
     respond_to do |format|
-      if @link.save
-        format.html { redirect_to(@link, :notice => 'Link was successfully created.') }
-        format.xml  { render :xml => @link, :status => :created, :location => @link }
+      if @project.save
+        format.html { redirect_to(edit_project_by_action_type_path(@project, "link"), :notice => 'Link was successfully created.') }
+        format.xml  { render :xml => @stakeholder, :status => :created, :location => @stakeholder }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @link.errors, :status => :unprocessable_entity }
+        format.html { redirect_to(edit_project_by_action_type_path(@project, "link"), :notice => "error while saving link") }
+        format.xml  { render :xml => @stakeholder.errors, :status => :unprocessable_entity }
       end
     end
   end
