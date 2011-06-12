@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
   def show
     #this is some ugly ass code - but just temporary - until the view_count are initialized to 0
     @project.view_count.nil? ? @project.view_count = 0 : @project.view_count += 1
-    @project.save!
+    @project.inc(:view_count, 1)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
