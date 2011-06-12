@@ -1,7 +1,6 @@
 Kipwiki::Application.routes.draw do
 
   resources :authentications
-
   post 'projects/search' => 'projects#search', :as => :project_search
 
   match '/projects/:id/photos', :to => 'projects#photos', :as => :photos
@@ -38,6 +37,7 @@ Kipwiki::Application.routes.draw do
 
   match "/auth/:provider/callback" => "authentications#create"
   match "/auth/failure" => "authentications#failure"
+
 
   root :to => "home#index"
   # The priority is based upon order of creation:
