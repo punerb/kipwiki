@@ -311,14 +311,25 @@ float:right;
 margin-left:30px;
 }
 #content .loaderWrapper {
-width:370px;
+width:360px;
 margin-bottom:20px;
 }
+
 #content .loaderWrapper .loader {
-height:25px;
-width:370px;
-margin-bottom:10px;
+    background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    height: 23px;
+    margin-bottom: 10px;
+    width: 100%;
 }
+
+#content .loaderWrapper #progressBar{
+    height: 100%;
+    border-radius: 5px;
+    background: url(/images/loadingImage.jpg) repeat-x;
+}
+
 #content .loaderWrapper .text {
 font-size:14px;
 font-weight:bold;
