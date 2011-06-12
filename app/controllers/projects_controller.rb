@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
     @project = Project.new
 
     respond_to do |format|
-      format.html {render 'new', :layout => 'admin' }# new.html.erb
+      format.html {render 'new' }# new.html.erb
       format.xml  { render :xml => @project }
     end
   end
