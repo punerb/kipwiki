@@ -21,6 +21,7 @@ Kipwiki::Application.routes.draw do
   resources :projects do
     member do
       post :add_suggestion
+      get :display
     end
   end
 
