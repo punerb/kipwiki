@@ -10,8 +10,6 @@ Kipwiki::Application.routes.draw do
 
   resources :project_fundings
 
-  resources :stakeholders
-
   resources :tags
 
   resources :project_statuses
@@ -21,7 +19,9 @@ Kipwiki::Application.routes.draw do
   resources :projects do
     member do
       post :add_suggestion
+      get :display
     end
+    resources :stakeholders
   end
 
   resources :links
@@ -37,7 +37,8 @@ Kipwiki::Application.routes.draw do
 
   match "/auth/:provider/callback" => "authentications#create"
   match "/auth/failure" => "authentications#failure"
-
+  
+  match 'project/:id/edit/:action_type' => 'projects#edit', :as => 'edit_project_by_action_type'
 
   root :to => "home#index"
   # The priority is based upon order of creation:

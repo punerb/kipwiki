@@ -1,0 +1,17 @@
+.leftSide
+  .leftSide
+    %h1.heading Stakeholders
+  .leftSide
+    .suggestChanges
+      %a{:href => "#"} Suggest ChangSes
+.rightSide
+  .nextPage
+    = link_to "next", display_project_path(@project, {:view => "funding"})
+  .previousPage
+    = link_to "next", display_project_path(@project, {:view => "objectives"})
+.clr
+.borderBottom
+%ul.objectivesNavigation.black.marTop15
+  - @project.stakeholders.each do |ks|
+    %li.main
+      = link_to ks.name, "#"
