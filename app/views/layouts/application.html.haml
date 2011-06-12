@@ -56,20 +56,12 @@
               %input.searchBtn{:type => "submit"}/
             #map.project_map
             #project_type.borderBottom
-              %h3 Project Type
+              %h3 Category
               %ul
-                %li
-                  = check_box_tag 'local_project', 'Local_project', false, :class => 'project_types'
-                  %label.label Local Project
-                %li
-                  = check_box_tag 'property', 'Property', false, :class => 'project_types'
-                  %label.label Property
-                %li
-                  = check_box_tag 'suspendisse', 'Suspendisse', false, :class => 'project_types'
-                  %label.label Suspendisse
-                %li
-                  = check_box_tag 'pellentesque', 'Pellentesque', false, :class => 'project_types'
-                  %label.label Pellentesque
+                -APP_CONFIG[:categories].each do |category|
+                  %li
+                    = check_box_tag 'xx', category, false, :class => 'category'
+                    %label.label= category
               .clr
             #project_status.borderBottom
               %h3 Phase / Status
