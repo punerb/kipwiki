@@ -365,9 +365,6 @@ color:#666666;
 padding-bottom:10px;
 border-bottom:1px solid #dddddd;
 }
-#content .textWrapper p {
-margin-bottom:10px;
-}
 #content .textWrapper span {
 color:#000;
 font-weight:bold;
@@ -393,7 +390,7 @@ margin-right:10px;
 width:258px;
 height:193px;
 border:1px solid #dddddd;
-margin-bottom:20px;
+margin-bottom:10px;
 }
 #project_type, #project_status {
 width:260px;
@@ -409,7 +406,11 @@ margin-bottom:15px;
 float:left;
 width:21px;
 }
-#project_type ul li .label, #project_status ul li .label {
+#project_type ul li .label, #project_status ul li .labelWrapper {
+	width:100px;
+	float:right !important;
+}
+#project_type ul li .label, #project_status ul li .labelWrapper .label {
 float:left;
 font-size:12px;
 font-weight:bold;
@@ -450,8 +451,17 @@ border-radius:5px;
 ul.tabs li a:hover, ul.tabs li.active a {
 background:#00cc00;
 }
-.tabWrapper .textWrapper {
-border-bottom:none !important;
+.tabWrapper ul.activity li {
+	font-size:12px;
+	line-height:16px;
+	margin-bottom:9px;
+	color:#666666;
+	width:260px;
+	display:block;
+}
+.tabWrapper ul.activity li span {
+	color:#000;
+	font-weight:bold;
 }
 /*tabs*/
 /*priject page End*/
@@ -531,6 +541,27 @@ background:url(../images/downArow.jpg)center left no-repeat;
 	line-height:16px;
 	font-weight:bold;
 }
+#content ul.listLinks li {
+	background:url(../images/listRadio.jpg) top left no-repeat;
+	padding-left:15px;
+	font-size:12px;
+	display:block;
+	color:#666666;
+	float:left;
+	width:370px;
+	line-height:16px;
+	margin-bottom:9px;
+}
+#content ul.listLinks li a {
+	background:url(../images/listLinkIcon.png) right center no-repeat;
+	background-position:right;
+	padding-right:15px;
+}
+#content ul.listLinks li a:hover {
+	background:url(../images/listLinkIconHover.png) right center no-repeat;
+	background-position:right ;
+	
+}
 #content .left .wrapperLeft {
 float:left;
 width:260px;
@@ -547,11 +578,10 @@ ul.leftNavigation {
 }
 ul.leftNavigation li {
 	font-size:12px;
-	font-weight:normal;
+	font-weight:bold;
 	color:#000;
 	display:block;
 	line-height:30px;
-	
 	cursor:pointer;
 }
 ul.leftNavigation li.borderNone {
@@ -587,21 +617,19 @@ ul.leftNavigation li a:hover {
 }
 ul.leftNavigation li ul.leftSub li{
 	background:none;
-		
 }
 ul.leftNavigation li ul.leftSub a {
 	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
 	padding-left:15px;
 	padding-right:0px;
 	margin:0 0 0 20px;
-	font-weight:normal;
+	font-weight:bold;
 	}
 ul.leftNavigation li ul.leftSub a:hover {
 	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
 	padding-left:15px;
 	padding-right:0px;
 	margin:0 0 0 20px;
-	font-weight:normal;
 	}
 ul.leftNavigation li ul li a:hover {
 	background:url(../images/arowRight.jpg) no-repeat left center;
@@ -631,6 +659,12 @@ ul.leftNavigation li ul li a:hover {
 	-webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 }
+
+ul.black li a, ul.black li ul.leftSub li a {
+	font-weight:normal;
+	color:#000;
+}
+
 /*left menu  end*/
 
 /*Left end Here*/
@@ -654,7 +688,10 @@ padding:20px 19px 20px 20px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
 #createProjecContent .heding{
 <<<<<<< HEAD
 	font-size:24px;
@@ -669,6 +706,17 @@ padding:20px 19px 20px 20px;
 font-size:24px;
 color:#000000;
 margin:30px 0 0px;
+<<<<<<< HEAD
+<<<<<<< HEAD
+}
+#createProjecContent .heading{
+	font-size:24px;
+	color:#000000;
+	margin:30px 0 0px;
+
+=======
+=======
+>>>>>>> c6447464926009b2b901d8e938d0c2fbc205d86d
 >>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
 }
 .formWrapper{
