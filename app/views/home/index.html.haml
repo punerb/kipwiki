@@ -3,7 +3,7 @@
   %h2 Featured Projects
   .clr
   %ul
-    - @featured_pojects.each_with_index do |project, index|
+    - @featured_projects.each_with_index do |project, index|
       = render "home_project_item" , :project => project, :margin_class => (index == 2) ? "marNone" : ""
   .clr
   %h2 Local Projects
