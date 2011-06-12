@@ -23,10 +23,10 @@
         :description => Faker::Lorem.sentences(40),
         :project_types => [ {:name =>project_types[rand(4)] }, {:name =>project_types[rand(4)] }  ],
         :project_statuses => [{ :name =>"Initiating" }, {:name => "Unaknowledged"}],
-        :tags => [{:name => "Temple" },{:name => "Heritage" } ],
+        :tags => ["Temple","Heritage"],
         :links => [ {:name => Faker::Lorem.words(3).join(" "), :url => Faker::Internet.domain_name } ],
-        :project_fundings =>[ {:name => "Innovation", :amount => 1111 , :currency => "$" }],
-        :stakeholders => [ {:name => Faker::Name.name, :url => Faker::Internet.domain_name } ],
+        #:project_fundings =>[ {:name => "Innovation", :amount => 1111 , :currency => "$" }],
+        #:stakeholders => [ {:name => Faker::Name.name, :url => Faker::Internet.domain_name } ],
         :user => user
      })
    end
