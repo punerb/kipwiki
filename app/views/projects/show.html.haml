@@ -1,22 +1,112 @@
-%p#notice= notice
-%p
-  %b Title:
+/ div left start
+.mainHeading
   = @project.title
-%p
-  %b Description:
-  \#{link_to "Suggest","#",:class=>"suggest_me"}
-  = @project.description
-%p
-  %b Address:
-  = @project.address%p#notice= notice
-
-#project_comments
-  %h2 Comments
-  :javascript
-    var fyre = LF({
-      site_id: 285879,
-      version: '1.0'
-    });
+.clr
+.murgeWrapper
+  .wrapperLeft
+    .borderBottom
+      #slider
+        %ul
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "/images/testPhoto.jpg"}/
+    .borderBottom
+      .heading
+        %h1 Contents
+        %a{:href => "#"} Add new
+        %a{:href => "#"} Edit
+        .clr
+      .inputWrapper
+        %input.field{:type => "text", :value => "Search within a Project"}/
+        %input.searchBtn{:type => "submit"}/
+    = render "projects_fundings"
+  .wrapperRight
+    .marBot10
+      %ul.rating
+        %li.like
+          star1
+        %li.like
+          star2
+        %li.like
+          star3
+        %li
+          star4
+        %li
+          star5
+      .voteViewMurge
+        .viewWrapper
+          = @project.view_count
+          Views
+        .voteWrapper
+          = @project.vote_count
+          Votes
+        .clr
+      .clr
+    .loaderWrapper
+      .loader
+        %img{:alt => "", :height => "25px", :src => "/images/loader.jpg", :width => "370px"}/
+      .text
+        10% Planning Complete
+    .socialShare
+      %ul
+        %li
+          %a{:href => "#"} share
+        %li.rrs
+          %a{:href => "#"} share
+        %li.fb
+          %a{:href => "#"} share
+        %li.twit
+          %a{:href => "#"} share
+        %li.mail
+          %a{:href => "#"} share
+        %li.print
+          %a{:href => "#"} share
+        %li.embed
+          %a{:href => "#"} share
+        .clr
+    .textWrapper
+      .heading
+        %h1 Summary
+        %a{:href => "#"} Edit
+        .clr
+      = @project.description
+    .textWrapper
+      .heading
+        %h1 News
+        %a{:href => "#"} Add new
+        %a{:href => "#"} Edit
+        .clr
+      %p
+        = "Project new here"
+        %a{:href => "#"} more
+      %p
+        %span> Kohsi
+        , 3 hrs ago
+      %p
+        One more news here
+        %a{:href => "#"} more
+      %p
+        %span Fuscemassa
+        , 9 Jun 2011
+    = render "project_objectives"
+  .clr
+  #project_comments
+    %h1 Comments
+    :javascript
+      var fyre = LF({
+        site_id: 285879,
+        version: '1.0'
+      });
+.clr
 
 = content_for :sidebar do
   = render :partial => 'projects/map'
@@ -25,27 +115,3 @@
   = render :partial => 'projects/project_tags'
   = render :partial => 'projects/project_activity_feed'
   = render :partial => 'projects/similar_projects'
-  
-//link_to 'Edit', edit_project_path(@project)
-
-
-:javascript
-  $(".suggest_me").colorbox({inline: true, href:"#suggest_div"})
-
-%div{:style => "display:none;"}
-  #suggest_div
-    %p Please submit your suggestion:
-    =text_area_tag "project","",:rows=>"5",:cols=>"40"
-
-= content_for :sidebar do
-  #map_canvas
-    :javascript
-      var myOptions = {
-        zoom: 12,
-        #{'center: new google.maps.LatLng(' + @project.coordinates[0].to_s + ', ' + @project.coordinates[1].to_s + '),'}
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
-
-\#{link_to 'Back', projects_path}

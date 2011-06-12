@@ -1,4 +1,6 @@
 = javascript_include_tag "puny_mce"
-%h1 New project
-= render 'form'
-= link_to 'Back', projects_path
+/ createProjecContent start
+#createProjecContent
+  %h1.heading Create Project
+  .borderBottom
+  = render 'form' ,:button_text => "Create Project"

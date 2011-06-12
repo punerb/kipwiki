@@ -20,7 +20,8 @@ Kipwiki::Application.routes.draw do
 
   resources :links
   get "home/index"
-
+  match '/filter', :to => "home#filter"
+  
   devise_for :user, :controllers => { :registrations => "registrations" }
 
   devise_for :users

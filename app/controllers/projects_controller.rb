@@ -38,15 +38,10 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.xml
   def show
-    @project = Project.where(:city => params[:city], :slug => params[:id]).first
-    #temporary until we have some create page and real data
-    @project = Project.new({
-      :title => "Project Title",
-      :description => "This is a really awesome project",
-      :address => "This is, the Project, address",
-      :coordinates => [18.50787 + 0.01*(rand()-0.5), 73.7799 + 0.01*(rand()-0.5)]
-    })
-    
+    @project = Project.where(:city => params[:city].titleize, :slug => params[:id]).first
+    #this is some ugly ass code - but just temporary - until the view_count are initialized to 0
+    @project.view_count.nil? ? @project.view_count = 0 : @project.view_count += 1
+    @project.save!
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
@@ -77,7 +72,7 @@ class ProjectsController < ApplicationController
     #@project.user = User.first if User.first
     respond_to do |format|
       if @project.save
-        format.html { redirect_to(show_project_path(@project.city, @project.slug), :notice => 'Project was successfully created.') }
+        format.html { redirect_to(show_project_path(@project.city.parameterize, @project.slug), :notice => 'Project was successfully created.') }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
         format.html { render :action => "new" }
@@ -93,7 +88,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to(show_project_path(@project.city, @project.slug), :notice => 'Project was successfully updated.') }
+        format.html { redirect_to(show_project_path(@project.city.parameterize, @project.slug), :notice => 'Project was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

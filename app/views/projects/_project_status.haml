@@ -1,3 +1,9 @@
 #project_status.borderBottom
-  %h3 Project Status
-  STYLE ME!!
+  %h3 Phase / Status
+  %ul
+    - APP_CONFIG[:statuses].each do |status|
+      %li
+        %input.checkBox{:type => "checkbox", :checked => (@project.status)==status}/
+        %label.label
+          = status
+    .clr
