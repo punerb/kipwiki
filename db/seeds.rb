@@ -17,6 +17,7 @@
     10.times do |n|
       projects = Project.create({ 
         :title =>"Poject#{n}",
+        :city => locations.shuffle.first,
         :address =>[Faker::Address.street_address, Faker::Address.secondary_address, locations[rand(locations.length)]].join(" "),
         :description => Faker::Lorem.sentences(10),
         :categories => [ APP_CONFIG[:categories][rand(4)], APP_CONFIG[:categories][rand(4)] ],
@@ -26,6 +27,8 @@
         :links => [ {:name => Faker::Lorem.words(3).join(" "), :url => Faker::Internet.domain_name } ],
         :project_fundings =>[ {:name => "Innovation", :amount => 1111 , :currency => "$" }],
         :stakeholders => [ {:name => Faker::Name.name, :url => Faker::Internet.domain_name } ],
-        :user => user
+        :user => User.last
      })
+    puts "Added Project #{n}"
+    puts "Error adding project : #{projects.errors}" if projects.errors.present?
    end
