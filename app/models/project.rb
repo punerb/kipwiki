@@ -26,7 +26,8 @@ class Project
 
   has_many :prints
   has_many :documents
-  
+  has_many :suggestions
+
   belongs_to :user
 
   validates :title, :description, :address, :presence => true
