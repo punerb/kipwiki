@@ -3,297 +3,300 @@
 /* This file holds the general css for the site */
 /* CANCELLING ISSUES IN DIFFERENT BROWSERS */
 html,body,div,span,img,applet,embed,canvas,object,iframe {
-margin:0;
-padding:0;
-border:0;
-outline:0;
-font-size:100%;
-background:transparent
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    background:transparent
 }
 h1,h2,h3,h4,h5,h6,p {
-margin:0;
-padding:0;
-border:0;
-outline:0;
-font-size:100%;
-background:transparent
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    background:transparent
 }
 ol,ul,li {
-margin:0;
-padding:0;
-border:0;
-outline:0;
-font-size:100%;
-background:transparent
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    background:transparent
 }
 fieldset,form,label,legend,button,table,caption,tbody,tfoot,thead,tr,th,td {
-margin:0;
-padding:0;
-border:0;
-outline:0;
-font-size:100%;
-background:transparent
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    background:transparent
 }
 ul,li {
-list-style:none;
+    list-style:none;
 }
 li {
-display:inline
+    display:inline
 }
 /* GENERAL REDEFINITIONS */
 html {
-width:100%;
-height:100%;
-margin:0;
+    width:100%;
+    height:100%;
+    margin:0;
 }
 body {
-background:url(../images/bgImage.jpg) top left;
-font-family:Arial, Helvetica, sans-serif;
-font-weight:normal;
-font-size:12px;
-margin:0;
-padding:0;
-color:#000;
+    background:url(../images/bgImage.jpg) top left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    font-size:12px;
+    margin:0;
+    padding:0;
+    color:#000;
 }
 a {
-text-decoration:none;
-color:#00aa00;
-outline:none;
+    text-decoration:none;
+    color:#00aa00;
+    outline:none;
 }
 a:hover {
-color:#000;
-outline:none;
+    color:#000;
+    outline:none;
 }
 a img {
-border:none;
+    border:none;
 }
 .clr {
-clear:both;
+    clear:both;
 }
 #punymce{
-font-family:Arial, Helvetica, sans-serif;
-font-size:12px;
-color:#666;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color:#666;
 }
 /* LAYOUT-STRUCTURE */
 #wrapper {
-width:100%;
-margin:0 auto;
+    width:100%;
+    margin:0 auto;
 }
 #wrapper h1 {
-color:#444444;
-font-size:18px;
-font-weight:normal;
-margin-bottom:15px;
+    color:#444444;
+    font-size:18px;
+    font-weight:normal;
+    margin-bottom:15px;
 }
 #wrapper h1.heading {
-	color:#444444;
-	font-size:24px;
-	font-weight:normal;
-	margin:10px 0 0 0px;
+    color:#444444;
+    font-size:24px;
+    font-weight:normal;
+    margin:10px 0 0 0px;
 }
 #wrapper .borderBottom {
-padding-bottom:10px;
-border-bottom:1px solid #dddddd;
+    padding-bottom:10px;
+    border-bottom:1px solid #dddddd;
 }
 #wrapper p{
-	font-size:12px;
-	color:#aaaaaa;
-	line-height:18px;
-	padding:5px 0 5px 0;
+    font-size:12px;
+    color:#aaaaaa;
+    line-height:18px;
+    padding:5px 0 5px 0;
 }
 /* Header CSS start here */
 #header {
-margin:0 auto 30px;
-width:100%;
-height:50px;
-background:#FFF;
-border-bottom:1px solid #dddddd;
+    margin:0 auto 30px;
+    width:100%;
+    height:50px;
+    background:#FFF;
+    border-bottom:1px solid #dddddd;
 }
 .headerContent {
-margin:0 auto;
-width:990px;
-height:50px;
+    margin:0 auto;
+    width:990px;
+    height:50px;
 }
 .logo {
-margin:0 0 0 15px;
-padding-top:5px;
-width:134px;
-height:45px;
-float:left;
-z-index:100;
-border-right:1px solid #dddddd;
+    margin:0 0 0 15px;
+    padding-top:5px;
+    width:134px;
+    height:45px;
+    float:left;
+    z-index:100;
+    border-right:1px solid #dddddd;
 }
 .logo a {
-background:url(../images/logo.png) left top no-repeat;
-height:40px;
-display:block;
-text-indent:-5000px;
-width:120px;
+    background:url(../images/logo.png) left top no-repeat;
+    height:40px;
+    display:block;
+    text-indent:-5000px;
+    width:120px;
 }
 .searchBox {
-float:right;
-width:298px;
-height:92px;
+    float:right;
+    width:298px;
+    height:92px;
 }
 .navigation {
-width:840px;
-height:50px;
-float:left;
+    width:840px;
+    height:50px;
+    float:left;
 }
 .navigation ul.main {
-float:left;
-position:relative;
+    float:left;
+    position:relative;
 }
 .navigation ul.main li {
-float:left;
-border-right:1px solid #dddddd;
-padding:0 20px;
-line-height:50px;
-height:50px;
-font-size:14px;
-font-weight:bold;
-color:#00aa00;
+    float:left;
+    border-right:1px solid #dddddd;
+    padding:0 20px;
+    line-height:50px;
+    height:50px;
+    font-size:14px;
+    font-weight:bold;
+    color:#00aa00;
 }
 .navigation ul.main li a {
-height:50px;
-line-height:50px;
-font-size:14px;
-font-weight:bold;
-color:#00aa00;
-display:block;
+    height:50px;
+    line-height:50px;
+    font-size:14px;
+    font-weight:bold;
+    color:#00aa00;
+    display:block;
 }
 .navigation ul.main li a:hover, .navigation ul.main li.selected a {
-color:#000;
-background:url(../images/linkHover.png) bottom center no-repeat;
-display:block;
-padding:0 0 9px 0;
-line-height:50px;
-height:50px
+    color:#000;
+    background:url(../images/linkHover.png) bottom center no-repeat;
+    display:block;
+    padding:0 0 9px 0;
+    line-height:50px;
+    height:50px
 }
 /*Sub subMenu start here ---------*/
 .navigation ul.subMenu {
-float:right;
-position:relative;
+    float:right;
+    position:relative;
 }
 .navigation ul.subMenu li {
-float:left;
-padding:0 10px;
-line-height:50px;
-height:50px;
-font-size:12px;
-font-weight:normal;
-color:#00aa00;
+    float:left;
+    padding:0 10px;
+    line-height:50px;
+    height:50px;
+    font-size:12px;
+    font-weight:normal;
+    color:#00aa00;
 }
 .navigation ul.subMenu li a {
-height:50px;
-line-height:50px;
-font-size:12px;
-font-weight:normal;
-color:#00aa00;
-display:block;
+    height:50px;
+    line-height:50px;
+    font-size:12px;
+    font-weight:normal;
+    color:#00aa00;
+    display:block;
 }
 .navigation ul.subMenu li a:hover, .navigation ul.subMenu li.selected a {
-color:#000;
+    color:#000;
 }
 /* Content CSS start */
 #content {
-background:#FFF;
-border:1px solid #dddddd;
-width:990px;
-margin:0 auto;
-min-height:550px;
-border-radius: 5px 5px 5px 5px;
--webkit-border-radius: 5px;
--moz-border-radius: 5px;
+    background:#FFF;
+    border:1px solid #dddddd;
+    width:990px;
+    margin:0 auto;
+    min-height:550px;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 }
 #content h3 {
-color:#444444;
-font-size:14px;
-font-weight:bold;
-margin-bottom:15px;
+    color:#444444;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:15px;
 }
 #content .inputWrapper {
-height:35px;
-margin-bottom:20px;
+    height:35px;
+    margin-bottom:20px;
 }
 #content .inputWrapper input.field {
-float:left;
-width:203px;
-border-radius: 5px 0 0 5px;
+    float:left;
+    width:203px;
+    border-radius: 5px 0 0 5px;
 }
 input.field {
-background:url(../images/inputBG.jpg) left repeat-x;
-border:1px solid #dddddd;
-padding:7px 10px;
-font-family:Arial, Helvetica, sans-serif;
-font-size:16px;
-line-height:16px;
-color:#bbbbbb;
+    background:url(../images/inputBG.jpg) left repeat-x;
+    border:1px solid #dddddd;
+    padding:7px 10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    line-height:16px;
+    color:#bbbbbb;
 }
 input.searchBtn {
-background:url(../images/inputsIcon.png) top left no-repeat;
-background-position:0 0;
-float:right;
-width:35px;
-height:35px;
-display:block;
-border:none;
-text-indent:-5000px;
-cursor:pointer;
+    background:url(../images/inputsIcon.png) top left no-repeat;
+    background-position:0 0;
+    float:right;
+    width:35px;
+    height:35px;
+    display:block;
+    border:none;
+    text-indent:-5000px;
+    cursor:pointer;
 }
 input.addBtn {
-background:url(../images/inputsIcon.png) top left no-repeat;
-background-position:0 -40px;
-float:right;
-width:35px;
-height:35px;
-display:block;
-border:none;
-text-indent:-5000px;
-cursor:pointer;
+    background:url(../images/inputsIcon.png) top left no-repeat;
+    background-position:0 -40px;
+    float:right;
+    width:35px;
+    height:35px;
+    display:block;
+    border:none;
+    text-indent:-5000px;
+    cursor:pointer;
 }
 input.large{
-font-size:12px;
-color:#666666;
-width:400px;
-padding:9px 9px;
+    font-size:12px;
+    color:#666666;
+    width:400px;
+    padding:9px 9px;
 }
 .textediter{
-	background:url(../images/textediter.jpg) no-repeat;
-	width:650px;
-	height:310px;
-	display:block;
+    background:url(../images/textediter.jpg) no-repeat;
+    width:650px;
+    height:310px;
+    display:block;
 }
 #content ul.rating {
-height:15px;
-float:left;
+    height:15px;
+    float:left;
 }
 #content ul.rating li {
-background:url(../images/likeIcon.png) top left no-repeat;
-background-position:0 -20px;
-display:block;
-text-indent:-5000px;
-float:left;
-width:15px;
-height:15px;
-margin-right:5px;
+    background:url(../images/likeIcon.png) top left no-repeat;
+    background-position:0 -20px;
+    display:block;
+    text-indent:-5000px;
+    float:left;
+    width:15px;
+    height:15px;
+    margin-right:5px;
 }
 #content ul.rating li.like {
-background:url(../images/likeIcon.png) top left no-repeat;
-background-position:0 0px;
+    background:url(../images/likeIcon.png) top left no-repeat;
+    background-position:0 0px;
 }
 #content .viewWrapper {
-background:url(../images/viewIcon.png) center left no-repeat;
-padding-left:30px;
-font-size:12px;
-font-weight:normal;
-line-height:20px;
-color:#444444;
-float:left;
+    background:url(../images/viewIcon.png) center left no-repeat;
+    padding-left:30px;
+    font-size:12px;
+    font-weight:normal;
+    line-height:20px;
+    color:#444444;
+    float:left;
 }
 #content .voteWrapper {
-background:url(../images/voteIcon.png) center left no-repeat;
+/* background:url(../images/voteIcon.png) center left no-repeat; */
+/* this is because we removed the heart icon and replaced it with the fb like */
+padding-right: 30px;
+margin-left: 0  !important;
 padding-left:30px;
 font-size:12px;
 font-weight:normal;
@@ -302,275 +305,286 @@ color:#444444;
 float:left;
 }
 #content .voteViewMurge {
-float:right;
+    float:right;
 }
 #content .voteViewMurge .voteWrapper {
-margin-left:30px;
+    margin-left:30px;
 }
 #content .loaderWrapper {
-width:370px;
+width:360px;
 margin-bottom:20px;
 }
+
 #content .loaderWrapper .loader {
-height:25px;
-width:370px;
-margin-bottom:10px;
+    background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    height: 23px;
+    margin-bottom: 10px;
+    width: 100%;
 }
+
+#content .loaderWrapper #progressBar{
+    height: 100%;
+    border-radius: 5px;
+    background: url(/images/loadingImage.jpg) repeat-x;
+}
+
 #content .loaderWrapper .text {
-font-size:14px;
-font-weight:bold;
-color:#000;
+    font-size:14px;
+    font-weight:bold;
+    color:#000;
 }
 /*social Share*/
 #content .socialShare {
-margin-bottom:25px;
+    margin-bottom:25px;
 }
 #content .socialShare ul li {
-height:32px;
-width:32px;
-float:left;
-margin-right:8px;
+    height:32px;
+    width:32px;
+    float:left;
+    margin-right:8px;
 }
 #content .socialShare ul li a {
-background:url(../images/socialShearingIcons.png) top left no-repeat;
-background-position:0 0;
-display:block;
-height:32px;
-width:32px;
-text-indent:-5000px;
+    background:url(../images/socialShearingIcons.png) top left no-repeat;
+    background-position:0 0;
+    display:block;
+    height:32px;
+    width:32px;
+    text-indent:-5000px;
 }
 #content .socialShare ul li.rrs a {
-background-position:-40px 0;
+    background-position:-40px 0;
 }
 #content .socialShare ul li.fb a {
-background-position:-80px 0;
+    background-position:-80px 0;
 }
 #content .socialShare ul li.twit a {
-background-position:-120px 0;
+    background-position:-120px 0;
 }
 #content .socialShare ul li.mail a {
-background-position:-160px 0;
+    background-position:-160px 0;
 }
 #content .socialShare ul li.print a {
-background-position:-200px 0;
+    background-position:-200px 0;
 }
 #content .socialShare ul li.embed a {
-background-position:-240px 0;
+    background-position:-240px 0;
 }
 /*social Share*/
 #content .textWrapper {
-font-size:12px;
-line-height:18px;
-color:#666666;
-padding-bottom:10px;
-border-bottom:1px solid #dddddd;
+    font-size:12px;
+    line-height:18px;
+    color:#666666;
+    padding-bottom:10px;
+    border-bottom:1px solid #dddddd;
 }
 #content .textWrapper p {
-margin-bottom:10px;
+    margin-bottom:10px;
 }
 #content .textWrapper span {
-color:#000;
-font-weight:bold;
+    color:#000;
+    font-weight:bold;
 }
 #content .heading {
-margin-bottom:10px;
-padding:0;
+    margin-bottom:10px;
+    padding:0;
 }
 #content .heading h1 {
-margin:0 10px 0 0;
-float:left;
-line-height:30px;
-padding:0;
+    margin:0 10px 0 0;
+    float:left;
+    line-height:30px;
+    padding:0;
 }
 #content .heading a {
-font-size:12px;
-line-height:30px;
-float:left;
-margin-right:10px;
+    font-size:12px;
+    line-height:30px;
+    float:left;
+    margin-right:10px;
 }
 /*priject page*/
 #content .project_map {
-width:258px;
-height:193px;
-border:1px solid #dddddd;
-margin-bottom:20px;
+    width:258px;
+    height:193px;
+    border:1px solid #dddddd;
+    margin-bottom:20px;
 }
 #project_type, #project_status {
-width:260px;
-margin-bottom:20px;
+    width:260px;
+    margin-bottom:20px;
 }
 #project_type ul li, #project_status ul li {
-float:left;
-width:130px;
-height:18px;
-margin-bottom:15px;
+    float:left;
+    width:130px;
+    height:18px;
+    margin-bottom:15px;
 }
 #project_type ul li .checkBox, #project_status ul li .checkBox {
-float:left;
-width:21px;
+    float:left;
+    width:21px;
 }
 #project_type ul li .label, #project_status ul li .label {
-float:left;
-font-size:12px;
-font-weight:bold;
-color:#000000;
-line-height:16px;
+    float:left;
+    font-size:12px;
+    font-weight:bold;
+    color:#000000;
+    line-height:16px;
 }
 #project_similar_projects {
-margin-bottom:20px;
+    margin-bottom:20px;
 }
 #project_tags {
-margin-bottom:20px;
+    margin-bottom:20px;
 }
 /*tabs*/
 ul.tabs {
-margin: 0;
-background:url(../images/selfProfileTabBg.png) repeat-x;
-width:260px !important;
-margin-bottom:5px;
+    margin: 0;
+/*background:url(/images/selfProfileTabBg.png) repeat-x;*/
+    width:260px !important;
+    margin-bottom:5px;
 }
 ul.tabs li {
-float:left;
-height:25px;
-line-height:25px;
-margin:0 5px 5px 0;
+    float:left;
+    height:25px;
+    line-height:25px;
+    margin:0 5px 5px 0;
 }
 ul.tabs li a {
-background:#dddddd;
-text-decoration: none;
-color:#000;
-display: block;
-height:25px;
-font-size: 12px;
-padding: 0 8px;
-outline: none;
-font-weight:normal;
-border-radius:5px;
+    background:#dddddd;
+    text-decoration: none;
+    color:#000;
+    display: block;
+    height:25px;
+    font-size: 12px;
+    padding: 0 8px;
+    outline: none;
+    font-weight:normal;
+    border-radius:5px;
 }
 ul.tabs li a:hover, ul.tabs li.active a {
-background:#00cc00;
+    background:#00cc00;
 }
 .tabWrapper .textWrapper {
-border-bottom:none !important;
+    border-bottom:none !important;
 }
 /*tabs*/
 /*priject page End*/
 /*Left Start Here*/
 #content .left {
-float:left;
-width:650px;
-border-right:1px solid #dddddd;
-padding:20px 19px 20px 20px;
-min-height:550px;
+    float:left;
+    width:650px;
+    border-right:1px solid #dddddd;
+    padding:20px 19px 20px 20px;
+    min-height:550px;
 }
 #content .left .mainHeading {
-background:url(../images/bigStar.png) left top no-repeat;
-padding-left:50px;
-height:30px;
-margin-bottom:20px;
-font-size:24px;
-color:#00aa00;
-line-height:30px;
+    background:url(../images/bigStar.png) left top no-repeat;
+    padding-left:50px;
+    height:30px;
+    margin-bottom:20px;
+    font-size:24px;
+    color:#00aa00;
+    line-height:30px;
 }
 /*listTypeLink Start*/
 /*left menu start*/
 ul.listTypeLinks {
 }
 ul.listTypeLinks li {
-font-size:12px;
-font-weight:normal;
-color:#000;
-display:block;
-line-height:16px;
-min-height:16px;
-cursor:pointer;
-float:left;
-margin-bottom:10px;
+    font-size:12px;
+    font-weight:normal;
+    color:#000;
+    display:block;
+    line-height:16px;
+    min-height:16px;
+    cursor:pointer;
+    float:left;
+    margin-bottom:10px;
 }
 ul.listTypeLinks ul {
-height:auto;
+    height:auto;
 }
 ul.listTypeLinks a {
-display: block;
-text-decoration: none;
+    display: block;
+    text-decoration: none;
 }
 ul.listTypeLinks li a {
-padding-bottom:10px;
+    padding-bottom:10px;
 }
 ul.listTypeLinks li.mainLink a {
-background:url(../images/rightArow.jpg) center left no-repeat;
-padding-left:30px;
+    background:url(../images/rightArow.jpg) center left no-repeat;
+    padding-left:30px;
 }
 ul.listTypeLinks li.mainLink a:hover {
-background:url(../images/downArow.jpg)center left no-repeat;
+    background:url(../images/downArow.jpg)center left no-repeat;
 }
 ul.listTypeLinks li ul.subLink a {
-padding-left:30px;
-padding-right:0px;
-font-weight:normal;
+    padding-left:30px;
+    padding-right:0px;
+    font-weight:normal;
 }
 ul.listTypeLinks li ul.leftSub a:hover {
-background:url(../images/downArow.jpg)center left no-repeat;
+    background:url(../images/downArow.jpg)center left no-repeat;
 }
 /*listTypeLink End*/
 #content ul.funding li {
-	font-size:12px;
-	color:#666666;
-	float:left;
-	width:260px;
-	line-height:16px;
-	margin-bottom:9px;
+    font-size:12px;
+    color:#666666;
+    float:left;
+    width:260px;
+    line-height:16px;
+    margin-bottom:9px;
 }
 #content ul.funding li p {
-	float:left;
-	padding:0;
+    float:left;
+    padding:0;
 }
 #content ul.funding li span {
-	float:right;
-	color:#666666;
-	line-height:16px;
-	font-weight:bold;
+    float:right;
+    color:#666666;
+    line-height:16px;
+    font-weight:bold;
 }
 #content .left .wrapperLeft {
-float:left;
-width:260px;
-margin-right:20px;
+    float:left;
+    width:260px;
+    margin-right:20px;
 }
 #content .left .wrapperRight {
-float:right;
-width:370px;
-margin:0;
+    float:right;
+    width:370px;
+    margin:0;
 }
 /*left menu start-------------*/
 ul.leftNavigation {
-	padding-bottom:5px;
+    padding-bottom:5px;
 }
 ul.leftNavigation li {
-	font-size:12px;
-	font-weight:normal;
-	color:#000;
-	display:block;
-	line-height:30px;
-	
-	cursor:pointer;
+    font-size:12px;
+    font-weight:normal;
+    color:#000;
+    display:block;
+    line-height:30px;
+
+    cursor:pointer;
 }
 ul.leftNavigation li.borderNone {
-	border-bottom:0px;
+    border-bottom:0px;
 }
 ul.leftNavigation li li {
-	float:none;
+    float:none;
 }
 ul.leftNavigation ul {
-	height:auto;
+    height:auto;
 }
 ul.leftNavigation a {
-  display: block;
-  text-decoration: none;	
+    display: block;
+    text-decoration: none;
 }
 
 ul.leftNavigation li a {
-background:url(../images/arowRight.jpg) no-repeat 0px 8px;
-  padding:0 10px;
+    background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+    padding:0 10px;
 }
 
 ul.leftNavigation li.main a {
@@ -580,55 +594,55 @@ ul.leftNavigation li.main a:hover {
 
 }
 ul.leftNavigation li.main a.on {
-	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+    background:url(../images/arowRight.jpg) no-repeat 0px 8px;
 }
 ul.leftNavigation li a:hover {
 
 }
 ul.leftNavigation li ul.leftSub li{
-	background:none;
-		
+    background:none;
+
 }
 ul.leftNavigation li ul.leftSub a {
-	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
-	padding-left:15px;
-	padding-right:0px;
-	margin:0 0 0 20px;
-	font-weight:normal;
-	}
+    background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+    padding-left:15px;
+    padding-right:0px;
+    margin:0 0 0 20px;
+    font-weight:normal;
+}
 ul.leftNavigation li ul.leftSub a:hover {
-	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
-	padding-left:15px;
-	padding-right:0px;
-	margin:0 0 0 20px;
-	font-weight:normal;
-	}
+    background:url(../images/arowRight.jpg) no-repeat 0px 8px;
+    padding-left:15px;
+    padding-right:0px;
+    margin:0 0 0 20px;
+    font-weight:normal;
+}
 ul.leftNavigation li ul li a:hover {
-	background:url(../images/arowRight.jpg) no-repeat left center;
+    background:url(../images/arowRight.jpg) no-repeat left center;
 
 }
 .eidtArow{
-	background:url(../images/eidtArow.jpg) no-repeat left center !important;
-	color:#000;
+    background:url(../images/eidtArow.jpg) no-repeat left center !important;
+    color:#000;
 }
 .okArow{
-	background:url(../images/okArow.jpg) no-repeat left center !important;
+    background:url(../images/okArow.jpg) no-repeat left center !important;
 }
 .addContent{
-	margin:0;
-	padding:0;
+    margin:0;
+    padding:0;
 }
 .addContent a{
-	background:#00cc00;
-	font-size:12px;
-	color:#000;
-	height:25px;
-	line-height:25px;
-	width:136px;
-	text-align:center;
-	display:block;
-	border-radius: 5px 5px 5px 5px;
-	-webkit-border-radius: 5px;
+    background:#00cc00;
+    font-size:12px;
+    color:#000;
+    height:25px;
+    line-height:25px;
+    width:136px;
+    text-align:center;
+    display:block;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 }
 /*left menu  end*/
@@ -636,82 +650,123 @@ ul.leftNavigation li ul li a:hover {
 /*Left end Here*/
 /*right start Here*/
 #content .right {
-float:right;
-width:260px;
-padding:20px 19px 20px 20px;
+    float:right;
+    width:260px;
+    padding:20px 19px 20px 20px;
 }
 /*right end Here*/
 /* Content CSS end */
 /*Create Projec start----------*/
 #createProjecContent{
-	background:#FFF;
-	border:1px solid #dddddd;
-	width:592px;
-	margin:0 auto;
-	padding:0 19px;
-	min-height:550px;
-	border-radius: 5px 5px 5px 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
+    background:#FFF;
+    border:1px solid #dddddd;
+    width:592px;
+    margin:0 auto;
+    padding:0 19px;
+    min-height:550px;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 }
 
-#createProjecContent .heding{
-<<<<<<< HEAD
-	font-size:24px;
-	color:#000000;
-	margin:30px 0 0px;
-}
 #createProjecContent .heading{
-	font-size:24px;
-	color:#000000;
-	margin:30px 0 0px;
-=======
-font-size:24px;
-color:#000000;
-margin:30px 0 0px;
->>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
+    font-size:24px;
+    color:#000000;
+    margin:30px 0 0px;
 }
 .formWrapper{
-float:left;
-width:420px;
-margin-bottom:30px;
+    float:left;
+    width:420px;
+    margin-bottom:30px;
 }
 #createProjecContent h2{
-	font-size:14px;
-	color:#444444;
-	margin:10px 0 0px;
+    font-size:14px;
+    color:#444444;
+    margin:10px 0 0px;
 }
 #createProjecContent p{
-	font-size:12px;
-	color:#aaaaaa;
-	line-height:18px;
-	padding:5px 0 5px 0;
+    font-size:12px;
+    color:#aaaaaa;
+    line-height:18px;
+    padding:5px 0 5px 0;
 }
 
 .submitbg {
-	background:url(../images/submitBg.jpg) left top repeat-x;
-	height:33px;
-	margin:10px 0 0 0;
-	padding: 0 10px;
-	text-align:center;
-	cursor:pointer;
-	font-size:16px;
-	line-height:33px;
-	font-weight:bold;
-	color:#FFF;
-	text-shadow:0 1px #00aa00;
-	border:0px;
-	border-radius: 5px 5px 5px 5px;
-	-webkit-border-radius: 5px;
+    background:url(../images/submitBg.jpg) left top repeat-x;
+    height:33px;
+    margin:10px 0 0 0;
+    padding: 0 10px;
+    text-align:center;
+    cursor:pointer;
+    font-size:16px;
+    line-height:33px;
+    font-weight:bold;
+    color:#FFF;
+    text-shadow:0 1px #00aa00;
+    border:0px;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+}
+
+.lightBox {
+    width:373px;
+    min-height:222px;
+    padding:18px;
+    background:#FFF;
+}
+.lightBox h1 {
+    height:20px;
+    font-size:18px;
+    color:#444444;
+    font-weight:normal;
+    line-height:20px;
+    padding-bottom:10px;
+    margin-bottom:10px;
+    border-bottom:1px solid #ddd;
+}
+.textarea {
+    background:url(../images/inputBG.jpg) top repeat-x;
+    border:1px solid #ddd;
+    padding:10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color:#bbbbbb;
+    line-height:16px;
+    font-weight:normal;
+    width:348px;
+    height:113px;
+    margin-bottom:10px;
+}
+.buttonWrapper {
+    height:30px;
+    line-height:30px;
+    margin-bottom:30px;
+}
+.lightBox input.submitbg {
+    margin-right:20px;
+    float:left;
+}
+.lightBox a {
+    font-size:14px;
+    font-weight:bold;
+    color:#000;
+    float:left;
+    padding-top:12px;
+}
+.lightBox a:hover {
+    color:#00AA00;
+}
+#cboxClose{
+    background:none !important;
 }
 
 /*Create Projec End----------*/
 /*Footer Start Here*/
 #footer {
-width:990px;
-height:200px;
-margin:35px 0 0;
+    width:990px;
+    height:200px;
+    margin:35px 0 0;
 }
 /*Footer CSS end*/
 /*Other CSS start*/
