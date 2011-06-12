@@ -1,0 +1,83 @@
+
+/* Easy Slider */
+	#slider {
+		width:258px !important;
+		height:193px !important;
+		border:1px solid #dddddd;
+	}
+
+	#slider ul, #slider li,
+	#slider2 ul, #slider2 li{
+		margin:0;
+		padding:0;
+		list-style:none;
+		}
+	#slider2{margin-top:1em;}
+	#slider li, #slider2 li{ 
+		/* 
+			define width and height of list item (slide)
+			entire slider area will adjust according to the parameters provided here
+		*/ 
+		width:258px;
+		height:193px;
+		overflow:hidden; 
+		margin-bottom:15px;
+		}	
+	#prevBtn, #nextBtn,
+	#slider1next, #slider1prev{ 
+		display:block;
+		width:30px;
+		height:77px;
+		position:absolute;
+		left:-30px;
+		top:71px;
+		z-index:1000;
+		}	
+	#nextBtn, #slider1next{ 
+		left:696px;
+		}														
+	#prevBtn a, #nextBtn a,
+	#slider1next a, #slider1prev a{  
+		display:block;
+		position:relative;
+		width:30px;
+		height:77px;
+		background:url(images/btn_prev.gif) no-repeat 0 0;	
+		}	
+	#nextBtn a, #slider1next a{ 
+		background:url(images/btn_next.gif) no-repeat 0 0;	
+		}	
+		
+	/* numeric controls */	
+
+	ol#controls{
+		padding:0 0 0 10px;
+		height:30px;
+		margin:15px 0;
+		background:url(../images/redioSliderBg.jpg) left repeat-x;	
+		}
+	ol#controls li{
+		display:block;
+		height:30px;
+		margin:10px 10px 0 0; 
+		padding:0;
+		float:left;
+		list-style:none;
+		height:10px;
+		}
+	ol#controls li a{
+		float:left;
+		height:10px;
+		width:10px;
+		display:block;
+		text-indent:-5000px;
+		background:url(../images/redioBtns.png) left repeat-x;
+		background-position:0 -15px;	
+		}
+	ol#controls li.current a{
+		background:url(../images/redioBtns.png) left repeat-x;
+		background-position:0 0px;	
+		}
+	ol#controls li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}
+	
+/* // Easy Slider */
