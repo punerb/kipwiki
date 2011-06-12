@@ -92,6 +92,7 @@ margin-bottom:15px;
 	font-weight:normal;
 	margin:10px 0 0 0px;
 }
+
 #wrapper .borderBottom {
 padding-bottom:10px;
 border-bottom:1px solid #dddddd;
@@ -615,25 +616,35 @@ ul.leftNavigation ul {
 }
 ul.leftNavigation a {
   display: block;
-  text-decoration: none;	
+  text-decoration: none;
+  font-weight:bold;	
 }
 
 ul.leftNavigation li a {
 background:url(../images/arowRight.jpg) no-repeat 0px 8px;
   padding:0 10px;
+  font-weight:bold;
 }
 
 ul.leftNavigation li.main a {
+	font-weight:bold;
+	
 
 }
 ul.leftNavigation li.main a:hover, a.selected {
 	color:#000;
+	font-weight:bold;
+	background:url(../images/selectedArow.jpg) no-repeat 0px 8px;
+	margin:0 0 0 0px !important;
 
 }
 ul.leftNavigation li.main a.on {
 	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
 }
-ul.leftNavigation li a:hover {
+ul.leftNavigation li a:hover, a.selected {
+	background:url(../images/selectedArow.jpg) no-repeat 0px 8px;
+	margin:0 0 0 0px;
+	
 
 }
 ul.leftNavigation li ul.leftSub li{
@@ -646,14 +657,17 @@ ul.leftNavigation li ul.leftSub a {
 	margin:0 0 0 20px;
 	font-weight:bold;
 	}
-ul.leftNavigation li ul.leftSub a:hover {
-	background:url(../images/arowRight.jpg) no-repeat 0px 8px;
-	padding-left:15px;
+ul.leftNavigation li ul.leftSub a:hover, ul.leftNavigation li ul.leftSub a.selected {
+	background:url(../images/selectedArow.jpg) no-repeat 0px 8px;
+	padding-left:15px ;
 	padding-right:0px;
-	margin:0 0 0 20px;
+	margin:0 0 0 20px !important;
+	font-weight:bold;
 	}
-ul.leftNavigation li ul li a:hover {
-	background:url(../images/arowRight.jpg) no-repeat left center;
+ul.leftNavigation li ul li a:hover, a.selected {
+	background:url(../images/selectedArow.jpg) no-repeat 0px 8px !important;
+	font-weight:bold;
+	margin:0 0 0 20px;
 
 }
 .eidtArow{
@@ -802,6 +816,74 @@ ul.rightNavigation li ul li a:hover {
     -moz-border-radius: 5px;
 }
 /*subobjectiveContent end----------------*/
+.suggestChanges{
+	padding:20px 0 0 10px;
+}
+.suggestChanges a{
+}
+.nextPage{
+	float:right;
+	margin:20px 0px 0 0;
+}
+.nextPage a{
+	background:url(../images/nextPageBg.png) no-repeat;
+	width:11px;
+	height:16px;
+	text-indent:-5000px;
+	float:right;
+}
+.previousPage{
+	float:left;
+	margin:20px 0px 0 0;
+}
+.previousPage a{
+	background:url(../images/previousPageBg.png) no-repeat;
+	width:11px;
+	height:16px;
+	text-indent:-5000px;
+	float:left;
+	margin:0 20px 0 0;
+}
+.headingContent{
+	width:990px;
+	margin:0px auto;
+	
+}
+.headingContent .textContent{
+	float:left;
+	width:500px;
+	padding:20px 0;
+}
+.mainTitle{
+	background:url(../images/bigStar.png) left top no-repeat;
+	padding-left:50px;
+	height:30px;
+	font-size:24px;
+	color:#00aa00;
+	line-height:30px;
+	display:block;
+}
+.subTitle{
+	font-size:14px;
+	color:#000000;
+	display:block;
+	padding-left:50px;
+}
+	
+.headingContent .imgContent{
+	float:right;
+	width:400px;
+	padding:20px 0;
+}
+.imgContent ul{
+	float:right;
+	padding-right:20px;
+}
+ .imgContent ul li{
+	 display:inline;
+	 float:left;
+	 padding:0 5px 0 0;
+ }
 
 /*Left end Here*/
 /*right start Here*/
@@ -824,10 +906,7 @@ ul.rightNavigation li ul li a:hover {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
 #createProjecContent .heding{
 
 	font-size:24px;
@@ -838,28 +917,20 @@ ul.rightNavigation li ul li a:hover {
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
-<<<<<<< HEAD
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
-=======
-=======
+
 font-size:24px;
 color:#000000;
 margin:30px 0 0px;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 }
 #createProjecContent .heading{
 	font-size:24px;
 	color:#000000;
 	margin:30px 0 0px;
 
-=======
-=======
->>>>>>> c6447464926009b2b901d8e938d0c2fbc205d86d
->>>>>>> 4723cd38a03b0f949c95ce0da78a2c50d3cdc58c
->>>>>>> 1a2fbfcec32587fd45717eb8feca0926ba661c1c
 }
 .formWrapper{
 	float:left;
