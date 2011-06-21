@@ -12,12 +12,12 @@ class Project
   field :country, :type => String     # From Geocoder location
   field :zip_code, :type => String     # From Geocoder location
   field :categories, :type => Array
-  field :status, :type => String  
+  field :status, :type => String, :default => 'Initiation'   
   field :govt_status, :type => String
   field :tags, :type => Array
   field :slug, :type => String
   field :caption, :type => String
-  field :project_scope, :type => String
+  field :project_scope, :type => String, :default => 'Local'
   field :featured, :type => Boolean, :default => false
 
   embeds_many :stakeholders

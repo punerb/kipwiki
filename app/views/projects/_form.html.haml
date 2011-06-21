@@ -26,7 +26,7 @@
         %ul
           -APP_CONFIG[:statuses].each do |status|
             %li
-              = radio_button_tag "project[status]", status.gsub(/\W/, ''), (!@project.status.blank? and @project.status = status) ? true : false, :class => 'category filter'
+              = radio_button_tag "project[status]", status.gsub(/\W/, ''), (!@project.status.blank? and @project.status == status) ? true : false, :class => 'category filter'
               %label.label= status
         .clr
       #project_scope1.borderBottom
@@ -34,7 +34,7 @@
         %ul
           -APP_CONFIG[:project_scopes].each do |scope|
             %li
-              = radio_button_tag "project[project_scope]", scope, (!@project.project_scope.blank? and @project.project_scope = scope) ? true : false, :class => 'category filter'
+              = radio_button_tag "project[project_scope]", scope, (!@project.project_scope.blank? and @project.project_scope == scope) ? true : false, :class => 'category filter'
               %label.label= scope
         .clr
       %h2 Project Photos
