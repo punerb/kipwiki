@@ -6,7 +6,7 @@
           var coordinates = #{@coordinates.to_json};
           var center_cord = #{@center_coords.to_json};
           var myOptions = {
-            zoom: 12,
+            zoom: 16,
             center: new google.maps.LatLng(center_cord[0], center_cord[1]),
             mapTypeId: google.maps.MapTypeId.ROADMAP
           }
