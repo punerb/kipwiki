@@ -4,8 +4,6 @@ class HomeController < ApplicationController
   
   def index
     @center_coords = request.location.coordinates.reverse
-    logger.debug("--------------- #{@center_coords} -------------")
-    
     @featured_projects = Project.where(:featured => true).limit(3)
     @local_projects = Project.near(@center_coords, 50, :units => :km).limit(3)
     @coordinates = @featured_projects.collect {|project| project.coordinates << project.title }
