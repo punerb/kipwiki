@@ -157,6 +157,12 @@ class ProjectsController < ApplicationController
     render :display, :layout => "admin"
   end
 
+  def my_projects
+  
+    @user_projects = current_user.projects
+    render :my_projects, :layout => "home_layout"
+  end
+
   private
 
   def load_project
@@ -177,4 +183,5 @@ class ProjectsController < ApplicationController
       redirect_to root_path
     end
   end
+ 
 end
