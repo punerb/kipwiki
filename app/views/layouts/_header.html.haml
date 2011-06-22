@@ -9,8 +9,9 @@
           = link_to "Search", project_search_path
         %li{:class => select_main_menu_if("projects#new", [controller_name, action_name].join("#"))}
           = link_to "Create Project" , new_project_path
-        %li{:class => select_main_menu_if("projects#my_projects", [controller_name, action_name].join("#"))}
-          = link_to "My Projects" , user_projects_path if user_signed_in?
+        - if user_signed_in?
+          %li{:class => select_main_menu_if("projects#my_projects", [controller_name, action_name].join("#"))}
+            = link_to "My Projects" , user_projects_path 
       = link_to "Signup", authentications_path , :class => "sign_up" unless user_signed_in?
       %ul.subMenu
         %li
