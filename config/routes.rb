@@ -19,7 +19,9 @@ Kipwiki::Application.routes.draw do
     resources :project_objectives
     member do
       post :add_suggestion
+      get  :show_full_summary
     end
+    
     resources :stakeholders
     resources :project_fundings
     resources :links
