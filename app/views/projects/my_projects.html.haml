@@ -1,0 +1,7 @@
+.fatureProjectsWrapper
+  .clr
+  %ul{:style => 'padding-top:20px;'}
+    - if !@user_projects.nil?
+      - @user_projects.each_with_index do |project, index|
+        = render "home_project_item" , :project => project, :margin_class => (index == 2) ? "marNone" : ""
+.clr
