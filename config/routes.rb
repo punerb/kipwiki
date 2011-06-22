@@ -30,14 +30,16 @@ Kipwiki::Application.routes.draw do
   match '/filter', :to => "home#filter"
   
   devise_for :user, :controllers => { :registrations => "registrations" }
-
+  
+ 
   devise_for :users
+  
+  match 'my_projects' => 'projects#my_projects', :as => 'user_projects'
   
   match ':city/project/:id' => 'projects#show', :as => 'show_project'
   match ':city/project/:id/edit' => 'projects#edit', :as => 'edit_project'
   match ':city/project/:id/display' => 'projects#display', :as => 'edit_project'
 #  match '/user/:id' => 'devise/users#show', :as => 'show_user'
-
   match "/auth/:provider/callback" => "authentications#create"
   match "/auth/failure" => "authentications#failure"
   
