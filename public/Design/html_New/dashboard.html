@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dashboard</title>
+<link rel="icon" type="image/png" href="images/fav_icon.ico">
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<link href="css/slider.css" rel="stylesheet" type="text/css" />
+
+</head>
+		<script type="text/javascript" src="js/1.5.1.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.6.custom.min.js"></script>
+
+<script>
+$(document).ready(function() {
+
+	//When page loads...
+	$(".tab_content").hide(); //Hide all content
+	$(".leftTabContent").hide();
+	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+	$(".tab_content:first").show(); //Show first tab content
+	$(".leftTabContent:first").show();
+
+	//On Click Event
+	$("ul.tabs li").click(function() {
+
+		$("ul.tabs li").removeClass("active"); //Remove any "active" class
+		$(this).addClass("active"); //Add "active" class to selected tab
+		$(".tab_content").hide(); //Hide all tab content
+		$(".leftTabContent").hide();
+
+		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+		var leftActiveTab = $(this).find("a").attr("title");
+		$(activeTab).fadeIn(); //Fade in the active ID content
+		$(leftActiveTab).fadeIn();
+		return false;
+	});
+
+});
+
+
+
+</script>
+<body>
+  <div id="wrapper">
+    	<!--header start-->
+    	<div id="header">
+        	<div class="headerContent">
+            	<div class="logo logoSelect">
+                	<a href="#">kipWiki</a>
+                </div>
+            	<div class="navigation">
+                    <div class="searchWrapper">
+                    	<form action="#" method="post">
+                        	<input type="text" value="Search projects, Places and Topics" class="field" name="search" />
+                            <input type="submit" value="Search" class="searchBg" />
+                        
+                        </form>
+                    </div>
+                    
+                    <ul class="subMenu">
+                       
+                        <li>
+                            <a href="#">Help</a>
+                        </li>
+                        <li>
+                            <a href="#">Logout</a>
+                        </li>
+                    </ul>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+       <!-- Header End here-->
+       <div class="clr"></div>
+       <!-- content start-->
+        <div id="content">
+         
+        
+        	<!--div left start-->
+        	<div class="left">
+            	<div class="projectpageHeading">
+                	Created projects  <span>6 projects</span>
+                </div>
+                <div class="clr"></div>
+                
+               <ul class="elementWrapper">
+               	<li>
+                	<div class="leftContent">
+                    	<h1 class="smallStar selected"><a href="#">Renovation of xxxxxx Temple, Deccan</a></h1>
+                       <div class="leftSide">
+                       		<div class="commentBg">2</div>
+                       </div>
+                       <div class="paddingWrapper">
+                           <h4> "We are desperately looking for a project sponsor to get this project underway"</h4>
+                           <p> The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be... <a href="#">more</a>
+                           </p>
+                           
+                       </div>
+                       
+                    </div>
+                    <div class="righContent">
+                    	<div class="img"><img src="images/resultBg.jpg" width="100" height="75" /></div>
+                        
+                    </div>
+                <div class="clr"></div>
+                   <div class="progressbarWrapper">
+                            <div class="leftSide"> <div class="planningLoader"><div class="planningLoading"></div></div><span>Planning</span> </div>
+                            <div class="like"><img src="images/fbLikeBg.jpg" width="88" height="20" /></div>  
+                            <div class="viewWrapper rightSide">99999 View</div>
+                            
+                   </div>
+                   <div class="clr"></div>
+                </li>
+                
+                	<li>
+                	<div class="leftContent">
+                    	<h1 class="smallStar selected"><a href="#">Renovation of xxxxxx Temple, Deccan</a></h1>
+                       <div class="paddingWrapper">
+                           <h4> "We are desperately looking for a project sponsor to get this project underway"</h4>
+                           <p> The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be... <a href="#">more</a>
+                           </p>
+                             
+                           
+                        </div>
+                    </div>
+                    <div class="righContent">
+                    	<div class="img"><img src="images/resultBg.jpg" width="100" height="75" /></div>
+                        
+                    </div>
+                <div class="clr"></div>
+                   <div class="progressbarWrapper">
+                            <div class="leftSide"> <div class="planningLoader"><div class="planningLoading"></div></div><span>Planning</span> </div>
+                            <div class="like"><img src="images/fbLikeBg.jpg" width="88" height="20" /></div>  
+                            <div class="viewWrapper rightSide">99999 View</div>
+                            
+                   </div>
+                   <div class="clr"></div>
+                </li>
+                
+                <li>
+                	<div class="leftContent">
+                    	<h1 class="smallStar selected"><a href="#">Renovation of xxxxxx Temple, Deccan</a></h1>
+                       <div class="paddingWrapper">
+                           <h4> "We are desperately looking for a project sponsor to get this project underway"</h4>
+                           <p> The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be... <a href="#">more</a>
+                           </p>
+                       </div>
+                    </div>
+                    <div class="righContent">
+                    	<div class="img"><img src="images/resultBg.jpg" width="100" height="75" /></div>
+                    </div>
+               <div class="clr"></div>
+                   <div class="progressbarWrapper">
+                            <div class="leftSide"> <div class="planningLoader"><div class="planningLoading"></div></div><span>Planning</span> </div>
+                            <div class="like"><img src="images/fbLikeBg.jpg" width="88" height="20" /></div>  
+                            <div class="viewWrapper rightSide">99999 View</div>
+                            
+                   </div>
+                   <div class="clr"></div>
+                </li>
+               
+              </ul>
+                <div class="clr"></div>
+  				<div class="projectpageHeading marTop15">
+                	Followed projects  <span>6 projects</span>
+                </div>
+                <div class="clr"></div>
+                <ul class="elementWrapper">
+               	<li>
+                	<div class="leftContent">
+                    	<h1 class="smallStar selected"><a href="#">Renovation of xxxxxx Temple, Deccan</a></h1>
+                       <div class="paddingWrapper">
+                           <h4> "We are desperately looking for a project sponsor to get this project underway"</h4>
+                           <p> The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be... <a href="#">more</a>
+                           </p>
+                       </div>
+                    </div>
+                    <div class="righContent">
+                    	<div class="img"><img src="images/resultBg.jpg" width="100" height="75" /></div>
+                    </div>
+                <div class="clr"></div>
+                   <div class="progressbarWrapper">
+                            <div class="leftSide"> <div class="planningLoader"><div class="planningLoading"></div></div><span>Planning</span> </div>
+                            <div class="like"><img src="images/fbLikeBg.jpg" width="88" height="20" /></div>  
+                            <div class="viewWrapper rightSide">99999 View</div>
+                            
+                   </div>
+                   <div class="clr"></div>
+                </li>
+                
+                	<li>
+                	<div class="leftContent">
+                    	<h1 class="smallStar selected"><a href="#">Renovation of xxxxxx Temple, Deccan</a></h1>
+                       <div class="paddingWrapper">
+                           <h4> "We are desperately looking for a project sponsor to get this project underway"</h4>
+                           <p> The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be... <a href="#">more</a>
+                           </p>
+                       </div>
+                    </div>
+                    <div class="righContent">
+                    	<div class="img"><img src="images/resultBg.jpg" width="100" height="75" /></div>
+                    </div>
+                <div class="clr"></div>
+                   <div class="progressbarWrapper">
+                            <div class="leftSide"> <div class="planningLoader"><div class="planningLoading"></div></div><span>Planning</span> </div>
+                            <div class="like"><img src="images/fbLikeBg.jpg" width="88" height="20" /></div>  
+                            <div class="viewWrapper rightSide">99999 View</div>
+                            
+                   </div>
+                   <div class="clr"></div>
+                </li>
+                
+                <li>
+                	<div class="leftContent">
+                    	<h1 class="smallStar selected"><a href="#">Renovation of xxxxxx Temple, Deccan</a></h1>
+                       <div class="paddingWrapper">
+                           <h4> "We are desperately looking for a project sponsor to get this project underway"</h4>
+                           <p> The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be... <a href="#">more</a>
+                           </p>
+                       </div>
+                    </div>
+                    <div class="righContent">
+                    	<div class="img"><img src="images/resultBg.jpg" width="100" height="75" /></div>
+                    </div>
+                <div class="clr"></div>
+                   <div class="progressbarWrapper">
+                            <div class="leftSide"> <div class="planningLoader"><div class="planningLoading"></div></div><span>Planning</span> </div>
+                            <div class="like"><img src="images/fbLikeBg.jpg" width="88" height="20" /></div>  
+                            <div class="viewWrapper rightSide">99999 View</div>
+                            
+                   </div>
+                   <div class="clr"></div>
+                </li>
+               
+              </ul>
+                
+            </div>
+            <!--div left End-->
+           
+           <!--div right start-->
+            <div class="right">
+            	
+                <div  class="createprojectWrappwe">
+                	<div class="leftSide">
+                    	<img src="images/notepadIcon.png" width="59" height="60" />
+                    </div>
+                    <div class="createprojectRight">
+                	<h1>Create Project</h1>
+                    Have an idea for your
+                    community? Create a project 
+                    it's simple and quick
+                    <a href="#" class="sign_up">Create Project</a>
+                    </div>
+                </div>
+                <div class="borderBottom"></div>
+                <div class="tabWrapper marTop20">
+                        	<div id="tab1" class="tab_content">
+                            		
+                            		<h3>Activity Feed</h3>
+                                    <ul class="activity">
+                                    <li>Content Added - Tags, Similar Projects</li>
+                                    <li><span>Josh X</span>, 30 min ago</li>
+                                    <li>Content Added - Phase / Status</li>
+                                    <li><span>Josh X</span>, 2 hrs ago</li>
+                                    <li>Content Added - Project Type</li>
+                                    <li><span>Josh X</span>, 4 hrs ago</li>
+                                    <li>Content Added - Project Objectives</li>
+                                   	<li><span>Josh X</span>, 5 hrs ago</li>
+                                    <li>Fields Added - Project Objectives,Contents</li>
+                                    <li><span>Josh X</span>, 5 hrs ago</li>
+                                    </ul>
+                                
+                            </div>
+                            <div class="borderBottom"></div>
+                     	</div>
+               
+            </div>
+            <!--div right end-->
+            <div class="clr"></div>
+        </div>
+        <!-- content end-->
+         <div class="clr"></div>
+        <!-- footer Start-->
+        <div id="footer">
+        	<ul>	
+            	<li class="selected">
+                	<a href="#">Home</a>
+                </li>
+                <li>
+                	<a href="#">Projects</a>
+                </li>
+                <li>
+                	<a href="#">Notifications</a>
+                </li>
+                <li>
+                	<a href="#">Create Projects</a>
+                </li>
+                <li class="borderNone">
+                	<a href="#">About</a>
+                </li>
+            </ul>
+            <div class="copyRight">kipwiki &copy; 2011</div>
+        </div>
+        <!-- footer end-->
+         <div class="clr"></div>
+    </div>
+</body>
+</html>
