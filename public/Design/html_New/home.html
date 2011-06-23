@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Home</title>
+<link rel="icon" type="image/png" href="images/fav_icon.ico">
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<link href="css/slider.css" rel="stylesheet" type="text/css" />
+
+</head>
+		<script type="text/javascript" src="js/1.5.1.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.6.custom.min.js"></script>
+		<script type="text/javascript" src="js/slides.min.jquery.js"> </script>
+<script>
+$(document).ready(function() {
+
+	//When page loads...
+	$(".tab_content").hide(); //Hide all content
+	$(".leftTabContent").hide();
+	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+	$(".tab_content:first").show(); //Show first tab content
+	$(".leftTabContent:first").show();
+
+	//On Click Event
+	$("ul.tabs li").click(function() {
+
+		$("ul.tabs li").removeClass("active"); //Remove any "active" class
+		$(this).addClass("active"); //Add "active" class to selected tab
+		$(".tab_content").hide(); //Hide all tab content
+		$(".leftTabContent").hide();
+
+		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+		var leftActiveTab = $(this).find("a").attr("title");
+		$(activeTab).fadeIn(); //Fade in the active ID content
+		$(leftActiveTab).fadeIn();
+		return false;
+	});
+
+});
+
+<!--for slider-->
+$(function(){
+			$('#slides').slides({
+				preload: true,
+				play: 5000,
+				pause: 2500,
+				hoverPause: true,
+				animationStart: function(current){
+					$('.caption').animate({
+						bottom:0
+					},100);
+					if (window.console && console.log) {
+						// example return of current slide number
+						console.log('animationStart on slide: ', current);
+					};
+				},
+				animationComplete: function(current){
+					$('.caption').animate({
+						
+					},200);
+					if (window.console && console.log) {
+						// example return of current slide number
+						console.log('animationComplete on slide: ', current);
+					};
+				},
+				slidesLoaded: function() {
+					$('.caption').animate({
+						bottom:0
+					},200);
+				}
+			});
+		});
+<!--for slider End-->
+
+
+</script>
+<body>
+	<div id="wrapper">
+    	<!--header start-->
+    	<div id="headerBeforeLogin">
+        	<div class="headerContent">
+            	<div class="logo logoSelect">
+                	<a href="#">kipWiki</a>
+                </div>
+            	<div class="beforeLoginFormContent">
+                	<form action="#" method="post">
+                    <div class="leftSide">
+                    <input type="text" value="Email" name="email" class="field" />
+                    <div class="clr"></div>
+                   <a href="#"> Forgotten your password?</a>
+                   </div>
+                    <div class="leftSide marLeft10">
+                    <input type="password" value="password" name="password" class="field" />
+                    <div class="clr"></div>
+                    <a href="#">Don't have an account? Register now!</a>
+                    </div>
+                    <div class="rightSide"><input type="submit" value="Login" class="loginBg" /></div>
+                    </form>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+       <!-- Header End here-->
+       <div class="clr"></div>
+       
+       	<div id="projectWorkingWrapper">
+       		<ul>
+            	<li>
+                	<div class="holder">
+                    	<div class="heading create">
+                        	Create Project
+                        </div>
+                        Have an idea for your
+						community? Create a project <br />
+						it's simple and quick
+                    </div>
+                    <div class="arow"></div>
+                </li>
+                <li>
+                	<div class="holder shareIcon">
+                    	<div class="heading">
+                        	Share Project
+                        </div>
+                        Share your projects with your 
+						network, your community and <br />
+						the rest of the world
+                    </div>
+                    <div class="arow"></div>
+                </li>
+                <li class="last">
+                	<div class="holder developeIcon">
+                    	<div class="heading">
+                        	Develop Project
+                        </div>
+                        Turning ideas into action
+                    </div>
+                </li>
+            </ul>
+       	</div>
+       <!-- content start-->
+        <div id="content">
+        	<div class="homeWrapper">
+        		<div class="mapWrapper">
+                	<img src="images/homePageMap.jpg" width="969" height="270" alt="" />
+                    <div class="searchWrapper">
+                       <form action="#" method="post">
+ 							<input type="text" value="Search" class="field">
+                        	<input type="submit" class="searchBtn">
+						</form>
+                        <div class="clr"></div>
+                	</div>
+                    <div class="btn">
+                    	<a href="#" class="sign_up">Create Project</a>
+                    </div>
+            	</div>
+                <div class="title">
+                                   
+                </div>
+            </div>
+            <div class="fatureProjectsWrapper">
+            	<h2>Featured Projects</h2>
+                <div class="clr"></div>
+            	<ul>
+                	<li>
+                    	<div class="heading">
+                        	<a href="#">Renovation of xxxxxx Temple, Deccan</a>
+                        </div>
+                        <div class="imageWrapper">
+                        	<img height="75" width="100" alt="" src="images/resultBg.jpg">
+                        </div>
+                        <div class="addressWrapper">
+                        	<div class="heading">
+                            	15 Josh Street, Deccan,Pune
+                            </div>
+                           
+                            <div class="heading">
+                            	PM / Status: <span><small>*</small>Deccan Council / Unacknowledged</span>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="textWrapper">
+                        	
+                            <div class="clr"></div>
+                            The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned.... <a href="#">more</a>
+                        </div>
+                        <div class="voteViewMurge">
+                        <div class="leftSide"> <div class="planningLoader"><div class="planningLoading"></div></div><span>Planning</span> </div>  
+                            <div class="viewWrapper martowSite">
+                                99999 View
+                            </div>
+                            <div class="rightSide"><img src="images/fbLikeBg.jpg" width="88" height="20" /></div>
+                            <div class="clr"></div>
+                        </div>
+                    </li>
+                    <li class="marNone">
+                    	<div class="heading">
+                        	<a href="#">Renovation of xxxxxx Temple, Deccan</a>
+                        </div>
+                        <div class="imageWrapper">
+                        	<img height="75" width="100" alt="" src="images/resultBg.jpg">
+                        </div>
+                        <div class="addressWrapper">
+                        	<div class="heading">
+                            	15 Josh Street, Deccan,Pune
+                            </div>
+                           
+                            <div class="heading">
+                            	PM / Status: <span><small>*</small>Deccan Council / Unacknowledged </span>
+                            </div>
+                        </div>
+                        <div class="textWrapper">
+                        	
+                            <div class="clr"></div>
+                            The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned.... <a href="#">more</a>
+                        </div>
+                        <div class="voteViewMurge">
+                        <div class="leftSide"> <div class="planningLoader"><div class="planningLoading"></div></div><span>Planning</span> </div>  
+                            <div class="viewWrapper martowSite">
+                                99999 View
+                            </div>
+                            <div class="rightSide"><img src="images/fbLikeBg.jpg" width="88" height="20" /></div>
+                            <div class="clr"></div>
+                        </div>
+                    </li>
+                    
+                </ul>
+                <div class="clr"></div>
+                <h2>Local Projects</h2>
+                <ul>
+                	<li>
+                    	<div class="heading">
+                        	<a href="#">Renovation of xxxxxx Temple, Deccan</a>
+                        </div>
+                        <div class="imageWrapper">
+                        	<img height="75" width="100" alt="" src="images/resultBg.jpg">
+                        </div>
+                         <div class="addressWrapper">
+                        	<div class="heading">
+                            	15 Josh Street, Deccan,Pune
+                            </div>
+                           
+                            <div class="heading">
+                            	PM / Status: <span><small>*</small>Deccan Council    <div class="marLeft10 rightSide">Unacknowledged</div></span>
+                            </div>
+                        </div>
+                        <div class="textWrapper">
+                        	
+                            <div class="clr"></div>
+                            The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned.... <a href="#">more</a>
+                        </div>
+                        <div class="voteViewMurge">
+                        <div class="leftSide"> <div class="planningLoader"><div class="planningLoading"></div></div><span>Planning</span> </div>  
+                            <div class="viewWrapper martowSite">
+                                99999 View
+                            </div>
+                            <div class="rightSide"><img src="images/fbLikeBg.jpg" width="88" height="20" /></div>
+                            <div class="clr"></div>
+                        </div>
+                    </li>
+                    
+              <li class="marNone">
+                    	<div class="heading">
+                        	<a href="#">Renovation of xxxxxx Temple, Deccan</a>
+                        </div>
+                        <div class="imageWrapper">
+                        	<img height="75" width="100" alt="" src="images/resultBg.jpg">
+                        </div>
+                <div class="addressWrapper">
+                        	<div class="heading">
+                            	15 Josh Street, Deccan,Pune
+                            </div>
+                           
+                            <div class="heading">
+                            	PM / Status: <span><small>*</small>Deccan Council / Unacknowledged</span>
+                            </div>
+          </div>
+                        <div class="textWrapper">
+                        	
+                          <div class="clr"></div>
+                            The xxx temple in Deccan is in serious need of repair. The building has been left unmaintained for over 15 years and if serious action is not taken soon the building will have to be condemned.... <a href="#">more</a>
+                        </div>
+                        
+                        <div class="voteViewMurge">
+                        <div class="leftSide"> <div class="planningLoader"><div class="planningLoading"></div></div><span>Planning</span> </div>  
+                            <div class="viewWrapper martowSite">
+                                99999 View
+                            </div>
+                            <div class="rightSide"><img src="images/fbLikeBg.jpg" width="88" height="20" /></div>
+                            <div class="clr"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <!-- content end-->
+         <div class="clr"></div>
+        <!-- footer Start-->
+        <div id="footer">
+        	<ul>	
+            	<li class="selected">
+                	<a href="#">Home</a>
+                </li>
+                <li>
+                	<a href="#">Projects</a>
+                </li>
+                <li>
+                	<a href="#">Notifications</a>
+                </li>
+                <li>
+                	<a href="#">Create Projects</a>
+                </li>
+                <li class="borderNone">
+                	<a href="#">About</a>
+                </li>
+            </ul>
+            <div class="copyRight">kipwiki &copy; 2011</div>
+        </div>
+        <!-- footer end-->
+         <div class="clr"></div>
+    </div>
+</body>
+</html>

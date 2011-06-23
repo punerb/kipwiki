@@ -6,6 +6,13 @@ class ProjectsController < ApplicationController
   layout "project_layout"
   def photos
   end
+  
+  def show_full_summary
+    @project = Project.find(params[:id])
+    respond_to do |format|
+      format.js 
+    end
+  end
 
   def upload_attachment
     @print = @project.prints.new
