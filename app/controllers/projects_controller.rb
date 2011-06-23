@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display, :show, :edit]
-  before_filter :authenticate_user!, :only => [:create, :edit, :new, :update, :destroy] 
+  before_filter :authenticate_user!, :only => [:create, :edit, :new, :update, :destroy, :add_suggestion] 
   before_filter :owner_required!, :only => [:edit, :destroy] 
   
   layout "project_layout"
@@ -113,13 +113,10 @@ class ProjectsController < ApplicationController
   end
 
   def add_suggestion
-    @suggestion = @project.suggestions.new(params[:suggestion])
-    logger.info("=========")
-    logger.info(current_user.inspect)
-    logger.info(session.inspect)
-    @suggestion.user = current_user
+    @suggestion = Suggestion.new(params[:suggestion])
+    @suggestion.user_id = current_user.id
     respond_to do |format|
-      if @suggestion.save
+      if @project.suggestions << @suggestion 
         format.js { render :json => {:success => true} }
       else
         format.js { render :json => { :success => false }}
@@ -158,7 +155,6 @@ class ProjectsController < ApplicationController
   end
 
   def my_projects
-  
     @user_projects = current_user.projects
     render :my_projects, :layout => "home_layout"
   end

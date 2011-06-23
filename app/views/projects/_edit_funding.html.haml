@@ -10,6 +10,17 @@
 = form_for project_funding, :url => project_project_fundings_path(@project,project_funding) do |f|
   .leftSide
     = f.text_field(:name ,:class => "stakeholder", :placeholder => "Project Funding")
+    .clr
+    = link_to  "Suggestions", '#show_suggestions', :class => "show_suggestions"
+    -@suggestions = @project.suggestions.where(:field_name => 'fundings')
+    %div{:id => 'suggestions', :style => 'display:none;'}
+      -@suggestions.each do |suggestion|
+        %b
+          = suggestion.user.first_name
+        .clr
+        = f.text_area(:suggestions, :style => "width:320px;height:35px", :id => "project[suggestions]", :value => suggestion.text)
+        .clr
+    .clr
     = f.submit(:class => "submitbg", :value => "Add Project Funding")
   / div left End
 .clr
@@ -19,3 +30,8 @@
 #footer
 / footer end
 .clr
+:javascript
+  $(".show_suggestions").click(function(){
+  $('#suggestions').toggle()
+  });
+

@@ -24,20 +24,20 @@ jQuery(function(){
     $(".submitSuggestion").live("click",
             function(event){
                 event.preventDefault();
-                if($(".fieldSummary").val()){
+                if($("#suggestion_text").val()){
                     form = $("#addSuggestionForm");
                     $.post(form.attr("action"), form.serialize(), function(data){
                         if(data.success){
                             $(".lightboxContent").hide();
                             $(".lightboxSuccess").show();
-                            setTimeout("close_lightbox()", 3000)
+                            setTimeout("close_lightbox()", 2000)
                         }else{
                             $(".lightboxContent").hide();
                             $(".lightboxError").show();
                         }
                     }, "json")
                 }else{
-                    $(".fieldSummary").after("<h2>Suggestion Can't be blank!</h2>")
+                    $("#suggestion_text").after("<h2>Suggestion Can't be blank!</h2>")
                 }
             })
 
