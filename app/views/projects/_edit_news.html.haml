@@ -10,6 +10,16 @@
   .leftSide
     = f.text_area(:content ,:class => "stakeholder", :placeholder => "News", :id => "project[content]")
     %br/
+    = link_to  "Suggestions", '#show_suggestions', :class => "show_suggestions"
+    -@suggestions = @project.suggestions.where(:field_name => 'news')
+    %div{:id => 'suggestions', :style => 'display:none;'}
+      -@suggestions.each do |suggestion|
+        %b
+          = suggestion.user.first_name
+        .clr
+        = f.text_area(:suggestions, :style => "width:320px;height:35px", :id => "project[suggestions]", :value => suggestion.text)
+        .clr
+    .clr
     = f.submit(:class => "submitbg", :value => "Add News")
   / div left End
 .clr
@@ -21,4 +31,7 @@
 .clr
 :javascript
   var editor1 = new punymce.Editor({id : 'project[content]'});
+  $(".show_suggestions").click(function(){
+  $('#suggestions').toggle()
+  });
 

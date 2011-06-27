@@ -2,6 +2,8 @@
 .mainHeading
   = @project.title
 .clr
+= @project.tagline
+.clr
 .murgeWrapper
   .wrapperLeft
     .borderBottom
@@ -65,6 +67,18 @@
     .socialShare
       = render :partial => "projects/social_share"
     .textWrapper
+      Project manager:
+      = @project.manager
+      .clr
+      Project sponsor:  
+      = @project.sponsor
+      .clr
+      Project cost:  
+      = @project.cost
+      .clr
+      Project period:  
+      = @project.period
+      .clr
       .heading
         %h1 Summary
         = edit_link(@project, "summary")
@@ -102,9 +116,9 @@
     .lightBox
       %h1 Suggest Changes
       .lightboxContent
-        %form{ :action => add_suggestion_project_path(@project), :id => "addSuggestionForm" }
-          = hidden_field_tag 'suggestion[field_name]', "", :class => "fieldInput"
-          %textarea.textarea{:name => 'suggestion[text]', :class => "fieldSummary"}
+        = form_for(Suggestion.new, :url => add_suggestion_project_path(@project), :html => {:id => "addSuggestionForm"}) do |f| 
+          = f.hidden_field :field_name, :value =>  "", :class => 'fieldInput'
+          = f.text_area :text, :class => 'textarea'
           .buttonWrapper
             %input.submitbg{:type => "submit", :value => "Add Suggestion", :class => "submitSuggestion"}
               = link_to "Close", "#", :class => "closeColorbox"

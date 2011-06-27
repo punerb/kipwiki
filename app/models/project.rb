@@ -19,6 +19,11 @@ class Project
   field :caption, :type => String
   field :project_scope, :type => String, :default => 'Local'
   field :featured, :type => Boolean, :default => false
+  field :tagline, :type => String
+  field :manager, :type => String
+  field :sponsor, :type => String
+  field :cost, :type => String
+  field :period, :type => String
 
   embeds_many :stakeholders
   embeds_many :links

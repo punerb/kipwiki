@@ -40,6 +40,36 @@
       %h2 Project Photos
       %p Photos
       = render 'plupload'
+      %b
+        Project Tagline <br>
+      = f.text_area(:tagline, :style => "width:320px;height:20px", :id => "project[tagline]", :value => "#{@project.tagline}" ) 
+      .clr
+      %b
+        Project Manager <br>
+      = f.text_area(:manager, :style => "width:320px;height:20px", :id => "project[manager]", :value => "#{@project.manager}")
+      .clr
+      %b
+        Project Sponsor <br>
+      = f.text_area(:sponsor, :style => "width:320px;height:20px", :id => "project[sponsor]", :value => "#{@project.sponsor}")
+      .clr
+      %b
+        Project Cost <br>
+      = f.text_area(:cost, :style => "width:320px;height:20px", :id => "project[cost]", :value => "#{@project.cost}")
+      .clr
+      %b
+        Project Period <br>
+      = f.text_area(:period, :style => "width:320px;height:20px", :id => "project[period]", :value => "#{@project.period}") 
+      .clr
+      = link_to  "Suggestions", '#show_suggestions', :class => "show_suggestions"
+      -@suggestions = @project.suggestions.where(:field_name => 'summary')    
+      %div{:id => 'suggestions', :style => 'display:none;'}
+        -@suggestions.each do |suggestion|
+          %b
+            = suggestion.user.first_name
+          .clr
+          = f.text_area(:suggestions, :style => "width:320px;height:35px", :id => "project[suggestions]", :value => suggestion.text)
+          .clr
+      .clr
     = f.submit :class => "submitbg"
 
   .clr
@@ -51,3 +81,6 @@
 .clr
 :javascript
   var editor1 = new punymce.Editor({id : 'project[description]'});
+  $(".show_suggestions").click(function(){
+  $('#suggestions').toggle()
+  });

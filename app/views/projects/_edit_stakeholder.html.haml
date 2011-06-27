@@ -15,6 +15,17 @@
     %br/
     = f.text_field(:url ,:class => "stakeholder", :placeholder => "URL")
     %br/
+    = link_to  "Suggestions", '#show_suggestions', :class => "show_suggestions"
+    -@suggestions = @project.suggestions.where(:field_name => 'stakeholders')
+    %div{:id => 'suggestions', :style => 'display:none;'}
+      -@suggestions.each do |suggestion|
+        %b
+          = suggestion.user.first_name
+        .clr
+        = f.text_area(:suggestions, :style => "width:320px;height:35px", :id => "project[suggestions]", :value => suggestion.text)
+        .clr
+      .clr
+    .clr    
     = f.submit(:class => "submitbg", :value => "Add Stakeholder")
   / div left End
 .clr
@@ -24,3 +35,8 @@
 #footer
 / footer end
 .clr
+:javascript
+  $(".show_suggestions").click(function(){
+  $('#suggestions').toggle()
+  });
+

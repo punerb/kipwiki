@@ -41,5 +41,20 @@
     .rightSide
       .rightSide
         = collection_select "project_objective", "priority", ["High", "Medium", "Low"], :to_s, :to_s
+    = link_to  "Suggestions", '#show_suggestions', :class => "show_suggestions"
+    - @suggestions = @project.suggestions.where(:field_name => 'objectives')
+    %div{:id => 'suggestions', :style => 'display:none;'}
+      -@suggestions.each do |suggestion|
+        %b
+          = suggestion.user.first_name
+        .clr
+        = f.text_area(:suggestions, :style => "width:320px;height:35px", :id => "project[suggestions]", :value => suggestion.text) 
+        .clr
+      .clr
+    .clr    
     = submit_tag "Add Objective", :class => "submitbg"
 
+:javascript
+  $(".show_suggestions").click(function(){
+  $('#suggestions').toggle()
+  });
