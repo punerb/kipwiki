@@ -69,9 +69,12 @@
         %h1 Summary
         = edit_link(@project, "summary")
         .clr
-      %div{:id => "summary_#{@project.id}"} 
+      %div{:id => "project_summary"} 
         = raw truncate(sanitize(@project.description), :length => 100)
-        = link_to "more" , show_full_summary_project_path(@project),:remote => true
+        = link_to "more", "#more", :class => 'more_summary'
+      %div{:id => "project_summary_full", :style => 'display:none;'}
+        = raw sanitize(@project.description)
+        = link_to "less", "#less", :class => 'more_summary'
     = render "project_objectives"
     = render "project_news"
   .clr

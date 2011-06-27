@@ -44,13 +44,26 @@ jQuery(function(){
     $(".addSubObjectiveLink").click(function(event){
         event.preventDefault();
         $(this).parents("li").find(".subobjectiveContent").toggle();
-    })
+    });
 
     $(".deleteObjective").click(function(event){
         event.preventDefault();
         $.post($(this).attr("href"), {"_method" : "delete"});
         location.reload();
-    })
+    });
+
+    $(".more_summary").click(function(event){
+        event.preventDefault();
+        ele = $(this);
+        if(ele.attr('href') == '#more'){
+	  $('#project_summary_full').show();
+          $('#project_summary').hide();
+	}else{
+	  $('#project_summary_full').hide();
+          $('#project_summary').show();
+	}       
+    });
+
 
 });
 
