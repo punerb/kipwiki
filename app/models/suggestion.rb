@@ -7,5 +7,5 @@ class Suggestion
   field :user_id, :type => Integer
   field :field_name, :type => String
   field :text, :type => String
-
+  field :is_viewed, :type => Boolean, :default => false
 end

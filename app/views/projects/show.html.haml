@@ -1,8 +1,8 @@
 / div left start
 .mainHeading
   = @project.title
-.clr
-= @project.tagline
+  %p
+    = @project.tagline
 .clr
 .murgeWrapper
   .wrapperLeft
@@ -21,17 +21,38 @@
           %a.head{:href => "#"} Project Outline
           %ul.leftSub
             %li
-              %a{:href => "#summary"} Summary
+              - if(@project.user_id == current_user.id)             #the owner will only get to view the number of suggestions 
+                - count_unseen_suggestions = @project.suggestions.where(:field_name => "summary", :is_viewed => false).count
+                %a{:href => "#summary"} Summary#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}       
+              - else
+                %a{:href => "#summary"} Summary
+              -#%img{:alt => "", :height => "16", :src => "/images/commentBg.png", :width => "16"}
             %li
-              %a{:href => "#objectives"} Objectives
+              - if(@project.user_id == current_user.id)
+                - count_unseen_suggestions = @project.suggestions.where(:field_name => "objectives", :is_viewed => false).count
+                %a{:href => "#objectives"} Objectives#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}
+              - else
+                %a{:href => "#objectives"} Objectives
             %li
-              %a{:href => "#stakeholders"} Key stakeholders
+              - if(@project.user_id == current_user.id)
+                - count_unseen_suggestions = @project.suggestions.where(:field_name => "stakeholders", :is_viewed => false).count
+                %a{:href => "#stakeholders"} Key stakeholders#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}
+              - else
+                %a{:href => "#stakeholders"} Key stakeholders
         %li
-          %a{:href => "#fundings"} Funding
+          - if(@project.user_id == current_user.id)
+            - count_unseen_suggestions = @project.suggestions.where(:field_name => "fundings", :is_viewed => false).count
+            %a{:href => "#fundings"} Funding#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}
+          - else
+            %a{:href => "#fundings"} Funding
         %li
           %a{:href => "#similar_projects"} Similar Projects
         %li
-          %a{:href => "#links"} Links
+          - if(@project.user_id == current_user.id)
+            - count_unseen_suggestions = @project.suggestions.where(:field_name => "links", :is_viewed => false).count
+            %a{:href => "#links"} Links#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}
+          - else
+            %a{:href => "#links"} Links
         %li
           %a{:href => "#comments"} Comments
     = render :partial => "project_fundings"

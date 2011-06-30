@@ -22,8 +22,8 @@ Kipwiki::Application.routes.draw do
       post :add_suggestion
       get  :show_full_summary
       get  :followed_projects
+      get  :project_suggestions
     end
-    
     resources :stakeholders
     resources :project_fundings
     resources :links

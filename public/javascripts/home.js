@@ -83,6 +83,9 @@ $(document).ready(function(){
  
 
   $('.filter').click(function(){
+ 
+    
+       
     var cats = $('.category').filter(":checked").map(function(){ return $(this).val(); });
     var scopes = $('.scope').filter(":checked").map(function(){ return $(this).val(); });
     var statuses = $('.status').filter(":checked").map(function(){ return $(this).val(); });
@@ -105,7 +108,7 @@ $(document).ready(function(){
       status_prjs = category_prjs
     
     console.log(status_prjs);
-		projectJS.render_projects(status_prjs);
+    projectJS.render_projects(status_prjs);
     return status_prjs;
   });
 });

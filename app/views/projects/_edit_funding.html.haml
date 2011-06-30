@@ -11,7 +11,7 @@
   .leftSide
     = f.text_field(:name ,:class => "stakeholder", :placeholder => "Project Funding")
     .clr
-    = link_to  "Suggestions", '#show_suggestions', :class => "show_suggestions"
+    = link_to  "Suggestions", project_suggestions_project_path(:type => "fundings"), :remote => true, :class => "show_suggestions"
     -@suggestions = @project.suggestions.where(:field_name => 'fundings')
     %div{:id => 'suggestions', :style => 'display:none;'}
       -@suggestions.each do |suggestion|
