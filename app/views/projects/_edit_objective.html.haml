@@ -5,7 +5,7 @@
         = obj.name
         = "("+ obj.priority+ ")"
         = link_to "Destroy", project_project_objective_path(@project, obj), :class => "deleteObjective", :confirm => "Are You Sure?", :method => :delete
-        |
+        
         = link_to "Add SubObjective", "#", :class => "addSubObjectiveLink"
         %br
       %ul.objectivesSub
@@ -41,7 +41,7 @@
     .rightSide
       .rightSide
         = collection_select "project_objective", "priority", ["High", "Medium", "Low"], :to_s, :to_s
-    = link_to  "Suggestions", '#show_suggestions', :class => "show_suggestions"
+    = link_to  "Suggestions",project_suggestions_project_path(:type => "objectives"), :remote => true, :class => "show_suggestions" 
     - @suggestions = @project.suggestions.where(:field_name => 'objectives')
     %div{:id => 'suggestions', :style => 'display:none;'}
       -@suggestions.each do |suggestion|

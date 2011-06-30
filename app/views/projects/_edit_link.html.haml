@@ -13,7 +13,7 @@
     %br/
     = f.text_field(:url ,:class => "stakeholder", :placeholder => "URL")
     %br/
-    = link_to  "Suggestions", '#show_suggestions', :class => "show_suggestions"
+    = link_to  "Suggestions",project_suggestions_project_path(:type => "links"), :remote => true, :class => "show_suggestions"
     -@suggestions = @project.suggestions.where(:field_name => 'links')
     %div{:id => 'suggestions', :style => 'display:none;'}
       -@suggestions.each do |suggestion|

@@ -60,10 +60,10 @@
         Project Period <br>
       = f.text_area(:period, :style => "width:320px;height:20px", :id => "project[period]", :value => "#{@project.period}") 
       .clr
-      = link_to  "Suggestions", '#show_suggestions', :class => "show_suggestions"
-      -@suggestions = @project.suggestions.where(:field_name => 'summary')    
+      = link_to  "Suggestions", project_suggestions_project_path(:type => "summary"), :remote => true, :class => "show_suggestions"
+      - @suggestions = @project.suggestions.where(:field_name => 'summary')    
       %div{:id => 'suggestions', :style => 'display:none;'}
-        -@suggestions.each do |suggestion|
+        - @suggestions.each do |suggestion|
           %b
             = suggestion.user.first_name
           .clr

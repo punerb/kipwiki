@@ -20,8 +20,8 @@ Kipwiki::Application.routes.draw do
     member do
       post :add_suggestion
       get  :show_full_summary
+      get  :project_suggestions
     end
-    
     resources :stakeholders
     resources :project_fundings
     resources :links

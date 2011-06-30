@@ -166,6 +166,18 @@ class ProjectsController < ApplicationController
     render :my_projects, :layout => "home_layout"
   end
 
+  def project_suggestions
+    @project = Project.find(params[:id])
+    type = params[:type]
+    @unseen_suggestions = @project.suggestions.where(:is_viewed => false, :field_name => type)
+    @unseen_suggestions.each do |f|
+      f.is_viewed = true
+      f.save
+    end
+    render :text => "Completed"
+  end
+
+  
   private
 
   def load_project
@@ -186,5 +198,4 @@ class ProjectsController < ApplicationController
       redirect_to root_path
     end
   end
- 
 end

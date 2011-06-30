@@ -10,7 +10,7 @@
   .leftSide
     = f.text_area(:content ,:class => "stakeholder", :placeholder => "News", :id => "project[content]")
     %br/
-    = link_to  "Suggestions", '#show_suggestions', :class => "show_suggestions"
+    = link_to  "Suggestions", project_suggestions_project_path(:type => "news"), :remote => true, :class => "show_suggestions"
     -@suggestions = @project.suggestions.where(:field_name => 'news')
     %div{:id => 'suggestions', :style => 'display:none;'}
       -@suggestions.each do |suggestion|

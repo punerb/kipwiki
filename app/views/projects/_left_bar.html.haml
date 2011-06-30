@@ -6,19 +6,25 @@
   %li.main
     %a.head{:href => "#"} Project Outline
     %ul.leftSub
+      %li 
+        - count_unseen_suggestions = @project.suggestions.where(:field_name => "summary", :is_viewed => false).count
+        = link_to "Summary#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}", display_project_by_action_type_path(@project,"summary"), :class => select_if(@selection, "summary")
       %li
-        = link_to "Summary", display_project_by_action_type_path(@project,"summary"), :class => select_if(@selection, "summary")
+        - count_unseen_suggestions = @project.suggestions.where(:field_name => "objectives", :is_viewed => false).count
+        = link_to "Objectives#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}", display_project_by_action_type_path(@project,"objective"), :class => select_if(@selection, "objective")
       %li
-        = link_to "Objectives", display_project_by_action_type_path(@project,"objective"), :class => select_if(@selection, "objective")
-      %li
-        = link_to "Stakeholders", display_project_by_action_type_path(@project, "stakeholder"), :class => select_if(@selection, "stakeholder")
+        - count_unseen_suggestions = @project.suggestions.where(:field_name => "stakeholders", :is_viewed => false).count
+        = link_to "Stakeholders#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}", display_project_by_action_type_path(@project, "stakeholder"), :class => select_if(@selection, "stakeholder")
   %li
-    = link_to "Funding", display_project_by_action_type_path(@project, "funding"), :class => select_if(@selection, "funding")
+    - count_unseen_suggestions = @project.suggestions.where(:field_name => "fundings", :is_viewed => false).count
+    = link_to "Funding#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}", display_project_by_action_type_path(@project, "funding"), :class => select_if(@selection, "funding")
   %li
-    = link_to "Links", display_project_by_action_type_path(@project, "link"), :class => select_if(@selection, "link")
+    - count_unseen_suggestions = @project.suggestions.where(:field_name => "links", :is_viewed => false).count
+    = link_to "Links#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}", display_project_by_action_type_path(@project, "link"), :class => select_if(@selection, "link")
   %li
-    = link_to "News", display_project_by_action_type_path(@project, "news"), :class => select_if(@selection, "news")
-.addContent
+    - count_unseen_suggestions = @project.suggestions.where(:field_name => "news", :is_viewed => false).count
+    = link_to "News#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}", display_project_by_action_type_path(@project, "news"), :class => select_if(@selection, "news")
+-#.addContent
   %a{:href => "#"} Add new content page
 .borderBottom
 / div right end
