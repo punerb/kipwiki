@@ -35,7 +35,8 @@ class Project
   has_many :prints
   has_many :documents
   has_many :suggestions
-  
+  has_many :followed_projects
+
   belongs_to :user
 
   validates :description, :address, :presence => true

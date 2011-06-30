@@ -1,32 +1,41 @@
-/ header start
-#header
-  .headerContent
-    .logo
-      = link_to "KipWiki", root_path
-    .navigation
-      %ul.main
-        %li{:class => select_main_menu_if("projects#search", [controller_name, action_name].join("#"))}
-          = link_to "Search", project_search_path
-        %li{:class => select_main_menu_if("projects#new", [controller_name, action_name].join("#"))}
-          = link_to "Create Project" , new_project_path
-        - if user_signed_in?
-          %li{:class => select_main_menu_if("projects#my_projects", [controller_name, action_name].join("#"))}
-            = link_to "My Projects" , user_projects_path 
-      = link_to "Signup", authentications_path , :class => "sign_up" unless user_signed_in?
-      %ul.subMenu
-        %li
-          %a{:href => "#"} About
-        %li 
-          - if user_signed_in?
-            = link_to "Profile", edit_user_registration_path
-          - else
-            %a{:href => "#"} Profile
-        %li
-          %a{:href => "#"} Help & Feedback
-        %li
-          - if user_signed_in?
-            = link_to "Logout", destroy_user_session_path
-          - else
-            = link_to "Login", authentications_path
-      .clr
-  .clr
+
+- if !user_signed_in?
+  #headerBeforeLogin
+    .headerContent
+      .logo.logoSelect
+        %a{:href => "#"} kipWiki
+      .beforeLoginFormContent
+        = form_for(User.new, :url => new_user_session_path) do |f|
+          .leftSide
+            = f.email_field :email , :class => "field signpFiled", :placeholder => "Email"
+            .clr
+            %a{:href => "#"} Forgotten your password?
+          .leftSide.marLeft10
+            = f.password_field :password , :class => "field signpFiled", :placeholder => "Password"
+            .clr
+            %a{:href => "#"} Don't have an account? Register now!
+          .rightSide
+            %input.loginBg{:type => "submit", :value => "Login"}/
+    .clr
+
+- if user_signed_in?
+  #header
+    .headerContent
+      .logo.logoSelect
+        %a{:href => "#"} kipWiki
+      .leftSide.marLeft10
+        = yield(:search)
+      .rightSide.marTop25	 
+        %ul.subMenu
+          %li
+            = link_to "Dashboard", dashboard_path 
+          | 
+          %li
+            = link_to  "Help", "#"
+          | 
+          %li
+            = link_to "Logout", destroy_user_session_path 
+    .clr
+
+
+

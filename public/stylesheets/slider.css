@@ -26,6 +26,7 @@
 	width:260px;
 	height:270px;
 	background:url(images/redioSliderBg.jpg) left bottom repeat-x;
+	float:left;
 }
 #slider_project {
 	width:260px;

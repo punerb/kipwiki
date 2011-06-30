@@ -3,6 +3,7 @@ Kipwiki::Application.routes.draw do
 
   resources :authentications
   match '/projects/search' => 'projects#search', :as => :project_search
+  match '/projects/search/matching_projects' => 'projects#search_projects', :as => :matching_projects
 
   match '/projects/:id/photos', :to => 'projects#photos', :as => :photos
   match '/projects/:id/upload_attachment', :to => 'projects#upload_attachment', :as => :upload_attachment
@@ -20,6 +21,7 @@ Kipwiki::Application.routes.draw do
     member do
       post :add_suggestion
       get  :show_full_summary
+      get  :followed_projects
     end
     
     resources :stakeholders
@@ -36,7 +38,7 @@ Kipwiki::Application.routes.draw do
  
   devise_for :users
   
-  match 'my_projects' => 'projects#my_projects', :as => 'user_projects'
+  match 'dashboard' => 'projects#dashboard', :as => 'dashboard'
   
   match ':city/project/:id' => 'projects#show', :as => 'show_project'
   match ':city/project/:id/edit' => 'projects#edit', :as => 'edit_project'
@@ -44,7 +46,7 @@ Kipwiki::Application.routes.draw do
 #  match '/user/:id' => 'devise/users#show', :as => 'show_user'
   match "/auth/:provider/callback" => "authentications#create"
   match "/auth/failure" => "authentications#failure"
-  
+   
   match 'project/:id/edit/:action_type' => 'projects#edit', :as => 'edit_project_by_action_type'
   match 'project/:id/display/:action_type' => 'projects#display', :as => 'display_project_by_action_type'
 

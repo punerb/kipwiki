@@ -1,16 +1,29 @@
--@projects.each do |project|
-  %div{:id => "project_#{project.id}"}
-    = render 'search_project', :project => project
+- content_for :search do
+  = render "layouts/search_projects"
+
+=#.left.rightSide.leftBprder
+.pageTitle
+  .leftSide
+    32 results found witin 20km
+    %span 15 Josh Street, Deccan, Pune
+  .rightSide
+    = link_to "Create project", new_project_path, :class => "sign_up"
+.clr
+
+%ul.elementWrapper
+  -@projects.each do |project|
+    %div{:id => "project_#{project.id}"}
+      %li
+        = render 'search_project', :project => project
 
 - content_for :sidebar do
   = render 'shared/search'
   #map.project_map
   = render 'shared/filter_sidebar'
 
-#map_js
-  :javascript
-     jQuery(document).ready(function() {
-        var coordinates = #{@coordinates.to_json}; 
+:javascript
+  jQuery(document).ready(function() {
+        var coordinates = #{@coordinates.to_json};
         var center_cord = #{@loc_center.to_json};
         var myOptions = {
            zoom: 12,

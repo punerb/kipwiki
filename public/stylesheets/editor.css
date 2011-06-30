@@ -43,9 +43,9 @@ div.punymce_style {position:absolute; display:none; background:#FFF; border:1px 
 .punymce a.ul {background:url('../images/icons.gif') -64px 0}
 .punymce a.indent {background:url('../images/icons.gif') -96px 0}
 .punymce a.outdent {background:url('../images/icons.gif') -112px 0}
-.punymce a.lefto {background:url('../images/icons.gif') -128px 0}
+.punymce a.left {background:url('../images/icons.gif') -128px 0}
 .punymce a.center {background:url('../images/icons.gif') -144px 0}
-.punymce a.righto {background:url('../images/icons.gif') -160px 0}
+.punymce a.right {background:url('../images/icons.gif') -160px 0}
 .punymce a.style {background:url('../images/icons.gif') -176px 0}
 .punymce a.removeformat {background:url('../images/icons.gif') -192px 0}
 .punymce a.increasefontsize {background:url('../images/icons.gif') -224px 0}

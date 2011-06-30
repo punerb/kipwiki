@@ -1,9 +1,25 @@
 class ProjectsController < ApplicationController
-  before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display, :show, :edit]
+  before_filter :load_project, :only => [:upload_attachment, :photos, :add_suggestion, :display, :show, :edit, :followed_projects]
   before_filter :authenticate_user!, :only => [:create, :edit, :new, :update, :destroy, :add_suggestion] 
   before_filter :owner_required!, :only => [:edit, :destroy] 
   
   layout "project_layout"
+
+  def search_projects
+   keyword = params[:search].downcase.strip
+   @projects = []
+   Project.all.each do |f|
+     title = f.title.downcase
+     city = f.city.downcase
+     state = f.state.downcase
+     if (title == title.scan(/#{keyword}.*/).to_s || city == city.scan(/#{keyword}.*/).to_s || state == state.scan(/#{keyword}.*/).to_s)
+       @projects << f
+     end
+   end
+    
+   render  "search"
+  end  
+
   def photos
   end
   
@@ -51,7 +67,7 @@ class ProjectsController < ApplicationController
     @project.view_count.nil? ? @project.view_count = 0 : @project.view_count += 1
     @project.inc(:view_count, 1)
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => "show_project_layout"}# show.html.erb
       format.xml  { render :xml => @project }
     end
   end
@@ -161,9 +177,29 @@ class ProjectsController < ApplicationController
     render :display, :layout => "admin"
   end
 
-  def my_projects
+  def dashboard 
     @user_projects = current_user.projects
-    render :my_projects, :layout => "home_layout"
+    @followed_projects = current_user.followed_projects 
+    render "_dashboard", :layout => "show_project_layout"
+  end
+  
+
+  def followed_projects
+    @user_projects = current_user.projects
+    @followed_projects = current_user.followed_projects 
+     is_followed = FollowedProject.where(:user_id => current_user.id , :project_id => @project.id).first
+     if is_followed.nil?
+       FollowedProject.create(:user_id => current_user.id, :project_id => @project.id)
+       @selected = 'smallStar star_selected'
+     else
+	is_followed.destroy
+	@selected = 'smallStar deselected'
+     end
+
+    respond_to do |format|
+      format.js { render "followed_projects"}
+      format.html {render  "_dashboard", :layout => "show_project_layout"}
+    end
   end
 
   private
@@ -186,5 +222,8 @@ class ProjectsController < ApplicationController
       redirect_to root_path
     end
   end
- 
+
 end
+
+
+

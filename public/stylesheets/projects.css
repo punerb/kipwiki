@@ -1254,3 +1254,11 @@ margin:20px auto 20px;
 	height:288px;
 	width:977px;
 }
+
+/*Custom */
+#content ul.elementWrapper li .star_selected{
+        background-position:0px -22px;
+    padding-bottom:5px;
+
+}
+

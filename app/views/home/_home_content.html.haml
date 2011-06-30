@@ -1,0 +1,86 @@
+
+
+- content_for :search do
+  = render "layouts/search_projects"
+
+#content
+  .homeWrapper
+    .mapWrapper
+      %img{:alt => "", :height => "270", :src => "images/homePageMap.jpg", :width => "969"}/
+      .searchWrapper
+        %form{:action => "#", :method => "post"}
+          %input.field{:type => "text", :value => "Search"}/
+          %input.searchBtn{:type => "submit"}/
+        .clr
+      .btn
+        = link_to "Create Project" , new_project_path, :class => "sign_up"
+    .title
+    .fatureProjectsWrapper
+      %h2 Featured Projects
+      .clr
+        %ul
+          - @featured_projects.each do |project|
+            %li
+              .heading
+                = link_to project.title, show_project_path(project.city, project.slug)
+              .imageWrapper
+                %img{:alt => "", :height => "75", :src => "images/resultBg.jpg", :width => "100"}/
+              .addressWrapper
+                .heading
+                  = project.address
+                .heading
+                  Project Manager
+                  %span
+                    %small> *
+                    = project.manager 
+              .textWrapper
+                .clr
+                = raw truncate(sanitize(project.description), :length => 100)
+                %a{:href => "#"} more
+              .voteViewMurge
+                .leftSide
+                  .planningLoader
+                    .planningLoading
+                  %span 
+                    = project.status 
+                .viewWrapper.martowSite
+                  = project.view_count
+                .rightSide
+                  %img{:height => "20", :src => "images/fbLikeBg.jpg", :width => "88"}/
+                .clr
+      .clr
+    .fatureProjectsWrapper
+      %h2 Local Projects
+      .clr
+        %ul
+          - @local_projects.each do |project| 
+            %li
+              .heading
+                = link_to project.title, show_project_path(project.city, project.slug)
+              .imageWrapper
+                %img{:alt => "", :height => "75", :src => "images/resultBg.jpg", :width => "100"}/
+              .addressWrapper
+                .heading
+                  = poject.address
+                .heading
+                  Project Manager:
+                  %span
+                    %small> *
+                    = project.manager
+              .textWrapper
+                .clr
+                = raw truncate(sanitize(project.description), :length => 100)
+                %a{:href => "#"} more
+              .voteViewMurge
+                .leftSide
+                  .planningLoader
+                    .planningLoading
+                  %span
+                    = project.status 
+                .viewWrapper.martowSite
+                  = project.view_count
+                .rightSide
+                  %img{:height => "20", :src => "images/fbLikeBg.jpg", :width => "88"}/
+                .clr
+            .clr
+          .clr

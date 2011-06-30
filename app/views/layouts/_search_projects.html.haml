@@ -1,0 +1,5 @@
+.leftSide.marLeft10
+  .searchWrapper
+    - form_tag( matching_projects_path, :method => :post ) do
+      = text_field_tag 'search' , '', :placeholder => "Search projects, Places and Topics", :class => "field"
+      = submit_tag("Search" , :class => "searchBg")

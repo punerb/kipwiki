@@ -12,6 +12,8 @@ class User
          :recoverable, :rememberable, :trackable, :confirmable
   has_many :projects
   has_many :suggestions
+  has_many :followed_projects
+  
   references_many :authentications, :autosave => true
 
 
