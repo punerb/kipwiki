@@ -1,7 +1,7 @@
 .borderBottom
   .heading
     %h1 Stakeholders
-    = edit_link(@project, "stakeholders")
+    = edit_link(@project, "stakeholder")
     .clr
   %ul.leftNavigation.black
     - if @project.stakeholders.nil? || @project.stakeholders.empty?
