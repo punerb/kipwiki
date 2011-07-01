@@ -11,7 +11,7 @@
     .borderBottom
       .heading
         %h1 Contents
-        = edit_link(@project, "contents")
+        -#= edit_link(@project, "contents")
         .clr
       .inputWrapper
         %input.field{:type => "text", :value => "Search within a Project"}/
@@ -26,7 +26,6 @@
                 %a{:href => "#summary"} Summary#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}       
               - else
                 %a{:href => "#summary"} Summary
-              -#%img{:alt => "", :height => "16", :src => "/images/commentBg.png", :width => "16"}
             %li
               - if(@project.user_id == current_user.id)
                 - count_unseen_suggestions = @project.suggestions.where(:field_name => "objectives", :is_viewed => false).count

@@ -1,7 +1,7 @@
 .textWrapper
   .heading
     %h1 Project Objectives
-    = edit_link(@project, "objectives")
+    = edit_link(@project, "objective")
     .clr
   %ul.objectives
     - if @project.project_objectives.nil? || @project.project_objectives.empty?
