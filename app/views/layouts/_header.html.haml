@@ -9,11 +9,11 @@
           .leftSide
             = f.email_field :email , :class => "field signpFiled", :placeholder => "Email"
             .clr
-            %a{:href => "#"} Forgotten your password?
+            = link_to  "Forgotten your password?", new_user_password_path
           .leftSide.marLeft10
             = f.password_field :password , :class => "field signpFiled", :placeholder => "Password"
             .clr
-            %a{:href => "#"} Don't have an account? Register now!
+            = link_to  "Don't have an account? Register now!", new_user_registration_path 
           .rightSide
             %input.loginBg{:type => "submit", :value => "Login"}/
     .clr
