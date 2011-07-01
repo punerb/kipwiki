@@ -173,7 +173,7 @@ class ProjectsController < ApplicationController
 
   def display
     @selection = 'summary'
-    @selection = params[:type] unless params[:type].nil?
+    @selection = params[:action_type] unless params[:action_type].nil?
     render :display, :layout => "admin"
   end
 
