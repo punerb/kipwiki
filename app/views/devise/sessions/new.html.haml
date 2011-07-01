@@ -13,7 +13,7 @@
       .clr
       %label Password
       %span
-        %a{:href => "#"} Forgot Password
+        = link_to "Forgot Password", new_user_password_path
       .clr
       = f.password_field :password , :class => "field signpFiled"
       .clr
@@ -27,5 +27,5 @@
           %input.submitbg{:name => "", :type => "submit", :value => "Login"}/
         .marLeft10.rightSide.marTop25
           Don't have an account?
-          %a{:href => "#"} Sign Up
+          = link_to "Sign Up" , new_user_registration_path
       .clr

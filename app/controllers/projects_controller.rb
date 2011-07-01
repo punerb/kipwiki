@@ -186,19 +186,23 @@ class ProjectsController < ApplicationController
 
   def followed_projects
     @user_projects = current_user.projects
-    @followed_projects = current_user.followed_projects 
      is_followed = FollowedProject.where(:user_id => current_user.id , :project_id => @project.id).first
      if is_followed.nil?
        FollowedProject.create(:user_id => current_user.id, :project_id => @project.id)
        @selected = 'smallStar star_selected'
      else
-	is_followed.destroy
-	@selected = 'smallStar deselected'
+       if Project.find(is_followed.project_id).user_id != current_user.id
+	 is_followed.destroy 
+	 @selected = 'smallStar deselected'
+       else
+         @selected = "smallStar star_selected"
+       end 
      end
 
+    @followed_projects = current_user.followed_projects 
     respond_to do |format|
       format.js { render "followed_projects"}
-      format.html {render  "_dashboard", :layout => "show_project_layout"}
+      format.html {redirect_to dashboard_path}
     end
   end
 

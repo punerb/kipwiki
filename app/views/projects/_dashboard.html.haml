@@ -41,44 +41,40 @@
 .projectpageHeading.marTop15
   Followed projects
   %span
-    - if current_user.followed_projects.count == 0 
-      = "#{current_user.followed_projects.count} project/projects" 
-    - else
-      = "No projects"
+    = ""    # "#{current_user.followed_projects.count} project/projects" 
 .clr
 %ul.elementWrapper
   - if !@followed_projects.nil?
     - @followed_projects.each do |followed_project| 
       - project = Project.find(followed_project.project_id)
-      %li
-        .leftContent
-          %h1
-            - if FollowedProject.where(:user_id => current_user.id, :project_id => project.id).first.nil?
-              = link_to '', followed_projects_project_path(project), :class => 'smallStar deselected', :id => "star_#{project.id}", :style => "padding bottom:4px;"
-            - else
-              = link_to '', followed_projects_project_path(project), :class => 'smallStar star_selected', :id => "star_#{project.id}", :style => "padding bottom:4px;"
-            = link_to project.title, show_project_path(project.city, project.slug)
-   
-          .paddingWrapper
-            %h4
-              = project.tagline 
-            %p
-              = project.title 
-        .righContent
-          .img
-            %img{:height => "75", :src => "/images/resultBg.jpg", :width => "100"}/
+
+      - if Project.find(followed_project.project_id).user_id != current_user.id          
+        %li
+          .leftContent
+            %h1
+              = link_to '', followed_projects_project_path(project), :class => 'smallStar star_selected', :id => "star_#{project.id}", :style => "padding bottom:4px;" 
+              = link_to project.title, show_project_path(project.city, project.slug)
+     
+            .paddingWrapper
+              %h4
+                = project.tagline 
+              %p
+                = project.title 
+          .righContent
+            .img
+              %img{:height => "75", :src => "/images/resultBg.jpg", :width => "100"}/
+          .clr
+          .progressbarWrapper
+            .leftSide
+              .planningLoader
+                .planningLoading
+              %span
+                = project.status 
+            .like
+              %img{:height => "20", :src => "/images/fbLikeBg.jpg", :width => "88"}/
+            .viewWrapper.rightSide 
+              = project.view_count
         .clr
-        .progressbarWrapper
-          .leftSide
-            .planningLoader
-              .planningLoading
-            %span
-              = project.status 
-          .like
-            %img{:height => "20", :src => "/images/fbLikeBg.jpg", :width => "88"}/
-          .viewWrapper.rightSide 
-            = project.view_count
-      .clr
         / div left End
         / div right start
   / div right end
