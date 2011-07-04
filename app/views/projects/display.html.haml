@@ -2,7 +2,8 @@
   / div right start
   .right
     = render "left_bar"
-
+    %b 
+      = link_to 'Back to project details', show_project_path(@project.city, @project.slug)
   .left
     = render :partial => "projects/display/#{@selection}"
   / div left End

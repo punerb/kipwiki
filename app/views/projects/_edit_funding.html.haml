@@ -5,7 +5,7 @@
 %ul.rightNavigation
   - @project.project_fundings.each do |sh|
     %li
-      = link_to sh.name, "#"
+      = sh.name
 - project_funding = ProjectFunding.new
 = form_for project_funding, :url => project_project_fundings_path(@project,project_funding) do |f|
   .leftSide
