@@ -7,11 +7,8 @@
     - if @project.project_objectives.nil? || @project.project_objectives.empty?
       %li
         %p
-          There are no objectives for this project yet. Click
-          = edit_link(@project, "objectives")
-          to add some
     - else
       - @project.project_objectives.each do |objective|
         %li
-          = link_to objective.name, '#' #show_objective_path(objective)
+          = objective.name 
     .clr

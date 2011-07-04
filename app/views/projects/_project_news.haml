@@ -4,8 +4,6 @@
     = edit_link(@project, "news")
     .clr
   %p
-    = "Project news here"
-    %a{:href => "#"} more
   %p
   - @project.news.each do |f|
     %span= raw(truncate(f.content, :length => 25))
