@@ -26,6 +26,14 @@
         .leftSide
           %input.submitbg{:name => "", :type => "submit", :value => "Login"}/
         .marLeft10.rightSide.marTop25
+          %br
+          %br
+          %h3 Login with:
+          %div
+            %a{ :href => "/auth/twitter" }
+              %img{ :src => "/images/twitter_64.png" }
+            %a{ :href => "/auth/facebook" }
+              %img{ :src => "/images/facebook_64.png" }
           Don't have an account?
           = link_to "Sign Up" , new_user_registration_path
       .clr

@@ -32,5 +32,12 @@
         .leftSide
           %input.submitbg{:name => "", :type => "submit", :value => "Signup"}/
       .clr
+      %br
+      %h3 Login with:
+      %div
+        %a{ :href => "/auth/twitter" }
+          %img{ :src => "/images/twitter_64.png" }
+        %a{ :href => "/auth/facebook" }
+          %img{ :src => "/images/facebook_64.png" }
       = render :partial => "devise/shared/links"
 / signupContent end here

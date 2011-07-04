@@ -33,7 +33,7 @@ Kipwiki::Application.routes.draw do
   get "home/index"
   match '/filter', :to => "home#filter"
   
-  devise_for :user, :controllers => { :registrations => "registrations" }
+  devise_for :user, :controllers => { :registrations => "registrations" , :passwords => "passwords"}
   
  
   devise_for :users

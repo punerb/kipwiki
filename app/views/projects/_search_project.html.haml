@@ -2,10 +2,13 @@
 
 .leftContent
   %h1
-    - if FollowedProject.where(:user_id => current_user.id, :project_id => project.id).first.nil?
-      = link_to '', followed_projects_project_path(project),:remote => true, :class => 'smallStar deselected', :id => "star_#{project.id}", :style => "padding bottom:4px;" 
+    - if user_signed_in?
+      - if FollowedProject.where(:user_id => current_user.id, :project_id => project.id).first.nil?
+        = link_to '', followed_projects_project_path(project),:remote => true, :class => 'smallStar deselected', :id => "star_#{project.id}", :style => "padding bottom:4px;" 
+      - else
+        = link_to '', followed_projects_project_path(project),:remote => true, :class => 'smallStar star_selected', :id => "star_#{project.id}", :style => "padding bottom:4px;" 
     - else
-      = link_to '', followed_projects_project_path(project),:remote => true, :class => 'smallStar star_selected', :id => "star_#{project.id}", :style => "padding bottom:4px;" 
+      = link_to '', "#", :class => "smallStar star_selected"
     = link_to project.title, show_project_path(project.city, project.slug)
   .paddingWrapper
     %h4

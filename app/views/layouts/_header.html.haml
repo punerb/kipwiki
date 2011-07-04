@@ -3,19 +3,15 @@
   #headerBeforeLogin
     .headerContent
       .logo.logoSelect
-        %a{:href => "#"} kipWiki
+        = link_to "kipWiki", home_index_path
+      .leftSide.marLeft10
+        = yield(:search)
       .beforeLoginFormContent
         = form_for(User.new, :url => new_user_session_path) do |f|
-          .leftSide
-            = f.email_field :email , :class => "field signpFiled", :placeholder => "Email"
-            .clr
-            = link_to  "Forgotten your password?", new_user_password_path
-          .leftSide.marLeft10
-            = f.password_field :password , :class => "field signpFiled", :placeholder => "Password"
-            .clr
-            = link_to  "Don't have an account? Register now!", new_user_registration_path 
           .rightSide
             %input.loginBg{:type => "submit", :value => "Login"}/
+            .clr
+            = link_to  "Don't have an account? Register now!", new_user_registration_path 
     .clr
 
 - if user_signed_in?

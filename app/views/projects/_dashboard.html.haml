@@ -16,7 +16,7 @@
           =# link_to "", "#{project.id}", :class => 'smallStar deselected',:id => "star_#{project.id}", :remote => true,  :style => 'padding-bottom:3px;'
           = link_to project.title, show_project_path(project.city, project.slug)
         .leftSide
-          .commentBg 2
+          =#.commentBg 2
         .paddingWrapper
           %h4 
             = project.tagline
