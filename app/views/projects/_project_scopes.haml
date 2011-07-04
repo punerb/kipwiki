@@ -1,0 +1,9 @@
+#project_status.borderBottom
+  %h3 Scope
+  %ul
+    - APP_CONFIG[:project_scopes].each do |scope|
+      %li
+        %input.checkBox{:type => "checkbox", :checked => (@project.project_scope)==scope, :disabled => "true"}/
+        %label.label
+          = scope
+    .clr
