@@ -3,7 +3,7 @@
   #headerBeforeLogin
     .headerContent
       .logo.logoSelect
-        %a{:href => "#"} kipWiki
+        = link_to 'kipWiki', root_path 
       .beforeLoginFormContent
         = form_for(User.new, :url => new_user_session_path) do |f|
           .leftSide
@@ -22,7 +22,7 @@
   #header
     .headerContent
       .logo.logoSelect
-        %a{:href => "#"} kipWiki
+        = link_to 'kipWiki', dashboard_path 
       .leftSide.marLeft10
         = yield(:search)
       .rightSide.marTop25	 
