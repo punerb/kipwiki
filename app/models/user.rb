@@ -5,7 +5,7 @@ class User
   field :city, :type => String
   validates_uniqueness_of :email
   field :slug, :type => String
-
+  field :is_admin, :type => Boolean, :default => false
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :validatable,

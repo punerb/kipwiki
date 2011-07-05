@@ -8,7 +8,7 @@ Kipwiki::Application.routes.draw do
   match '/projects/:id/photos', :to => 'projects#photos', :as => :photos
   match '/projects/:id/upload_attachment', :to => 'projects#upload_attachment', :as => :upload_attachment
   match '/projects/:print_id/delete_attachment', :to => 'projects#delete_attachment', :as => :delete_attachment
-
+  match '/admin', :to => 'projects#admin_home', :as => 'admin_home'
 
   resources :tags
 
@@ -49,7 +49,7 @@ Kipwiki::Application.routes.draw do
    
   match 'project/:id/edit/:action_type' => 'projects#edit', :as => 'edit_project_by_action_type'
   match 'project/:id/display/:action_type' => 'projects#display', :as => 'display_project_by_action_type'
-
+  
   root :to => "home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

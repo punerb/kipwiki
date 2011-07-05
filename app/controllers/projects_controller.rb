@@ -5,6 +5,12 @@ class ProjectsController < ApplicationController
   
   layout "project_layout"
 
+  def admin_home
+    @users = User.all 
+    @projects = Project.all
+    render :layout => "show_project_layout"
+  end
+  
   def search_projects
    keyword = params[:search].downcase.strip
    @projects = []
@@ -12,11 +18,14 @@ class ProjectsController < ApplicationController
      title = f.title.downcase
      city = f.city.downcase
      state = f.state.downcase
-     if (title == title.scan(/#{keyword}.*/).to_s || city == city.scan(/#{keyword}.*/).to_s || state == state.scan(/#{keyword}.*/).to_s)
+     if (title == title.scan(/.*#{keyword}.*/).to_s || city == city.scan(/.*#{keyword}.*/).to_s || state == state.scan(/.*#{keyword}.*/).to_s)
        @projects << f
      end
    end
-    
+
+      @coordinates = @projects.collect{|x| x.coordinates}
+      @loc_center = Geocoder::Calculations.geographic_center(@coordinates) unless @coordinates.empty?
+
    render  "search"
   end  
 
