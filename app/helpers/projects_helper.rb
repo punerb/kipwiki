@@ -8,7 +8,7 @@ module ProjectsHelper
         link_to "Suggest", "#", :class => "edit", :rel => field_type, :name => field_type
       end
     else
-      link_to "Suggest", authentications_path, :name => field_type
+      link_to "Suggest", new_user_session_path, :name => field_type
     end
   end
 

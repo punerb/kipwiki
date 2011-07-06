@@ -4,11 +4,11 @@
 %ul.rightNavigation
   - @project.links.each do |sh|
     %li
-      = "#{sh.name}, #{sh.url}"
+      = link_to "#{sh.name}, #{sh.url}", "http://#{sh.url}/"
 - project_link = Link.new
 = form_for project_link, :url => project_links_path(@project,project_link) do |f|
   .leftSide
-    = f.text_field(:name ,:class => "stakeholder", :placeholder => "Link")
+    = f.text_field(:name ,:class => "stakeholder", :placeholder => "Title of Link")
     %br/
     %br/
     = f.text_field(:url ,:class => "stakeholder", :placeholder => "URL")

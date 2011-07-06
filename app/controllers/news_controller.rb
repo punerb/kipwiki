@@ -73,8 +73,9 @@ class NewsController < ApplicationController
   # DELETE /news/1
   # DELETE /news/1.xml
   def destroy
-    @news = News.find(params[:id])
-    @news.destroy
+    @project = Project.find(params[:project_id])
+    #@news = News.find(params[:id])
+    @project.news.find(params[:id]).delete
 
     respond_to do |format|
       format.html { redirect_to(news_index_url) }

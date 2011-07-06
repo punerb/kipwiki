@@ -8,11 +8,11 @@
       %li
         %p
           There are no stakeholders for this project yet. Click
-          = edit_link(@project, "stakeholders")
+          = edit_link(@project, "stakeholder")
           to add some
     - else
       - @project.stakeholders.each do |stakeholder|
         %li
           %p
-            = link_to stakeholder.name, stakeholder.url
+            = link_to stakeholder.name, "http://#{stakeholder.url}/"
     .clr

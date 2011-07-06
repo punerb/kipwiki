@@ -73,8 +73,8 @@ class LinksController < ApplicationController
   # DELETE /links/1
   # DELETE /links/1.xml
   def destroy
-    @link = Link.find(params[:id])
-    @link.destroy
+    @project = Project.find(params[:project_id])
+    @project.links.find(params[:id]).delete
 
     respond_to do |format|
       format.html { redirect_to(links_url) }

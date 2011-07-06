@@ -4,7 +4,7 @@
 %ul.rightNavigation
   - @project.stakeholders.each do |sh|
     %li
-      = link_to sh.key ? "#{sh.name} (key stakeholder)" : sh.name, sh.url 
+      = link_to sh.key ? "#{sh.name} (key stakeholder)" : sh.name, "http://#{sh.url}/" 
 - stakeholder = Stakeholder.new
 = form_for stakeholder, :url => project_stakeholders_path(@project,stakeholder) do |f|
   .leftSide

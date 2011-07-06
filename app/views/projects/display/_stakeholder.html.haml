@@ -14,4 +14,4 @@
 %ul.objectivesNavigation.black.marTop15
   - @project.stakeholders.each do |ks|
     %li.main
-      = link_to ks.name, "#"
+      = link_to ks.name, "http://#{ks.url}/"

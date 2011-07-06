@@ -8,11 +8,11 @@
       %li
         %p
           There are no links for this project yet. Click
-          = edit_link(@project, "links")
+          = edit_link(@project, "link")
           to add some
     - else
       - @project.links.each do |link|
         %li
           = link.name
-          = link_to link.url, link.url, :target => "blank"
+          = link_to link.url, "http://#{link.url}/", :target => "blank"
     .clr

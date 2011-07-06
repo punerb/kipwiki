@@ -97,7 +97,7 @@
         = edit_link(@project, "summary")
         .clr
       %div{:id => "project_summary"} 
-        = raw truncate(sanitize(@project.description), :length => 100)
+        = raw truncate(sanitize(@project.description, :tag => 'u' 'strike' 'font'), :length => 100)
         = link_to "more", "#more", :class => 'more_summary'
       %div{:id => "project_summary_full", :style => 'display:none;'}
         = raw sanitize(@project.description)

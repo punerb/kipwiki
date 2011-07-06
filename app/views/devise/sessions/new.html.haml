@@ -1,5 +1,7 @@
+- session[:prevurl] = request.referrer
 / signupContent start here
 .signupContent
+  - session[:prevurl] = request.referrer
   .signupLogo
   .loginText Login / Sign In
   .clr
