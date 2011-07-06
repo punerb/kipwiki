@@ -50,11 +50,16 @@ Kipwiki::Application.routes.draw do
   match 'project/:id/edit/:action_type' => 'projects#edit', :as => 'edit_project_by_action_type'
   match 'project/:id/display/:action_type' => 'projects#display', :as => 'display_project_by_action_type'
   
-  root :to => "home#index"
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  scope 'admin' do
+     post 'projects/update_status' => 'projects#update_status' 
+  end
 
-  # Sample of regular route:
+# You can have the root of your site routed with "root"
+  root :to => "home#index"
+# The priority is based upon order of creation:
+# first created -> highest priority.
+
+# Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 

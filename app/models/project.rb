@@ -24,7 +24,7 @@ class Project
   field :sponsor, :type => String
   field :cost, :type => String
   field :period, :type => String
-
+  field :is_hidden, :type => Boolean, :default => false 
   embeds_many :stakeholders
   embeds_many :links
   embeds_many :project_fundings
