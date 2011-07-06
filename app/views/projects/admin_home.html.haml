@@ -1,0 +1,23 @@
+
+%table{:style => "align:left;font-size: medium;"}
+  %tr 
+    %th Project title
+    %th User Email
+    %th Hide Project
+    %th Mark Featured Project 
+    %th Submit 
+  - form_tag  projects_update_status_path do 
+    - @projects.each do |project|
+      %tr[project]
+        %td
+          = project.title 
+        %td
+          = project.user.email
+        %td 
+          = check_box :is_hidden, project.id, {:checked => project.is_hidden},  true, false
+        %td 
+          = check_box :featured, project.id,  { :checked => project.featured}, true, false
+    %td
+      = submit_tag 
+%br
+%br

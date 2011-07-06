@@ -5,18 +5,28 @@ class ProjectsController < ApplicationController
   
   layout "project_layout"
 
+  def admin_home
+    @users = User.all 
+    @projects = Project.all
+    render :layout => "show_project_layout"
+  end
+  
   def search_projects
    keyword = params[:search].downcase.strip
    @projects = []
-   Project.all.each do |f|
+   @shown_projects = Project.where(:is_hidden => false)
+   @shown_projects.each do |f|
      title = f.title.downcase
      city = f.city.downcase
      state = f.state.downcase
-     if (title == title.scan(/#{keyword}.*/).to_s || city == city.scan(/#{keyword}.*/).to_s || state == state.scan(/#{keyword}.*/).to_s)
+     if (title == title.scan(/.*#{keyword}.*/).to_s || city == city.scan(/.*#{keyword}.*/).to_s || state == state.scan(/.*#{keyword}.*/).to_s)
        @projects << f
      end
    end
-    
+
+      @coordinates = @projects.collect{|x| x.coordinates}
+      @loc_center = Geocoder::Calculations.geographic_center(@coordinates) unless @coordinates.empty?
+
    render  "search"
   end  
 
@@ -114,12 +124,42 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to(show_project_path(@project.city.parameterize, @project.slug), :notice => 'Project was successfully updated.') }
+        if current_user.is_admin == true
+          format.html {redirect_to admin_home_path}
+        else
+          format.html { redirect_to(show_project_path(@project.city.parameterize, @project.slug), :notice => 'Project was successfully updated.') }
+        end
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+
+  def update_status
+   is_hidden_hash = params[:is_hidden] || {}
+   featured_hash = params[:featured] || {}
+   
+   is_hidden_hash.each_key do |id|
+     project = Project.find(id)
+     project.is_hidden = is_hidden_hash[id] == 'true' ? true : false
+     project.save
+   end 
+   
+   featured_hash.each_key do |id|
+     project = Project.find(id)
+     project.featured = featured_hash[id] == 'true' ? true : false
+     project.save
+   end 
+   
+    respond_to do |format|
+        if current_user.is_admin == true
+          format.html {redirect_to admin_home_path}
+        else
+          format.html { redirect_to(show_project_path(@project.city.parameterize, @project.slug), :notice => 'Project was successfully updated.') }
+        end
+        format.xml  { head :ok }
     end
   end
 
@@ -178,8 +218,8 @@ class ProjectsController < ApplicationController
   end
 
   def dashboard 
-    @user_projects = current_user.projects
-    @followed_projects = current_user.followed_projects 
+    @user_projects = current_user.projects.where(:is_hidden => false)
+    @followed_projects = current_user.followed_projects
     render "_dashboard", :layout => "show_project_layout"
   end
   

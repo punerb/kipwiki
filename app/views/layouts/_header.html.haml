@@ -18,11 +18,15 @@
   #header
     .headerContent
       .logo.logoSelect
-        = link_to 'kipWiki', dashboard_path 
+        = link_to 'kipWiki', home_index_path 
       .leftSide.marLeft10
         = yield(:search)
       .rightSide.marTop25	 
         %ul.subMenu
+          - if current_user.is_admin == true 
+            %li
+              = link_to "Admin_page", admin_home_path 
+          | 
           %li
             = link_to "Dashboard", dashboard_path 
           | 
