@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
      title = f.title.downcase
      city = f.city.downcase
      state = f.state.downcase
-     if (title == title.scan(/.*#{keyword}.*/).to_s || city == city.scan(/.*#{keyword}.*/).to_s || state == state.scan(/.*#{keyword}.*/).to_s)
+     if (title == title.scan(/.*#{keyword}.*/).first || city == city.scan(/.*#{keyword}.*/).first || state == state.scan(/.*#{keyword}.*/).first)
        @projects << f
      end
    end
