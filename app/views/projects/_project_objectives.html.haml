@@ -8,7 +8,13 @@
       %li
         %p
     - else
-      - @project.project_objectives.each do |objective|
-        %li
-          = objective.name 
+      %ul.objectivesNavigation.black
+        - @project.project_objectives.each do |obj|
+          %li.main
+            = link_to obj.name, "#"
+            %ul.objectivesSub
+              - (obj.sub_project_objectives||[]).each do |subobj|
+                %li
+                  = link_to subobj, "#"
+
     .clr

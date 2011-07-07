@@ -6,4 +6,5 @@
   %p
   %p
   - @project.news.each do |f|
-    %span= raw(truncate(f.content, :length => 25))
+    %p
+      %span= raw(truncate(f.content, :length => 25))
