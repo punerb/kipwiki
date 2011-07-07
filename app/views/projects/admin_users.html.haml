@@ -1,0 +1,25 @@
+
+%table{:style => "align:left;font-size: medium;"}
+  %tr 
+    %th Name
+    %th User Email
+    %th Block User 
+  - form_tag  projects_user_status_path do 
+    - @users.each do |user|
+      - blocked = user.locked_at.nil? ? false : true
+      %tr[user]
+        %td
+          = user.slug.gsub('-',' ') 
+        %td
+          = user.email
+        %td 
+          = check_box :is_blocked, user.id, {:checked => blocked},  true, false
+    %td
+      = submit_tag 
+%br
+%br
+%br
+%div{:style => "font-size: medium;"}
+  = link_to "project edit page", admin_home_path
+%br
+%br
