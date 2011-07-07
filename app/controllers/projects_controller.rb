@@ -8,7 +8,11 @@ class ProjectsController < ApplicationController
   def admin_home
     @users = User.all 
     @projects = Project.all
-    render :layout => "show_project_layout"
+    if !user_signed_in? || (user_signed_in? && current_user.is_admin == false)
+      redirect_to  home_index_path
+    else
+      render :layout => "show_project_layout"
+    end
   end
   
   def search_projects
