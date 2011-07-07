@@ -73,11 +73,11 @@ class StakeholdersController < ApplicationController
   # DELETE /stakeholders/1
   # DELETE /stakeholders/1.xml
   def destroy
-    @stakeholder = Stakeholder.find(params[:id])
-    @stakeholder.destroy
+    @project = Project.find(params[:project_id])
+    @project.stakeholders.find(params[:id]).delete
 
     respond_to do |format|
-      format.html { redirect_to(stakeholders_url) }
+      format.html { redirect_to(project_stakeholders_url(@project)) }
       format.xml  { head :ok }
     end
   end

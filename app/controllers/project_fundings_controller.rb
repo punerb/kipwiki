@@ -73,8 +73,8 @@ class ProjectFundingsController < ApplicationController
   # DELETE /project_fundings/1
   # DELETE /project_fundings/1.xml
   def destroy
-    @project_funding = ProjectFunding.find(params[:id])
-    @project_funding.destroy
+    @project = Project.find(params[:project_id])
+    @project.project_fundings.find(params[:id]).delete
 
     respond_to do |format|
       format.html { redirect_to(project_fundings_url) }

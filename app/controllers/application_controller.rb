@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   def after_sign_in_path_for(user)
     if user.is_admin == false
-     dashboard_path
+      dashboard_path
     else 
-     admin_home_path
+      admin_home_path
     end
-  end
-end
+  end   
+end  

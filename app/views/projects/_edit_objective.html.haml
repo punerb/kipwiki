@@ -4,7 +4,7 @@
       %strong{:style => "font-size:13px; line-height:30px;"}
         = obj.name
         = "("+ obj.priority+ ")"
-        = link_to "Destroy", project_project_objective_path(@project, obj), :class => "deleteObjective", :confirm => "Are You Sure?", :method => :delete
+        -#= link_to "Destroy", project_project_objective_path(@project, obj), :class => "deleteObjective", :confirm => "Are You Sure?", :method => :delete
         
         = link_to "Add SubObjective", "#", :class => "addSubObjectiveLink"
         %br
