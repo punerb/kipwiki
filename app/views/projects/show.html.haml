@@ -17,7 +17,7 @@
         %h1 Contents
         -#= edit_link(@project, "contents")
         .clr
-      .inputWrapper
+      -#.inputWrapper
         %input.field{:type => "text", :value => "Search within a Project"}/
         %input.searchBtn{:type => "submit"}/
       %ul.leftNavigation
@@ -34,21 +34,21 @@
             %li
               - if user_signed_in?
                 - if(@project.user_id == current_user.id)
-                  - count_unseen_suggestions = @project.suggestions.where(:field_name => "objectives", :is_viewed => false).count
+                  - count_unseen_suggestions = @project.suggestions.where(:field_name => "objective", :is_viewed => false).count
                   %a{:href => "#objectives"} Objectives#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}
                 - else
                   %a{:href => "#objectives"} Objectives
             %li
               -if user_signed_in?
                 - if(@project.user_id == current_user.id)
-                  - count_unseen_suggestions = @project.suggestions.where(:field_name => "stakeholders", :is_viewed => false).count
+                  - count_unseen_suggestions = @project.suggestions.where(:field_name => "stakeholder", :is_viewed => false).count
                   %a{:href => "#stakeholders"} Key stakeholders#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}
                 - else
                   %a{:href => "#stakeholders"} Key stakeholders
         %li
           -if user_signed_in?
             - if(@project.user_id == current_user.id)
-              - count_unseen_suggestions = @project.suggestions.where(:field_name => "fundings", :is_viewed => false).count
+              - count_unseen_suggestions = @project.suggestions.where(:field_name => "funding", :is_viewed => false).count
               %a{:href => "#fundings"} Funding#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}
             - else
               %a{:href => "#fundings"} Funding
@@ -57,7 +57,7 @@
         %li
           -if user_signed_in?
             - if(@project.user_id == current_user.id)
-              - count_unseen_suggestions = @project.suggestions.where(:field_name => "links", :is_viewed => false).count
+              - count_unseen_suggestions = @project.suggestions.where(:field_name => "link", :is_viewed => false).count
               %a{:href => "#links"} Links#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}
             - else
               %a{:href => "#links"} Links

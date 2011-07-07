@@ -15,14 +15,14 @@
     %br/
     = f.text_field(:url ,:class => "stakeholder", :placeholder => "URL")
     %br/
-    = link_to  "Suggestions",project_suggestions_project_path(:type => "stakeholders"), :remote => true, :class => "show_suggestions"
-    -@suggestions = @project.suggestions.where(:field_name => 'stakeholders')
+    = link_to  "Suggestions",project_suggestions_project_path(:type => "stakeholder"), :remote => true, :class => "show_suggestions"
+    -@suggestions = @project.suggestions.where(:field_name => 'stakeholder')
     %div{:id => 'suggestions', :style => 'display:none;'}
       -@suggestions.each do |suggestion|
         %b
           = suggestion.user.first_name
         .clr
-        = f.text_area(:suggestions, :style => "width:320px;height:35px", :id => "project[suggestions]", :value => suggestion.text)
+        = f.text_area(:suggestions, :style => "width:320px;height:35px", :id => "project[suggestions]", :value => suggestion.text, :readonly => "readonly")
         .clr
       .clr
     .clr    
