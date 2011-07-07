@@ -9,6 +9,7 @@ Kipwiki::Application.routes.draw do
   match '/projects/:id/upload_attachment', :to => 'projects#upload_attachment', :as => :upload_attachment
   match '/projects/:print_id/delete_attachment', :to => 'projects#delete_attachment', :as => :delete_attachment
   match '/admin', :to => 'projects#admin_home', :as => 'admin_home'
+  match '/admin/users', :to => 'projects#admin_users', :as => 'admin_users'
 
   resources :tags
 
@@ -51,7 +52,8 @@ Kipwiki::Application.routes.draw do
   match 'project/:id/display/:action_type' => 'projects#display', :as => 'display_project_by_action_type'
   
   scope 'admin' do
-     post 'projects/update_status' => 'projects#update_status' 
+     post 'projects/update_status' => 'projects#update_status'
+     post 'projects/user_status' => 'projects#user_status' 
   end
 
 # You can have the root of your site routed with "root"

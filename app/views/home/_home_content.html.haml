@@ -35,45 +35,44 @@
                   = project.status 
               .viewWrapper.martowSite
                 = project.view_count
-              .rightSide
-                %img{:height => "20", :src => "/images/fbLikeBg.jpg", :width => "88"}/
               .clr
     .clr
   .fatureProjectsWrapper
     %h2 Local Projects
     .clr
       %ul
-        - @local_projects.each do |project| 
-          %li
-            .heading
-              = link_to project.title, show_project_path(project.city, project.slug)
-            .imageWrapper
-              %img{:alt => "", :height => "75", :src => "images/resultBg.jpg", :width => "100"}/
-            .addressWrapper
+        - @local_projects.each do |project|
+          - if project.is_hidden == false  
+            %li
               .heading
-                = poject.address
-              .heading
-                Project Manager:
-                %span
-                  %small> *
-                  = project.manager
-            .textWrapper
+                = link_to project.title, show_project_path(project.city, project.slug)
+              .imageWrapper
+                %img{:alt => "", :height => "75", :src => "images/resultBg.jpg", :width => "100"}/
+              .addressWrapper
+                .heading
+                  = poject.address
+                .heading
+                  Project Manager:
+                  %span
+                    %small> *
+                    = project.manager
+              .textWrapper
+                .clr
+                = raw truncate(sanitize(project.description), :length => 100)
+                %a{:href => "#"} more
+              .voteViewMurge
+                .leftSide
+                  .planningLoader
+                    .planningLoading
+                  %span
+                    = project.status 
+                .viewWrapper.martowSite
+                  = project.view_count
+                .rightSide
+                  %img{:height => "20", :src => "images/fbLikeBg.jpg", :width => "88"}/
+                .clr
               .clr
-              = raw truncate(sanitize(project.description), :length => 100)
-              %a{:href => "#"} more
-            .voteViewMurge
-              .leftSide
-                .planningLoader
-                  .planningLoading
-                %span
-                  = project.status 
-              .viewWrapper.martowSite
-                = project.view_count
-              .rightSide
-                %img{:height => "20", :src => "images/fbLikeBg.jpg", :width => "88"}/
-              .clr
-            .clr
-        .clr
+          .clr
 
 
 

@@ -15,6 +15,16 @@ class ProjectsController < ApplicationController
     end
   end
   
+  def admin_users
+    @users = User.where(:is_admin => false) 
+    if !user_signed_in? || (user_signed_in? && current_user.is_admin == false)
+      redirect_to  home_index_path
+    else
+      render :layout => "show_project_layout"
+    end
+
+  end  
+  
   def search_projects
    keyword = params[:search].downcase.strip
    @projects = []
@@ -167,6 +177,30 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def user_status
+   is_blocked_hash = params[:is_blocked] || {}
+   
+   is_blocked_hash.each_key do |id|
+     user = User.find(id)
+     if is_blocked_hash[id] == "true"
+       user.lock_access!
+     else
+       user.unlock_access!
+     end 
+     user.save
+   end 
+   
+   
+    respond_to do |format|
+        if current_user.is_admin == true
+          format.html {redirect_to admin_users_path}
+        else
+          format.html { redirect_to(show_project_path(@project.city.parameterize, @project.slug), :notice => 'Project was successfully updated.') }
+        end
+        format.xml  { head :ok }
+    end
+  end
+
   # DELETE /projects/1
   # DELETE /projects/1.xml
   def destroy
@@ -197,14 +231,16 @@ class ProjectsController < ApplicationController
 
     #Geocoder finding record after reversing the lat-lng.So it will give 
     #wrong result if we dont reverse! DO NOT CHANGE - Jiren
-     
+
     if lat_lng
-      @projects = Project.near(lat_lng.reverse, 50, :units => :km)
-      @coordinates = @projects.collect {|x| x.coordinates}
-      @loc_center = Geocoder::Calculations.geographic_center(@coordinates) unless @coordinates.empty?
+      @projects = Project.near(lat_lng.reverse, 50, :units => :km) 
+      @coordinates = @projects.collect {|x| x.coordinates } if !@projects.count == 0
+      @loc_center = Geocoder::Calculations.geographic_center(@coordinates) unless (@coordinates.nil? || @coordinates.empty?)
     else
       @projects = []
     end
+
+    @projects  = [] if @projects.count == 0
 
     #Hack For rendering project type - Gautam
     @project = Project.new

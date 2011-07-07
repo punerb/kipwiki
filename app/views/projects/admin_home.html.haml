@@ -5,7 +5,6 @@
     %th User Email
     %th Hide Project
     %th Mark Featured Project 
-    %th Submit 
   - form_tag  projects_update_status_path do 
     - @projects.each do |project|
       %tr[project]
@@ -19,5 +18,10 @@
           = check_box :featured, project.id,  { :checked => project.featured}, true, false
     %td
       = submit_tag 
+%br
+%br
+%br
+%div{:style => "font-size: medium;"}
+  = link_to "user edit page", admin_users_path
 %br
 %br

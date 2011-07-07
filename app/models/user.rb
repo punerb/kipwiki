@@ -8,7 +8,7 @@ class User
   field :is_admin, :type => Boolean, :default => false
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :validatable,
+  devise :database_authenticatable, :registerable, :validatable,:lockable,
          :recoverable, :rememberable, :trackable, :confirmable
   has_many :projects
   has_many :suggestions
