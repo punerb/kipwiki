@@ -1,2 +1,13 @@
-access_key_id: AKIAI577OG2NLC3QSKKA
-secret_access_key: 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
+common: &common
+  access_key_id: AKIAI577OG2NLC3QSKKA
+  secret_access_key: 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
+  bucket: kipwiki_photos
+
+development:
+  <<: *common
+
+test:
+  <<: *common
+
+production:
+  <<: *common
