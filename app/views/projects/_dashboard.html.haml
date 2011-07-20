@@ -23,7 +23,11 @@
             = raw truncate(sanitize(project.description), :length => 100)
       .righContent
         .img
-          %img{:height => "75", :src => "/images/resultBg.jpg", :width => "100"}/
+          - if !project.prints.empty?
+            #photos_container
+            = render :partial => "print", :collection =>  project.prints
+          - else
+            %img{:height => "75", :src => "/images/missing.png", :width => "100"}/
       .clr
       .progressbarWrapper
         .leftSide

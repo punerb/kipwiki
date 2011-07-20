@@ -1,13 +1,14 @@
 / footer Start
 #footer
   %ul
-    %li.selected
+    %li
       = link_to "Home", home_index_path
     %li
-      %a{:href => "#"} Disclaimer 
+      = link_to "Disclaimer", home_disclaimer_path
     %li
-      %a{:href => "#"} Terms and Conditions
+      = link_to "Terms and Conditions", home_terms_and_conditions_path
     %li
-      %a{:href => "#"} Blog
+      %a{:href => "http://www.kipwiki.com/"} Blog
+    
   .copyRight kipwiki &copy; 2011
 / footer end

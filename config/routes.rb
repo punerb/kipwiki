@@ -33,6 +33,8 @@ Kipwiki::Application.routes.draw do
 
   get "home/index"
   match '/filter', :to => "home#filter"
+  get "home/terms_and_conditions"
+  get "home/disclaimer"
   
   devise_for :user, :controllers => { :registrations => "registrations" , :passwords => "passwords"}
   

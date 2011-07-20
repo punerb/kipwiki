@@ -20,7 +20,8 @@
       = link_to "more", show_project_path(project.city, project.slug)
 .righContent
   .img
-    %img{:height => "75", :src => "/images/resultBg.jpg", :width => "100"}/
+    #photos_container
+    = render :partial => "print", :collection => project.prints
 .clr
 .progressbarWrapper
   .leftSide

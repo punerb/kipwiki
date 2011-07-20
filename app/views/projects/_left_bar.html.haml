@@ -17,7 +17,7 @@
         = link_to "Stakeholders#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}", display_project_by_action_type_path(@project, "stakeholder"), :class => select_if(@selection, "stakeholder")
   %li
     - count_unseen_suggestions = @project.suggestions.where(:field_name => "funding", :is_viewed => false).count
-    = link_to "Fundings#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}", display_project_by_action_type_path(@project, "funding"), :class => select_if(@selection, "funding")
+    = link_to "Funding#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}", display_project_by_action_type_path(@project, "funding"), :class => select_if(@selection, "funding")
   %li
     - count_unseen_suggestions = @project.suggestions.where(:field_name => "link", :is_viewed => false).count
     = link_to "Links#{count_unseen_suggestions == 0 ? "":",(#{count_unseen_suggestions})"}", display_project_by_action_type_path(@project, "link"), :class => select_if(@selection, "link")
