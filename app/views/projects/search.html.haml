@@ -3,8 +3,14 @@
 
 =#.left.rightSide.leftBprder
 .pageTitle
-  .rightSide
-    = link_to "Create project", new_project_path, :class => "sign_up"
+  .leftBprder
+    %h2
+      = @projects.count 
+      Results found
+    %p
+      = @projects.first.address unless @projects.first.nil?
+      .rightSide
+        = link_to "Create project", new_project_path, :class => "sign_up"
 .clr
 
 %ul.elementWrapper

@@ -33,7 +33,8 @@ class ProjectsController < ApplicationController
      title = f.title.downcase
      city = f.city.downcase
      state = f.state.downcase
-     if (title == title.scan(/.*#{keyword}.*/).first || city == city.scan(/.*#{keyword}.*/).first || state == state.scan(/.*#{keyword}.*/).first)
+     country = f.country.downcase
+     if (title == title.scan(/.*#{keyword}.*/).first || city == city.scan(/.*#{keyword}.*/).first || state == state.scan(/.*#{keyword}.*/).first || country == country.scan(/.*#{keyword}.*/).first)
        @projects << f
      end
    end
@@ -76,11 +77,9 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.all
-
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @projects }
+      format.html { redirect_to home_index_path() }
+      format.xml  { render :nothing }
     end
   end
 

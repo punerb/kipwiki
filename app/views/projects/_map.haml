@@ -1,6 +1,7 @@
-= render 'shared/search'
+=# render 'shared/search'
 #map
-  %h3 Project Location
+  %h3 
+    =  @project.city + ', ' + @project.state + ', ' + @project.country 
   #map_canvas.project_map
     :javascript
       jQuery(document).ready(function() {
