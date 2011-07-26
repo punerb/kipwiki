@@ -78,10 +78,13 @@ class ProjectObjectivesController < ApplicationController
   # DELETE /project_objectives/1.xml
   def destroy
     @project_objective = ProjectObjective.find(params[:id])
-    @project_objective.destroy
+    
+    if @project_objective.present?
+      @project_objective.destroy
+    end
 
     respond_to do |format|
-      format.html { redirect_to(project_objectives_url) }
+      format.html { redirect_to(edit_project_project_objective_url) }
       format.xml  { head :ok }
     end
   end

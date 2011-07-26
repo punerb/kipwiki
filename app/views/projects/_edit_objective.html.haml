@@ -4,7 +4,7 @@
       %strong{:style => "font-size:13px; line-height:30px;"}
         = obj.name
         = "("+ obj.priority+ ")"
-        -#= link_to "Destroy", project_project_objective_path(@project, obj), :class => "deleteObjective", :confirm => "Are You Sure?", :method => :delete
+        = link_to "Destroy", project_project_objective_path(@project, obj), :class => "deleteObjective"
         
         = link_to "Add SubObjective", "#", :class => "addSubObjectiveLink"
         %br
@@ -15,7 +15,7 @@
               = link_to subobj, "#"
       .subobjectiveContent{:style => "display:none;"}
         %span Enter sub objective
-        = form_for ([@project, obj], {:method => "put"}) do |f|
+        = form_for ([@project, obj]) do |f|
           .leftSide
             .leftSide
               -#= f.fields_for obj.sub_project_objectives.new, :sub_project_objectives do |sub|
