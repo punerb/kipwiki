@@ -120,11 +120,12 @@
 .clr
 
 = content_for :sidebar do
-  = render :partial => 'projects/map'
-  = render :partial => 'projects/project_type'
-  = render :partial => 'projects/project_status'
-  = render :partial => 'projects/project_scopes'
-  = render :partial => 'projects/similar_projects'
+  .right
+    = render :partial => 'projects/map'
+    = render :partial => 'projects/project_type'
+    = render :partial => 'projects/project_status'
+    = render :partial => 'projects/project_scopes'
+    = render :partial => 'projects/similar_projects'
 
 //Contents for suggestion lightbox
 %div{:style=>"display:none"}
