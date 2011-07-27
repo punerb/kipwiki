@@ -13,8 +13,12 @@
           %li
             .heading
               = link_to project.title, show_project_path(project.city, project.slug)
-            .imageWrapper
-              %img{:alt => "", :height => "75", :src => "/images/resultBg.jpg", :width => "100"}/
+              / .imageWrapper
+              / %img{:alt => "", :height => "75", :src => "/images/resultBg.jpg", :width => "100"}/
+              - if !project.prints.empty?
+                = image_tag(project.prints.first.attachment.url(:thumb))
+              - else
+                %img{:height => "75", :src => "/images/missing.png", :width => "100"}/
             .addressWrapper
               .heading
                 = project.address
@@ -46,8 +50,12 @@
             %li
               .heading
                 = link_to project.title, show_project_path(project.city, project.slug)
-              .imageWrapper
-                %img{:alt => "", :height => "75", :src => "images/resultBg.jpg", :width => "100"}/
+              / .imageWrapper
+              /   %img{:alt => "", :height => "75", :src => "images/resultBg.jpg", :width => "100"}/
+              - if !project.prints.empty?
+                = image_tag(project.prints.first.attachment.url(:thumb))
+              - else
+                %img{:height => "75", :src => "/images/missing.png", :width => "100"}/
               .addressWrapper
                 .heading
                   = project.address

@@ -2,7 +2,11 @@
   .heading
     = link_to project.title.truncate(50), show_project_path(project.city.parameterize, project.slug)
   .imageWrapper
-    %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
+    - if !project.prints.empty?
+      = image_tag(project.prints.first.attachment.url(:thumb))
+    - else
+      %img{:height => "75", :src => "/images/missing.png", :width => "100"}/
+   / %img{:alt => "", :height => "193", :src => "images/testPhoto.jpg", :width => "258"}/
   .voteViewMurge
     .viewWrapper
       = project.view_count || 0
