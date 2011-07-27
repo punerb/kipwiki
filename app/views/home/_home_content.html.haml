@@ -49,11 +49,11 @@
             %li
               .heading
                 = link_to project.title, show_project_path(project.city, project.slug)
-              .imageWrapper
-              - if !project.prints.empty?
-                = image_tag(project.prints.first.attachment.url(:thumb), :option => { :height => "75", :width => 100})
-              - else
-                %img{:height => "75", :src => "/images/missing.png", :width => "100"}/
+            .imageWrapper
+            - if !project.prints.empty?
+              = image_tag(project.prints.first.attachment.url(:thumb), :option => { :height => "75", :width => 100})
+            - else
+              %img{:height => "75", :src => "/images/missing.png", :width => "100"}/
               .addressWrapper
                 .heading
                   = project.address
