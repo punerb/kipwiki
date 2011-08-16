@@ -9,6 +9,8 @@ class HomeController < ApplicationController
     logger.info "request.location #{request.location.inspect}"
     @featured_projects = @shown_projects.where(:featured => true).limit(3)
     @local_projects = Project.near(@center_coords.reverse, 50, :units => :km).limit(3)  
+    logger.info "local_projects = #{@local_projects.length}"
+    logger.info "featured_projects = #{@featured_projects.length}"
     @coordinates = @featured_projects.collect {|project| 
       logger.info "featured Project ID = #{project.id}"
       logger.info "featured Project Title #{project.title}"
@@ -18,7 +20,7 @@ class HomeController < ApplicationController
       logger.info "Local Project ID = #{project.id}"
       logger.info "Local Project Title #{project.title}"
       c = project.coordinates.clone 
-      c << project.title }
+      c << project.title } if @local_projects.present?
   end
   
   def filter
