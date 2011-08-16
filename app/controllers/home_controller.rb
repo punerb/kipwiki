@@ -9,8 +9,12 @@ class HomeController < ApplicationController
     logger.info "request.location #{request.location.inspect}"
     @featured_projects = @shown_projects.where(:featured => true).limit(3)
     @local_projects = Project.near(@center_coords.reverse, 50, :units => :km).limit(3)  
-    @coordinates = @featured_projects.collect {|project| project.coordinates.reverse << project.title }
-    @coordinates.concat @local_projects.collect {|project| project.coordinates.reverse << project.title }
+    @coordinates = @featured_projects.collect {|project| 
+      c = project.coordinates.clone
+      c << project.title }
+    @coordinates.concat @local_projects.collect {|project| 
+      c = project.coordinates.clone 
+      c << project.title }
   end
   
   def filter
