@@ -8,7 +8,6 @@ class HomeController < ApplicationController
     logger.info "@center_coords = #{@center_coords}"
     logger.info "request.location #{request.location.inspect}"
     logger.flush
-debugger
     @featured_projects = @shown_projects.where(:featured => true).limit(3)
     @local_projects = Project.near(@center_coords.reverse, 50, :units => :km).limit(3)  
     logger.info "local_projects = #{@local_projects.length}"
