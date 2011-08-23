@@ -16,7 +16,7 @@
     %h4
       = project.tagline 
     %p
-      = raw truncate(sanitize(project.description), :length => 100)
+      = raw truncate(Sanitize.clean(project.description), :length => 100)
       = link_to "more", show_project_path(project.city, project.slug)
 .righContent
   .img

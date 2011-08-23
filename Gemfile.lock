@@ -173,6 +173,8 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyntlm (0.1.1)
+    sanitize (2.0.3)
+      nokogiri (>= 1.4.4, < 1.6)
     sass (3.1.2)
     thor (0.14.6)
     treetop (1.4.9)
@@ -200,4 +202,5 @@ DEPENDENCIES
   omniauth (= 0.2.6)
   rails (= 3.0.6)
   ruby-debug19
+  sanitize (~> 2.0.3)
   sass

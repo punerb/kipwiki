@@ -12,4 +12,4 @@
 .clr
 .borderBottom
 %p.marTop15
-  = sanitize(@project.description, :tags => 'u' 'strike' 'font')
+  = Sanitize.clean(@project.description, :tags => 'u' 'strike' 'font')

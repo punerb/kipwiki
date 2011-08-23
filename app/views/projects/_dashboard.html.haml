@@ -20,7 +20,7 @@
           %h4 
             = project.tagline
           %p
-            = raw truncate(sanitize(project.description), :length => 100)
+            = raw truncate(Sanitize.clean(project.description), :length => 100)
       .righContent
         .img
           - if !project.prints.empty?

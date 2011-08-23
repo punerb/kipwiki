@@ -28,7 +28,7 @@
                   = project.manager 
             .textWrapper
               .clr
-              = raw truncate(sanitize(project.description), :length => 100)
+              = raw truncate(Sanitize.clean(project.description), :length => 100)
               %a{:href => "#"} more
             .voteViewMurge
               .leftSide
@@ -67,7 +67,7 @@
                       = project.manager
                 .textWrapper
                   .clr
-                  = raw truncate(sanitize(project.description), :length => 100)
+                  = raw truncate(Sanitize.clean(project.description), :length => 100)
                   %a{:href => "#"} more
                 .voteViewMurge
                   .leftSide

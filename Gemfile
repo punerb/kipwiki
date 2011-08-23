@@ -15,6 +15,7 @@ gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'aws-s3',               :require => 'aws/s3'
 gem 'geocoder'
 gem 'faker'
+gem "sanitize", "~> 2.0.3"
 gem 'omniauth', "0.2.6"
 group :development do
   gem 'mongrel' , '~> 1.2.0.pre2'
