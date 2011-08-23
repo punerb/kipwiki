@@ -225,29 +225,31 @@ class ProjectsController < ApplicationController
   end
   
   def search
-    lat_lng = Geocoder.coordinates(params[:location])
-    lat_lng = request.location.coordinates if lat_lng.nil? and request.ip == '127.0.0.1'
+    params[:search] = params[:location]
+    search_projects
+    # lat_lng = Geocoder.coordinates(params[:location])
+    # lat_lng = request.location.coordinates if lat_lng.nil? and request.ip == '127.0.0.1'
 
-    #Geocoder finding record after reversing the lat-lng.So it will give 
-    #wrong result if we dont reverse! DO NOT CHANGE - Jiren
+    # #Geocoder finding record after reversing the lat-lng.So it will give 
+    # #wrong result if we dont reverse! DO NOT CHANGE - Jiren
 
-    if lat_lng
-      @projects = Project.near(lat_lng.reverse, 50, :units => :km) 
-      @coordinates = @projects.collect {|x| x.coordinates } if !@projects.count == 0
-      @loc_center = Geocoder::Calculations.geographic_center(@coordinates) unless (@coordinates.nil? || @coordinates.empty?)
-    else
-      @projects = []
-    end
+    # if lat_lng
+    #   @projects = Project.near(lat_lng.reverse, 50, :units => :km) 
+    #   @coordinates = @projects.collect {|x| x.coordinates } if !@projects.count == 0
+    #   @loc_center = Geocoder::Calculations.geographic_center(@coordinates) unless (@coordinates.nil? || @coordinates.empty?)
+    # else
+    #   @projects = []
+    # end
 
-    @projects  = [] if @projects.count == 0
+    # @projects  = [] if @projects.count == 0
 
-    #Hack For rendering project type - Gautam
-    @project = Project.new
+    # #Hack For rendering project type - Gautam
+    # @project = Project.new
 
-    respond_to do |format|
-      format.html
-      format.json {render :json => @projects}
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json {render :json => @projects}
+    # end
   end
 
   def display

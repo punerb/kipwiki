@@ -1,3 +1,4 @@
+require './lib/date_time.rb'
 class HomeController < ApplicationController
   
   layout "home_layout"
