@@ -11,6 +11,9 @@
     = link_to "next", display_project_by_action_type_path(@project, "objective")
 .clr
 .borderBottom
+%p.marTop15 There will be many different people who have an interest in the project for a variety of reasons. You can list them here and identify key stakeholders.
+
+%p.matTop15 Approval must be meet by the key stakeholders for the project to be judged an overall success.
 %ul.objectivesNavigation.black.marTop15
   - @project.stakeholders.each do |ks|
     %li.main

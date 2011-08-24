@@ -1,10 +1,13 @@
 %h1.heading Stakeholders
 .borderBottom
 %p There will be lots of different people who have an interest in the project for a variety of reasons. You can list them here and begin identifying the key stakeholders. -Approval must be meet by these people for the project to be judged an overall success.
-%ul.rightNavigation
+%ul.black.borderBottom
   - @project.stakeholders.each do |sh|
-    %li
-      = link_to sh.key ? "#{sh.name} (key stakeholder)" : sh.name, "http://#{sh.url}/" 
+    %li{:style => "display:list-item; list-style-type:disc;margin-left:20px;"}
+      %strong{:style => "font-size:13px; line-height:30px;"}
+        = sh.key ? "#{sh.name} (key stakeholder)" : sh.name
+        .rightSide
+          = link_to "Destroy", project_stakeholder_path(@project, sh), :class => "submitbg"
 - stakeholder = Stakeholder.new
 = form_for stakeholder, :url => project_stakeholders_path(@project,stakeholder) do |f|
   .leftSide
