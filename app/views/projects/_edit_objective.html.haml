@@ -5,9 +5,9 @@
         = obj.name
         = "("+ obj.priority+ ")"
         .rightSide
-          = link_to "Destroy", project_project_objective_path(@project, obj), :class => "submitbg"
+          = link_to "Destroy", project_project_objective_path(@project, obj), :class => "deleteObjective"
           
-          = link_to "Add SubObjective", "#", :class => "submitbg"
+          = link_to "Add_SubObjective", "#", :class => "addSubObjectiveLink"
         %br
       %ul.objectivesSub
         - if obj.sub_project_objectives.present?

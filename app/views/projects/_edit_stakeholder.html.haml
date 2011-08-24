@@ -7,7 +7,7 @@
       %strong{:style => "font-size:13px; line-height:30px;"}
         = sh.key ? "#{sh.name} (key stakeholder)" : sh.name
         .rightSide
-          = link_to "Destroy", project_stakeholder_path(@project, sh), :class => "submitbg"
+          = link_to "Destroy", project_stakeholder_path(@project, sh) , :class => "deleteStakeholder"
 - stakeholder = Stakeholder.new
 = form_for stakeholder, :url => project_stakeholders_path(@project,stakeholder) do |f|
   .leftSide

@@ -52,6 +52,12 @@ jQuery(function(){
         location.reload();
     });
 
+    $(".deleteStakeholder").click(function(event){
+        event.preventDefault();
+        $.post($(this).attr("href"), {"_method" : "delete"});
+        location.reload();
+    });
+
     $(".more_summary").click(function(event){
         event.preventDefault();
         ele = $(this);
