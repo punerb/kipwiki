@@ -9,18 +9,18 @@
       = devise_error_messages!
       %label First Name
       .clr
-      = f.text_field(:first_name , :class => "field signpFiled" , :value => "First name")
+      = f.text_field(:first_name , :class => "field signpFiled" , :placeholder => "First name")
       .clr
       %label Last Name
       .clr
-      = f.text_field(:last_name,:class => "field signpFiled" ,:value => "Last Name")
+      = f.text_field(:last_name,:class => "field signpFiled" ,:placeholder => "Last Name")
       .clr
       %label Email
       .clr
-      = f.text_field(:email,:class => "field signpFiled", :value => "user@example.com")
+      = f.text_field(:email,:class => "field signpFiled", :placeholder => "user@example.com")
       %label City
       .clr
-      = f.text_field(:city,:class => "field signpFiled", :value => "city..")
+      = f.text_field(:city,:class => "field signpFiled", :placeholder => "City..")
       %label Password
       .clr
       = f.password_field(:password,:class => "field signpFiled")

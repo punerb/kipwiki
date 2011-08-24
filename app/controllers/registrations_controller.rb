@@ -5,6 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     session[:omniauth] = nil unless @user.new_record?
+    flash[:notice] = 'You have signed up successfully. Please check your email to complete registration process'
   end
   
   def edit

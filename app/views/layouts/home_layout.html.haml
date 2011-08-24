@@ -80,6 +80,8 @@
       = render :partial => "layouts/header"
       .clr
       #projectWorkingWrapper
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
         %ul
           %li
             .holder
