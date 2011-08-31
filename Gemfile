@@ -11,7 +11,7 @@ gem 'devise', :git => "git://github.com/plataformatec/devise.git"
 gem 'haml'
 gem 'sass'
 gem 'haml-rails'
-gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem "mongoid-paperclip", "~> 0.0.6", :require => "mongoid_paperclip"
 gem 'aws-s3',               :require => 'aws/s3'
 gem 'geocoder'
 gem 'faker'

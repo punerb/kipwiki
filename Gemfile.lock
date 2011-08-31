@@ -48,6 +48,7 @@ GEM
     bson (1.3.1)
     bson_ext (1.3.1)
     builder (2.1.2)
+    cocaine (0.2.0)
     columnize (0.3.4)
     daemons (1.0.10)
     erubis (2.6.6)
@@ -81,7 +82,7 @@ GEM
       activemodel (~> 3.0)
       mongo (~> 1.3)
       tzinfo (~> 0.3.22)
-    mongoid-paperclip (0.0.4)
+    mongoid-paperclip (0.0.6)
       paperclip (~> 2.3.6)
     mongrel (1.2.0.pre2)
       daemons (~> 1.0.10)
@@ -130,9 +131,11 @@ GEM
       oa-oauth (= 0.2.6)
       oa-openid (= 0.2.6)
     orm_adapter (0.0.5)
-    paperclip (2.3.11)
+    paperclip (2.3.16)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.3)
     rack (1.2.3)
@@ -196,7 +199,7 @@ DEPENDENCIES
   haml
   haml-rails
   mongoid (= 2.1.8)
-  mongoid-paperclip
+  mongoid-paperclip (~> 0.0.6)
   mongrel (~> 1.2.0.pre2)
   nifty-generators
   omniauth (= 0.2.6)

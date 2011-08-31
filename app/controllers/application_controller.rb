@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   layout 'project_layout'
   protect_from_forgery
   def after_sign_in_path_for(user)

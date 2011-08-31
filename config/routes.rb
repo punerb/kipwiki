@@ -36,8 +36,8 @@ Kipwiki::Application.routes.draw do
   get "home/terms_and_conditions"
   get "home/disclaimer"
   
-  #devise_for :user, :controllers => { :registrations => "registrations" , :passwords => "passwords"}
-  devise_for :user, :controllers => { :registrations => "registrations"}
+  devise_for :user, :controllers => { :registrations => "registrations" , :passwords => "passwords"}
+  #devise_for :user, :controllers => { :registrations => "registrations"}
   
  
   devise_for :users
